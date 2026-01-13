@@ -1,4 +1,4 @@
-import uuid
+from uuid import uuid4
 import enum
 from sqlalchemy import Column, Integer, DateTime, Enum, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
@@ -13,7 +13,7 @@ class AuctionStatus(enum.Enum):
 class TransferAuction(Base):
     __tablename__ = "transfer_auctions"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
 
     game_mode_id = Column(UUID(as_uuid=True), ForeignKey("game_modes.id"), nullable=False)
     player_id = Column(UUID(as_uuid=True), ForeignKey("players.id"), nullable=False)
@@ -28,7 +28,7 @@ class TransferAuction(Base):
 class TransferBid(Base):
     __tablename__ = "transfer_bids"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
 
     auction_id = Column(UUID(as_uuid=True), ForeignKey("transfer_auctions.id"), nullable=False)
     bidding_club_id = Column(UUID(as_uuid=True), ForeignKey("clubs.id"), nullable=False)

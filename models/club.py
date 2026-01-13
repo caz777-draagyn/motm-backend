@@ -1,4 +1,4 @@
-import uuid
+from uuid import uuid4
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
@@ -7,7 +7,7 @@ from .base import Base
 class Club(Base):
     __tablename__ = "clubs"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
 
     manager_id = Column(UUID(as_uuid=True), ForeignKey("managers.id"), nullable=False)
     game_mode_id = Column(UUID(as_uuid=True), ForeignKey("game_modes.id"), nullable=False)
