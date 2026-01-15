@@ -29,3 +29,6 @@ class Country(Base):
     ranking_points = Column(Integer, nullable=False, default=0)
 
     has_domestic_league = Column(Boolean, nullable=False, default=False)
+    
+    # Relationships
+    clubs = relationship("Club", back_populates="country")

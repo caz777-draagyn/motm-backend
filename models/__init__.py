@@ -13,4 +13,9 @@ from .transfer import TransferAuction, TransferBid
 from .season import Season
 from .league_season import LeagueSeason
 from .league_season_team import LeagueSeasonTeam
+from .calendar_template import CalendarTemplate, DayType
+from .match_day import MatchDay
+from .cup_competition import CupCompetition, CupType
+from .cup_season import CupSeason
+from .cup_match import CupMatch
 
