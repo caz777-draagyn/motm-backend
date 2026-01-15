@@ -1,6 +1,7 @@
 from uuid import uuid4
 from sqlalchemy import Column, String, Integer, Boolean
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from .base import Base
 
 class GameMode(Base):
@@ -12,4 +13,7 @@ class GameMode(Base):
     season_length_days = Column(Integer, nullable=False)
     description = Column(String)
     is_pay_to_win = Column(Boolean, default=False)
+    
+    # Relationships
+    calendar_template = relationship("CalendarTemplate", back_populates="game_mode", uselist=False)
 

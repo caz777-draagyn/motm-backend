@@ -7,7 +7,7 @@ class LeagueSeasonTeam(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True)
     league_season_id = Column(UUID(as_uuid=True), ForeignKey("league_seasons.id"), nullable=False)
-    team_id = Column(UUID(as_uuid=True), nullable=False)
+    team_id = Column(UUID(as_uuid=True), ForeignKey("clubs.id"), nullable=False)
 
     final_position = Column(Integer)
     points = Column(Integer)

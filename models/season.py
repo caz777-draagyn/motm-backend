@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, Boolean, Date, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 from .base import Base
 
 class Season(Base):
@@ -13,3 +14,7 @@ class Season(Base):
     end_date = Column(Date)
 
     is_active = Column(Boolean, default=True, nullable=False)
+    
+    # Relationships
+    match_days = relationship("MatchDay", back_populates="season", order_by="MatchDay.day_number")
+    cup_seasons = relationship("CupSeason", back_populates="season")

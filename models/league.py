@@ -47,6 +47,9 @@ class League(Base):
     division = Column(Integer, nullable=False)
 
     name = Column(String, nullable=False)
+    
+    # League type: False = main team league, True = B-team league
+    is_b_team_league = Column(Boolean, default=False, nullable=False)
 
     club_count = Column(Integer, nullable=False)
 
