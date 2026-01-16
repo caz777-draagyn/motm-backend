@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Engine Test Bench</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .team-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .team-header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .team-header input {
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-bottom: 2px solid #3498db;
+            padding: 5px;
+            width: 200px;
+        }
+        
+        .bulk-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .bulk-actions label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .bulk-actions button {
+            padding: 6px 12px;
+            background: #95a5a6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .bulk-actions button:hover {
+            background: #7f8c8d;
+        }
+        
+        .players-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        .players-table th {
+            background: #3498db;
+            color: white;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .players-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 12px;
+        }
+        
+        .players-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .players-table input[type="text"] {
+            width: 120px;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .players-table select {
+            width: 80px;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .players-table input[type="number"] {
+            width: 50px;
+            padding: 4px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribute-cell {
+            text-align: center;
+        }
+        
+        .controls {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .controls select, .controls input {
+            padding: 10px;
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .controls button {
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .controls button:hover {
+            background: #2980b9;
+        }
+        
+        .controls button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .results {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .match-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-card {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .summary-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .stat-item label {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .stat-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .player-stats {
+            margin-top: 30px;
+        }
+        
+        .player-stats h3 {
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .skill-usage {
+            margin-top: 20px;
+        }
+        
+        .skill-usage h4 {
+            margin-bottom: 10px;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-badge {
+            background: #e8f4f8;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .scrollable {
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        
+        .formation-status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .formation-status.valid {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .formation-status.invalid {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .formation-status ul {
+            margin: 5px 0 0 20px;
+            padding: 0;
+        }
+        
+        .formation-status li {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚽ Match Engine Test Bench</h1>
+        
+        <div class="team-section" id="homeTeamSection">
+            <div class="team-header">
+                <div class="team-header-left">
+                    <input type="text" id="homeTeamName" value="Home Team" placeholder="Team Name">
+                    <span style="color: #666;">11 Players</span>
+                </div>
+                <div class="bulk-actions">
+                    <label>Preset Formation:</label>
+                    <select id="homeFormationPreset" onchange="applyFormationPreset('home', this.value)">
+                        <option value="">Select Formation...</option>
+                        <option value="4-4-2">4-4-2</option>
+                        <option value="4-3-3">4-3-3</option>
+                        <option value="4-2-3-1">4-2-3-1</option>
+                        <option value="3-5-2">3-5-2</option>
+                        <option value="4-5-1">4-5-1</option>
+                        <option value="3-4-3">3-4-3</option>
+                        <option value="5-3-2">5-3-2</option>
+                        <option value="4-1-4-1">4-1-4-1</option>
+                        <option value="3-4-1-2">3-4-1-2</option>
+                        <option value="4-4-1-1">4-4-1-1</option>
+                    </select>
+                    <label style="margin-left: 20px;">Set All Attributes:</label>
+                    <button onclick="setAllAttributes('home', 5)">5</button>
+                    <button onclick="setAllAttributes('home', 10)">10</button>
+                    <button onclick="setAllAttributes('home', 15)">15</button>
+                    <button onclick="setAllAttributes('home', 20)">20</button>
+                </div>
+            </div>
+            <div class="scrollable">
+                <table class="players-table" id="homePlayersTable">
+                    <thead id="homePlayersHeader"></thead>
+                    <tbody id="homePlayers"></tbody>
+                </table>
+            </div>
+            <div id="homeFormationStatus" class="formation-status" style="display: none;"></div>
+        </div>
+        
+        <div class="team-section" id="awayTeamSection">
+            <div class="team-header">
+                <div class="team-header-left">
+                    <input type="text" id="awayTeamName" value="Away Team" placeholder="Team Name">
+                    <span style="color: #666;">11 Players</span>
+                </div>
+                <div class="bulk-actions">
+                    <label>Preset Formation:</label>
+                    <select id="awayFormationPreset" onchange="applyFormationPreset('away', this.value)">
+                        <option value="">Select Formation...</option>
+                        <option value="4-4-2">4-4-2</option>
+                        <option value="4-3-3">4-3-3</option>
+                        <option value="4-2-3-1">4-2-3-1</option>
+                        <option value="3-5-2">3-5-2</option>
+                        <option value="4-5-1">4-5-1</option>
+                        <option value="3-4-3">3-4-3</option>
+                        <option value="5-3-2">5-3-2</option>
+                        <option value="4-1-4-1">4-1-4-1</option>
+                        <option value="3-4-1-2">3-4-1-2</option>
+                        <option value="4-4-1-1">4-4-1-1</option>
+                    </select>
+                    <label style="margin-left: 20px;">Set All Attributes:</label>
+                    <button onclick="setAllAttributes('away', 5)">5</button>
+                    <button onclick="setAllAttributes('away', 10)">10</button>
+                    <button onclick="setAllAttributes('away', 15)">15</button>
+                    <button onclick="setAllAttributes('away', 20)">20</button>
+                </div>
+            </div>
+            <div class="scrollable">
+                <table class="players-table" id="awayPlayersTable">
+                    <thead id="awayPlayersHeader"></thead>
+                    <tbody id="awayPlayers"></tbody>
+                </table>
+            </div>
+            <div id="awayFormationStatus" class="formation-status" style="display: none;"></div>
+        </div>
+        
+        <div class="controls">
+            <label>Number of Matches:</label>
+            <select id="numMatches">
+                <option value="1">1 Match</option>
+                <option value="100">100 Matches</option>
+                <option value="1000" selected>1000 Matches</option>
+                <option value="10000">10000 Matches</option>
+            </select>
+            
+            <label>Match Length:</label>
+            <input type="number" id="matchMinutes" value="90" min="1" max="120">
+            <span>minutes</span>
+            
+            <button id="simulateBtn" onclick="runSimulation()">Run Simulation</button>
+        </div>
+        
+        <div id="errorMessage"></div>
+        <div id="loadingMessage" class="loading" style="display: none;">Running simulation...</div>
+        
+        <div class="results" id="results">
+            <h2>Simulation Results</h2>
+            <div class="match-summary" id="matchSummary"></div>
+            <div id="teamStats"></div>
+            <div class="player-stats" id="playerStats"></div>
+        </div>
+    </div>
+    
+    <script>
+        let constants = null;
+        
+        // Load constants on page load
+        async function loadConstants() {
+            try {
+                const response = await fetch('/api/match-engine/constants');
+                constants = await response.json();
+                initializeTeams();
+            } catch (error) {
+                showError('Failed to load constants: ' + error.message);
+            }
+        }
+        
+        function initializeTeams() {
+            initializeTeam('home');
+            initializeTeam('away');
+        }
+        
+        function initializeTeam(teamPrefix) {
+            const tbody = document.getElementById(teamPrefix + 'Players');
+            const thead = document.getElementById(teamPrefix + 'PlayersHeader');
+            
+            tbody.innerHTML = '';
+            
+            // Create header row
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>Name</th><th>Position</th>';
+            
+            // Add attribute headers
+            const outfieldAttrs = constants.outfield_attributes;
+            const gkAttrs = constants.goalkeeper_attributes;
+            
+            outfieldAttrs.forEach(attr => {
+                const th = document.createElement('th');
+                th.textContent = attr;
+                th.className = 'attribute-cell';
+                headerRow.appendChild(th);
+            });
+            
+            gkAttrs.forEach(attr => {
+                if (!outfieldAttrs.includes(attr)) {
+                    const th = document.createElement('th');
+                    th.textContent = attr;
+                    th.className = 'attribute-cell';
+                    headerRow.appendChild(th);
+                }
+            });
+            
+            thead.innerHTML = '';
+            thead.appendChild(headerRow);
+            
+            // Create 11 players (1 GK + 10 outfield)
+            for (let i = 0; i < 11; i++) {
+                const isGK = i === 0;
+                const playerRow = createPlayerRow(i, isGK, teamPrefix, outfieldAttrs, gkAttrs);
+                tbody.appendChild(playerRow);
+            }
+            
+            // Validate formation after initialization
+            validateTeamFormation(teamPrefix);
+        }
+        
+        function createPlayerRow(index, isGK, teamPrefix, outfieldAttrs, gkAttrs) {
+            const tr = document.createElement('tr');
+            tr.id = `${teamPrefix}Player${index}`;
+            
+            // Name cell
+            const nameCell = document.createElement('td');
+            const nameInput = document.createElement('input');
+            nameInput.type = 'text';
+            nameInput.placeholder = isGK ? 'Goalkeeper' : `Player ${index}`;
+            nameInput.value = isGK ? `GK ${index + 1}` : `Player ${index}`;
+            nameInput.id = `${teamPrefix}Player${index}Name`;
+            nameCell.appendChild(nameInput);
+            tr.appendChild(nameCell);
+            
+            // Position cell
+            const posCell = document.createElement('td');
+            const positionSelect = document.createElement('select');
+            positionSelect.id = `${teamPrefix}Player${index}Position`;
+            if (isGK) {
+                positionSelect.innerHTML = '<option value="GK">GK</option>';
+                positionSelect.disabled = true;  // Lock GK position
+                positionSelect.style.background = '#f0f0f0';
+            } else {
+                constants.positions.forEach(pos => {
+                    if (pos !== 'GK') {
+                        const option = document.createElement('option');
+                        option.value = pos;
+                        option.textContent = pos;
+                        positionSelect.appendChild(option);
+                    }
+                });
+            }
+            posCell.appendChild(positionSelect);
+            tr.appendChild(posCell);
+            
+            // Add change listener to update attribute visibility and validate formation
+            if (!isGK) {
+                positionSelect.addEventListener('change', () => {
+                    updateAttributeVisibility(teamPrefix, index);
+                    validateTeamFormation(teamPrefix);
+                });
+            }
+            
+            // Attributes that are ONLY for outfield (not shared with GK)
+            const outfieldOnlyAttrs = ['Finishing', 'Tackling', 'Marking', 'Heading', 'Passing', 'Crossing', 'Ball Control', 'Vision'];
+            // Attributes that are ONLY for GK (not shared with outfield)
+            const gkOnlyAttrs = ['Command of Area', 'Reflexes', 'Handling', 'One-on-One', 'Aerial Reach'];
+            
+            // Attribute cells - outfield attributes
+            outfieldAttrs.forEach(attr => {
+                const attrCell = document.createElement('td');
+                attrCell.className = 'attribute-cell';
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.value = isGK ? '10' : '10';
+                input.min = '0';
+                input.max = '20';
+                input.id = `${teamPrefix}Player${index}Attr${attr}`;
+                // Only disable outfield-only attributes for GK (not shared ones)
+                if (isGK && outfieldOnlyAttrs.includes(attr)) {
+                    input.disabled = true;
+                    input.style.background = '#f0f0f0';
+                }
+                attrCell.appendChild(input);
+                tr.appendChild(attrCell);
+            });
+            
+            // Attribute cells - GK-only attributes
+            gkAttrs.forEach(attr => {
+                if (!outfieldAttrs.includes(attr)) {
+                    const attrCell = document.createElement('td');
+                    attrCell.className = 'attribute-cell';
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.value = isGK ? '10' : '0';
+                    input.min = '0';
+                    input.max = '20';
+                    input.id = `${teamPrefix}Player${index}Attr${attr}`;
+                    // Disable GK-only attributes for outfield players
+                    if (!isGK) {
+                        input.disabled = true;
+                        input.style.background = '#f0f0f0';
+                    }
+                    attrCell.appendChild(input);
+                    tr.appendChild(attrCell);
+                }
+            });
+            
+            return tr;
+        }
+        
+        function setAllAttributes(teamPrefix, value) {
+            for (let i = 0; i < 11; i++) {
+                const isGK = i === 0;
+                const attrs = isGK ? constants.goalkeeper_attributes : constants.outfield_attributes;
+                
+                attrs.forEach(attr => {
+                    const input = document.getElementById(`${teamPrefix}Player${i}Attr${attr}`);
+                    if (input && !input.disabled) {
+                        input.value = value;
+                    }
+                });
+            }
+        }
+        
+        function updateAttributeVisibility(teamPrefix, index) {
+            const positionSelect = document.getElementById(`${teamPrefix}Player${index}Position`);
+            const position = positionSelect.value;
+            const isGK = position === 'GK';
+            
+            // Attributes that are ONLY for outfield (not shared with GK)
+            const outfieldOnlyAttrs = ['Finishing', 'Tackling', 'Marking', 'Heading', 'Passing', 'Crossing', 'Ball Control', 'Vision'];
+            // Attributes that are ONLY for GK (not shared with outfield)
+            const gkOnlyAttrs = ['Command of Area', 'Reflexes', 'Handling', 'One-on-One', 'Aerial Reach'];
+            
+            // Update outfield attributes - only disable outfield-only ones for GK
+            constants.outfield_attributes.forEach(attr => {
+                const input = document.getElementById(`${teamPrefix}Player${index}Attr${attr}`);
+                if (input) {
+                    if (isGK && outfieldOnlyAttrs.includes(attr)) {
+                        input.disabled = true;
+                        input.style.background = '#f0f0f0';
+                    } else {
+                        input.disabled = false;
+                        input.style.background = '';
+                    }
+                }
+            });
+            
+            // Update GK-only attributes
+            constants.goalkeeper_attributes.forEach(attr => {
+                if (!constants.outfield_attributes.includes(attr)) {
+                    const input = document.getElementById(`${teamPrefix}Player${index}Attr${attr}`);
+                    if (input) {
+                        if (isGK) {
+                            input.disabled = false;
+                            input.style.background = '';
+                            if (input.value === '0') input.value = '10';  // Set default for GK
+                        } else {
+                            input.disabled = true;
+                            input.style.background = '#f0f0f0';
+                            input.value = '0';
+                        }
+                    }
+                }
+            });
+        }
+        
+        
+        function buildTeam(teamPrefix) {
+            const teamName = document.getElementById(teamPrefix + 'TeamName').value;
+            const players = [];
+            
+            for (let i = 0; i < 11; i++) {
+                const name = document.getElementById(`${teamPrefix}Player${i}Name`).value;
+                const position = document.getElementById(`${teamPrefix}Player${i}Position`).value;
+                const isGK = i === 0;
+                
+                const attrs = isGK ? constants.goalkeeper_attributes : constants.outfield_attributes;
+                const attributes = {};
+                attrs.forEach(attr => {
+                    const input = document.getElementById(`${teamPrefix}Player${i}Attr${attr}`);
+                    if (input && !input.disabled) {
+                        attributes[attr] = parseInt(input.value) || 0;
+                    }
+                });
+                
+                players.push({
+                    name: name,
+                    position: position,
+                    attributes: attributes,
+                    is_goalkeeper: isGK
+                });
+            }
+            
+            return {
+                name: teamName,
+                players: players
+            };
+        }
+        
+        function displayResults(data) {
+            const results = document.getElementById('results');
+            const summary = document.getElementById('matchSummary');
+            const teamStats = document.getElementById('teamStats');
+            const playerStats = document.getElementById('playerStats');
+            
+            // Match summary
+            summary.innerHTML = `
+                <div class="summary-card">
+                    <h3>Match Summary</h3>
+                    <p><strong>Matches Simulated:</strong> ${data.num_matches}</p>
+                    <p><strong>Home Wins:</strong> ${data.home_wins} (${(data.home_wins/data.num_matches*100).toFixed(1)}%)</p>
+                    <p><strong>Away Wins:</strong> ${data.away_wins} (${(data.away_wins/data.num_matches*100).toFixed(1)}%)</p>
+                    <p><strong>Draws:</strong> ${data.draws} (${(data.draws/data.num_matches*100).toFixed(1)}%)</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Average Goals</h3>
+                    <p><strong>Home:</strong> ${data.home_avg_goals.toFixed(2)} goals/match</p>
+                    <p><strong>Away:</strong> ${data.away_avg_goals.toFixed(2)} goals/match</p>
+                </div>
+            `;
+            
+            // Team stats
+            const stats = data.aggregated_stats;
+            teamStats.innerHTML = `
+                <h3>Team Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <label>${stats.home_team.name} - Goals</label>
+                        <div class="value">${stats.home_team.goals}</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>${stats.home_team.name} - Shots</label>
+                        <div class="value">${stats.home_team.shots}</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>${stats.home_team.name} - Shots On Target</label>
+                        <div class="value">${stats.home_team.shots_on}</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>${stats.away_team.name} - Goals</label>
+                        <div class="value">${stats.away_team.goals}</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>${stats.away_team.name} - Shots</label>
+                        <div class="value">${stats.away_team.shots}</div>
+                    </div>
+                    <div class="stat-item">
+                        <label>${stats.away_team.name} - Shots On Target</label>
+                        <div class="value">${stats.away_team.shots_on}</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h4>Result Frequency</h4>
+                    <div class="stats-grid" style="margin-top: 15px;">
+                        <div class="stat-item">
+                            <label>${stats.home_team.name} - Wins</label>
+                            <div class="value">${stats.home_team.result_frequency?.win || 0}</div>
+                        </div>
+                        <div class="stat-item">
+                            <label>${stats.home_team.name} - Draws</label>
+                            <div class="value">${stats.home_team.result_frequency?.draw || 0}</div>
+                        </div>
+                        <div class="stat-item">
+                            <label>${stats.home_team.name} - Losses</label>
+                            <div class="value">${stats.home_team.result_frequency?.loss || 0}</div>
+                        </div>
+                        <div class="stat-item">
+                            <label>${stats.away_team.name} - Wins</label>
+                            <div class="value">${stats.away_team.result_frequency?.win || 0}</div>
+                        </div>
+                        <div class="stat-item">
+                            <label>${stats.away_team.name} - Draws</label>
+                            <div class="value">${stats.away_team.result_frequency?.draw || 0}</div>
+                        </div>
+                        <div class="stat-item">
+                            <label>${stats.away_team.name} - Losses</label>
+                            <div class="value">${stats.away_team.result_frequency?.loss || 0}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h4>Match Score Frequency</h4>
+                    ${generateScoreFrequencyTable(stats.match_score_frequency || {})}
+                </div>
+                
+                <div class="skill-usage">
+                    <h4>${stats.home_team.name} - Skill Usage</h4>
+                    <div class="skill-list">
+                        ${Object.entries(stats.home_team.skill_usage.total_usage)
+                            .sort((a, b) => b[1] - a[1])
+                            .slice(0, 10)
+                            .map(([skill, count]) => `<span class="skill-badge">${skill}: ${count}</span>`)
+                            .join('')}
+                    </div>
+                </div>
+                
+                <div class="skill-usage">
+                    <h4>${stats.away_team.name} - Skill Usage</h4>
+                    <div class="skill-list">
+                        ${Object.entries(stats.away_team.skill_usage.total_usage)
+                            .sort((a, b) => b[1] - a[1])
+                            .slice(0, 10)
+                            .map(([skill, count]) => `<span class="skill-badge">${skill}: ${count}</span>`)
+                            .join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Split players by team
+            const homePlayers = stats.players.filter(p => p.team === stats.home_team.name);
+            const awayPlayers = stats.players.filter(p => p.team === stats.away_team.name);
+            
+            // Define chance types and finish types
+            const chanceTypes = ["Short", "Long", "Crossing", "Through", "Solo"];
+            const finishTypes = ["FirstTime", "Controlled", "Header", "Chip", "Finesse", "Power"];
+            const specialTypes = ["Penalty", "FreeKick"];
+            
+            // Helper function to get value from object or 0
+            const getValue = (obj, key) => (obj && obj[key]) || 0;
+            
+            // Player stats - Home Team
+            let tableHTML = `
+                <h3>Player Statistics - ${stats.home_team.name}</h3>
+                <div class="scrollable">
+                <table style="font-size: 12px;">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="background: #3498db;">Player</th>
+                            <th colspan="2" style="background: #3498db;">Basic</th>
+                            <th colspan="2" style="background: #27ae60;">Creator</th>
+                            <th colspan="2" style="background: #e67e22;">Finisher</th>
+                            <th colspan="${chanceTypes.length * 2}" style="background: #2ecc71;">Creator by Type</th>
+                            <th colspan="${finishTypes.length * 2}" style="background: #f39c12;">Finisher by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #9b59b6;">Shots by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
+                            <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
+                        </tr>
+                        <tr>
+                            <th style="background: #3498db;">Goals</th>
+                            <th style="background: #3498db;">Assists</th>
+                            <th style="background: #27ae60;">Att</th>
+                            <th style="background: #27ae60;">Suc</th>
+                            <th style="background: #e67e22;">Att</th>
+                            <th style="background: #e67e22;">Suc</th>
+                            ${chanceTypes.map(ct => `<th style="background: #2ecc71;">${ct} Att</th><th style="background: #2ecc71;">${ct} Suc</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft} Att</th><th style="background: #f39c12;">${ft} Suc</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #9b59b6;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #9b59b6;">${st}</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
+                            ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            homePlayers.forEach(player => {
+                const creatorAttByType = player.creator_attempts_by_type || {};
+                const creatorSucByType = player.creator_successes_by_type || {};
+                const finisherAttByType = player.finisher_attempts_by_type || {};
+                const finisherSucByType = player.finisher_successes_by_type || {};
+                const shotsByType = player.shots_by_type || {};
+                const goalsByType = player.goals_by_type || {};
+                const assistsByType = player.assists_by_chance_type || {};
+                
+                tableHTML += `
+                    <tr>
+                        <td><strong>${player.name}</strong></td>
+                        <td>${player.goals || 0}</td>
+                        <td>${player.assists || 0}</td>
+                        <td>${player.creator_attempts || 0}</td>
+                        <td>${player.creator_successes || 0}</td>
+                        <td>${player.finisher_attempts || 0}</td>
+                        <td>${player.finisher_successes || 0}</td>
+                        ${chanceTypes.map(ct => `<td>${getValue(creatorAttByType, ct)}</td><td>${getValue(creatorSucByType, ct)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(finisherAttByType, ft)}</td><td>${getValue(finisherSucByType, ft)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(shotsByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(shotsByType, st)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
+                        ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
+                    </tr>
+                `;
+            });
+            
+            tableHTML += '</tbody></table></div>';
+            
+            // Player stats - Away Team
+            tableHTML += `
+                <h3 style="margin-top: 40px;">Player Statistics - ${stats.away_team.name}</h3>
+                <div class="scrollable">
+                <table style="font-size: 12px;">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="background: #3498db;">Player</th>
+                            <th colspan="2" style="background: #3498db;">Basic</th>
+                            <th colspan="2" style="background: #27ae60;">Creator</th>
+                            <th colspan="2" style="background: #e67e22;">Finisher</th>
+                            <th colspan="${chanceTypes.length * 2}" style="background: #2ecc71;">Creator by Type</th>
+                            <th colspan="${finishTypes.length * 2}" style="background: #f39c12;">Finisher by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #9b59b6;">Shots by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
+                            <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
+                        </tr>
+                        <tr>
+                            <th style="background: #3498db;">Goals</th>
+                            <th style="background: #3498db;">Assists</th>
+                            <th style="background: #27ae60;">Att</th>
+                            <th style="background: #27ae60;">Suc</th>
+                            <th style="background: #e67e22;">Att</th>
+                            <th style="background: #e67e22;">Suc</th>
+                            ${chanceTypes.map(ct => `<th style="background: #2ecc71;">${ct} Att</th><th style="background: #2ecc71;">${ct} Suc</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft} Att</th><th style="background: #f39c12;">${ft} Suc</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #9b59b6;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #9b59b6;">${st}</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
+                            ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            awayPlayers.forEach(player => {
+                const creatorAttByType = player.creator_attempts_by_type || {};
+                const creatorSucByType = player.creator_successes_by_type || {};
+                const finisherAttByType = player.finisher_attempts_by_type || {};
+                const finisherSucByType = player.finisher_successes_by_type || {};
+                const shotsByType = player.shots_by_type || {};
+                const goalsByType = player.goals_by_type || {};
+                const assistsByType = player.assists_by_chance_type || {};
+                
+                tableHTML += `
+                    <tr>
+                        <td><strong>${player.name}</strong></td>
+                        <td>${player.goals || 0}</td>
+                        <td>${player.assists || 0}</td>
+                        <td>${player.creator_attempts || 0}</td>
+                        <td>${player.creator_successes || 0}</td>
+                        <td>${player.finisher_attempts || 0}</td>
+                        <td>${player.finisher_successes || 0}</td>
+                        ${chanceTypes.map(ct => `<td>${getValue(creatorAttByType, ct)}</td><td>${getValue(creatorSucByType, ct)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(finisherAttByType, ft)}</td><td>${getValue(finisherSucByType, ft)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(shotsByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(shotsByType, st)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
+                        ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
+                    </tr>
+                `;
+            });
+            
+            tableHTML += '</tbody></table></div>';
+            
+            // Skill usage tables for each team
+            tableHTML += generateSkillUsageTables(homePlayers, awayPlayers, stats.home_team.name, stats.away_team.name);
+            
+            playerStats.innerHTML = tableHTML;
+            results.classList.add('show');
+        }
+        
+        function showError(message) {
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.innerHTML = `<div class="error">Error: ${message}</div>`;
+        }
+        
+        function generateScoreFrequencyTable(scoreFrequency) {
+            // Define specific scores to display
+            const homeWinScores = ["1-0", "2-0", "2-1", "3-0", "3-1", "3-2", "4-0", "4-1", "4-2", "4-3", "5-0", "5-1", "5-2", "5-3", "5-4"];
+            const drawScores = ["0-0", "1-1", "2-2", "3-3", "4-4"];
+            const awayWinScores = ["0-1", "0-2", "1-2", "0-3", "1-3", "2-3", "0-4", "1-4", "2-4", "3-4", "0-5", "1-5", "2-5", "3-5", "4-5"];
+            
+            // Count "Other" scores (not in the specific lists)
+            let homeWinOther = 0;
+            let drawOther = 0;
+            let awayWinOther = 0;
+            
+            Object.entries(scoreFrequency).forEach(([score, count]) => {
+                const [home, away] = score.split('-').map(Number);
+                
+                if (home > away) {
+                    if (!homeWinScores.includes(score)) {
+                        homeWinOther += count;
+                    }
+                } else if (home === away) {
+                    if (!drawScores.includes(score)) {
+                        drawOther += count;
+                    }
+                } else {
+                    if (!awayWinScores.includes(score)) {
+                        awayWinOther += count;
+                    }
+                }
+            });
+            
+            // Generate three separate tables
+            let html = '<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 15px;">';
+            
+            // Home Win table
+            html += `
+                <div>
+                    <h5 style="margin-bottom: 10px;">Home Win</h5>
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Score</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            homeWinScores.forEach(score => {
+                const count = scoreFrequency[score] || 0;
+                html += `<tr><td><strong>${score}</strong></td><td>${count}</td></tr>`;
+            });
+            if (homeWinOther > 0) {
+                html += `<tr style="background: #f0f0f0; font-weight: bold;"><td><strong>Other</strong></td><td>${homeWinOther}</td></tr>`;
+            }
+            html += '</tbody></table></div>';
+            
+            // Draw table
+            html += `
+                <div>
+                    <h5 style="margin-bottom: 10px;">Draw</h5>
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Score</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            drawScores.forEach(score => {
+                const count = scoreFrequency[score] || 0;
+                html += `<tr><td><strong>${score}</strong></td><td>${count}</td></tr>`;
+            });
+            if (drawOther > 0) {
+                html += `<tr style="background: #f0f0f0; font-weight: bold;"><td><strong>Other</strong></td><td>${drawOther}</td></tr>`;
+            }
+            html += '</tbody></table></div>';
+            
+            // Away Win table
+            html += `
+                <div>
+                    <h5 style="margin-bottom: 10px;">Away Win</h5>
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Score</th>
+                                <th>Frequency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            awayWinScores.forEach(score => {
+                const count = scoreFrequency[score] || 0;
+                html += `<tr><td><strong>${score}</strong></td><td>${count}</td></tr>`;
+            });
+            if (awayWinOther > 0) {
+                html += `<tr style="background: #f0f0f0; font-weight: bold;"><td><strong>Other</strong></td><td>${awayWinOther}</td></tr>`;
+            }
+            html += '</tbody></table></div></div>';
+            
+            return html;
+        }
+        
+        function generateSkillUsageTables(homePlayers, awayPlayers, homeTeamName, awayTeamName) {
+            // Separate GKs from outfield players
+            const homeGK = homePlayers.find(p => p.position === 'GK');
+            const awayGK = awayPlayers.find(p => p.position === 'GK');
+            const homeOutfield = homePlayers.filter(p => p.position !== 'GK');
+            const awayOutfield = awayPlayers.filter(p => p.position !== 'GK');
+            
+            // Get outfield skills (exclude GK-only skills)
+            const outfieldSkills = new Set();
+            [...homeOutfield, ...awayOutfield].forEach(player => {
+                if (player.skill_usage && player.skill_usage.total_usage) {
+                    Object.keys(player.skill_usage.total_usage).forEach(skill => outfieldSkills.add(skill));
+                }
+            });
+            if (constants) {
+                constants.outfield_attributes.forEach(skill => outfieldSkills.add(skill));
+            }
+            const sortedOutfieldSkills = Array.from(outfieldSkills).sort();
+            
+            // Get GK skills
+            const gkSkills = new Set();
+            [homeGK, awayGK].forEach(player => {
+                if (player && player.skill_usage && player.skill_usage.total_usage) {
+                    Object.keys(player.skill_usage.total_usage).forEach(skill => gkSkills.add(skill));
+                }
+            });
+            if (constants) {
+                constants.goalkeeper_attributes.forEach(skill => gkSkills.add(skill));
+            }
+            const sortedGKSkills = Array.from(gkSkills).sort();
+            
+            let html = '';
+            
+            // Home team outfield skill usage table
+            if (homeOutfield.length > 0) {
+                html += `
+                    <h4 style="margin-top: 40px;">Skill Usage - ${homeTeamName} (Outfield)</h4>
+                    <table style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                ${sortedOutfieldSkills.map(skill => `<th>${skill}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                homeOutfield.forEach(player => {
+                    html += `<tr><td><strong>${player.name}</strong></td>`;
+                    sortedOutfieldSkills.forEach(skill => {
+                        const count = (player.skill_usage && player.skill_usage.total_usage && player.skill_usage.total_usage[skill]) || 0;
+                        html += `<td style="text-align: center;">${count}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                
+                html += '</tbody></table>';
+            }
+            
+            // Away team outfield skill usage table
+            if (awayOutfield.length > 0) {
+                html += `
+                    <h4 style="margin-top: 40px;">Skill Usage - ${awayTeamName} (Outfield)</h4>
+                    <table style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                ${sortedOutfieldSkills.map(skill => `<th>${skill}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                awayOutfield.forEach(player => {
+                    html += `<tr><td><strong>${player.name}</strong></td>`;
+                    sortedOutfieldSkills.forEach(skill => {
+                        const count = (player.skill_usage && player.skill_usage.total_usage && player.skill_usage.total_usage[skill]) || 0;
+                        html += `<td style="text-align: center;">${count}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                
+                html += '</tbody></table>';
+            }
+            
+            // Goalkeepers skill usage table
+            if (homeGK || awayGK) {
+                html += `
+                    <h4 style="margin-top: 40px;">Skill Usage - Goalkeepers</h4>
+                    <table style="margin-top: 10px;">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Team</th>
+                                ${sortedGKSkills.map(skill => `<th>${skill}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (homeGK) {
+                    html += `<tr><td><strong>${homeGK.name}</strong></td><td>${homeTeamName}</td>`;
+                    sortedGKSkills.forEach(skill => {
+                        const count = (homeGK.skill_usage && homeGK.skill_usage.total_usage && homeGK.skill_usage.total_usage[skill]) || 0;
+                        html += `<td style="text-align: center;">${count}</td>`;
+                    });
+                    html += '</tr>';
+                }
+                
+                if (awayGK) {
+                    html += `<tr><td><strong>${awayGK.name}</strong></td><td>${awayTeamName}</td>`;
+                    sortedGKSkills.forEach(skill => {
+                        const count = (awayGK.skill_usage && awayGK.skill_usage.total_usage && awayGK.skill_usage.total_usage[skill]) || 0;
+                        html += `<td style="text-align: center;">${count}</td>`;
+                    });
+                    html += '</tr>';
+                }
+                
+                html += '</tbody></table>';
+            }
+            
+            return html;
+        }
+        
+        function validateTeamFormation(teamPrefix) {
+            const positionCount = {};
+            
+            // Count positions
+            for (let i = 0; i < 11; i++) {
+                const positionSelect = document.getElementById(`${teamPrefix}Player${i}Position`);
+                if (positionSelect) {
+                    const pos = positionSelect.value;
+                    positionCount[pos] = (positionCount[pos] || 0) + 1;
+                }
+            }
+            
+            const errors = [];
+            
+            // Rule 1: Must have exactly 1 GK
+            const gkCount = positionCount["GK"] || 0;
+            if (gkCount !== 1) {
+                errors.push(`Must have exactly 1 GK, found ${gkCount}`);
+            }
+            
+            // Rule 2: Must have 1-3 DC
+            const dcCount = positionCount["DC"] || 0;
+            if (dcCount < 1 || dcCount > 3) {
+                errors.push(`Must have 1-3 DC, found ${dcCount}`);
+            }
+            
+            // Rule 3: Must have 1-3 total central midfielders (DMC + MC + OMC)
+            const centralMidCount = (positionCount["DMC"] || 0) + (positionCount["MC"] || 0) + (positionCount["OMC"] || 0);
+            if (centralMidCount < 1 || centralMidCount > 3) {
+                errors.push(`Must have 1-3 central midfielders (DMC + MC + OMC), found ${centralMidCount}`);
+            }
+            
+            // Rule 4: Must have at least 1 wide player on each side
+            const leftWide = (positionCount["DL"] || 0) + (positionCount["DML"] || 0) + (positionCount["ML"] || 0) + (positionCount["OML"] || 0);
+            const rightWide = (positionCount["DR"] || 0) + (positionCount["DMR"] || 0) + (positionCount["MR"] || 0) + (positionCount["OMR"] || 0);
+            
+            if (leftWide < 1) {
+                errors.push("Must have at least 1 left wide player (DL, DML, ML, or OML)");
+            }
+            if (rightWide < 1) {
+                errors.push("Must have at least 1 right wide player (DR, DMR, MR, or OMR)");
+            }
+            
+            // Rule 5: Cannot have both DL and DML
+            if ((positionCount["DL"] || 0) > 0 && (positionCount["DML"] || 0) > 0) {
+                errors.push("Cannot have both DL and DML (choose one left defensive position)");
+            }
+            
+            // Rule 6: Cannot have both DR and DMR
+            if ((positionCount["DR"] || 0) > 0 && (positionCount["DMR"] || 0) > 0) {
+                errors.push("Cannot have both DR and DMR (choose one right defensive position)");
+            }
+            
+            // Rule 7: Cannot have both ML and OML
+            if ((positionCount["ML"] || 0) > 0 && (positionCount["OML"] || 0) > 0) {
+                errors.push("Cannot have both ML and OML (choose one left midfield position)");
+            }
+            
+            // Rule 8: Cannot have both MR and OMR
+            if ((positionCount["MR"] || 0) > 0 && (positionCount["OMR"] || 0) > 0) {
+                errors.push("Cannot have both MR and OMR (choose one right midfield position)");
+            }
+            
+            // Rule 9: Each wide position can only appear once
+            const widePositions = ["DL", "DR", "DML", "DMR", "ML", "MR", "OML", "OMR"];
+            widePositions.forEach(pos => {
+                const count = positionCount[pos] || 0;
+                if (count > 1) {
+                    errors.push(`Cannot have ${count} players at ${pos} (each wide position can only appear once)`);
+                }
+            });
+            
+            // Display validation status
+            const statusDiv = document.getElementById(`${teamPrefix}FormationStatus`);
+            if (errors.length === 0) {
+                statusDiv.className = 'formation-status valid';
+                statusDiv.innerHTML = '<strong>✓ Formation Valid</strong>';
+                statusDiv.style.display = 'block';
+            } else {
+                statusDiv.className = 'formation-status invalid';
+                statusDiv.innerHTML = '<strong>✗ Formation Invalid:</strong><ul>' + 
+                    errors.map(e => `<li>${e}</li>`).join('') + '</ul>';
+                statusDiv.style.display = 'block';
+            }
+            
+            return errors.length === 0;
+        }
+        
+        async function runSimulation() {
+            const btn = document.getElementById('simulateBtn');
+            const loading = document.getElementById('loadingMessage');
+            const results = document.getElementById('results');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Validate formations before running
+            const homeValid = validateTeamFormation('home');
+            const awayValid = validateTeamFormation('away');
+            
+            if (!homeValid || !awayValid) {
+                showError('Please fix formation errors before running simulation');
+                return;
+            }
+            
+            btn.disabled = true;
+            loading.style.display = 'block';
+            results.classList.remove('show');
+            errorMsg.innerHTML = '';
+            
+            try {
+                const homeTeam = buildTeam('home');
+                const awayTeam = buildTeam('away');
+                const numMatches = parseInt(document.getElementById('numMatches').value);
+                const minutes = parseInt(document.getElementById('matchMinutes').value);
+                
+                const request = {
+                    home_team: homeTeam,
+                    away_team: awayTeam,
+                    num_matches: numMatches,
+                    minutes: minutes
+                };
+                
+                const response = await fetch('/api/test-bench/simulate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(request)
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Simulation failed');
+                }
+                
+                const data = await response.json();
+                displayResults(data);
+                
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+        
+        function applyFormationPreset(teamPrefix, formation) {
+            if (!formation) return;
+            
+            // Formation definitions (positions in order)
+            const formations = {
+                "4-4-2": ["GK", "DL", "DC", "DC", "DR", "ML", "MC", "MC", "MR", "FC", "FC"],
+                "4-3-3": ["GK", "DL", "DC", "DC", "DR", "ML", "MC", "MR", "FC", "FC", "FC"],
+                "4-2-3-1": ["GK", "DL", "DC", "DC", "DR", "DMC", "DMC", "OML", "OMC", "OMR", "FC"],
+                "3-5-2": ["GK", "DC", "DC", "DC", "DML", "DMC", "MC", "DMC", "DMR", "FC", "FC"],
+                "4-5-1": ["GK", "DL", "DC", "DC", "DR", "ML", "MC", "MC", "MC", "MR", "FC"],
+                "3-4-3": ["GK", "DC", "DC", "DC", "ML", "MC", "MC", "MR", "FC", "FC", "FC"],
+                "5-3-2": ["GK", "DL", "DC", "DC", "DC", "DR", "DMC", "MC", "DMC", "FC", "FC"],
+                "4-1-4-1": ["GK", "DL", "DC", "DC", "DR", "DMC", "ML", "MC", "MC", "MR", "FC"],
+                "3-4-1-2": ["GK", "DC", "DC", "DC", "ML", "MC", "MC", "MR", "OMC", "FC", "FC"],
+                "4-4-1-1": ["GK", "DL", "DC", "DC", "DR", "ML", "MC", "MC", "MR", "OMC", "FC"]
+            };
+            
+            const positions = formations[formation];
+            if (!positions) return;
+            
+            // Apply positions to players
+            for (let i = 0; i < 11 && i < positions.length; i++) {
+                const positionSelect = document.getElementById(`${teamPrefix}Player${i}Position`);
+                if (positionSelect) {
+                    positionSelect.value = positions[i];
+                    // Trigger change event to update attributes
+                    positionSelect.dispatchEvent(new Event('change'));
+                }
+            }
+            
+            // Validate formation after applying
+            validateTeamFormation(teamPrefix);
+        }
+        
+        // Initialize on page load
+        loadConstants();
+    </script>
+</body>
+</html>

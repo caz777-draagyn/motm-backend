@@ -1,13 +1,18 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from database import engine
-from models.base import Base
-import models  # <-- THIS LINE IS THE FIX
+from api import match_engine, test_bench
 
 app = FastAPI()
 
 @app.on_event("startup")
 def startup():
-    Base.metadata.create_all(bind=engine)
+    # Only initialize database if engine is available
+    if engine is not None:
+        from models.base import Base
+        import models  # Import models only if database is available
+        Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def health():
@@ -16,4 +21,14 @@ def health():
 
 @app.get("/db-check")
 def db_check():
-    return {"db": "connected"}
+    if engine is not None:
+        return {"db": "connected"}
+    else:
+        return {"db": "not configured (match engine mode)"}
+
+# Include routers
+app.include_router(match_engine.router)
+app.include_router(test_bench.router)
+
+# Serve static files for test bench UI
+app.mount("/static", StaticFiles(directory="static"), name="static")
