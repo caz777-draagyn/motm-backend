@@ -55,6 +55,12 @@ class MatchSimulator:
         self.minutes = minutes
         self.log = []
         
+        # Initialize minutes_played for all players (starting players will track match minutes)
+        for player in self.home_team.players:
+            player.minutes_played = 0
+        for player in self.away_team.players:
+            player.minutes_played = 0
+        
         # Build all matrices
         self._build_matrices()
     
@@ -103,10 +109,10 @@ class MatchSimulator:
     
     def decide_event(self) -> bool:
         """Decide if an event occurs this minute."""
-        return random.random() < 0.5  # 50% chance per minute
+        return random.random() < 0.75  # 75% chance per minute
     
     def handle_penalty(self, attacking_team: Team, defending_team: Team, minute: int):
-        """Handle a penalty kick."""
+        """Handle a penalty kick - follows shot quality -> save pattern like regular shots."""
         goalkeeper = defending_team.get_goalkeeper()
         # Exclude goalkeeper from penalty takers
         outfield_players = [p for p in attacking_team.players if p.matrix_position != "GK"]
@@ -114,15 +120,51 @@ class MatchSimulator:
             # Fallback: if somehow no outfield players, skip (shouldn't happen)
             return
         penalty_taker = random.choice(outfield_players)
-        success, prob, X, crit_level, skills_used = eval_event("Penalty", penalty_taker, goalkeeper)
+        
+        # --- EVALUATE SHOT QUALITY (on/off target) ---
+        # Use special critical success multipliers for shot quality (0.6 and 0.9)
+        shot_on_target, shot_quality_prob, X_quality, crit_level_quality, skills_used = eval_event(
+            "Penalty", penalty_taker, goalkeeper,
+            crit_multiplier_1=0.6, crit_multiplier_2=0.9
+        )
         self.log.append((
             minute, "special_result", "penalty",
-            "goal" if success else "miss", f"{prob:.2f}",
+            "on_target" if shot_on_target else "off_target",
+            f"{shot_quality_prob:.2f}",
             penalty_taker.name, goalkeeper.name, attacking_team.name, skills_used
         ))
+        
+        # --- KEEPER SAVE OR GOAL ---
+        if shot_on_target:
+            # Calculate save modifier based on shot quality critical success
+            # Better shots (crit success) make saves harder (negative modifier)
+            if crit_level_quality == "crit_2":
+                save_modifier = -2.0
+            elif crit_level_quality == "crit_1":
+                save_modifier = -1.0
+            else:
+                save_modifier = 0.0
+            
+            # Save evaluation from goalkeeper's perspective: goalkeeper as initiator, taker as defender
+            saved, save_prob, X_save, crit_level_save, skills_used = eval_event(
+                "Penalty_save", goalkeeper, penalty_taker, x_bonus=save_modifier
+            )
+            self.log.append((
+                minute, "special_result", "penalty_save",
+                "saved" if saved else "goal",
+                f"{save_prob:.2f}",
+                penalty_taker.name, goalkeeper.name, attacking_team.name, skills_used
+            ))
+        else:
+            self.log.append((
+                minute, "special_result", "penalty_miss",
+                "miss",
+                f"{shot_quality_prob:.2f}",
+                penalty_taker.name, goalkeeper.name, attacking_team.name, skills_used
+            ))
     
     def handle_freekick(self, attacking_team: Team, defending_team: Team, minute: int):
-        """Handle a free kick."""
+        """Handle a free kick - follows shot quality -> save pattern like regular shots."""
         # Exclude goalkeeper from free kick takers
         outfield_players = [p for p in attacking_team.players if p.matrix_position != "GK"]
         if not outfield_players:
@@ -130,12 +172,48 @@ class MatchSimulator:
             return
         free_kick_taker = random.choice(outfield_players)
         goalkeeper = defending_team.get_goalkeeper()
-        success, prob, X, crit_level, skills_used = eval_event("Freekick", free_kick_taker, goalkeeper)
+        
+        # --- EVALUATE SHOT QUALITY (on/off target) ---
+        # Use special critical success multipliers for shot quality (0.6 and 0.9)
+        shot_on_target, shot_quality_prob, X_quality, crit_level_quality, skills_used = eval_event(
+            "Freekick", free_kick_taker, goalkeeper,
+            crit_multiplier_1=0.6, crit_multiplier_2=0.9
+        )
         self.log.append((
             minute, "special_result", "free_kick",
-            "goal" if success else "saved", f"{prob:.2f}",
+            "on_target" if shot_on_target else "off_target",
+            f"{shot_quality_prob:.2f}",
             free_kick_taker.name, goalkeeper.name, attacking_team.name, skills_used
         ))
+        
+        # --- KEEPER SAVE OR GOAL ---
+        if shot_on_target:
+            # Calculate save modifier based on shot quality critical success
+            # Better shots (crit success) make saves harder (negative modifier)
+            if crit_level_quality == "crit_2":
+                save_modifier = -2.0
+            elif crit_level_quality == "crit_1":
+                save_modifier = -1.0
+            else:
+                save_modifier = 0.0
+            
+            # Save evaluation from goalkeeper's perspective: goalkeeper as initiator, taker as defender
+            saved, save_prob, X_save, crit_level_save, skills_used = eval_event(
+                "Freekick_save", goalkeeper, free_kick_taker, x_bonus=save_modifier
+            )
+            self.log.append((
+                minute, "special_result", "free_kick_save",
+                "saved" if saved else "goal",
+                f"{save_prob:.2f}",
+                free_kick_taker.name, goalkeeper.name, attacking_team.name, skills_used
+            ))
+        else:
+            self.log.append((
+                minute, "special_result", "free_kick_miss",
+                "miss",
+                f"{shot_quality_prob:.2f}",
+                free_kick_taker.name, goalkeeper.name, attacking_team.name, skills_used
+            ))
     
     def _handle_counter_attack(
         self, 
@@ -308,8 +386,10 @@ class MatchSimulator:
             shot_x_bonus = 0.0
         
         # --- EVALUATE SHOT QUALITY ---
+        # Use special critical success multipliers for shot quality (0.6 and 0.9)
         shot_on_target, shot_quality_prob, X_quality, crit_level_quality, skills_used = eval_event(
-            finish_type, finisher, finish_defender, x_bonus=shot_x_bonus
+            finish_type, finisher, finish_defender, x_bonus=shot_x_bonus,
+            crit_multiplier_1=0.6, crit_multiplier_2=0.9
         )
         self.log.append((
             minute, "result", "shot_quality",
@@ -321,9 +401,18 @@ class MatchSimulator:
         
         # --- KEEPER SAVE OR GOAL ---
         if shot_on_target:
+            # Calculate save modifier based on shot quality critical success
+            # Better shots (crit success) make saves harder (negative modifier)
+            if crit_level_quality == "crit_2":
+                save_modifier = -2.0
+            elif crit_level_quality == "crit_1":
+                save_modifier = -1.0
+            else:
+                save_modifier = 0.0
+            
             goalkeeper = counter_defending_team.get_goalkeeper()
             saved, save_prob, X_save, crit_level_save, skills_used = eval_event(
-                f"{finish_type}_save", goalkeeper, finisher
+                f"{finish_type}_save", goalkeeper, finisher, x_bonus=save_modifier
             )
             self.log.append((
                 minute, "result", "save",
@@ -414,8 +503,10 @@ class MatchSimulator:
             return
         
         # Shot quality
+        # Use special critical success multipliers for shot quality (0.6 and 0.9)
         shot_on_target, shot_quality_prob, X_quality, crit_level_quality, skills_used = eval_event(
-            finish_type, finisher, finish_defender
+            finish_type, finisher, finish_defender,
+            crit_multiplier_1=0.6, crit_multiplier_2=0.9
         )
         self.log.append((
             minute, "corner", "shot_quality",
@@ -426,10 +517,19 @@ class MatchSimulator:
         
         # Keeper save if on target
         if shot_on_target:
+            # Calculate save modifier based on shot quality critical success
+            # Better shots (crit success) make saves harder (negative modifier)
+            if crit_level_quality == "crit_2":
+                save_modifier = -2.0
+            elif crit_level_quality == "crit_1":
+                save_modifier = -1.0
+            else:
+                save_modifier = 0.0
+            
             goalkeeper = defending_team.get_goalkeeper()
             # Save evaluation from goalkeeper's perspective: goalkeeper as initiator, finisher as defender
             saved, save_prob, X_save, crit_level_save, skills_used = eval_event(
-                f"{finish_type}_save", goalkeeper, finisher
+                f"{finish_type}_save", goalkeeper, finisher, x_bonus=save_modifier
             )
             self.log.append((
                 minute, "corner", "save",
@@ -447,6 +547,15 @@ class MatchSimulator:
     def run(self):
         """Run the match simulation minute-by-minute."""
         for minute in range(1, self.minutes + 1):
+            # Update minutes_played for all starting players (equals current minute)
+            # This prepares for future substitution support where substitutes will have different minutes_played
+            for player in self.home_team.players:
+                # For now, all players are starting players, so minutes_played = minute
+                # When substitutions are implemented, only update minutes_played for players currently on the field
+                player.minutes_played = minute
+            for player in self.away_team.players:
+                player.minutes_played = minute
+            
             if not self.decide_event():
                 continue
             
@@ -639,8 +748,10 @@ class MatchSimulator:
                 shot_x_bonus = 0.0
             
             # --- EVALUATE SHOT QUALITY ---
+            # Use special critical success multipliers for shot quality (0.6 and 0.9)
             shot_on_target, shot_quality_prob, X_quality, crit_level_quality, skills_used = eval_event(
-                finish_type, finisher, finish_defender, x_bonus=shot_x_bonus
+                finish_type, finisher, finish_defender, x_bonus=shot_x_bonus,
+                crit_multiplier_1=0.6, crit_multiplier_2=0.9
             )
             self.log.append((
                 minute, "result", "shot_quality",
@@ -652,10 +763,19 @@ class MatchSimulator:
             
             # --- KEEPER SAVE OR GOAL ---
             if shot_on_target:
+                # Calculate save modifier based on shot quality critical success
+                # Better shots (crit success) make saves harder (negative modifier)
+                if crit_level_quality == "crit_2":
+                    save_modifier = -2.0
+                elif crit_level_quality == "crit_1":
+                    save_modifier = -1.0
+                else:
+                    save_modifier = 0.0
+                
                 goalkeeper = opponent_team.get_goalkeeper()
                 # Save evaluation from goalkeeper's perspective: goalkeeper as initiator, finisher as defender
                 saved, save_prob, X_save, crit_level_save, skills_used = eval_event(
-                    f"{finish_type}_save", goalkeeper, finisher
+                    f"{finish_type}_save", goalkeeper, finisher, x_bonus=save_modifier
                 )
                 self.log.append((
                     minute, "result", "save",
