@@ -149,6 +149,14 @@ async def batch_simulate(request: BatchSimulationRequest):
                 "goals_by_type": dict(player_stats.shooting.goals_by_type),
                 # Assists by chance type
                 "assists_by_chance_type": dict(player_stats.assists_by_chance_type),
+                # Goalkeeper stats (only populated for GKs)
+                "goalkeeper_stats": {
+                    "intercept_attempts_by_type": dict(player_stats.goalkeeper_stats.intercept_attempts_by_type),
+                    "intercept_successes_by_type": dict(player_stats.goalkeeper_stats.intercept_successes_by_type),
+                    "shots_conceded_by_type": dict(player_stats.goalkeeper_stats.shots_conceded_by_type),
+                    "shots_on_target_by_type": dict(player_stats.goalkeeper_stats.shots_on_target_by_type),
+                    "saves_by_type": dict(player_stats.goalkeeper_stats.saves_by_type),
+                },
                 "skill_usage": skill_usage_to_response(player_stats.skill_usage).dict()
             })
         

@@ -87,6 +87,47 @@ class ShootingSplit:
         return sum(self.goals_by_type.values())
 
 
+class GoalkeeperStats:
+    """Goalkeeper-specific statistics."""
+    def __init__(self):
+        # Intercept statistics by chance type (Long, Crossing, Through)
+        self.intercept_attempts_by_type = Counter()  # Attempted intercepts per chance type
+        self.intercept_successes_by_type = Counter()  # Successful intercepts per chance type
+        
+        # Shot statistics by finish type (FirstTime, Controlled, Header, Chip, Finesse, Power, Penalty, Freekick)
+        self.shots_conceded_by_type = Counter()  # Total shots faced per finish type
+        self.shots_on_target_by_type = Counter()  # Shots on target faced per finish type
+        self.saves_by_type = Counter()  # Saves made per finish type
+    
+    @property
+    def intercept_attempts(self):
+        return sum(self.intercept_attempts_by_type.values())
+    
+    @property
+    def intercept_successes(self):
+        return sum(self.intercept_successes_by_type.values())
+    
+    @property
+    def shots_conceded(self):
+        return sum(self.shots_conceded_by_type.values())
+    
+    @property
+    def shots_on_target(self):
+        return sum(self.shots_on_target_by_type.values())
+    
+    @property
+    def saves(self):
+        return sum(self.saves_by_type.values())
+    
+    def merge(self, other: 'GoalkeeperStats'):
+        """Merge another GoalkeeperStats into this one."""
+        self.intercept_attempts_by_type.update(other.intercept_attempts_by_type)
+        self.intercept_successes_by_type.update(other.intercept_successes_by_type)
+        self.shots_conceded_by_type.update(other.shots_conceded_by_type)
+        self.shots_on_target_by_type.update(other.shots_on_target_by_type)
+        self.saves_by_type.update(other.saves_by_type)
+
+
 class SkillUsage:
     """Tracks individual skill usage in evaluations (unweighted: each skill counts as +1)."""
     def __init__(self):
@@ -176,6 +217,7 @@ class PlayerStatsV2:
         self.assists_by_chance_type = Counter()
         self.skill_usage = SkillUsage()  # Player-level skill usage (unweighted)
         self.weighted_skill_usage = WeightedSkillUsage()  # Player-level skill usage (weighted)
+        self.goalkeeper_stats = GoalkeeperStats()  # Goalkeeper-specific stats (only populated for GKs)
 
     @property
     def goals(self):
@@ -208,6 +250,7 @@ class PlayerStatsV2:
         self.assists_by_chance_type.update(other.assists_by_chance_type)
         self.skill_usage.merge(other.skill_usage)
         self.weighted_skill_usage.merge(other.weighted_skill_usage)
+        self.goalkeeper_stats.merge(other.goalkeeper_stats)
 
 
 class MatchStatsV2:
@@ -349,8 +392,24 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
         # ------- SHOT QUALITY -------
         elif section == "result" and tag == "shot_quality":
             outcome, prob, finisher, fdef, finish_type, atk_team = rest[:6]
+            def_team = away if atk_team == home else home
+            
             ms.team[atk_team].shooting.shots_by_type[finish_type] += 1
             ms.ps(atk_team, finisher).shooting.shots_by_type[finish_type] += 1
+            
+            # Track shots conceded and shots on target for the defending team's goalkeeper
+            def_team_obj = ms.away_team if atk_team == home else ms.home_team
+            def_goalkeeper = None
+            for player in def_team_obj.players:
+                if player.matrix_position == "GK":
+                    def_goalkeeper = player.name
+                    break
+            
+            if def_goalkeeper:
+                def_gk_stats = ms.ps(def_team, def_goalkeeper).goalkeeper_stats
+                def_gk_stats.shots_conceded_by_type[finish_type] += 1
+                if outcome == "on_target":
+                    def_gk_stats.shots_on_target_by_type[finish_type] += 1
 
             # Skill usage (unweighted) - filter GK-only skills based on player position
             event_type = finish_type
@@ -377,6 +436,11 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
         elif section == "result" and tag == "save":
             outcome, prob, finisher, goalkeeper, finish_type, atk_team = rest[:6]
             def_team = away if atk_team == home else home
+
+            # Track saves for goalkeeper
+            if outcome == "saved":
+                gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+                gk_stats.saves_by_type[finish_type] += 1
 
             # Skill usage (unweighted) - filter GK-only skills based on player position
             # For saves: GK is initiator (has GK skills), finisher is defender (outfield, should not have GK skills)
@@ -487,12 +551,28 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
 
             elif phase == "shot_quality":
                 outcome, prob, finisher, fdef, finish_type, atk_team = rest[1:7]
+                def_team = away if atk_team == home else home
+                
                 ms.team[atk_team].shooting.shots_by_type[finish_type] += 1
                 if outcome == "on_target":
                     ms.team[atk_team].shooting.shots_on_by_type[finish_type] += 1
                 ms.ps(atk_team, finisher).shooting.shots_by_type[finish_type] += 1
                 if outcome == "on_target":
                     ms.ps(atk_team, finisher).shooting.shots_on_by_type[finish_type] += 1
+                
+                # Track shots conceded and shots on target for the defending team's goalkeeper
+                def_team_obj = ms.away_team if atk_team == home else ms.home_team
+                def_goalkeeper = None
+                for player in def_team_obj.players:
+                    if player.matrix_position == "GK":
+                        def_goalkeeper = player.name
+                        break
+                
+                if def_goalkeeper:
+                    def_gk_stats = ms.ps(def_team, def_goalkeeper).goalkeeper_stats
+                    def_gk_stats.shots_conceded_by_type[finish_type] += 1
+                    if outcome == "on_target":
+                        def_gk_stats.shots_on_target_by_type[finish_type] += 1
 
                 # Skill usage (unweighted) - filter GK-only skills based on player position
                 event_type = finish_type
@@ -513,6 +593,13 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
 
             elif phase == "save":
                 outcome, prob, finisher, goalkeeper, finish_type, atk_team = rest[1:7]
+                def_team = away if atk_team == home else home
+                
+                # Track saves for goalkeeper
+                if outcome == "saved":
+                    gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+                    gk_stats.saves_by_type[finish_type] += 1
+                
                 if outcome == "goal":
                     ms.team[atk_team].shooting.goals_by_type[finish_type] += 1
                     ms.ps(atk_team, finisher).shooting.goals_by_type[finish_type] += 1
@@ -542,20 +629,28 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                     ms.ps(atk_team, finisher).weighted_skill_usage.add_usage(finisher_weights, event_type)
 
         # ------- PENALTIES / FREEKICKS -------
+        # Handle shot quality (on/off target)
         elif section == "special_result" and tag == "penalty":
             outcome, prob, taker, goalkeeper, atk_team = rest[:5]
+            def_team = away if atk_team == home else home
             finish_type = "Penalty"
+            
             ms.team[atk_team].shooting.shots_by_type[finish_type] += 1
-            ms.team[atk_team].shooting.shots_on_by_type[finish_type] += 1
             ms.ps(atk_team, taker).shooting.shots_by_type[finish_type] += 1
-            ms.ps(atk_team, taker).shooting.shots_on_by_type[finish_type] += 1
+            
+            # Track shots conceded for goalkeeper
+            gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+            gk_stats.shots_conceded_by_type[finish_type] += 1
+            
+            if outcome == "on_target":
+                ms.team[atk_team].shooting.shots_on_by_type[finish_type] += 1
+                ms.ps(atk_team, taker).shooting.shots_on_by_type[finish_type] += 1
+                gk_stats.shots_on_target_by_type[finish_type] += 1
 
             # Skill usage (unweighted) - filter GK-only skills based on player position
-            # Penalty: taker is outfield (initiator), GK is defender
             event_type = finish_type
             taker_pos = ms.ps(atk_team, taker).position
             taker_is_gk = (taker_pos == "GK")
-            
             taker_skills = filter_skills_list_for_player(skills_used, taker_is_gk)
             
             ms.team[atk_team].skill_usage.add_usage(skills_used, event_type)
@@ -568,24 +663,61 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                 ms.team[atk_team].weighted_skill_usage.add_usage(skill_weights, event_type)
                 ms.ps(atk_team, taker).weighted_skill_usage.add_usage(taker_weights, event_type)
 
+        # Handle penalty save (goal/saved)
+        elif section == "special_result" and tag == "penalty_save":
+            outcome, prob, taker, goalkeeper, atk_team = rest[:5]
+            def_team = away if atk_team == home else home
+            finish_type = "Penalty"
+            gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+            
             if outcome == "goal":
                 ms.team[atk_team].shooting.goals_by_type[finish_type] += 1
                 ms.ps(atk_team, taker).shooting.goals_by_type[finish_type] += 1
+            elif outcome == "saved":
+                gk_stats.saves_by_type[finish_type] += 1
+            
+            # Skill usage for save event
+            event_type = "Penalty_save"
+            gk_pos = ms.ps(def_team, goalkeeper).position
+            gk_is_gk = (gk_pos == "GK")
+            gk_skills = filter_skills_list_for_player(skills_used, gk_is_gk)
+            
+            ms.team[def_team].skill_usage.add_usage(skills_used, event_type)
+            ms.ps(def_team, goalkeeper).skill_usage.add_usage(gk_skills, event_type)
+            
+            skill_weights = EVENT_SKILL_WEIGHTS.get(event_type, {})
+            if skill_weights:
+                gk_weights = filter_skills_for_player(skill_weights, gk_is_gk)
+                ms.team[def_team].weighted_skill_usage.add_usage(skill_weights, event_type)
+                ms.ps(def_team, goalkeeper).weighted_skill_usage.add_usage(gk_weights, event_type)
 
+        # Handle penalty miss (off target)
+        elif section == "special_result" and tag == "penalty_miss":
+            # Already tracked as shot in penalty log, nothing more to do
+            pass
+
+        # Handle freekick shot quality (on/off target)
         elif section == "special_result" and tag == "free_kick":
             outcome, prob, taker, goalkeeper, atk_team = rest[:5]
-            finish_type = "Freekick"  # Match event type in evaluation.py
+            def_team = away if atk_team == home else home
+            finish_type = "Freekick"
+            
             ms.team[atk_team].shooting.shots_by_type[finish_type] += 1
-            ms.team[atk_team].shooting.shots_on_by_type[finish_type] += 1
             ms.ps(atk_team, taker).shooting.shots_by_type[finish_type] += 1
-            ms.ps(atk_team, taker).shooting.shots_on_by_type[finish_type] += 1
+            
+            # Track shots conceded for goalkeeper
+            gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+            gk_stats.shots_conceded_by_type[finish_type] += 1
+            
+            if outcome == "on_target":
+                ms.team[atk_team].shooting.shots_on_by_type[finish_type] += 1
+                ms.ps(atk_team, taker).shooting.shots_on_by_type[finish_type] += 1
+                gk_stats.shots_on_target_by_type[finish_type] += 1
 
             # Skill usage (unweighted) - filter GK-only skills based on player position
-            # Penalty: taker is outfield (initiator), GK is defender
             event_type = finish_type
             taker_pos = ms.ps(atk_team, taker).position
             taker_is_gk = (taker_pos == "GK")
-            
             taker_skills = filter_skills_list_for_player(skills_used, taker_is_gk)
             
             ms.team[atk_team].skill_usage.add_usage(skills_used, event_type)
@@ -598,14 +730,51 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                 ms.team[atk_team].weighted_skill_usage.add_usage(skill_weights, event_type)
                 ms.ps(atk_team, taker).weighted_skill_usage.add_usage(taker_weights, event_type)
 
+        # Handle freekick save (goal/saved)
+        elif section == "special_result" and tag == "free_kick_save":
+            outcome, prob, taker, goalkeeper, atk_team = rest[:5]
+            def_team = away if atk_team == home else home
+            finish_type = "Freekick"
+            gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+            
             if outcome == "goal":
                 ms.team[atk_team].shooting.goals_by_type[finish_type] += 1
                 ms.ps(atk_team, taker).shooting.goals_by_type[finish_type] += 1
+            elif outcome == "saved":
+                gk_stats.saves_by_type[finish_type] += 1
+            
+            # Skill usage for save event
+            event_type = "Freekick_save"
+            gk_pos = ms.ps(def_team, goalkeeper).position
+            gk_is_gk = (gk_pos == "GK")
+            gk_skills = filter_skills_list_for_player(skills_used, gk_is_gk)
+            
+            ms.team[def_team].skill_usage.add_usage(skills_used, event_type)
+            ms.ps(def_team, goalkeeper).skill_usage.add_usage(gk_skills, event_type)
+            
+            skill_weights = EVENT_SKILL_WEIGHTS.get(event_type, {})
+            if skill_weights:
+                gk_weights = filter_skills_for_player(skill_weights, gk_is_gk)
+                ms.team[def_team].weighted_skill_usage.add_usage(skill_weights, event_type)
+                ms.ps(def_team, goalkeeper).weighted_skill_usage.add_usage(gk_weights, event_type)
+
+        # Handle freekick miss (off target)
+        elif section == "special_result" and tag == "free_kick_miss":
+            # Already tracked as shot in free_kick log, nothing more to do
+            pass
 
         # ------- GOALKEEPER INTERCEPT -------
         elif section == "result" and tag == "goalkeeper_intercept":
             outcome, prob, finisher, goalkeeper, chance_type, atk_team = rest[:6]
             def_team = away if atk_team == home else home
+
+            # Track intercept attempts and successes for goalkeeper
+            # chance_type is "Long", "Crossing", or "Through" - map to intercept type
+            intercept_type = chance_type  # Long_intercept, Crossing_intercept, Through_intercept
+            gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+            gk_stats.intercept_attempts_by_type[intercept_type] += 1
+            if outcome == "success":
+                gk_stats.intercept_successes_by_type[intercept_type] += 1
 
             # Skill usage (unweighted) - filter GK-only skills based on player position
             # For intercepts: GK is initiator (has GK skills), finisher is defender (outfield, should not have GK skills)

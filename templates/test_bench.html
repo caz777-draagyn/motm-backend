@@ -366,6 +366,8 @@
                     <button onclick="setAllAttributes('home', 10)">10</button>
                     <button onclick="setAllAttributes('home', 15)">15</button>
                     <button onclick="setAllAttributes('home', 20)">20</button>
+                    <input type="number" id="homeCustomAttr" placeholder="Custom" min="0" max="20" style="width: 60px; margin-left: 5px; padding: 2px 5px;">
+                    <button onclick="setAllAttributesCustom('home')">Set</button>
                 </div>
             </div>
             <div class="scrollable">
@@ -403,6 +405,8 @@
                     <button onclick="setAllAttributes('away', 10)">10</button>
                     <button onclick="setAllAttributes('away', 15)">15</button>
                     <button onclick="setAllAttributes('away', 20)">20</button>
+                    <input type="number" id="awayCustomAttr" placeholder="Custom" min="0" max="20" style="width: 60px; margin-left: 5px; padding: 2px 5px;">
+                    <button onclick="setAllAttributesCustom('away')">Set</button>
                 </div>
             </div>
             <div class="scrollable">
@@ -609,6 +613,20 @@
             }
         }
         
+        function setAllAttributesCustom(teamPrefix) {
+            const input = document.getElementById(`${teamPrefix}CustomAttr`);
+            if (input && input.value !== '') {
+                const value = parseInt(input.value);
+                if (!isNaN(value) && value >= 0 && value <= 20) {
+                    setAllAttributes(teamPrefix, value);
+                } else {
+                    alert('Please enter a valid number between 0 and 20');
+                }
+            } else {
+                alert('Please enter a value in the custom input field');
+            }
+        }
+        
         function updateAttributeVisibility(teamPrefix, index) {
             const positionSelect = document.getElementById(`${teamPrefix}Player${index}Position`);
             const position = positionSelect.value;
@@ -803,7 +821,7 @@
             // Define chance types and finish types
             const chanceTypes = ["Short", "Long", "Crossing", "Through", "Solo"];
             const finishTypes = ["FirstTime", "Controlled", "Header", "Chip", "Finesse", "Power"];
-            const specialTypes = ["Penalty", "FreeKick"];
+            const specialTypes = ["Penalty", "Freekick"];
             
             // Helper function to get value from object or 0
             const getValue = (obj, key) => (obj && obj[key]) || 0;
@@ -822,6 +840,7 @@
                             <th colspan="${chanceTypes.length * 2}" style="background: #2ecc71;">Creator by Type</th>
                             <th colspan="${finishTypes.length * 2}" style="background: #f39c12;">Finisher by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #9b59b6;">Shots by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #8e44ad;">Shots On Target by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
                             <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
                         </tr>
@@ -836,6 +855,8 @@
                             ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft} Att</th><th style="background: #f39c12;">${ft} Suc</th>`).join('')}
                             ${finishTypes.map(ft => `<th style="background: #9b59b6;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #9b59b6;">${st}</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #8e44ad;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #8e44ad;">${st}</th>`).join('')}
                             ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
                             ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
@@ -850,6 +871,7 @@
                 const finisherAttByType = player.finisher_attempts_by_type || {};
                 const finisherSucByType = player.finisher_successes_by_type || {};
                 const shotsByType = player.shots_by_type || {};
+                const shotsOnByType = player.shots_on_by_type || {};
                 const goalsByType = player.goals_by_type || {};
                 const assistsByType = player.assists_by_chance_type || {};
                 
@@ -866,6 +888,8 @@
                         ${finishTypes.map(ft => `<td>${getValue(finisherAttByType, ft)}</td><td>${getValue(finisherSucByType, ft)}</td>`).join('')}
                         ${finishTypes.map(ft => `<td>${getValue(shotsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(shotsByType, st)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(shotsOnByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(shotsOnByType, st)}</td>`).join('')}
                         ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
                         ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
@@ -889,6 +913,7 @@
                             <th colspan="${chanceTypes.length * 2}" style="background: #2ecc71;">Creator by Type</th>
                             <th colspan="${finishTypes.length * 2}" style="background: #f39c12;">Finisher by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #9b59b6;">Shots by Type</th>
+                            <th colspan="${finishTypes.length + specialTypes.length}" style="background: #8e44ad;">Shots On Target by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
                             <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
                         </tr>
@@ -903,6 +928,8 @@
                             ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft} Att</th><th style="background: #f39c12;">${ft} Suc</th>`).join('')}
                             ${finishTypes.map(ft => `<th style="background: #9b59b6;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #9b59b6;">${st}</th>`).join('')}
+                            ${finishTypes.map(ft => `<th style="background: #8e44ad;">${ft}</th>`).join('')}
+                            ${specialTypes.map(st => `<th style="background: #8e44ad;">${st}</th>`).join('')}
                             ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
                             ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
@@ -917,6 +944,7 @@
                 const finisherAttByType = player.finisher_attempts_by_type || {};
                 const finisherSucByType = player.finisher_successes_by_type || {};
                 const shotsByType = player.shots_by_type || {};
+                const shotsOnByType = player.shots_on_by_type || {};
                 const goalsByType = player.goals_by_type || {};
                 const assistsByType = player.assists_by_chance_type || {};
                 
@@ -933,6 +961,8 @@
                         ${finishTypes.map(ft => `<td>${getValue(finisherAttByType, ft)}</td><td>${getValue(finisherSucByType, ft)}</td>`).join('')}
                         ${finishTypes.map(ft => `<td>${getValue(shotsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(shotsByType, st)}</td>`).join('')}
+                        ${finishTypes.map(ft => `<td>${getValue(shotsOnByType, ft)}</td>`).join('')}
+                        ${specialTypes.map(st => `<td>${getValue(shotsOnByType, st)}</td>`).join('')}
                         ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
                         ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
@@ -941,6 +971,69 @@
             });
             
             tableHTML += '</tbody></table></div>';
+            
+            // Goalkeeper Statistics
+            const homeGK = homePlayers.find(p => p.position === 'GK');
+            const awayGK = awayPlayers.find(p => p.position === 'GK');
+            
+            if (homeGK || awayGK) {
+                tableHTML += '<h3 style="margin-top: 40px;">Goalkeeper Statistics</h3>';
+                
+                // Define intercept types
+                const interceptTypes = ['Long', 'Crossing', 'Through'];
+                
+                // Create table for goalkeeper stats
+                tableHTML += `
+                    <div class="scrollable">
+                    <table style="font-size: 12px;">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" style="background: #3498db;">Player</th>
+                                <th rowspan="2" style="background: #3498db;">Team</th>
+                                <th colspan="${interceptTypes.length * 2}" style="background: #16a085;">Intercepts</th>
+                                <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e67e22;">Shots Conceded</th>
+                                <th colspan="${finishTypes.length + specialTypes.length}" style="background: #f39c12;">Shots On Target</th>
+                                <th colspan="${finishTypes.length + specialTypes.length}" style="background: #27ae60;">Saves</th>
+                            </tr>
+                            <tr>
+                                ${interceptTypes.map(it => `<th style="background: #16a085;">${it} Att</th><th style="background: #16a085;">${it} Suc</th>`).join('')}
+                                ${finishTypes.map(ft => `<th style="background: #e67e22;">${ft}</th>`).join('')}
+                                ${specialTypes.map(st => `<th style="background: #e67e22;">${st}</th>`).join('')}
+                                ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft}</th>`).join('')}
+                                ${specialTypes.map(st => `<th style="background: #f39c12;">${st}</th>`).join('')}
+                                ${finishTypes.map(ft => `<th style="background: #27ae60;">${ft}</th>`).join('')}
+                                ${specialTypes.map(st => `<th style="background: #27ae60;">${st}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                [homeGK, awayGK].forEach(gk => {
+                    if (!gk) return;
+                    const gkStats = gk.goalkeeper_stats || {};
+                    const interceptAtt = gkStats.intercept_attempts_by_type || {};
+                    const interceptSuc = gkStats.intercept_successes_by_type || {};
+                    const shotsConceded = gkStats.shots_conceded_by_type || {};
+                    const shotsOnTarget = gkStats.shots_on_target_by_type || {};
+                    const saves = gkStats.saves_by_type || {};
+                    
+                    tableHTML += `
+                        <tr>
+                            <td><strong>${gk.name}</strong></td>
+                            <td>${gk.team}</td>
+                            ${interceptTypes.map(it => `<td>${getValue(interceptAtt, it)}</td><td>${getValue(interceptSuc, it)}</td>`).join('')}
+                            ${finishTypes.map(ft => `<td>${getValue(shotsConceded, ft)}</td>`).join('')}
+                            ${specialTypes.map(st => `<td>${getValue(shotsConceded, st)}</td>`).join('')}
+                            ${finishTypes.map(ft => `<td>${getValue(shotsOnTarget, ft)}</td>`).join('')}
+                            ${specialTypes.map(st => `<td>${getValue(shotsOnTarget, st)}</td>`).join('')}
+                            ${finishTypes.map(ft => `<td>${getValue(saves, ft)}</td>`).join('')}
+                            ${specialTypes.map(st => `<td>${getValue(saves, st)}</td>`).join('')}
+                        </tr>
+                    `;
+                });
+                
+                tableHTML += '</tbody></table></div>';
+            }
             
             // Skill usage tables for each team
             tableHTML += generateSkillUsageTables(homePlayers, awayPlayers, stats.home_team.name, stats.away_team.name);

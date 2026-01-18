@@ -206,18 +206,7 @@ EVENT_X_FORMULAS = {
     ) - (
         10
     ),
-    # Header Duel (outfield player vs outfield player, e.g., during corners)
-    "Header_duel": lambda initiator, defender: (
-        0.4 * initiator.get_attr("Heading") +
-        0.3 * initiator.get_attr("Jump Reach") +
-        0.2 * initiator.get_attr("Positioning") +
-        0.1 * initiator.get_attr("Strength")
-    ) - (
-        0.4 * defender.get_attr("Heading") +
-        0.3 * defender.get_attr("Jump Reach") +
-        0.2 * defender.get_attr("Positioning") +
-        0.1 * defender.get_attr("Strength")
-    ),
+    
     # Goalkeeper Saves (from goalkeeper's perspective: goalkeeper as initiator, finisher as defender)
     "FirstTime_save": lambda initiator, defender: (
         0.6 * initiator.get_attr("Reflexes") +
@@ -269,6 +258,43 @@ EVENT_X_FORMULAS = {
     ) - (
         10
     ),
+
+    # Set Pieces shots    
+    #----------------------------------------------------------------------------   
+    
+    "Penalty": lambda initiator, defender: (
+        0.5 * initiator.get_attr("Composure") +
+        0.3 * initiator.get_attr("Finishing") +
+        0.2 * initiator.get_attr("Ball Control")
+    ) - (
+        10
+    ),
+    "Freekick": lambda initiator, defender: (
+        0.3 * initiator.get_attr("Finishing") +
+        0.2 * initiator.get_attr("Vision") +
+        0.2 * initiator.get_attr("Composure") +
+        0.3 * initiator.get_attr("Ball Control")
+    ) - (
+        10
+    ),
+    
+    # Set Piece Saves
+    #----------------------------------------------------------------------------
+    "Penalty_save": lambda initiator, defender: (
+        0.4 * initiator.get_attr("One-on-One") +
+        0.3 * initiator.get_attr("Composure") +
+        0.3 * initiator.get_attr("Agility")
+    ) - (
+        10
+    ),
+    
+    "Freekick_save": lambda initiator, defender: (
+        0.4 * initiator.get_attr("Agility") +
+        0.3 * initiator.get_attr("Handling") +
+        0.2 * initiator.get_attr("Positioning")
+    ) - (
+        10
+    ),
     
     # Goalkeeper Intercepts (GK is initiator)
     "Long_intercept": lambda initiator, defender: (
@@ -307,29 +333,7 @@ EVENT_X_FORMULAS = {
         0.3 * defender.get_attr("Command of Area") +
         0.2 * defender.get_attr("Positioning")
     ),
-    
-    "Freekick": lambda initiator, defender: (
-        0.3 * initiator.get_attr("Finishing") +
-        0.2 * initiator.get_attr("Vision") +
-        0.2 * initiator.get_attr("Composure") +
-        0.3 * initiator.get_attr("Ball Control")
-    ) - (
-        0.3 * defender.get_attr("Positioning") +
-        0.3 * defender.get_attr("Reflexes") +
-        0.3 * defender.get_attr("Agility") +
-        0.1 * defender.get_attr("Handling")
-    ),
-    
-    "Penalty": lambda initiator, defender: (
-        0.5 * initiator.get_attr("Composure") +
-        0.3 * initiator.get_attr("Finishing") +
-        0.2 * initiator.get_attr("Ball Control")
-    ) - (
-        0.3 * defender.get_attr("Reflexes") +
-        0.4 * defender.get_attr("Agility") +
-        0.3 * defender.get_attr("One-on-One")
-    ),
-    
+
     # Counter (using similar logic to Through ball)
     "Counter": lambda initiator, defender: (
         0.4 * initiator.get_attr("Vision") +
@@ -341,28 +345,18 @@ EVENT_X_FORMULAS = {
         0.3 * defender.get_attr("Marking") +
         0.2 * defender.get_attr("Tackling")
     ),
-    
-    # GK set piece saves (using same as regular saves)
-    "Gk_Pen": lambda initiator, defender: (
-        0.5 * initiator.get_attr("Finishing") +
-        0.4 * initiator.get_attr("Composure") +
-        0.1 * initiator.get_attr("Vision")
+
+    # Header Duel (outfield player vs outfield player, e.g., during corners)
+    "Header_duel": lambda initiator, defender: (
+        0.4 * initiator.get_attr("Heading") +
+        0.3 * initiator.get_attr("Jump Reach") +
+        0.2 * initiator.get_attr("Positioning") +
+        0.1 * initiator.get_attr("Strength")
     ) - (
-        0.5 * defender.get_attr("Reflexes") +
-        0.3 * defender.get_attr("Positioning") +
-        0.2 * defender.get_attr("One-on-One")
-    ),
-    
-    "Gk_Free": lambda initiator, defender: (
-        0.4 * initiator.get_attr("Finishing") +
-        0.3 * initiator.get_attr("Vision") +
-        0.2 * initiator.get_attr("Composure") +
-        0.1 * initiator.get_attr("Ball Control")
-    ) - (
-        0.4 * defender.get_attr("Positioning") +
-        0.3 * defender.get_attr("Reflexes") +
-        0.2 * defender.get_attr("Command of Area") +
-        0.1 * defender.get_attr("Handling")
+        0.4 * defender.get_attr("Heading") +
+        0.3 * defender.get_attr("Jump Reach") +
+        0.2 * defender.get_attr("Positioning") +
+        0.1 * defender.get_attr("Strength")
     ),
     
     "Gk_Corner": lambda initiator, defender: (
@@ -459,6 +453,12 @@ EVENT_SKILL_WEIGHTS: Dict[str, Dict[str, float]] = {
     "Power_save": {
         "Handling": 0.3, "Reflexes": 0.3, "Strength": 0.3, "Positioning": 0.1  # initiator (GK) only
     },
+    "Penalty_save": {
+        "One-on-One": 0.5, "Reflexes": 0.3, "Positioning": 0.2  # initiator (GK) only
+    },
+    "Freekick_save": {
+        "Positioning": 0.4, "Reflexes": 0.3, "Command of Area": 0.2, "Handling": 0.1  # initiator (GK) only
+    },
     "Long_intercept": {
         "Aerial Reach": 0.3, "Command of Area": 0.3, "Strength": 0.2, "Positioning": 0.2  # initiator (GK) only
     },
@@ -499,7 +499,7 @@ EVENT_SKILL_WEIGHTS: Dict[str, Dict[str, float]] = {
 }
 
 # Sigmoid parameters
-DEFAULT_PARAMS = {"a": 0.7, "c": 0.15, "L": 0.70}
+DEFAULT_PARAMS = {"a": 0.7, "c": 0.20, "L": 0.60}
 EVENT_SIGMOID_PARAMS = {
     "Short": DEFAULT_PARAMS,
     "Crossing": DEFAULT_PARAMS,
@@ -518,18 +518,20 @@ EVENT_SIGMOID_PARAMS = {
     "Finesse": {"a": 0.3, "c": 0.1, "L": 0.25}, #shoot on target 10-35%
     "Power": {"a": 0.3, "c": 0.2, "L": 0.25}, #shoot on target 10-35%
     "Header_duel": DEFAULT_PARAMS,
-    "FirstTime_save": DEFAULT_PARAMS,
-    "Controlled_save": DEFAULT_PARAMS,
-    "Header_save": DEFAULT_PARAMS,
-    "Chip_save": DEFAULT_PARAMS,
-    "Finesse_save": DEFAULT_PARAMS,
-    "Power_save": DEFAULT_PARAMS,
+    "FirstTime_save": {"a": 0.3, "c": 0.28, "L": 0.5}, #Save 50-75%
+    "Controlled_save": {"a": 0.3, "c": 0.30, "L": 0.5}, #Save 55-78%
+    "Header_save": {"a": 0.3, "c": 0.23, "L": 0.5}, #Save 45-70%
+    "Chip_save": {"a": 0.3, "c": 0.18, "L": 0.5}, #Save 40-65%
+    "Finesse_save": {"a": 0.3, "c": 0.18, "L": 0.5}, #Save 40-65%
+    "Power_save": {"a": 0.3, "c": 0.40, "L": 0.45}, #Save 65-85%
+    "Penalty_save": {"a": 0.3, "c": 0.0, "L": 0.30}, #Save 15-30% (penalties are hard to save)
+    "Freekick_save": {"a": 0.3, "c": 0.25, "L": 0.45}, #Save 45-70%
     "Long_intercept": DEFAULT_PARAMS,
     "Crossing_intercept": DEFAULT_PARAMS,
     "Through_intercept": DEFAULT_PARAMS,
     "Corner": DEFAULT_PARAMS,
-    "Penalty": DEFAULT_PARAMS,
-    "Freekick": DEFAULT_PARAMS,
+    "Penalty": {"a": 0.4, "c": 0.70, "L": 0.25}, #On target 70-90% (penalties rarely miss)
+    "Freekick": {"a": 0.3, "c": 0.28, "L": 0.50}, #On target 25-40% (similar to Controlled shots)
 }
 
 
@@ -540,13 +542,36 @@ def sigmoid_eval(X: float, a: float, c: float, L: float) -> float:
     return c + L / (1 + math.exp(-a * X))
 
 
+def calculate_stamina_modifier(initiator: Player, defender: Player) -> float:
+    """
+    Calculate stamina modifier based on stamina difference between initiator and defender.
+    
+    Formula: 0.001 * (Stamina_initiator * minutes_played_initiator - Stamina_defender * minutes_played_defender)
+    
+    Args:
+        initiator: Player initiating the event
+        defender: Player defending against the event
+    
+    Returns:
+        Stamina modifier value to add to X calculation
+    """
+    stamina_init = initiator.get_attr("Stamina")
+    stamina_def = defender.get_attr("Stamina")
+    minutes_init = initiator.minutes_played
+    minutes_def = defender.minutes_played
+    
+    modifier = 0.001 * (stamina_init * minutes_init - stamina_def * minutes_def)
+    return modifier
+
+
 def eval_event(
     event_type: str,
     initiator: Player,
     defender: Player,
     x_bonus: float = 0.0,
     crit_multiplier_1: float = 0.3,
-    crit_multiplier_2: float = 0.7
+    crit_multiplier_2: float = 0.7,
+    stamina_modifier: float = None
 ) -> Tuple[bool, float, float, str, List[str]]:
     """
     Evaluate an event between initiator and defender with two-level critical success system.
@@ -558,12 +583,13 @@ def eval_event(
         x_bonus: Bonus value to add to X calculation (default: 0.0)
         crit_multiplier_1: Multiplier for first critical chance threshold (default: 0.3)
         crit_multiplier_2: Multiplier for second critical chance threshold (default: 0.7)
+        stamina_modifier: Stamina modifier to add to X calculation. If None, calculated automatically.
     
     Returns:
         Tuple of:
         - success: Whether the event succeeded (roll > prob)
         - prob: Probability of success
-        - X: Raw X value from formula (after bonus)
+        - X: Raw X value from formula (after bonus and stamina modifier)
         - crit_level: Critical level achieved - "crit_2" (roll > crit_chance_2), 
                       "crit_1" (crit_chance_1 < roll <= crit_chance_2), or "none"
         - skills_used: List of attribute names used in evaluation
@@ -574,8 +600,12 @@ def eval_event(
     
     params = EVENT_SIGMOID_PARAMS.get(event_type, DEFAULT_PARAMS)
     
-    # Calculate X value and apply bonus
-    X = x_formula(initiator, defender) + x_bonus
+    # Calculate stamina modifier if not provided
+    if stamina_modifier is None:
+        stamina_modifier = calculate_stamina_modifier(initiator, defender)
+    
+    # Calculate X value and apply bonus and stamina modifier
+    X = x_formula(initiator, defender) + x_bonus + stamina_modifier
     
     # Convert to probability using sigmoid
     prob = 1 - sigmoid_eval(X, params["a"], params["c"], params["L"])

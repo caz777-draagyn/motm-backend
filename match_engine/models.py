@@ -21,6 +21,7 @@ class Player:
         self.matrix_position = matrix_position
         self.attributes = attributes
         self.is_goalkeeper = is_goalkeeper
+        self.minutes_played = 0  # Track minutes played (for stamina calculations and substitutions)
 
     def get_attr(self, attr_name):
         """Get attribute value, defaulting to 0 if not present."""
