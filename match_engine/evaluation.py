@@ -359,6 +359,19 @@ EVENT_X_FORMULAS = {
         0.1 * defender.get_attr("Strength")
     ),
     
+    # Corner Finisher (outfield player vs outfield player during corner kicks)
+    "Corner_finisher": lambda initiator, defender: (
+        0.4 * initiator.get_attr("Heading") +
+        0.3 * initiator.get_attr("Jump Reach") +
+        0.2 * initiator.get_attr("Positioning") +
+        0.1 * initiator.get_attr("Strength")
+    ) - (
+        0.4 * defender.get_attr("Heading") +
+        0.3 * defender.get_attr("Jump Reach") +
+        0.2 * defender.get_attr("Positioning") +
+        0.1 * defender.get_attr("Strength")
+    ),
+    
     "Gk_Corner": lambda initiator, defender: (
         0.5 * initiator.get_attr("Crossing") +
         0.3 * initiator.get_attr("Vision") +
@@ -367,6 +380,47 @@ EVENT_X_FORMULAS = {
         0.5 * defender.get_attr("Aerial Reach") +
         0.3 * defender.get_attr("Command of Area") +
         0.2 * defender.get_attr("Positioning")
+    ),
+    
+    # Corner triggers - defender/GK as initiator trying to deflect for corner
+    "Corner_from_save": lambda initiator, defender: (
+        # GK's ability to deflect shot out for corner
+        0.5 * initiator.get_attr("Handling") +
+        0.3 * initiator.get_attr("Reflexes") +
+        0.2 * initiator.get_attr("Positioning")
+    ) - (
+        # Finisher's ability to keep ball in play
+        0.5 * defender.get_attr("Finishing") +
+        0.3 * defender.get_attr("Ball Control") +
+        0.2 * defender.get_attr("Composure")
+    ),
+    
+    "Corner_from_finisher_fail": lambda initiator, defender: (
+        # Defender's ability to deflect ball out for corner
+        0.4 * initiator.get_attr("Tackling") +
+        0.3 * initiator.get_attr("Positioning") +
+        0.2 * initiator.get_attr("Strength") +
+        0.1 * initiator.get_attr("Agility")
+    ) - (
+        # Finisher's ability to keep ball in play
+        0.4 * defender.get_attr("Ball Control") +
+        0.3 * defender.get_attr("Agility") +
+        0.2 * defender.get_attr("Composure") +
+        0.1 * defender.get_attr("Positioning")
+    ),
+    
+    "Corner_from_creation_fail": lambda initiator, defender: (
+        # Defender's ability to deflect ball out for corner
+        0.4 * initiator.get_attr("Tackling") +
+        0.3 * initiator.get_attr("Marking") +
+        0.2 * initiator.get_attr("Positioning") +
+        0.1 * initiator.get_attr("Strength")
+    ) - (
+        # Creator's ability to keep ball in play
+        0.4 * defender.get_attr("Ball Control") +
+        0.3 * defender.get_attr("Passing") +
+        0.2 * defender.get_attr("Composure") +
+        0.1 * defender.get_attr("Vision")
     ),
 }
 
@@ -434,6 +488,22 @@ EVENT_SKILL_WEIGHTS: Dict[str, Dict[str, float]] = {
     "Header_duel": {
         "Heading": 0.4, "Jump Reach": 0.3, "Positioning": 0.2, "Strength": 0.1,  # initiator
         "Heading": 0.4, "Jump Reach": 0.3, "Positioning": 0.2, "Strength": 0.1  # defender (same)
+    },
+    "Corner_finisher": {
+        "Heading": 0.4, "Jump Reach": 0.3, "Positioning": 0.2, "Strength": 0.1,  # initiator
+        "Heading": 0.4, "Jump Reach": 0.3, "Positioning": 0.2, "Strength": 0.1  # defender (same)
+    },
+    "Corner_from_save": {
+        "Handling": 0.5, "Reflexes": 0.3, "Positioning": 0.2,  # initiator (GK)
+        "Finishing": 0.5, "Ball Control": 0.3, "Composure": 0.2  # defender (finisher)
+    },
+    "Corner_from_finisher_fail": {
+        "Tackling": 0.4, "Positioning": 0.3, "Strength": 0.2, "Agility": 0.1,  # initiator (defender)
+        "Ball Control": 0.4, "Agility": 0.3, "Composure": 0.2, "Positioning": 0.1  # defender (finisher)
+    },
+    "Corner_from_creation_fail": {
+        "Tackling": 0.4, "Marking": 0.3, "Positioning": 0.2, "Strength": 0.1,  # initiator (defender)
+        "Ball Control": 0.4, "Passing": 0.3, "Composure": 0.2, "Vision": 0.1  # defender (creator)
     },
     "FirstTime_save": {
         "Reflexes": 0.6, "Positioning": 0.3, "Handling": 0.1  # initiator (GK) only
@@ -518,6 +588,10 @@ EVENT_SIGMOID_PARAMS = {
     "Finesse": {"a": 0.3, "c": 0.1, "L": 0.25}, #shoot on target 10-35%
     "Power": {"a": 0.3, "c": 0.2, "L": 0.25}, #shoot on target 10-35%
     "Header_duel": DEFAULT_PARAMS,
+    "Corner_finisher": DEFAULT_PARAMS,
+    "Corner_from_save": DEFAULT_PARAMS,
+    "Corner_from_finisher_fail": DEFAULT_PARAMS,
+    "Corner_from_creation_fail": DEFAULT_PARAMS,
     "FirstTime_save": {"a": 0.3, "c": 0.28, "L": 0.5}, #Save 50-75%
     "Controlled_save": {"a": 0.3, "c": 0.30, "L": 0.5}, #Save 55-78%
     "Header_save": {"a": 0.3, "c": 0.23, "L": 0.5}, #Save 45-70%

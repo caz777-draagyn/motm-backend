@@ -18,4 +18,6 @@ from .match_day import MatchDay
 from .cup_competition import CupCompetition, CupType
 from .cup_season import CupSeason
 from .cup_match import CupMatch
+from .youth_prospect import YouthProspect
+from .youth_academy_player import YouthAcademyPlayer
 
