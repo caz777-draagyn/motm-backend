@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from database import engine
-from api import match_engine, test_bench
+from api import match_engine, test_bench, youth_workbench, youth_academy
 
 app = FastAPI()
 
@@ -29,6 +29,10 @@ def db_check():
 # Include routers
 app.include_router(match_engine.router)
 app.include_router(test_bench.router)
+app.include_router(youth_workbench.router)
+app.include_router(youth_academy.router)
 
 # Serve static files for test bench UI
 app.mount("/static", StaticFiles(directory="static"), name="static")
+# Serve graphics files (player profile pictures)
+app.mount("/gfx", StaticFiles(directory="gfx"), name="gfx")

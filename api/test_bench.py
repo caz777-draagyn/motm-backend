@@ -149,10 +149,18 @@ async def batch_simulate(request: BatchSimulationRequest):
                 "goals_by_type": dict(player_stats.shooting.goals_by_type),
                 # Assists by chance type
                 "assists_by_chance_type": dict(player_stats.assists_by_chance_type),
+                # Corner statistics
+                "corners_taken": player_stats.corners_taken,
+                "corners_successful": player_stats.corners_successful,
+                "corner_shots": player_stats.corner_shots,
+                "corner_shots_success": player_stats.corner_shots_success,
+                "corner_goals": player_stats.corner_goals,
                 # Goalkeeper stats (only populated for GKs)
                 "goalkeeper_stats": {
                     "intercept_attempts_by_type": dict(player_stats.goalkeeper_stats.intercept_attempts_by_type),
                     "intercept_successes_by_type": dict(player_stats.goalkeeper_stats.intercept_successes_by_type),
+                    "corner_intercepts_attempted": player_stats.goalkeeper_stats.corner_intercepts_attempted,
+                    "corner_intercepts_successful": player_stats.goalkeeper_stats.corner_intercepts_successful,
                     "shots_conceded_by_type": dict(player_stats.goalkeeper_stats.shots_conceded_by_type),
                     "shots_on_target_by_type": dict(player_stats.goalkeeper_stats.shots_on_target_by_type),
                     "saves_by_type": dict(player_stats.goalkeeper_stats.saves_by_type),
@@ -208,4 +216,6 @@ async def batch_simulate(request: BatchSimulationRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         from fastapi import HTTPException
-        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+        import traceback
+        error_detail = f"{type(e).__name__}: {str(e)}\n\nTraceback:\n{traceback.format_exc()}"
+        raise HTTPException(status_code=500, detail=f"Internal error: {error_detail}")

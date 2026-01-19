@@ -843,6 +843,7 @@
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #8e44ad;">Shots On Target by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
                             <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
+                            <th colspan="5" style="background: #16a085;">Corner Stats</th>
                         </tr>
                         <tr>
                             <th style="background: #3498db;">Goals</th>
@@ -860,6 +861,11 @@
                             ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
                             ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
+                            <th style="background: #16a085;">Corners Taken</th>
+                            <th style="background: #16a085;">Corners Suc</th>
+                            <th style="background: #16a085;">Corner Shots</th>
+                            <th style="background: #16a085;">Corner Shots Suc</th>
+                            <th style="background: #16a085;">Corner Goals</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -893,6 +899,11 @@
                         ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
                         ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
+                        <td>${player.corners_taken || 0}</td>
+                        <td>${player.corners_successful || 0}</td>
+                        <td>${player.corner_shots || 0}</td>
+                        <td>${player.corner_shots_success || 0}</td>
+                        <td>${player.corner_goals || 0}</td>
                     </tr>
                 `;
             });
@@ -916,6 +927,7 @@
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #8e44ad;">Shots On Target by Type</th>
                             <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e74c3c;">Goals by Type</th>
                             <th colspan="${chanceTypes.length}" style="background: #1abc9c;">Assists by Type</th>
+                            <th colspan="5" style="background: #16a085;">Corner Stats</th>
                         </tr>
                         <tr>
                             <th style="background: #3498db;">Goals</th>
@@ -933,6 +945,11 @@
                             ${finishTypes.map(ft => `<th style="background: #e74c3c;">${ft}</th>`).join('')}
                             ${specialTypes.map(st => `<th style="background: #e74c3c;">${st}</th>`).join('')}
                             ${chanceTypes.map(ct => `<th style="background: #1abc9c;">${ct}</th>`).join('')}
+                            <th style="background: #16a085;">Corners Taken</th>
+                            <th style="background: #16a085;">Corners Suc</th>
+                            <th style="background: #16a085;">Corner Shots</th>
+                            <th style="background: #16a085;">Corner Shots Suc</th>
+                            <th style="background: #16a085;">Corner Goals</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -966,6 +983,11 @@
                         ${finishTypes.map(ft => `<td>${getValue(goalsByType, ft)}</td>`).join('')}
                         ${specialTypes.map(st => `<td>${getValue(goalsByType, st)}</td>`).join('')}
                         ${chanceTypes.map(ct => `<td>${getValue(assistsByType, ct)}</td>`).join('')}
+                        <td>${player.corners_taken || 0}</td>
+                        <td>${player.corners_successful || 0}</td>
+                        <td>${player.corner_shots || 0}</td>
+                        <td>${player.corner_shots_success || 0}</td>
+                        <td>${player.corner_goals || 0}</td>
                     </tr>
                 `;
             });
@@ -991,12 +1013,15 @@
                                 <th rowspan="2" style="background: #3498db;">Player</th>
                                 <th rowspan="2" style="background: #3498db;">Team</th>
                                 <th colspan="${interceptTypes.length * 2}" style="background: #16a085;">Intercepts</th>
+                                <th colspan="2" style="background: #16a085;">Corner Intercepts</th>
                                 <th colspan="${finishTypes.length + specialTypes.length}" style="background: #e67e22;">Shots Conceded</th>
                                 <th colspan="${finishTypes.length + specialTypes.length}" style="background: #f39c12;">Shots On Target</th>
                                 <th colspan="${finishTypes.length + specialTypes.length}" style="background: #27ae60;">Saves</th>
                             </tr>
                             <tr>
                                 ${interceptTypes.map(it => `<th style="background: #16a085;">${it} Att</th><th style="background: #16a085;">${it} Suc</th>`).join('')}
+                                <th style="background: #16a085;">Corner Att</th>
+                                <th style="background: #16a085;">Corner Suc</th>
                                 ${finishTypes.map(ft => `<th style="background: #e67e22;">${ft}</th>`).join('')}
                                 ${specialTypes.map(st => `<th style="background: #e67e22;">${st}</th>`).join('')}
                                 ${finishTypes.map(ft => `<th style="background: #f39c12;">${ft}</th>`).join('')}
@@ -1022,6 +1047,8 @@
                             <td><strong>${gk.name}</strong></td>
                             <td>${gk.team}</td>
                             ${interceptTypes.map(it => `<td>${getValue(interceptAtt, it)}</td><td>${getValue(interceptSuc, it)}</td>`).join('')}
+                            <td>${gkStats.corner_intercepts_attempted || 0}</td>
+                            <td>${gkStats.corner_intercepts_successful || 0}</td>
                             ${finishTypes.map(ft => `<td>${getValue(shotsConceded, ft)}</td>`).join('')}
                             ${specialTypes.map(st => `<td>${getValue(shotsConceded, st)}</td>`).join('')}
                             ${finishTypes.map(ft => `<td>${getValue(shotsOnTarget, ft)}</td>`).join('')}

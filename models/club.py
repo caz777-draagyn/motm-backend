@@ -20,6 +20,10 @@ class Club(Base):
     name = Column(String, nullable=False)
     balance = Column(Integer, nullable=False, default=0)
     
+    # Training facilities (0-10 scale)
+    youth_facilities_level = Column(Integer, nullable=False, default=5)
+    training_facilities_level = Column(Integer, nullable=False, default=5)
+    
     # B-team hierarchy
     # Main teams: is_b_team=False, parent_club_id=None
     # B-teams: is_b_team=True, parent_club_id points to main team
@@ -29,6 +33,8 @@ class Club(Base):
     # Relationships
     manager = relationship("Manager", back_populates="clubs")
     country = relationship("Country", back_populates="clubs")
+    youth_prospects = relationship("YouthProspect", back_populates="club")
+    youth_academy_players = relationship("YouthAcademyPlayer", back_populates="club")
     
     # Parent/child club relationships (for B-teams)
     parent_club = relationship(
@@ -44,3 +50,11 @@ class Club(Base):
         remote_side=[id],
         backref="main_club"
     )
+    
+    def get_youth_academy_capacity(self) -> int:
+        """
+        Calculate youth academy capacity based on youth facilities level.
+        Formula: 3 + (youth_facilities_level * 1.2)
+        Level 0 → 3 slots, Level 10 → 15 slots
+        """
+        return int(3 + (self.youth_facilities_level * 1.2))

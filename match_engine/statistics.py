@@ -94,6 +94,10 @@ class GoalkeeperStats:
         self.intercept_attempts_by_type = Counter()  # Attempted intercepts per chance type
         self.intercept_successes_by_type = Counter()  # Successful intercepts per chance type
         
+        # Corner intercept statistics
+        self.corner_intercepts_attempted = 0  # Number of corners where GK attempted intercept
+        self.corner_intercepts_successful = 0  # Number of successful corner intercepts
+        
         # Shot statistics by finish type (FirstTime, Controlled, Header, Chip, Finesse, Power, Penalty, Freekick)
         self.shots_conceded_by_type = Counter()  # Total shots faced per finish type
         self.shots_on_target_by_type = Counter()  # Shots on target faced per finish type
@@ -123,6 +127,8 @@ class GoalkeeperStats:
         """Merge another GoalkeeperStats into this one."""
         self.intercept_attempts_by_type.update(other.intercept_attempts_by_type)
         self.intercept_successes_by_type.update(other.intercept_successes_by_type)
+        self.corner_intercepts_attempted += other.corner_intercepts_attempted
+        self.corner_intercepts_successful += other.corner_intercepts_successful
         self.shots_conceded_by_type.update(other.shots_conceded_by_type)
         self.shots_on_target_by_type.update(other.shots_on_target_by_type)
         self.saves_by_type.update(other.saves_by_type)
@@ -218,6 +224,13 @@ class PlayerStatsV2:
         self.skill_usage = SkillUsage()  # Player-level skill usage (unweighted)
         self.weighted_skill_usage = WeightedSkillUsage()  # Player-level skill usage (weighted)
         self.goalkeeper_stats = GoalkeeperStats()  # Goalkeeper-specific stats (only populated for GKs)
+        
+        # Corner statistics
+        self.corners_taken = 0  # Number of corners taken by this player
+        self.corners_successful = 0  # Number of successful corner deliveries (not intercepted by GK)
+        self.corner_shots = 0  # Number of shots taken from corners
+        self.corner_shots_success = 0  # Number of successful corner finisher events
+        self.corner_goals = 0  # Number of goals scored from corners
 
     @property
     def goals(self):
@@ -251,6 +264,11 @@ class PlayerStatsV2:
         self.skill_usage.merge(other.skill_usage)
         self.weighted_skill_usage.merge(other.weighted_skill_usage)
         self.goalkeeper_stats.merge(other.goalkeeper_stats)
+        self.corners_taken += other.corners_taken
+        self.corners_successful += other.corners_successful
+        self.corner_shots += other.corner_shots
+        self.corner_shots_success += other.corner_shots_success
+        self.corner_goals += other.corner_goals
 
 
 class MatchStatsV2:
@@ -290,6 +308,8 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
 
     # Remember last successful creation per (minute, team) for assist credit
     last_creation = {}  # (minute, team) -> {"creator": str, "chance_type": str}
+    # Remember corner creator per (minute, team) for assist credit on corner goals
+    corner_creator = {}  # (minute, team) -> str (corner taker name)
 
     for entry in sim.log:
         minute, section, tag = entry[:3]
@@ -474,59 +494,77 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                 # Assist if creator from same minute/team
                 k = (minute, atk_team)
                 if k in last_creation:
-                    creator = last_creation[k]["creator"]
-                    ch_type = last_creation[k]["chance_type"]
-                    if creator != finisher:
-                        ms.ps(atk_team, creator).assists_by_chance_type[ch_type] += 1
+                    creation_info = last_creation[k]
+                    if isinstance(creation_info, dict) and "creator" in creation_info and "chance_type" in creation_info:
+                        creator = creation_info["creator"]
+                        ch_type = creation_info["chance_type"]
+                        if creator != finisher:
+                            ms.ps(atk_team, creator).assists_by_chance_type[ch_type] += 1
 
         # ------- CORNERS -------
         elif section == "corner":
-            phase = rest[0]
-            if phase == "creation":
-                outcome, prob, crit_s, creator, defender, chance_type, atk_team = rest[1:8]
+            phase = tag  # tag is already "gk_intercept", "delivery", "finish", etc.
+            if phase == "gk_intercept":
+                # GK intercept evaluation: creator vs goalkeeper
+                outcome, prob, crit_s, creator, goalkeeper, chance_type, atk_team = rest[:7]
                 def_team = away if atk_team == home else home
-                ms.team[atk_team].creator_off.attempt_by_type[chance_type] += 1
-                ms.team[def_team].creator_def.attempt_by_type[chance_type] += 1
-                ms.ps(atk_team, creator).creator_off.attempt_by_type[chance_type] += 1
-                ms.ps(def_team, defender).creator_def.attempt_by_type[chance_type] += 1
-
+                
+                # Track corner taken
+                ms.ps(atk_team, creator).corners_taken += 1
+                
+                # Track GK intercept attempt
+                gk_stats = ms.ps(def_team, goalkeeper).goalkeeper_stats
+                gk_stats.corner_intercepts_attempted += 1
+                
                 # Skill usage (unweighted) - filter GK-only skills based on player position
                 event_type = chance_type
                 creator_pos = ms.ps(atk_team, creator).position
                 creator_is_gk = (creator_pos == "GK")
+                goalkeeper_pos = ms.ps(def_team, goalkeeper).position
+                goalkeeper_is_gk = (goalkeeper_pos == "GK")
                 
                 creator_skills = filter_skills_list_for_player(skills_used, creator_is_gk)
+                goalkeeper_skills = filter_skills_list_for_player(skills_used, goalkeeper_is_gk)
                 
                 ms.team[atk_team].skill_usage.add_usage(skills_used, event_type)
                 ms.ps(atk_team, creator).skill_usage.add_usage(creator_skills, event_type)
+                ms.ps(def_team, goalkeeper).skill_usage.add_usage(goalkeeper_skills, event_type)
                 
-                # Weighted skill usage - filter GK-only skills based on player position
+                # Weighted skill usage
                 skill_weights = EVENT_SKILL_WEIGHTS.get(event_type, {})
                 if skill_weights:
                     creator_weights = filter_skills_for_player(skill_weights, creator_is_gk)
+                    goalkeeper_weights = filter_skills_for_player(skill_weights, goalkeeper_is_gk)
                     ms.team[atk_team].weighted_skill_usage.add_usage(skill_weights, event_type)
                     ms.ps(atk_team, creator).weighted_skill_usage.add_usage(creator_weights, event_type)
+                    ms.ps(def_team, goalkeeper).weighted_skill_usage.add_usage(goalkeeper_weights, event_type)
 
-                if outcome == "success":
-                    ms.team[atk_team].creator_off.success_by_type[chance_type] += 1
-                    ms.ps(atk_team, creator).creator_off.success_by_type[chance_type] += 1
-                    last_creation[(minute, atk_team)] = {"creator": creator, "chance_type": chance_type}
-                else:
-                    ms.team[def_team].creator_def.success_by_type[chance_type] += 1
-                    ms.ps(def_team, defender).creator_def.success_by_type[chance_type] += 1
+                if outcome == "intercepted":
+                    # GK intercepted the corner
+                    gk_stats.corner_intercepts_successful += 1
+                # If not intercepted, corner delivery successful (tracked in "delivery" phase)
+
+            elif phase == "delivery":
+                # Corner delivery successful (GK did not intercept)
+                outcome, prob, crit_s, creator, goalkeeper, chance_type, atk_team = rest[:7]
+                def_team = away if atk_team == home else home
+                
+                # Track successful corner delivery
+                ms.ps(atk_team, creator).corners_successful += 1
+                
+                # Store corner creator for potential assist credit
+                corner_creator[(minute, atk_team)] = creator
 
             elif phase == "finish":
-                outcome, prob, finisher, fdef, finish_type, atk_team = rest[1:7]
+                # Log format: outcome, prob, crit_s, finisher, fdef, finish_type, atk_team
+                outcome, prob, crit_s, finisher, fdef, finish_type, atk_team = rest[:7]
                 def_team = away if atk_team == home else home
-                # Note: For corners, finish_type is "Header" but the event is "Header_duel"
-                event_type_duel = f"{finish_type}_duel" if finish_type == "Header" else f"{finish_type}_finisher"
-                ms.team[atk_team].finisher_off.attempt_by_type[finish_type] += 1
-                ms.team[def_team].finisher_def.attempt_by_type[finish_type] += 1
-                ms.ps(atk_team, finisher).finisher_off.attempt_by_type[finish_type] += 1
-                ms.ps(def_team, fdef).finisher_def.attempt_by_type[finish_type] += 1
-
-                # Skill usage (unweighted) - use Header_duel for corners, filter GK-only skills
-                event_type = event_type_duel
+                # Note: For corners, the event is "Corner_finisher"
+                event_type = "Corner_finisher"
+                
+                # Track corner finisher attempts
+                ms.ps(atk_team, finisher).corner_shots += 1  # Corner shot attempt
+                
                 finisher_pos = ms.ps(atk_team, finisher).position
                 finisher_is_gk = (finisher_pos == "GK")
                 
@@ -543,14 +581,11 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                     ms.ps(atk_team, finisher).weighted_skill_usage.add_usage(finisher_weights, event_type)
 
                 if outcome == "success":
-                    ms.team[atk_team].finisher_off.success_by_type[finish_type] += 1
-                    ms.ps(atk_team, finisher).finisher_off.success_by_type[finish_type] += 1
-                else:
-                    ms.team[def_team].finisher_def.success_by_type[finish_type] += 1
-                    ms.ps(def_team, fdef).finisher_def.success_by_type[finish_type] += 1
+                    ms.ps(atk_team, finisher).corner_shots_success += 1
+                # Corner shots are tracked separately in shot_quality phase
 
             elif phase == "shot_quality":
-                outcome, prob, finisher, fdef, finish_type, atk_team = rest[1:7]
+                outcome, prob, finisher, fdef, finish_type, atk_team = rest[:6]
                 def_team = away if atk_team == home else home
                 
                 ms.team[atk_team].shooting.shots_by_type[finish_type] += 1
@@ -592,7 +627,7 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                     ms.ps(atk_team, finisher).weighted_skill_usage.add_usage(finisher_weights, event_type)
 
             elif phase == "save":
-                outcome, prob, finisher, goalkeeper, finish_type, atk_team = rest[1:7]
+                outcome, prob, finisher, goalkeeper, finish_type, atk_team = rest[:6]
                 def_team = away if atk_team == home else home
                 
                 # Track saves for goalkeeper
@@ -603,16 +638,45 @@ def aggregate_match_log_to_stats_v2(sim: MatchSimulator) -> MatchStatsV2:
                 if outcome == "goal":
                     ms.team[atk_team].shooting.goals_by_type[finish_type] += 1
                     ms.ps(atk_team, finisher).shooting.goals_by_type[finish_type] += 1
+                    # Track corner goal
+                    ms.ps(atk_team, finisher).corner_goals += 1
+                    
+                    # Credit assist to corner taker if different from finisher
                     k = (minute, atk_team)
-                    if k in last_creation:
-                        creator = last_creation[k]["creator"]
-                        ch_type = last_creation[k]["chance_type"]
-                        if creator != finisher:
-                            ms.ps(atk_team, creator).assists_by_chance_type[ch_type] += 1
+                    # Only credit assist if corner_creator exists (delivery phase was logged)
+                    if k in corner_creator:
+                        creator = corner_creator.get(k)
+                        if creator and creator != finisher:
+                            ms.ps(atk_team, creator).assists_by_chance_type["Corner"] += 1
+                    # Don't check last_creation for corner goals - corners are handled separately
+                    # Corner goals should always have corner_creator if the delivery was successful
 
                 # Skill usage (unweighted) - filter GK-only skills based on player position
                 # For saves: GK is initiator (has GK skills), finisher is defender (outfield, should not have GK skills)
                 event_type = f"{finish_type}_save"
+                finisher_pos = ms.ps(atk_team, finisher).position
+                finisher_is_gk = (finisher_pos == "GK")
+                
+                finisher_skills = filter_skills_list_for_player(skills_used, finisher_is_gk)
+                
+                ms.team[atk_team].skill_usage.add_usage(skills_used, event_type)
+                ms.ps(atk_team, finisher).skill_usage.add_usage(finisher_skills, event_type)
+                
+                # Weighted skill usage - filter GK-only skills based on player position
+                skill_weights = EVENT_SKILL_WEIGHTS.get(event_type, {})
+                if skill_weights:
+                    finisher_weights = filter_skills_for_player(skill_weights, finisher_is_gk)
+                    ms.team[atk_team].weighted_skill_usage.add_usage(skill_weights, event_type)
+                    ms.ps(atk_team, finisher).weighted_skill_usage.add_usage(finisher_weights, event_type)
+
+            elif phase == "finish_outcome":
+                # Corner shot went off target (miss)
+                outcome, prob, finisher, fdef, finish_type, atk_team = rest[:6]
+                def_team = away if atk_team == home else home
+                
+                # Shot was already tracked in shot_quality phase, nothing more to do here
+                # Just track skill usage if needed
+                event_type = finish_type
                 finisher_pos = ms.ps(atk_team, finisher).position
                 finisher_is_gk = (finisher_pos == "GK")
                 

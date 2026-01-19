@@ -422,10 +422,18 @@ class MatchSimulator:
                 finish_type, counter_attacking_team.name, skills_used
             ))
             
-            # Corner from saved shots
-            if saved and random.random() < 0.3:
-                self.log.append((minute, "special", "corner_kick", counter_attacking_team.name))
-                self.handle_corner(counter_attacking_team, counter_defending_team, minute)
+            # Evaluate corner trigger from saved shots (GK as initiator)
+            if saved:
+                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                    "Corner_from_save", goalkeeper, finisher
+                )
+                if corner_triggered:
+                    self.log.append((
+                        minute, "special", "corner_kick",
+                        goalkeeper.name, "after_save",
+                        f"{corner_prob:.3f}", corner_skills
+                    ))
+                    self.handle_corner(counter_attacking_team, counter_defending_team, minute)
         else:
             self.log.append((
                 minute, "result", "finish_outcome", "miss",
@@ -445,27 +453,29 @@ class MatchSimulator:
             creator = random.choice(attacking_team.players)
         creator_pos = creator.matrix_position
         
-        # Pick creation defender
-        defend_matrix = self.home_creator_vs_away_defend if attacking_team == self.home_team else self.away_creator_vs_home_defend
-        defend_probs = defend_matrix.get(creator_pos, {})
-        if not defend_probs:
-            present = {p.matrix_position for p in defending_team.players}
-            defend_probs = {pos: 1/len(present) for pos in present}
-        defender_pos = weighted_choice(defend_probs) or random.choice(list(defend_probs.keys()))
-        defender = select_player_from_pos(defending_team, defender_pos) or random.choice(defending_team.players)
+        # Get goalkeeper as defender (for GK intercept evaluation)
+        goalkeeper = defending_team.get_goalkeeper()
         
-        # Evaluate corner delivery
+        # Evaluate if GK comes out and intercepts the corner
         chance_type = "Corner"
-        success, prob, X, crit_level, skills_used = eval_event(chance_type, creator, defender)
+        gk_intercepts, prob, X, crit_level, skills_used = eval_event(chance_type, creator, goalkeeper)
         crit_s = (crit_level == "crit_2")
         self.log.append((
-            minute, "corner", "creation",
-            "success" if success else "fail",
+            minute, "corner", "gk_intercept",
+            "intercepted" if gk_intercepts else "not_intercepted",
             f"{prob:.3f}", crit_s,
-            creator.name, defender.name, chance_type, attacking_team.name, skills_used
+            creator.name, goalkeeper.name, chance_type, attacking_team.name, skills_used
         ))
-        if not success:
-            return
+        if gk_intercepts:
+            return  # GK intercepted, corner ends
+        
+        # Corner delivery successful, proceed to finisher
+        self.log.append((
+            minute, "corner", "delivery",
+            "success",
+            f"{prob:.3f}", False,
+            creator.name, goalkeeper.name, chance_type, attacking_team.name, []
+        ))
         
         # Build top-5 aerial candidates
         def top5_aerial(players, exclude=None):
@@ -487,16 +497,16 @@ class MatchSimulator:
         finish_defender = random.choice(top_defend)
         finish_defender_pos = finish_defender.matrix_position
         
-        # Duel for the header
+        # Corner finisher evaluation (renamed from Header_duel)
         finish_type = "Header"
-        # Apply +1 bonus if corner creation had critical success (crit_2)
+        # Apply +1 bonus if corner delivery had critical success (crit_2)
         x_bonus = 1.0 if crit_s else 0.0
-        success, prob, X, crit_level_duel, skills_used = eval_event(f"{finish_type}_duel", finisher, finish_defender, x_bonus=x_bonus)
-        crit_s_duel = (crit_level_duel == "crit_2")
+        success, prob, X, crit_level_finish, skills_used = eval_event("Corner_finisher", finisher, finish_defender, x_bonus=x_bonus)
+        crit_s_finish = (crit_level_finish == "crit_2")
         self.log.append((
             minute, "corner", "finish",
             "success" if success else "fail",
-            f"{prob:.3f}", crit_s_duel,
+            f"{prob:.3f}", crit_s_finish,
             finisher.name, finish_defender.name, finish_type, attacking_team.name, skills_used
         ))
         if not success:
@@ -607,6 +617,18 @@ class MatchSimulator:
             ))
             
             if not creation_success:
+                # Evaluate corner trigger from creation failure (defender as initiator)
+                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                    "Corner_from_creation_fail", defender, creator
+                )
+                if corner_triggered:
+                    self.log.append((
+                        minute, "special", "corner_kick", 
+                        defender.name, "after_creation_fail",
+                        f"{corner_prob:.3f}", corner_skills
+                    ))
+                    self.handle_corner(team, opponent_team, minute)
+                
                 # Check for counter attack after creation failure
                 if random.random() < 0.15:  # 15% chance for counter after creation failure
                     self.log.append((minute, "special", "counter_attack", defender.name, "after_creation_fail"))
@@ -615,11 +637,11 @@ class MatchSimulator:
                 continue  # Creation failed, move to next minute
             
             # Check for special events during creation
-            if random.random() < 0.01:  # 1% chance penalty
+            if random.random() < 0.005:  # 0.5% chance penalty
                 self.log.append((minute, "special", "penalty_awarded", team.name, "during_creation"))
                 self.handle_penalty(team, opponent_team, minute)
                 continue
-            elif random.random() < 0.02:  # 2% chance free kick
+            elif random.random() < 0.04:  # 2% chance free kick
                 self.log.append((minute, "special", "free_kick_awarded", team.name, "during_creation"))
                 self.handle_freekick(team, opponent_team, minute)
                 continue
@@ -655,7 +677,7 @@ class MatchSimulator:
                 self.log.append((minute, "special", "penalty_awarded", team.name, "during_finish"))
                 self.handle_penalty(team, opponent_team, minute)
                 continue
-            elif random.random() < 0.015:  # 1.5% free kick chance
+            elif random.random() < 0.02:  # 2% free kick chance
                 self.log.append((minute, "special", "free_kick_awarded", team.name, "during_finish"))
                 self.handle_freekick(team, opponent_team, minute)
                 continue
@@ -730,6 +752,18 @@ class MatchSimulator:
             ))
             
             if not finish_success:
+                # Evaluate corner trigger from finisher failure (defender as initiator)
+                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                    "Corner_from_finisher_fail", finish_defender, finisher
+                )
+                if corner_triggered:
+                    self.log.append((
+                        minute, "special", "corner_kick",
+                        finish_defender.name, "after_finisher_fail",
+                        f"{corner_prob:.3f}", corner_skills
+                    ))
+                    self.handle_corner(team, opponent_team, minute)
+                
                 # Check for counter attack after finisher failure
                 if random.random() < 0.20:  # 20% chance for counter after finisher failure
                     self.log.append((minute, "special", "counter_attack", finish_defender.name, "after_finisher_fail"))
@@ -785,10 +819,18 @@ class MatchSimulator:
                     finish_type, team.name, skills_used
                 ))
                 
-                # Corner from saved shots
-                if saved and random.random() < 0.3:
-                    self.log.append((minute, "special", "corner_kick", team.name))
-                    self.handle_corner(team, opponent_team, minute)
+                # Evaluate corner trigger from saved shots (GK as initiator)
+                if saved:
+                    corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                        "Corner_from_save", goalkeeper, finisher
+                    )
+                    if corner_triggered:
+                        self.log.append((
+                            minute, "special", "corner_kick",
+                            goalkeeper.name, "after_save",
+                            f"{corner_prob:.3f}", corner_skills
+                        ))
+                        self.handle_corner(team, opponent_team, minute)
             else:
                 self.log.append((
                     minute, "result", "finish_outcome", "miss",
