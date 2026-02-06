@@ -377,6 +377,12 @@
                 </table>
             </div>
             <div id="homeFormationStatus" class="formation-status" style="display: none;"></div>
+            <div id="homeFormationCharacteristics" class="formation-characteristics" style="display: none; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 4px; border: 1px solid #dee2e6;">
+                <h4 style="margin: 0 0 10px 0; color: #495057; font-size: 14px;">Formation Characteristics</h4>
+                <div id="homeCharacteristicsValues" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 12px;">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
         </div>
         
         <div class="team-section" id="awayTeamSection">
@@ -416,6 +422,12 @@
                 </table>
             </div>
             <div id="awayFormationStatus" class="formation-status" style="display: none;"></div>
+            <div id="awayFormationCharacteristics" class="formation-characteristics" style="display: none; margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 4px; border: 1px solid #dee2e6;">
+                <h4 style="margin: 0 0 10px 0; color: #495057; font-size: 14px;">Formation Characteristics</h4>
+                <div id="awayCharacteristicsValues" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 12px;">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
         </div>
         
         <div class="controls">
@@ -430,6 +442,10 @@
             <label>Match Length:</label>
             <input type="number" id="matchMinutes" value="90" min="1" max="120">
             <span>minutes</span>
+            
+            <label style="margin-left: 20px;">Formation Cross-Influence (b):</label>
+            <input type="number" id="formationCrossInfluence" value="0.0" step="0.1" min="-2.0" max="2.0" style="width: 80px;" onchange="updateAllFormationCharacteristics()">
+            <span style="font-size: 12px; color: #666;">(affects modified characteristics)</span>
             
             <button id="simulateBtn" onclick="runSimulation()">Run Simulation</button>
         </div>
@@ -447,6 +463,44 @@
     
     <script>
         let constants = null;
+        
+        // Position Allocation (PA) Matrix (matches Python version)
+        const POSITION_ALLOCATION_MATRIX = {
+            "GK": { "Possession": 0.0, "Attack_Center": 0.0, "Attack_Wide": 0.0, "Defend_Center": 0.0, "Defend_Wide": 0.0 },
+            "DL": { "Possession": 0.4, "Attack_Center": 0.0, "Attack_Wide": 0.4, "Defend_Center": 0.2, "Defend_Wide": 1.0 },
+            "DC": { "Possession": 0.3, "Attack_Center": 0.0, "Attack_Wide": 0.0, "Defend_Center": 1.0, "Defend_Wide": 0.3 },
+            "DR": { "Possession": 0.4, "Attack_Center": 0.0, "Attack_Wide": 0.4, "Defend_Center": 0.2, "Defend_Wide": 1.0 },
+            "DML": { "Possession": 0.6, "Attack_Center": 0.0, "Attack_Wide": 0.6, "Defend_Center": 0.1, "Defend_Wide": 0.8 },
+            "DMC": { "Possession": 0.9, "Attack_Center": 0.3, "Attack_Wide": 0.0, "Defend_Center": 0.7, "Defend_Wide": 0.2 },
+            "DMR": { "Possession": 0.6, "Attack_Center": 0.0, "Attack_Wide": 0.6, "Defend_Center": 0.1, "Defend_Wide": 0.8 },
+            "ML": { "Possession": 0.5, "Attack_Center": 0.1, "Attack_Wide": 0.8, "Defend_Center": 0.0, "Defend_Wide": 0.7 },
+            "MC": { "Possession": 1.0, "Attack_Center": 0.6, "Attack_Wide": 0.1, "Defend_Center": 0.4, "Defend_Wide": 0.1 },
+            "MR": { "Possession": 0.5, "Attack_Center": 0.1, "Attack_Wide": 0.8, "Defend_Center": 0.0, "Defend_Wide": 0.7 },
+            "OML": { "Possession": 0.3, "Attack_Center": 0.2, "Attack_Wide": 1.0, "Defend_Center": 0.0, "Defend_Wide": 0.3 },
+            "OMC": { "Possession": 0.7, "Attack_Center": 0.9, "Attack_Wide": 0.2, "Defend_Center": 0.1, "Defend_Wide": 0.0 },
+            "OMR": { "Possession": 0.3, "Attack_Center": 0.2, "Attack_Wide": 1.0, "Defend_Center": 0.0, "Defend_Wide": 0.3 },
+            "FC": { "Possession": 0.1, "Attack_Center": 1.0, "Attack_Wide": 0.1, "Defend_Center": 0.0, "Defend_Wide": 0.0 }
+        };
+        
+        // Shifting Capacity (SC) Matrix (matches Python version)
+        const SHIFTING_CAPACITY_MATRIX = {
+            "GK": { "Possession": 0.0, "Attack_Center": 0.0, "Attack_Wide": 0.0, "Defend_Center": 0.0, "Defend_Wide": 0.0 },
+            "DL": { "Possession": 0.1, "Attack_Center": 0.0, "Attack_Wide": 0.3, "Defend_Center": 0.2, "Defend_Wide": 0.4 },
+            "DC": { "Possession": 0.1, "Attack_Center": 0.0, "Attack_Wide": 0.1, "Defend_Center": 0.2, "Defend_Wide": 0.2 },
+            "DR": { "Possession": 0.1, "Attack_Center": 0.0, "Attack_Wide": 0.3, "Defend_Center": 0.2, "Defend_Wide": 0.4 },
+            "DML": { "Possession": 0.3, "Attack_Center": 0.1, "Attack_Wide": 0.4, "Defend_Center": 0.2, "Defend_Wide": 0.3 },
+            "DMC": { "Possession": 0.5, "Attack_Center": 0.2, "Attack_Wide": 0.0, "Defend_Center": 0.2, "Defend_Wide": 0.2 },
+            "DMR": { "Possession": 0.3, "Attack_Center": 0.1, "Attack_Wide": 0.4, "Defend_Center": 0.2, "Defend_Wide": 0.3 },
+            "ML": { "Possession": 0.0, "Attack_Center": 0.1, "Attack_Wide": 0.4, "Defend_Center": 0.0, "Defend_Wide": 0.3 },
+            "MC": { "Possession": 0.4, "Attack_Center": 0.4, "Attack_Wide": 0.1, "Defend_Center": 0.3, "Defend_Wide": 0.1 },
+            "MR": { "Possession": 0.0, "Attack_Center": 0.1, "Attack_Wide": 0.4, "Defend_Center": 0.0, "Defend_Wide": 0.3 },
+            "OML": { "Possession": 0.0, "Attack_Center": 0.3, "Attack_Wide": 0.4, "Defend_Center": 0.0, "Defend_Wide": 0.0 },
+            "OMC": { "Possession": 0.2, "Attack_Center": 0.4, "Attack_Wide": 0.1, "Defend_Center": 0.1, "Defend_Wide": 0.0 },
+            "OMR": { "Possession": 0.0, "Attack_Center": 0.3, "Attack_Wide": 0.4, "Defend_Center": 0.0, "Defend_Wide": 0.0 },
+            "FC": { "Possession": 0.0, "Attack_Center": 0.3, "Attack_Wide": 0.3, "Defend_Center": 0.0, "Defend_Wide": 0.1 }
+        };
+        
+        const FORMATION_CHARACTERISTICS = ["Possession", "Attack_Center", "Attack_Wide", "Defend_Center", "Defend_Wide"];
         
         // Load constants on page load
         async function loadConstants() {
@@ -506,6 +560,173 @@
             
             // Validate formation after initialization
             validateTeamFormation(teamPrefix);
+            updateFormationCharacteristics(teamPrefix);
+        }
+        
+        function updateAllFormationCharacteristics() {
+            // Update both teams when b parameter changes
+            updateFormationCharacteristics('home');
+            updateFormationCharacteristics('away');
+        }
+        
+        function calculateStructuralDepthCentral(positionCount) {
+            // Count central midfielder layers (DMC, MC, OMC)
+            const dmcCount = positionCount["DMC"] || 0;
+            const mcCount = positionCount["MC"] || 0;
+            const omcCount = positionCount["OMC"] || 0;
+            
+            // Count number of layers (presence of each type)
+            let numLayers = 0;
+            if (dmcCount > 0) numLayers++;
+            if (mcCount > 0) numLayers++;
+            if (omcCount > 0) numLayers++;
+            
+            // Base SD value based on number of layers
+            let sd = 0.0;
+            if (numLayers === 1) {
+                sd = 0.2;
+            } else if (numLayers === 2) {
+                sd = 0.6;
+            } else if (numLayers === 3) {
+                sd = 1.0;
+            }
+            
+            // Bonus: +0.1 per layer that has exactly 2 players (can happen once per layer)
+            if (dmcCount === 2) sd += 0.1;
+            if (mcCount === 2) sd += 0.1;
+            if (omcCount === 2) sd += 0.1;
+            
+            return sd;
+        }
+        
+        function calculateStructuralDepthWide(positionCount) {
+            // Count left side players
+            const leftSide = (positionCount["DL"] || 0) +
+                            (positionCount["DML"] || 0) +
+                            (positionCount["ML"] || 0) +
+                            (positionCount["OML"] || 0);
+            
+            // Count right side players
+            const rightSide = (positionCount["DR"] || 0) +
+                             (positionCount["DMR"] || 0) +
+                             (positionCount["MR"] || 0) +
+                             (positionCount["OMR"] || 0);
+            
+            // Calculate value for each side
+            let leftValue = 0.0;
+            if (leftSide === 1) {
+                leftValue = 0.4;
+            } else if (leftSide === 2) {
+                leftValue = 1.0;
+            } else if (leftSide > 2) {
+                // Cap at 1.0 for 2+ players (formations with more than 2 per side not allowed)
+                leftValue = 1.0;
+            }
+            
+            let rightValue = 0.0;
+            if (rightSide === 1) {
+                rightValue = 0.4;
+            } else if (rightSide === 2) {
+                rightValue = 1.0;
+            } else if (rightSide > 2) {
+                // Cap at 1.0 for 2+ players (formations with more than 2 per side not allowed)
+                rightValue = 1.0;
+            }
+            
+            // SD is average of left and right
+            return (leftValue + rightValue) / 2.0;
+        }
+        
+        function updateFormationCharacteristics(teamPrefix) {
+            // Count players by position
+            const positionCount = {};
+            for (let i = 0; i < 11; i++) {
+                const positionSelect = document.getElementById(`${teamPrefix}Player${i}Position`);
+                if (positionSelect) {
+                    const pos = positionSelect.value;
+                    positionCount[pos] = (positionCount[pos] || 0) + 1;
+                }
+            }
+            
+            // Calculate characteristics: X = PA + SD + SC
+            const characteristics = {};
+            
+            FORMATION_CHARACTERISTICS.forEach(char => {
+                // Calculate PA (Position Allocation)
+                let pa = 0.0;
+                for (const [position, count] of Object.entries(positionCount)) {
+                    const weight = POSITION_ALLOCATION_MATRIX[position]?.[char] || 0;
+                    pa += count * weight;
+                }
+                
+                // Calculate SD (Structural Depth)
+                let sd = 0.0;
+                if (char === "Possession" || char === "Attack_Center" || char === "Defend_Center") {
+                    sd = calculateStructuralDepthCentral(positionCount);
+                } else { // Attack_Wide, Defend_Wide
+                    sd = calculateStructuralDepthWide(positionCount);
+                }
+                
+                // Calculate SC (Shifting Capacity)
+                let sc = 0.0;
+                for (const [position, count] of Object.entries(positionCount)) {
+                    const weight = SHIFTING_CAPACITY_MATRIX[position]?.[char] || 0;
+                    sc += count * weight;
+                }
+                
+                // Final value: X = PA + SD + SC
+                characteristics[char] = pa + sd + sc;
+            });
+            
+            // Calculate modified values (x + b*y where y is the crossed wide/center)
+            const b = parseFloat(document.getElementById('formationCrossInfluence')?.value || 0.0);
+            const modifiedCharacteristics = {};
+            
+            // Mapping: x -> y (crossed wide/center)
+            const crossMapping = {
+                "Attack_Center": "Attack_Wide",
+                "Attack_Wide": "Attack_Center",
+                "Defend_Center": "Defend_Wide",
+                "Defend_Wide": "Defend_Center"
+            };
+            
+            // Calculate modified values for the 4 att/def characteristics
+            for (const [x, y] of Object.entries(crossMapping)) {
+                modifiedCharacteristics[x] = characteristics[x] + b * characteristics[y];
+            }
+            // Possession doesn't get modified
+            modifiedCharacteristics["Possession"] = characteristics["Possession"];
+            
+            // Update display
+            const container = document.getElementById(`${teamPrefix}CharacteristicsValues`);
+            const displayDiv = document.getElementById(`${teamPrefix}FormationCharacteristics`);
+            
+            if (container && displayDiv) {
+                container.innerHTML = FORMATION_CHARACTERISTICS.map(char => {
+                    const value = characteristics[char].toFixed(2);
+                    const label = char.replace(/_/g, ' ');
+                    
+                    // Show modified value for att/def characteristics
+                    let modifiedDisplay = '';
+                    if (char !== "Possession" && modifiedCharacteristics[char] !== undefined) {
+                        const modifiedValue = modifiedCharacteristics[char].toFixed(2);
+                        modifiedDisplay = `
+                            <div style="font-size: 12px; color: #28a745; margin-top: 4px; font-weight: 500;">
+                                Modified: ${modifiedValue}
+                            </div>
+                        `;
+                    }
+                    
+                    return `
+                        <div style="text-align: center; padding: 8px; background: white; border-radius: 4px; border: 1px solid #dee2e6;">
+                            <div style="font-weight: 600; color: #495057; margin-bottom: 4px; font-size: 11px;">${label}</div>
+                            <div style="font-size: 16px; color: #007bff; font-weight: bold;">${value}</div>
+                            ${modifiedDisplay}
+                        </div>
+                    `;
+                }).join('');
+                displayDiv.style.display = 'block';
+            }
         }
         
         function createPlayerRow(index, isGK, teamPrefix, outfieldAttrs, gkAttrs) {
@@ -548,6 +769,7 @@
                 positionSelect.addEventListener('change', () => {
                     updateAttributeVisibility(teamPrefix, index);
                     validateTeamFormation(teamPrefix);
+                    updateFormationCharacteristics(teamPrefix);
                 });
             }
             
@@ -1325,10 +1547,24 @@
                 errors.push(`Must have 1-3 DC, found ${dcCount}`);
             }
             
-            // Rule 3: Must have 1-3 total central midfielders (DMC + MC + OMC)
+            // Rule 3: Must have 1-4 total central midfielders (DMC + MC + OMC)
             const centralMidCount = (positionCount["DMC"] || 0) + (positionCount["MC"] || 0) + (positionCount["OMC"] || 0);
-            if (centralMidCount < 1 || centralMidCount > 3) {
-                errors.push(`Must have 1-3 central midfielders (DMC + MC + OMC), found ${centralMidCount}`);
+            if (centralMidCount < 1 || centralMidCount > 4) {
+                errors.push(`Must have 1-4 central midfielders (DMC + MC + OMC), found ${centralMidCount}`);
+            }
+            
+            // Rule 3a: Each central midfielder position can have at most 2 players
+            const dmcCount = positionCount["DMC"] || 0;
+            const mcCount = positionCount["MC"] || 0;
+            const omcCount = positionCount["OMC"] || 0;
+            if (dmcCount > 2) {
+                errors.push(`Cannot have more than 2 DMC, found ${dmcCount}`);
+            }
+            if (mcCount > 2) {
+                errors.push(`Cannot have more than 2 MC, found ${mcCount}`);
+            }
+            if (omcCount > 2) {
+                errors.push(`Cannot have more than 2 OMC, found ${omcCount}`);
             }
             
             // Rule 4: Must have at least 1 wide player on each side
@@ -1476,6 +1712,7 @@
             
             // Validate formation after applying
             validateTeamFormation(teamPrefix);
+            updateFormationCharacteristics(teamPrefix);
         }
         
         // Initialize on page load

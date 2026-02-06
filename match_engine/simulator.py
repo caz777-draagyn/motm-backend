@@ -288,23 +288,28 @@ class MatchSimulator:
             finisher = counter_creator
             finisher_pos = counter_creator_pos
         else:
-            candidate_positions = [pos for pos in possible_finishers if pos != counter_creator_pos]
-            if not candidate_positions:
-                candidate_positions = list(possible_finishers.keys())
+            # For non-Solo: finisher must be different player (but can be same position)
+            # e.g., if creator is FC, another FC can be finisher
+            candidate_positions = list(possible_finishers.keys())
             attempts = 0
             while True:
-                if not candidate_positions:
-                    candidate_positions = list(possible_finishers.keys())
-                finisher_pos = weighted_choice({k: possible_finishers[k] for k in candidate_positions})
+                finisher_pos = weighted_choice(possible_finishers)
                 if finisher_pos is None:
-                    finisher_pos = random.choice(list(possible_finishers.keys()))
+                    finisher_pos = random.choice(candidate_positions)
                 finisher = select_player_from_pos(counter_attacking_team, finisher_pos, exclude=counter_creator)
                 if finisher is not None:
                     break
                 attempts += 1
                 if attempts > 10:
-                    finisher = counter_creator
-                    finisher_pos = counter_creator_pos
+                    # Last resort: try to find any player except creator
+                    all_other_players = [p for p in counter_attacking_team.players if p != counter_creator]
+                    if all_other_players:
+                        finisher = random.choice(all_other_players)
+                        finisher_pos = finisher.matrix_position
+                    else:
+                        # Only one player on team (shouldn't happen, but handle gracefully)
+                        finisher = counter_creator
+                        finisher_pos = counter_creator_pos
                     break
         
         # --- COUNTER FINISH DEFENDER SELECTION ---
@@ -423,11 +428,12 @@ class MatchSimulator:
             ))
             
             # Evaluate corner trigger from saved shots (GK as initiator)
+            # Eval tests if GK prevents corner - corner happens if eval FAILS
             if saved:
-                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                corner_prevented, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
                     "Corner_from_save", goalkeeper, finisher
                 )
-                if corner_triggered:
+                if not corner_prevented:  # GK failed to prevent corner
                     self.log.append((
                         minute, "special", "corner_kick",
                         goalkeeper.name, "after_save",
@@ -618,10 +624,11 @@ class MatchSimulator:
             
             if not creation_success:
                 # Evaluate corner trigger from creation failure (defender as initiator)
-                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                # Eval tests if defender prevents corner - corner happens if eval FAILS
+                corner_prevented, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
                     "Corner_from_creation_fail", defender, creator
                 )
-                if corner_triggered:
+                if not corner_prevented:  # Defender failed to prevent corner
                     self.log.append((
                         minute, "special", "corner_kick", 
                         defender.name, "after_creation_fail",
@@ -653,23 +660,28 @@ class MatchSimulator:
                 finisher = creator
                 finisher_pos = creator_pos
             else:
-                candidate_positions = [pos for pos in possible_finishers if pos != creator_pos]
-                if not candidate_positions:
-                    candidate_positions = list(possible_finishers.keys())
+                # For non-Solo: finisher must be different player (but can be same position)
+                # e.g., if creator is FC, another FC can be finisher
+                candidate_positions = list(possible_finishers.keys())
                 attempts = 0
                 while True:
-                    if not candidate_positions:
-                        candidate_positions = list(possible_finishers.keys())
-                    finisher_pos = weighted_choice({k: possible_finishers[k] for k in candidate_positions})
+                    finisher_pos = weighted_choice(possible_finishers)
                     if finisher_pos is None:
-                        finisher_pos = random.choice(list(possible_finishers.keys()))
+                        finisher_pos = random.choice(candidate_positions)
                     finisher = select_player_from_pos(team, finisher_pos, exclude=creator)
                     if finisher is not None:
                         break
                     attempts += 1
                     if attempts > 10:
-                        finisher = creator
-                        finisher_pos = creator_pos
+                        # Last resort: try to find any player except creator
+                        all_other_players = [p for p in team.players if p != creator]
+                        if all_other_players:
+                            finisher = random.choice(all_other_players)
+                            finisher_pos = finisher.matrix_position
+                        else:
+                            # Only one player on team (shouldn't happen, but handle gracefully)
+                            finisher = creator
+                            finisher_pos = creator_pos
                         break
             
             # Check for special events during finishing
@@ -753,10 +765,11 @@ class MatchSimulator:
             
             if not finish_success:
                 # Evaluate corner trigger from finisher failure (defender as initiator)
-                corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                # Eval tests if defender prevents corner - corner happens if eval FAILS
+                corner_prevented, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
                     "Corner_from_finisher_fail", finish_defender, finisher
                 )
-                if corner_triggered:
+                if not corner_prevented:  # Defender failed to prevent corner
                     self.log.append((
                         minute, "special", "corner_kick",
                         finish_defender.name, "after_finisher_fail",
@@ -820,11 +833,12 @@ class MatchSimulator:
                 ))
                 
                 # Evaluate corner trigger from saved shots (GK as initiator)
+                # Eval tests if GK prevents corner - corner happens if eval FAILS
                 if saved:
-                    corner_triggered, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
+                    corner_prevented, corner_prob, corner_X, corner_crit, corner_skills = eval_event(
                         "Corner_from_save", goalkeeper, finisher
                     )
-                    if corner_triggered:
+                    if not corner_prevented:  # GK failed to prevent corner
                         self.log.append((
                             minute, "special", "corner_kick",
                             goalkeeper.name, "after_save",

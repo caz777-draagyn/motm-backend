@@ -55,19 +55,19 @@ CREATOR_CHANCE_TYPE_MATRIX = {
 
 # Finisher matrices by chance type
 BASE_FINISHER_SHORT_PASS_MATRIX = {
-    "DL":  {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 100, "MC": 100, "MR": 0, "OML": 100, "OMC": 50, "OMR": 0, "FC": 50},
-    "DC":  {"DL": 50, "DC": 0, "DR": 50, "DML": 100, "DMC": 100, "DMR": 100, "ML": 100, "MC": 100, "MR": 100, "OML": 100, "OMC": 100, "OMR": 100, "FC": 50},
-    "DR":  {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 0, "MC": 100, "MR": 100, "OML": 0, "OMC": 50, "OMR": 100, "FC": 50},
-    "DML": {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 100, "MC": 100, "MR": 0, "OML": 100, "OMC": 50, "OMR": 0, "FC": 50},
-    "DMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 50, "DMC": 50, "DMR": 50, "ML": 100, "MC": 100, "MR": 100, "OML": 100, "OMC": 100, "OMR": 100, "FC": 50},
-    "DMR": {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 0, "MC": 100, "MR": 100, "OML": 0, "OMC": 50, "OMR": 100, "FC": 50},
-    "ML":  {"DL": 30, "DC": 0, "DR": 0, "DML": 30, "DMC": 100, "DMR": 0, "ML": 0, "MC": 100, "MR": 0, "OML": 0, "OMC": 100, "OMR": 0, "FC": 50},
-    "MC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 50, "DMR": 30, "ML": 100, "MC": 100, "MR": 100, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "MR":  {"DL": 0, "DC": 0, "DR": 30, "DML": 0, "DMC": 100, "DMR": 30, "ML": 0, "MC": 100, "MR": 0, "OML": 0, "OMC": 100, "OMR": 0, "FC": 50},
-    "OML": {"DL": 30, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 0, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 100, "OMR": 0, "FC": 100},
-    "OMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 30, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "OMR": {"DL": 0, "DC": 0, "DR": 30, "DML": 0, "DMC": 30, "DMR": 30, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 100, "OMR": 0, "FC": 100},
-    "FC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 30, "ML": 30, "MC": 50, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
+    "DL":  {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 50, "MC": 50, "MR": 0, "OML": 50, "OMC": 50, "OMR": 0, "FC": 50},
+    "DC":  {"DL": 50, "DC": 0, "DR": 50, "DML": 100, "DMC": 100, "DMR": 100, "ML": 50, "MC": 50, "MR": 50, "OML": 50, "OMC": 50, "OMR": 100, "FC": 50},
+    "DR":  {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 0, "MC": 50, "MR": 50, "OML": 0, "OMC": 50, "OMR": 50, "FC": 50},
+    "DML": {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 50, "MC": 50, "MR": 0, "OML": 50, "OMC": 50, "OMR": 0, "FC": 50},
+    "DMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 50, "DMC": 50, "DMR": 50, "ML": 50, "MC": 50, "MR": 50, "OML": 50, "OMC": 50, "OMR": 50, "FC": 50},
+    "DMR": {"DL": 0, "DC": 30, "DR": 0, "DML": 0, "DMC": 50, "DMR": 0, "ML": 0, "MC": 50, "MR": 50, "OML": 0, "OMC": 50, "OMR": 50, "FC": 50},
+    "ML":  {"DL": 30, "DC": 0, "DR": 0, "DML": 30, "DMC": 100, "DMR": 0, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 50, "OMR": 0, "FC": 50},
+    "MC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 50, "DMR": 30, "ML": 50, "MC": 50, "MR": 50, "OML": 50, "OMC": 50, "OMR": 50, "FC": 100},
+    "MR":  {"DL": 0, "DC": 0, "DR": 30, "DML": 0, "DMC": 100, "DMR": 30, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 50, "OMR": 0, "FC": 50},
+    "OML": {"DL": 30, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 0, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 50, "OMR": 0, "FC": 100},
+    "OMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 30, "ML": 50, "MC": 50, "MR": 50, "OML": 50, "OMC": 50, "OMR": 50, "FC": 100},
+    "OMR": {"DL": 0, "DC": 0, "DR": 30, "DML": 0, "DMC": 30, "DMR": 30, "ML": 0, "MC": 50, "MR": 0, "OML": 0, "OMC": 50, "OMR": 0, "FC": 100},
+    "FC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 30, "DMC": 30, "DMR": 30, "ML": 30, "MC": 50, "MR": 30, "OML": 50, "OMC": 50, "OMR": 50, "FC": 100},
 }
 
 BASE_FINISHER_CROSSING_MATRIX = {
@@ -103,19 +103,19 @@ BASE_FINISHER_THROUGH_MATRIX = {
 }
 
 BASE_FINISHER_LONG_PASS_MATRIX = {
-    "DL":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "DC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "DR":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "DML": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "DMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "DMR": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 50, "MR": 50, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "ML":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 0, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "MC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 50, "MC": 0, "MR": 50, "OML": 100, "OMC": 50, "OMR": 100, "FC": 100},
-    "MR":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 0, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "OML": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "OMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "OMR": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
-    "FC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 100, "OMC": 100, "OMR": 100, "FC": 100},
+    "DL":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 50, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "DC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 50, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "DR":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 50, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "DML": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 50, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "DMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "DMR": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 50, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "ML":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 0, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "MC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 0, "MR": 30, "OML": 60, "OMC": 50, "OMR": 60, "FC": 100},
+    "MR":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 0, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "OML": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "OMC": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "OMR": {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
+    "FC":  {"DL": 0, "DC": 0, "DR": 0, "DML": 0, "DMC": 0, "DMR": 0, "ML": 30, "MC": 30, "MR": 30, "OML": 60, "OMC": 60, "OMR": 60, "FC": 100},
 }
 
 # Finisher -> Defender matrix
@@ -141,7 +141,7 @@ CHANCE_TO_FINISH_TYPE_MATRIX = {
     "Long":     {"FirstTime": 20, "Controlled": 20, "Header": 35, "Chip": 5,  "Finesse": 5,  "Power": 15},
     "Short":    {"FirstTime": 25, "Controlled": 30, "Header": 2,  "Chip": 3,  "Finesse": 10, "Power": 30},
     "Through":  {"FirstTime": 25, "Controlled": 25, "Header": 10, "Chip": 15, "Finesse": 15, "Power": 10},
-    "Solo":     {"FirstTime": 10, "Controlled": 25, "Header": 0,  "Chip": 10, "Finesse": 25, "Power": 30}
+    "Solo":     {"FirstTime": 0, "Controlled": 30, "Header": 0,  "Chip": 15, "Finesse": 25, "Power": 30}
 }
 
 
@@ -168,6 +168,10 @@ def normalize_matrix(matrix: Dict[str, float]) -> Dict[str, float]:
 def get_team_match_creator_matrix(team: Team, base_matrix: Dict[str, int] = None) -> Tuple[Dict[str, float], Dict[str, float]]:
     """Build match-specific creator matrix for a team.
     
+    Adds +5 bonus to base values of wide positions on a side when that side
+    has exactly 1 wide player. This ensures narrow formations still generate
+    some wide chances for balance.
+    
     Returns:
         Tuple of (raw_matrix, normalized_matrix)
     """
@@ -175,9 +179,30 @@ def get_team_match_creator_matrix(team: Team, base_matrix: Dict[str, int] = None
         base_matrix = BASE_CREATOR_MATRIX
     
     formation_count = get_formation_count(team)
+    
+    # Count wide players on each side
+    left_wide_positions = ["DL", "DML", "ML", "OML"]
+    right_wide_positions = ["DR", "DMR", "MR", "OMR"]
+    
+    left_wide_count = sum(formation_count.get(pos, 0) for pos in left_wide_positions)
+    right_wide_count = sum(formation_count.get(pos, 0) for pos in right_wide_positions)
+    
+    # Create a modified base matrix (copy)
+    modified_base_matrix = base_matrix.copy()
+    
+    # Add +5 bonus to base values of wide positions if side has exactly 1 wide player
+    if left_wide_count == 1:
+        for pos in left_wide_positions:
+            modified_base_matrix[pos] = modified_base_matrix.get(pos, 0) + 5
+    
+    if right_wide_count == 1:
+        for pos in right_wide_positions:
+            modified_base_matrix[pos] = modified_base_matrix.get(pos, 0) + 5
+    
+    # Calculate raw matrix using modified base values
     raw_matrix = {}
     for pos in POSITIONS:
-        raw_matrix[pos] = base_matrix.get(pos, 0) * formation_count.get(pos, 0)
+        raw_matrix[pos] = modified_base_matrix.get(pos, 0) * formation_count.get(pos, 0)
     
     norm_matrix = normalize_matrix(raw_matrix)
     return raw_matrix, norm_matrix

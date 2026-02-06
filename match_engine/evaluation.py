@@ -384,43 +384,30 @@ EVENT_X_FORMULAS = {
     
     # Corner triggers - defender/GK as initiator trying to deflect for corner
     "Corner_from_save": lambda initiator, defender: (
-        # GK's ability to deflect shot out for corner
+        # GK's ability to avoid deflecting ball out for corner
         0.5 * initiator.get_attr("Handling") +
-        0.3 * initiator.get_attr("Reflexes") +
-        0.2 * initiator.get_attr("Positioning")
+        0.2 * initiator.get_attr("Positioning") +
+        0.3 * initiator.get_attr("Composure")
     ) - (
-        # Finisher's ability to keep ball in play
-        0.5 * defender.get_attr("Finishing") +
-        0.3 * defender.get_attr("Ball Control") +
-        0.2 * defender.get_attr("Composure")
+        10
     ),
     
     "Corner_from_finisher_fail": lambda initiator, defender: (
-        # Defender's ability to deflect ball out for corner
-        0.4 * initiator.get_attr("Tackling") +
+        # Defender's ability to avoid deflecting ball out for corner
+        0.4 * initiator.get_attr("Ball Control") +
         0.3 * initiator.get_attr("Positioning") +
-        0.2 * initiator.get_attr("Strength") +
-        0.1 * initiator.get_attr("Agility")
+        0.3 * initiator.get_attr("Agility")
     ) - (
-        # Finisher's ability to keep ball in play
-        0.4 * defender.get_attr("Ball Control") +
-        0.3 * defender.get_attr("Agility") +
-        0.2 * defender.get_attr("Composure") +
-        0.1 * defender.get_attr("Positioning")
+       10
     ),
     
     "Corner_from_creation_fail": lambda initiator, defender: (
-        # Defender's ability to deflect ball out for corner
-        0.4 * initiator.get_attr("Tackling") +
-        0.3 * initiator.get_attr("Marking") +
-        0.2 * initiator.get_attr("Positioning") +
-        0.1 * initiator.get_attr("Strength")
+        # Defender's ability to avoid deflecting ball out for corner
+        0.4 * initiator.get_attr("Ball Control") +
+        0.3 * initiator.get_attr("Positioning") +
+        0.3 * initiator.get_attr("Agility")
     ) - (
-        # Creator's ability to keep ball in play
-        0.4 * defender.get_attr("Ball Control") +
-        0.3 * defender.get_attr("Passing") +
-        0.2 * defender.get_attr("Composure") +
-        0.1 * defender.get_attr("Vision")
+       10
     ),
 }
 
@@ -589,9 +576,9 @@ EVENT_SIGMOID_PARAMS = {
     "Power": {"a": 0.3, "c": 0.2, "L": 0.25}, #shoot on target 10-35%
     "Header_duel": DEFAULT_PARAMS,
     "Corner_finisher": DEFAULT_PARAMS,
-    "Corner_from_save": DEFAULT_PARAMS,
-    "Corner_from_finisher_fail": DEFAULT_PARAMS,
-    "Corner_from_creation_fail": DEFAULT_PARAMS,
+    "Corner_from_save": {"a": 0.15, "c": 0.6, "L": 0.3},
+    "Corner_from_finisher_fail": {"a": 0.15, "c": 0.75, "L": 0.2},
+    "Corner_from_creation_fail": {"a": 0.15, "c": 0.75, "L": 0.2},
     "FirstTime_save": {"a": 0.3, "c": 0.28, "L": 0.5}, #Save 50-75%
     "Controlled_save": {"a": 0.3, "c": 0.30, "L": 0.5}, #Save 55-78%
     "Header_save": {"a": 0.3, "c": 0.23, "L": 0.5}, #Save 45-70%
