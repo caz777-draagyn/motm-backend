@@ -31,14 +31,25 @@ def validate_formation(team: Team):
     if dc_count < 1 or dc_count > 3:
         errors.append(f"Must have 1-3 DC, found {dc_count}")
     
-    # Rule 3: Must have 1-3 total central midfielders (DMC + MC + OMC)
+    # Rule 3: Must have 1-4 total central midfielders (DMC + MC + OMC)
     central_mid_count = (
         position_count.get("DMC", 0) +
         position_count.get("MC", 0) +
         position_count.get("OMC", 0)
     )
-    if central_mid_count < 1 or central_mid_count > 3:
-        errors.append(f"Must have 1-3 central midfielders (DMC + MC + OMC), found {central_mid_count}")
+    if central_mid_count < 1 or central_mid_count > 4:
+        errors.append(f"Must have 1-4 central midfielders (DMC + MC + OMC), found {central_mid_count}")
+    
+    # Rule 3a: Each central midfielder position can have at most 2 players
+    dmc_count = position_count.get("DMC", 0)
+    mc_count = position_count.get("MC", 0)
+    omc_count = position_count.get("OMC", 0)
+    if dmc_count > 2:
+        errors.append(f"Cannot have more than 2 DMC, found {dmc_count}")
+    if mc_count > 2:
+        errors.append(f"Cannot have more than 2 MC, found {mc_count}")
+    if omc_count > 2:
+        errors.append(f"Cannot have more than 2 OMC, found {omc_count}")
     
     # Rule 4: Must have at least 1 wide player on each side
     left_wide = (
