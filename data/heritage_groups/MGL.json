@@ -1,0 +1,34 @@
+{
+    "nationality": "MGL",
+    "nationality_name": "Mongolia",
+    "heritage_groups": {
+        "MGL_AsiaEast": {
+            "weight": 0.92,
+            "picture_folder": "AsiaEast",
+            "origin_country_weights": {
+                "MGL": 0.4,
+                "CHN": 0.4,
+                "KOR": 0.1,
+                "JPN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.3,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

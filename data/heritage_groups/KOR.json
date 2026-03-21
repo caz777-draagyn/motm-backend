@@ -1,0 +1,60 @@
+{
+    "nationality": "KOR",
+    "nationality_name": "South Korea",
+    "heritage_groups": {
+        "KOR_AsiaEast": {
+            "weight": 0.98,
+            "picture_folder": "AsiaEast",
+            "origin_country_weights": {
+                "KOR": 0.95,
+                "CHN": 0.03,
+                "JPN": 0.02
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "KOR_AsiaSouthEast": {
+            "weight": 0.02,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "VIE": 0.5,
+                "PHI": 0.3,
+                "THA": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.1,
+                "HL": 0.05,
+                "HH": 0.85
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

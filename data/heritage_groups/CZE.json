@@ -1,0 +1,60 @@
+{
+    "nationality": "CZE",
+    "nationality_name": "Czech Republic",
+    "heritage_groups": {
+        "CZE_EuroCentral": {
+            "weight": 0.94,
+            "picture_folder": "EuroCentral",
+            "origin_country_weights": {
+                "CZE": 0.85,
+                "SVK": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "CZE_EuroEast": {
+            "weight": 0.06,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "UKR": 0.35,
+                "POL": 0.3,
+                "SVK": 0.2,
+                "ROU": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.4,
+                "HL": 0.01,
+                "HH": 0.55
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

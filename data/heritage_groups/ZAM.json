@@ -1,0 +1,84 @@
+{
+    "nationality": "ZAM",
+    "nationality_name": "Zambia",
+    "heritage_groups": {
+        "ZAM_AfricaSouth": {
+            "weight": 0.9,
+            "picture_folder": "AfricaSouth",
+            "origin_country_weights": {
+                "ZAM": 1.0
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "ZAM_AfricaCentral": {
+            "weight": 0.08,
+            "picture_folder": "AfricaCentral",
+            "origin_country_weights": {
+                "COD": 0.55,
+                "ANG": 0.25,
+                "TAN": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.08,
+                "HL": 0.04,
+                "HH": 0.88
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "ZAM_AsiaSouth": {
+            "weight": 0.02,
+            "picture_folder": "AsiaSouth",
+            "origin_country_weights": {
+                "IND": 0.7,
+                "PAK": 0.3
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.07,
+                "HL": 0.03,
+                "HH": 0.9
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

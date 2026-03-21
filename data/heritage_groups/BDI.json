@@ -1,0 +1,61 @@
+{
+    "nationality": "BDI",
+    "nationality_name": "Burundi",
+    "heritage_groups": {
+        "BDI_AfricaEast": {
+            "weight": 0.95,
+            "picture_folder": "AfricaEast",
+            "origin_country_weights": {
+                "BDI": 0.45,
+                "RWA": 0.25,
+                "TAN": 0.15,
+                "UGA": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        },
+        "BDI_AfricaCentral": {
+            "weight": 0.05,
+            "picture_folder": "AfricaCentral",
+            "origin_country_weights": {
+                "COD": 0.7,
+                "CGO": 0.2,
+                "CMR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

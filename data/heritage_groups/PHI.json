@@ -1,0 +1,58 @@
+{
+    "nationality": "PHI",
+    "nationality_name": "Philippines",
+    "heritage_groups": {
+        "PHI_AsiaSouthEast": {
+            "weight": 0.96,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "PHI": 0.95,
+                "MAS": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "PHI_AsiaEast": {
+            "weight": 0.04,
+            "picture_folder": "AsiaEast",
+            "origin_country_weights": {
+                "CHN": 0.8,
+                "HKG": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.1,
+                "HL": 0.05,
+                "HH": 0.85
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

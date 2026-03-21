@@ -1,0 +1,147 @@
+{
+    "nationality": "ISR",
+    "nationality_name": "Israel",
+    "heritage_groups": {
+        "ISR_MiddleEast": {
+            "weight": 0.45,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "ISR": 0.4,
+                "LBN": 0.2,
+                "IRQ": 0.15,
+                "SYR": 0.15,
+                "MAR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "ISR_EuroEast": {
+            "weight": 0.35,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "RUS": 0.35,
+                "UKR": 0.25,
+                "POL": 0.2,
+                "ROU": 0.1,
+                "HUN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.03,
+                "HL": 0.02,
+                "HH": 0.95
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "ISR_EuroNorth": {
+            "weight": 0.1,
+            "picture_folder": "EuroNorth",
+            "origin_country_weights": {
+                "GER": 0.25,
+                "FRA": 0.25,
+                "NED": 0.2,
+                "ENG": 0.2,
+                "SUI": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "ISR_AfricaNorth": {
+            "weight": 0.06,
+            "picture_folder": "AfricaNorth",
+            "origin_country_weights": {
+                "MAR": 0.45,
+                "TUN": 0.25,
+                "ALG": 0.2,
+                "LBY": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "ISR_AfricaEast": {
+            "weight": 0.04,
+            "picture_folder": "AfricaEast",
+            "origin_country_weights": {
+                "ETH": 0.8,
+                "ERI": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

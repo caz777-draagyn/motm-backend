@@ -1,0 +1,63 @@
+{
+    "nationality": "MNE",
+    "nationality_name": "Montenegro",
+    "heritage_groups": {
+        "MNE_EuroEast": {
+            "weight": 0.95,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "MNE": 0.35,
+                "SRB": 0.3,
+                "BIH": 0.15,
+                "CRO": 0.1,
+                "ALB": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "MNE_MiddleEast": {
+            "weight": 0.05,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "TUR": 0.7,
+                "LBN": 0.1,
+                "SYR": 0.1,
+                "IRQ": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

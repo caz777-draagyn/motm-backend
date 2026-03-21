@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Designer – MotM</title>
+<style>
+/* ── Reset & Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 340px;
+  min-width: 340px;
+  background: #161b22;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.sidebar-left { border-right: 1px solid #30363d; }
+.sidebar-right { border-left: 1px solid #30363d; }
+.sidebar-header {
+  padding: 18px 20px 10px;
+  border-bottom: 1px solid #30363d;
+}
+.sidebar-header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #58a6ff;
+}
+.sidebar-header h1 span { font-size: 1.4rem; }
+.controls {
+  padding: 10px 16px 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Control Sections ────────────────────────────────────  ─────────── */
+.ctrl-section {
+  margin-bottom: 16px;
+}
+.ctrl-section h3 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8b949e;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #21262d;
+}
+.ctrl-group {
+  margin-bottom: 10px;
+}
+.ctrl-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: #c9d1d9;
+  margin-bottom: 3px;
+}
+.ctrl-group select,
+.ctrl-group input[type="text"] {
+  width: 100%;
+  padding: 6px 8px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #e6edf3;
+  font-size: 0.82rem;
+}
+.ctrl-group select:focus,
+.ctrl-group input[type="text"]:focus {
+  outline: none;
+  border-color: #58a6ff;
+}
+
+/* ── Color Picker Row ─────────────────────────────────────────────── */
+.color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.color-row label {
+  width: 72px;
+  font-size: 0.78rem;
+  color: #c9d1d9;
+  flex-shrink: 0;
+}
+.color-row input[type="color"] {
+  width: 36px;
+  height: 30px;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  padding: 1px;
+}
+.color-row input[type="text"] {
+  flex: 1;
+  padding: 4px 6px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  color: #e6edf3;
+  font-family: 'Consolas', monospace;
+  font-size: 0.78rem;
+}
+.color-row .trans-tick {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+.color-row .trans-tick input { accent-color: #58a6ff; }
+.color-row .trans-tick span {
+  font-size: 0.65rem;
+  color: #8b949e;
+  cursor: pointer;
+}
+
+/* ── Slider Row ──────────────────────────────────────────────────── */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.slider-row label {
+  width: 72px;
+  font-size: 0.78rem;
+  color: #c9d1d9;
+  flex-shrink: 0;
+}
+.slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #58a6ff;
+}
+.slider-row .slider-val {
+  width: 40px;
+  text-align: right;
+  font-size: 0.75rem;
+  color: #8b949e;
+  font-family: 'Consolas', monospace;
+}
+
+/* ── Checkbox ─────────────────────────────────────────────────────── */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+}
+.checkbox-row input[type="checkbox"] {
+  accent-color: #58a6ff;
+}
+.checkbox-row label {
+  font-size: 0.78rem;
+  color: #c9d1d9;
+  cursor: pointer;
+}
+.pat-targets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px 4px;
+}
+.pat-targets .checkbox-row { margin: 1px 0; }
+.pat-targets .checkbox-row label { font-size: 0.7rem; }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #21262d;
+  color: #c9d1d9;
+  font-size: 0.82rem;
+  cursor: pointer;
+  margin-bottom: 6px;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  background: #30363d;
+  border-color: #58a6ff;
+}
+.btn-primary {
+  background: #238636;
+  border-color: #2ea043;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #2ea043;
+}
+
+/* ── Main Content ─────────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: #0d1117;
+}
+.canvas-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.canvas-panel {
+  text-align: center;
+}
+.canvas-panel h3 {
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-bottom: 8px;
+}
+.canvas-panel canvas {
+  background: #e8e8e8;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+}
+
+/* ── Config JSON Panel ────────────────────────────────────────────── */
+.config-panel {
+  width: 100%;
+  max-width: 980px;
+  margin-top: 12px;
+}
+.config-panel h3 {
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-bottom: 6px;
+}
+.config-panel textarea {
+  width: 100%;
+  height: 180px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #7ee787;
+  font-family: 'Consolas', monospace;
+  font-size: 0.78rem;
+  padding: 10px;
+  resize: vertical;
+}
+
+.layer-box {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.layer-box h4 {
+  font-size: 0.8rem;
+  color: #8b949e;
+  margin-bottom: 6px;
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ─── Sidebar ──────────────────────────────────────────────── -->
+  <aside class="sidebar sidebar-left">
+    <div class="sidebar-header">
+      <h1><span>&#9917;</span> Kit Designer</h1>
+    </div>
+    <div class="controls">
+
+      <!-- Kit Design -->
+      <div class="ctrl-section">
+        <h3>Kit Design</h3>
+        <div class="ctrl-group">
+          <label for="kitSelect">Shirt Style</label>
+          <select id="kitSelect"><option value="">&#8212; Loading... &#8212;</option></select>
+        </div>
+        <div class="ctrl-group">
+          <label for="shortsStyleSelect">Shorts Style</label>
+          <select id="shortsStyleSelect"><option value="">&#8212; Default FullKit &#8212;</option></select>
+        </div>
+        <div class="ctrl-group">
+          <label for="socksStyleSelect">Socks Style</label>
+          <select id="socksStyleSelect"><option value="">&#8212; Default FullKit &#8212;</option></select>
+        </div>
+      </div>
+
+      <!-- Collar -->
+      <div class="ctrl-section">
+        <h3>Collar</h3>
+        <div class="ctrl-group">
+          <label for="collarSelect">Collar Style</label>
+          <select id="collarSelect"><option value="">&#8212; Loading... &#8212;</option></select>
+        </div>
+        <div class="color-row">
+          <label>Primary</label>
+          <input type="color" id="collarPriPick" value="#FFFFFF">
+          <input type="text"  id="collarPriHex"  value="#FFFFFF" maxlength="7">
+        </div>
+        <div class="color-row">
+          <label>Secondary</label>
+          <input type="color" id="collarSecPick" value="#CC0000">
+          <input type="text"  id="collarSecHex"  value="#CC0000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="collarSecTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row">
+          <label>Tertiary</label>
+          <input type="color" id="collarTerPick" value="#000000">
+          <input type="text"  id="collarTerHex"  value="#000000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="collarTerTrans"><span>Off</span></label>
+        </div>
+      </div>
+
+      <!-- Shirt Colors -->
+      <div class="ctrl-section">
+        <h3>Shirt Colors</h3>
+        <div class="color-row" id="shirtPriRow">
+          <label>Primary</label>
+          <input type="color" id="shirtPriPick" value="#CC0000">
+          <input type="text"  id="shirtPriHex"  value="#CC0000" maxlength="7">
+        </div>
+        <div class="color-row" id="shirtSecRow">
+          <label>Secondary</label>
+          <input type="color" id="shirtSecPick" value="#FFFFFF">
+          <input type="text"  id="shirtSecHex"  value="#FFFFFF" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="shirtSecTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row" id="shirtTerRow">
+          <label>Tertiary</label>
+          <input type="color" id="shirtTerPick" value="#000000">
+          <input type="text"  id="shirtTerHex"  value="#000000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="shirtTerTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row" id="shirtQuatRow">
+          <label>Quaternary</label>
+          <input type="color" id="shirtQuatPick" value="#FFCC00">
+          <input type="text"  id="shirtQuatHex"  value="#FFCC00" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="shirtQuatTrans"><span>Off</span></label>
+        </div>
+      </div>
+
+      <!-- Shorts Colors -->
+      <div class="ctrl-section">
+        <h3>Shorts Colors</h3>
+        <div class="color-row" id="shortsPriRow">
+          <label>Primary</label>
+          <input type="color" id="shortsPriPick" value="#FFFFFF">
+          <input type="text"  id="shortsPriHex"  value="#FFFFFF" maxlength="7">
+        </div>
+        <div class="color-row" id="shortsSecRow">
+          <label>Secondary</label>
+          <input type="color" id="shortsSecPick" value="#CC0000">
+          <input type="text"  id="shortsSecHex"  value="#CC0000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="shortsSecTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row" id="shortsTerRow">
+          <label>Tertiary</label>
+          <input type="color" id="shortsTerPick" value="#000000">
+          <input type="text"  id="shortsTerHex"  value="#000000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="shortsTerTrans"><span>Off</span></label>
+        </div>
+      </div>
+
+      <!-- Socks Colors -->
+      <div class="ctrl-section">
+        <h3>Socks Colors</h3>
+        <div class="color-row" id="socksPriRow">
+          <label>Primary</label>
+          <input type="color" id="socksPriPick" value="#CC0000">
+          <input type="text"  id="socksPriHex"  value="#CC0000" maxlength="7">
+        </div>
+        <div class="color-row" id="socksSecRow">
+          <label>Secondary</label>
+          <input type="color" id="socksSecPick" value="#FFFFFF">
+          <input type="text"  id="socksSecHex"  value="#FFFFFF" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="socksSecTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row" id="socksTerRow">
+          <label>Tertiary</label>
+          <input type="color" id="socksTerPick" value="#000000">
+          <input type="text"  id="socksTerHex"  value="#000000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="socksTerTrans"><span>Off</span></label>
+        </div>
+      </div>
+
+      <!-- Pattern -->
+      <div class="ctrl-section" id="patternSection">
+        <h3>Pattern Layers</h3>
+        <div class="layer-box">
+          <h4>Layer 1</h4>
+          <div class="ctrl-group">
+            <label for="pattern1Select">Texture</label>
+            <select id="pattern1Select"><option value="">&#8212; None &#8212;</option></select>
+          </div>
+          <div class="color-row">
+            <label>Color</label>
+            <input type="color" id="pat1ColorPick" value="#FFFFFF">
+            <input type="text"  id="pat1ColorHex"  value="#FFFFFF" maxlength="7">
+          </div>
+          <div class="slider-row">
+            <label>Scale</label>
+            <input type="range" id="pat1Scale" min="0.25" max="4" step="0.25" value="1">
+            <span class="slider-val" id="pat1ScaleVal">1.0x</span>
+          </div>
+          <div class="slider-row">
+            <label>Horiz.</label>
+            <input type="range" id="pat1OffsetX" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat1OffsetXVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Vert.</label>
+            <input type="range" id="pat1OffsetY" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat1OffsetYVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Rotate</label>
+            <input type="range" id="pat1Rotate" min="-180" max="180" step="1" value="0">
+            <span class="slider-val" id="pat1RotateVal">0deg</span>
+          </div>
+          <div class="ctrl-group">
+            <label>Apply to</label>
+            <div class="pat-targets">
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shirt_primary"  class="patTarget patTarget1" value="shirt_primary"><label for="pat1_shirt_primary">Shirt Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shirt_secondary" class="patTarget patTarget1" value="shirt_secondary"><label for="pat1_shirt_secondary">Shirt Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shirt_tertiary" class="patTarget patTarget1" value="shirt_tertiary"><label for="pat1_shirt_tertiary">Shirt Ter.</label></div>
+            <div class="checkbox-row" id="pat1_shirt_quat_row"><input type="checkbox" id="pat1_shirt_quaternary" class="patTarget patTarget1" value="shirt_quaternary"><label for="pat1_shirt_quaternary">Shirt Quat.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shorts_primary" class="patTarget patTarget1" value="shorts_primary"><label for="pat1_shorts_primary">Shorts Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shorts_secondary" class="patTarget patTarget1" value="shorts_secondary"><label for="pat1_shorts_secondary">Shorts Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_shorts_tertiary" class="patTarget patTarget1" value="shorts_tertiary"><label for="pat1_shorts_tertiary">Shorts Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_socks_primary"  class="patTarget patTarget1" value="socks_primary"><label for="pat1_socks_primary">Socks Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_socks_secondary" class="patTarget patTarget1" value="socks_secondary"><label for="pat1_socks_secondary">Socks Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_socks_tertiary" class="patTarget patTarget1" value="socks_tertiary"><label for="pat1_socks_tertiary">Socks Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_collar_primary"  class="patTarget patTarget1" value="collar_primary"><label for="pat1_collar_primary">Collar Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_collar_secondary" class="patTarget patTarget1" value="collar_secondary"><label for="pat1_collar_secondary">Collar Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat1_collar_tertiary" class="patTarget patTarget1" value="collar_tertiary"><label for="pat1_collar_tertiary">Collar Ter.</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="layer-box">
+          <h4>Layer 2</h4>
+          <div class="ctrl-group">
+            <label for="pattern2Select">Texture</label>
+            <select id="pattern2Select"><option value="">&#8212; None &#8212;</option></select>
+          </div>
+          <div class="color-row">
+            <label>Color</label>
+            <input type="color" id="pat2ColorPick" value="#FFFFFF">
+            <input type="text"  id="pat2ColorHex"  value="#FFFFFF" maxlength="7">
+          </div>
+          <div class="slider-row">
+            <label>Scale</label>
+            <input type="range" id="pat2Scale" min="0.25" max="4" step="0.25" value="1">
+            <span class="slider-val" id="pat2ScaleVal">1.0x</span>
+          </div>
+          <div class="slider-row">
+            <label>Horiz.</label>
+            <input type="range" id="pat2OffsetX" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat2OffsetXVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Vert.</label>
+            <input type="range" id="pat2OffsetY" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat2OffsetYVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Rotate</label>
+            <input type="range" id="pat2Rotate" min="-180" max="180" step="1" value="0">
+            <span class="slider-val" id="pat2RotateVal">0deg</span>
+          </div>
+          <div class="ctrl-group">
+            <label>Apply to</label>
+            <div class="pat-targets">
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shirt_primary"  class="patTarget patTarget2" value="shirt_primary"><label for="pat2_shirt_primary">Shirt Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shirt_secondary" class="patTarget patTarget2" value="shirt_secondary"><label for="pat2_shirt_secondary">Shirt Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shirt_tertiary" class="patTarget patTarget2" value="shirt_tertiary"><label for="pat2_shirt_tertiary">Shirt Ter.</label></div>
+            <div class="checkbox-row" id="pat2_shirt_quat_row"><input type="checkbox" id="pat2_shirt_quaternary" class="patTarget patTarget2" value="shirt_quaternary"><label for="pat2_shirt_quaternary">Shirt Quat.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shorts_primary" class="patTarget patTarget2" value="shorts_primary"><label for="pat2_shorts_primary">Shorts Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shorts_secondary" class="patTarget patTarget2" value="shorts_secondary"><label for="pat2_shorts_secondary">Shorts Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_shorts_tertiary" class="patTarget patTarget2" value="shorts_tertiary"><label for="pat2_shorts_tertiary">Shorts Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_socks_primary"  class="patTarget patTarget2" value="socks_primary"><label for="pat2_socks_primary">Socks Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_socks_secondary" class="patTarget patTarget2" value="socks_secondary"><label for="pat2_socks_secondary">Socks Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_socks_tertiary" class="patTarget patTarget2" value="socks_tertiary"><label for="pat2_socks_tertiary">Socks Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_collar_primary"  class="patTarget patTarget2" value="collar_primary"><label for="pat2_collar_primary">Collar Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_collar_secondary" class="patTarget patTarget2" value="collar_secondary"><label for="pat2_collar_secondary">Collar Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat2_collar_tertiary" class="patTarget patTarget2" value="collar_tertiary"><label for="pat2_collar_tertiary">Collar Ter.</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="layer-box">
+          <h4>Layer 3</h4>
+          <div class="ctrl-group">
+            <label for="pattern3Select">Texture</label>
+            <select id="pattern3Select"><option value="">&#8212; None &#8212;</option></select>
+          </div>
+          <div class="color-row">
+            <label>Color</label>
+            <input type="color" id="pat3ColorPick" value="#FFFFFF">
+            <input type="text"  id="pat3ColorHex"  value="#FFFFFF" maxlength="7">
+          </div>
+          <div class="slider-row">
+            <label>Scale</label>
+            <input type="range" id="pat3Scale" min="0.25" max="4" step="0.25" value="1">
+            <span class="slider-val" id="pat3ScaleVal">1.0x</span>
+          </div>
+          <div class="slider-row">
+            <label>Horiz.</label>
+            <input type="range" id="pat3OffsetX" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat3OffsetXVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Vert.</label>
+            <input type="range" id="pat3OffsetY" min="0" max="1" step="0.01" value="0">
+            <span class="slider-val" id="pat3OffsetYVal">0%</span>
+          </div>
+          <div class="slider-row">
+            <label>Rotate</label>
+            <input type="range" id="pat3Rotate" min="-180" max="180" step="1" value="0">
+            <span class="slider-val" id="pat3RotateVal">0deg</span>
+          </div>
+          <div class="ctrl-group">
+            <label>Apply to</label>
+            <div class="pat-targets">
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shirt_primary"  class="patTarget patTarget3" value="shirt_primary"><label for="pat3_shirt_primary">Shirt Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shirt_secondary" class="patTarget patTarget3" value="shirt_secondary"><label for="pat3_shirt_secondary">Shirt Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shirt_tertiary" class="patTarget patTarget3" value="shirt_tertiary"><label for="pat3_shirt_tertiary">Shirt Ter.</label></div>
+            <div class="checkbox-row" id="pat3_shirt_quat_row"><input type="checkbox" id="pat3_shirt_quaternary" class="patTarget patTarget3" value="shirt_quaternary"><label for="pat3_shirt_quaternary">Shirt Quat.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shorts_primary" class="patTarget patTarget3" value="shorts_primary"><label for="pat3_shorts_primary">Shorts Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shorts_secondary" class="patTarget patTarget3" value="shorts_secondary"><label for="pat3_shorts_secondary">Shorts Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_shorts_tertiary" class="patTarget patTarget3" value="shorts_tertiary"><label for="pat3_shorts_tertiary">Shorts Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_socks_primary"  class="patTarget patTarget3" value="socks_primary"><label for="pat3_socks_primary">Socks Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_socks_secondary" class="patTarget patTarget3" value="socks_secondary"><label for="pat3_socks_secondary">Socks Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_socks_tertiary" class="patTarget patTarget3" value="socks_tertiary"><label for="pat3_socks_tertiary">Socks Ter.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_collar_primary"  class="patTarget patTarget3" value="collar_primary"><label for="pat3_collar_primary">Collar Pri.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_collar_secondary" class="patTarget patTarget3" value="collar_secondary"><label for="pat3_collar_secondary">Collar Sec.</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="pat3_collar_tertiary" class="patTarget patTarget3" value="collar_tertiary"><label for="pat3_collar_tertiary">Collar Ter.</label></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crest -->
+      <div class="ctrl-section" id="crestSection">
+        <h3>Crest</h3>
+        <div class="ctrl-group">
+          <label for="crestSelect">Image</label>
+          <select id="crestSelect"><option value="">&#8212; None &#8212;</option></select>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="crestVisible" checked>
+          <label for="crestVisible">Show crest</label>
+        </div>
+        <div class="slider-row">
+          <label>Size</label>
+          <input type="range" id="crestScale" min="0.03" max="0.20" step="0.01" value="0.08">
+          <span class="slider-val" id="crestScaleVal">8%</span>
+        </div>
+        <div class="slider-row">
+          <label>Horiz.</label>
+          <input type="range" id="crestX" min="0.30" max="0.70" step="0.01" value="0.59">
+          <span class="slider-val" id="crestXVal">59%</span>
+        </div>
+        <div class="slider-row">
+          <label>Vert.</label>
+          <input type="range" id="crestY" min="0.15" max="0.50" step="0.01" value="0.26">
+          <span class="slider-val" id="crestYVal">26%</span>
+        </div>
+      </div>
+
+      <!-- Sponsor -->
+      <div class="ctrl-section" id="sponsorSection">
+        <h3>Sponsor</h3>
+        <div class="ctrl-group">
+          <label for="sponsorDesignSelect">Mask Design</label>
+          <select id="sponsorDesignSelect"><option value="">&#8212; None &#8212;</option></select>
+        </div>
+        <div class="color-row">
+          <label>Mask Pri.</label>
+          <input type="color" id="sponsorMaskPriPick" value="#FFFFFF">
+          <input type="text"  id="sponsorMaskPriHex"  value="#FFFFFF" maxlength="7">
+        </div>
+        <div class="color-row">
+          <label>Mask Sec.</label>
+          <input type="color" id="sponsorMaskSecPick" value="#000000">
+          <input type="text"  id="sponsorMaskSecHex"  value="#000000" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="sponsorMaskSecTrans"><span>Off</span></label>
+        </div>
+        <div class="color-row">
+          <label>Mask Ter.</label>
+          <input type="color" id="sponsorMaskTerPick" value="#FFD700">
+          <input type="text"  id="sponsorMaskTerHex"  value="#FFD700" maxlength="7">
+          <label class="trans-tick"><input type="checkbox" id="sponsorMaskTerTrans"><span>Off</span></label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="sponsorVisible" checked>
+          <label for="sponsorVisible">Show sponsor</label>
+        </div>
+        <div class="slider-row">
+          <label>Size</label>
+          <input type="range" id="sponsorScale" min="0.2" max="1" step="0.05" value="0.55">
+          <span class="slider-val" id="sponsorScaleVal">55%</span>
+        </div>
+        <div class="slider-row">
+          <label>Horiz.</label>
+          <input type="range" id="sponsorX" min="0.35" max="0.65" step="0.01" value="0.50">
+          <span class="slider-val" id="sponsorXVal">50%</span>
+        </div>
+        <div class="slider-row">
+          <label>Vert.</label>
+          <input type="range" id="sponsorY" min="0.22" max="0.46" step="0.01" value="0.31">
+          <span class="slider-val" id="sponsorYVal">31%</span>
+        </div>
+        <div class="ctrl-group">
+          <label for="sponsorBg">Sponsor background</label>
+          <select id="sponsorBg">
+            <option value="transparent">Transparent</option>
+            <option value="primary">Shirt Primary</option>
+            <option value="secondary">Shirt Secondary</option>
+          </select>
+        </div>
+        <div class="slider-row">
+          <label>Bg Width</label>
+          <input type="range" id="sponsorBgScaleX" min="0.60" max="1.20" step="0.02" value="1.00">
+          <span class="slider-val" id="sponsorBgScaleXVal">100%</span>
+        </div>
+        <div class="slider-row">
+          <label>Bg Height</label>
+          <input type="range" id="sponsorBgScaleY" min="0.60" max="1.20" step="0.02" value="1.00">
+          <span class="slider-val" id="sponsorBgScaleYVal">100%</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="ctrl-section" id="actionsSection">
+        <h3>Export &amp; Actions</h3>
+        <button class="btn btn-primary" id="btnExport">&#128229; Download Kit PNG</button>
+        <button class="btn" id="btnShowJSON">&#128203; Toggle Config JSON</button>
+        <button class="btn" id="btnReset">&#128260; Reset to Defaults</button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ─── Main Area ────────────────────────────────────────────── -->
+  <main class="main">
+    <div class="canvas-row">
+      <div class="canvas-panel">
+        <h3>Kit Preview</h3>
+        <canvas id="cvsKit" width="800" height="900"></canvas>
+      </div>
+    </div>
+    <div class="config-panel" id="configPanel" style="display:none">
+      <h3>Current Configuration JSON</h3>
+      <textarea id="configJSON" readonly></textarea>
+    </div>
+  </main>
+
+  <!-- ─── Right Sidebar ───────────────────────────────────────────── -->
+  <aside class="sidebar sidebar-right">
+    <div class="sidebar-header">
+      <h1><span>&#9881;</span> Overlays</h1>
+    </div>
+    <div class="controls" id="rightControls"></div>
+  </aside>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   1. STATE & DEFAULTS
+   ═══════════════════════════════════════════════════════════════════ */
+const DEFAULTS = {
+  /* per-part colors */
+  shirtPrimaryColor:    '#CC0000',
+  shirtSecondaryColor:  '#FFFFFF',
+  shirtTertiaryColor:   '#000000',
+  shirtQuaternaryColor: '#FFCC00',
+  shortsPrimaryColor:  '#FFFFFF',
+  shortsSecondaryColor:'#CC0000',
+  shortsTertiaryColor: '#000000',
+  socksPrimaryColor:   '#CC0000',
+  socksSecondaryColor: '#FFFFFF',
+  socksTertiaryColor:  '#000000',
+  collarPrimaryColor:  '#FFFFFF',
+  collarSecondaryColor:'#CC0000',
+  collarTertiaryColor: '#000000',
+  /* pattern layers */
+  patternLayers: [
+    { file: '', color: '#FFFFFF', targets: [], scale: 1, offsetX: 0, offsetY: 0, rotateDeg: 0 },
+    { file: '', color: '#FFFFFF', targets: [], scale: 1, offsetX: 0, offsetY: 0, rotateDeg: 0 },
+    { file: '', color: '#FFFFFF', targets: [], scale: 1, offsetX: 0, offsetY: 0, rotateDeg: 0 },
+  ],
+  /* sponsor / crest */
+  sponsorScale:   0.55,
+  sponsorX:       0.50,
+  sponsorY:       0.31,
+  sponsorBg:      'transparent',
+  sponsorBgScaleX: 1.0,
+  sponsorBgScaleY: 1.0,
+  sponsorDesignName: '',
+  sponsorMaskPrimaryColor: '#FFFFFF',
+  sponsorMaskSecondaryColor: '#000000',
+  sponsorMaskTertiaryColor: '#FFD700',
+  sponsorMaskSecondaryTransparent: false,
+  sponsorMaskTertiaryTransparent: false,
+  crestFile:      '',
+  crestVisible:   true,
+  sponsorVisible: true,
+  crestScale:     0.08,
+  crestX:         0.59,
+  crestY:         0.26,
+  collarName:     '',
+  kitName:        '',
+  shortsStyleName:'',
+  socksStyleName: '',
+};
+
+const state = {
+  ...DEFAULTS,
+  patternLayers: DEFAULTS.patternLayers.map(l => ({ ...l })),
+  crestImg: null,
+  sponsorFixedImg: null,
+  sponsorMaskPrimaryImg: null,
+  sponsorMaskSecondaryImg: null,
+  sponsorMaskTertiaryImg: null,
+  patternLayerImgs: [null, null, null]
+};
+
+/* Canvas display size – width fixed, height computed from template aspect ratio */
+const CW = 800;
+let CH = 900;                         /* updated after template loads */
+
+const TMPL_BASE = '/gfx/kit_templates/';
+const BASE = TMPL_BASE + 'fullkit/';
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. TEMPLATE LAYER SYSTEM  (fullkit: shirt + shorts + socks + collar + boots)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Native-resolution originals (kept for full-quality PNG export) */
+const TMPL = {
+  shirt:   { primary: null, secondary: null, tertiary: null, quaternary: null },
+  shorts:  { primary: null, secondary: null, tertiary: null, quaternary: null },
+  socks:   { primary: null, secondary: null, tertiary: null, quaternary: null },
+  collar:  { primary: null, secondary: null, tertiary: null, quaternary: null },
+  shirtShadows: null,        shirtHighlights: null,
+  shortsSocksShadows: null,  shortsSocksHighlights: null,
+  collarShadows: null,       collarHighlights: null,
+  collarUnderShadows: null,
+  boots: null,
+  loaded: false,
+  nw: 0, nh: 0,
+};
+
+/* Display-resolution copies (used for fast interactive preview) */
+const SM = {
+  shirt:   { primary: null, secondary: null, tertiary: null, quaternary: null },
+  shorts:  { primary: null, secondary: null, tertiary: null, quaternary: null },
+  socks:   { primary: null, secondary: null, tertiary: null, quaternary: null },
+  collar:  { primary: null, secondary: null, tertiary: null, quaternary: null },
+  bodyShadows: null,           /* shirt + shorts/socks shadows (pre-composited) */
+  bodyHighlights: null,        /* shirt + shorts/socks highlights (pre-composited) */
+  collarShadows: null,         /* collar-only shadows */
+  collarHighlights: null,      /* collar-only highlights */
+  collarUnderShadows: null,    /* shadow cast under collar flip onto shirt */
+  boots: null,
+};
+
+/* Offscreen canvases – sized to DISPLAY resolution for fast preview */
+const _tint   = document.createElement('canvas');
+const _tintCtx = _tint.getContext('2d');
+const _comp   = document.createElement('canvas');
+const _compCtx = _comp.getContext('2d');
+const _pat    = document.createElement('canvas');
+const _patCtx  = _pat.getContext('2d');
+const _aux    = document.createElement('canvas');
+const _auxCtx  = _aux.getContext('2d');
+const _mask   = document.createElement('canvas');
+const _maskCtx = _mask.getContext('2d');
+const _sponsorTint = document.createElement('canvas');
+const _sponsorTintCtx = _sponsorTint.getContext('2d');
+
+/* Reusable tile canvas for pattern rendering (avoids GC churn) */
+let _tileCvs = document.createElement('canvas');
+let _tileCtx = _tileCvs.getContext('2d');
+
+/* Backup of fullkit shirt primary (restored when switching kit designs) */
+let _fullkitShirtPrimary = null;
+const _fullkitShortsMasks = { primary: null, secondary: null, tertiary: null, quaternary: null };
+const _fullkitSocksMasks  = { primary: null, secondary: null, tertiary: null, quaternary: null };
+
+function loadImage(src) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => resolve(img);
+    img.onerror = () => { console.warn('[TMPL] Failed to load:', src); resolve(null); };
+    img.src = src;
+  });
+}
+
+/** Set all shared offscreen canvases to the given dimensions. */
+function sizeOffscreen(w, h) {
+  [_tint, _comp, _pat, _aux, _mask].forEach(c => { c.width = w; c.height = h; });
+}
+
+/**
+ * Scale an image/canvas down to display resolution (CW × CH).
+ * Returns a new canvas or null.
+ */
+function scaleDown(img) {
+  if (!img) return null;
+  const c = document.createElement('canvas');
+  c.width = CW; c.height = CH;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, CW, CH);
+  return c;
+}
+
+/**
+ * OPT 1 — Pre-composite shadow & highlight layers at display resolution.
+ * Avoids combining 3+3 images on every frame.
+ * Call after loading base kit or changing collar.
+ */
+function buildCombinedOverlays() {
+  /* Body shadows (shirt + shorts/socks only — NOT collar) */
+  const bsc = document.createElement('canvas');
+  bsc.width = CW; bsc.height = CH;
+  const bsCtx = bsc.getContext('2d');
+  if (TMPL.shirtShadows)       bsCtx.drawImage(TMPL.shirtShadows, 0, 0, CW, CH);
+  if (TMPL.shortsSocksShadows) bsCtx.drawImage(TMPL.shortsSocksShadows, 0, 0, CW, CH);
+  SM.bodyShadows = bsc;
+
+  /* Body highlights (shirt + shorts/socks only — NOT collar) */
+  const bhc = document.createElement('canvas');
+  bhc.width = CW; bhc.height = CH;
+  const bhCtx = bhc.getContext('2d');
+  if (TMPL.shirtHighlights)       bhCtx.drawImage(TMPL.shirtHighlights, 0, 0, CW, CH);
+  if (TMPL.shortsSocksHighlights) bhCtx.drawImage(TMPL.shortsSocksHighlights, 0, 0, CW, CH);
+  SM.bodyHighlights = bhc;
+
+  /* Collar shadows & highlights (separate, applied after collar color layers) */
+  SM.collarShadows    = scaleDown(TMPL.collarShadows);
+  SM.collarHighlights = scaleDown(TMPL.collarHighlights);
+}
+
+/**
+ * OPT 3 — Build display-resolution copies of every mask & boots image.
+ * The preview render then operates at 800×~900 instead of native
+ * (typically 4000×4500), yielding a ~25× speedup.
+ */
+function buildDisplayCopies() {
+  for (const part of ['shirt', 'shorts', 'socks', 'collar']) {
+    for (const role of ['primary', 'secondary', 'tertiary', 'quaternary']) {
+      SM[part][role] = scaleDown(TMPL[part][role]);
+    }
+  }
+  SM.boots = scaleDown(TMPL.boots);
+  buildCombinedOverlays();
+}
+
+/**
+ * Load the base fullkit layers (shirt primary, shorts, socks, shadows, highlights, boots).
+ * Shirt secondary/tertiary come from the selected kit design folder.
+ * Collar layers are loaded separately via loadCollar().
+ */
+async function loadFullKit() {
+  TMPL.loaded = false;
+  const bust = '?v=' + Date.now();
+
+  /* Base layers from fullkit/ — shirt secondary & tertiary are kit-specific */
+  const files = {
+    'shirt.primary':          'mask_shirt_primary.png',
+    'shorts.primary':         'mask_shorts_primary.png',
+    'shorts.secondary':       'mask_shorts_secondary.png',
+    'shorts.tertiary':        'mask_shorts_tertiary.png',
+    'socks.primary':          'mask_socks_primary.png',
+    'socks.secondary':        'mask_socks_secondary.png',
+    'socks.tertiary':         'mask_socks_tertiary.png',
+    'shirtShadows':           'shirt_overlay_shadows_mul.png',
+    'shirtHighlights':        'shirt_overlay_highlights.png',
+    'shortsSocksShadows':     'shorts_socks_overlay_shadows_mul.png',
+    'shortsSocksHighlights':  'shorts_socks_overlay_highlights.png',
+    'boots':                  'boots.png',
+  };
+
+  /* Clear shirt secondary/tertiary/quaternary (loaded separately per kit) */
+  TMPL.shirt.secondary   = null;
+  TMPL.shirt.tertiary    = null;
+  TMPL.shirt.quaternary  = null;
+
+  await Promise.all(
+    Object.entries(files).map(async ([key, file]) => {
+      const img = await loadImage(BASE + file + bust);
+      if (key.includes('.')) {
+        const [part, role] = key.split('.');
+        TMPL[part][role] = img;
+      } else {
+        TMPL[key] = img;
+      }
+    })
+  );
+
+  /* Dimensions from the first loaded shirt mask */
+  if (TMPL.shirt.primary) {
+    TMPL.nw = TMPL.shirt.primary.naturalWidth;
+    TMPL.nh = TMPL.shirt.primary.naturalHeight;
+    /* Adjust display canvas to match aspect ratio */
+    CH = Math.round(CW * TMPL.nh / TMPL.nw);
+    const cvs = document.getElementById('cvsKit');
+    cvs.width = CW; cvs.height = CH;
+    /* Size offscreen canvases to DISPLAY resolution (not native!) */
+    sizeOffscreen(CW, CH);
+    /* Build display-res copies of every mask layer */
+    buildDisplayCopies();
+    updateShirtColorVisibility();
+    updatePartColorVisibility('shorts');
+    updatePartColorVisibility('socks');
+  }
+
+  /* Keep a copy of the default shirt primary for kit-switching */
+  _fullkitShirtPrimary = TMPL.shirt.primary;
+  for (const role of ['primary', 'secondary', 'tertiary', 'quaternary']) {
+    _fullkitShortsMasks[role] = TMPL.shorts[role];
+    _fullkitSocksMasks[role] = TMPL.socks[role];
+  }
+
+  TMPL.loaded = !!(TMPL.shirt.primary && TMPL.shirtShadows && TMPL.shirtHighlights);
+  console.log('[TMPL] FullKit loaded:', TMPL.loaded,
+    TMPL.loaded ? `native ${TMPL.nw}x${TMPL.nh}, preview ${CW}x${CH}` : '');
+}
+
+/**
+ * Load collar layers from the collar's own folder (e.g. kit_templates/collar01/).
+ * Files inside use generic names: mask_primary.png, mask_secondary.png, etc.
+ */
+async function loadCollar(collarName) {
+  const bust = '?v=' + Date.now();
+  const collarBase = TMPL_BASE + collarName + '/';
+  const [p, s, t, sh, hl, uSh] = await Promise.all([
+    loadImage(collarBase + 'mask_primary.png' + bust),
+    loadImage(collarBase + 'mask_secondary.png' + bust),
+    loadImage(collarBase + 'mask_tertiary.png' + bust),
+    loadImage(collarBase + 'overlay_shadows_mul.png' + bust),
+    loadImage(collarBase + 'overlay_highlights.png' + bust),
+    loadImage(collarBase + 'overlay_shadows_under_mul.png' + bust),
+  ]);
+  TMPL.collar.primary      = p;
+  TMPL.collar.secondary    = s;
+  TMPL.collar.tertiary     = t;
+  TMPL.collarShadows       = sh;
+  TMPL.collarHighlights    = hl;
+  TMPL.collarUnderShadows  = uSh;   /* shadow cast under collar flip onto shirt (may be null) */
+  /* Rebuild display-res collar masks + re-composite overlays */
+  for (const role of ['primary', 'secondary', 'tertiary', 'quaternary']) {
+    SM.collar[role] = scaleDown(TMPL.collar[role]);
+  }
+  SM.collarUnderShadows = scaleDown(TMPL.collarUnderShadows);
+  buildCombinedOverlays();
+  console.log('[TMPL] Collar loaded:', collarName, 'from', collarBase);
+}
+
+/**
+ * Load shirt secondary & tertiary masks from the selected kit design folder
+ * (e.g. kit_templates/kit01/).
+ *
+ * @param {string} kitName   – e.g. "kit01"
+ * @param {string[]} files   – actual filenames found in the folder (from API)
+ */
+async function loadKitDesign(kitName, files) {
+  const bust = '?v=' + Date.now();
+  const kitBase = TMPL_BASE + kitName + '/';
+  files = (files || []).map(f => f.toLowerCase());
+
+  /* Resolve a mask: prefer "mask_shirt_<role>" then "mask_<role>" */
+  function findMask(role) {
+    const preferred = 'mask_shirt_' + role + '.png';
+    const fallback  = 'mask_' + role + '.png';
+    if (files.includes(preferred)) return preferred;
+    if (files.includes(fallback))  return fallback;
+    return null;
+  }
+
+  const secFile  = findMask('secondary');
+  const terFile  = findMask('tertiary');
+  const quatFile = findMask('quaternary');
+  const priFile  = findMask('primary');   /* some kits override shirt primary too */
+
+  const [sec, ter, quat, pri] = await Promise.all([
+    secFile  ? loadImage(kitBase + secFile  + bust) : Promise.resolve(null),
+    terFile  ? loadImage(kitBase + terFile  + bust) : Promise.resolve(null),
+    quatFile ? loadImage(kitBase + quatFile + bust) : Promise.resolve(null),
+    priFile  ? loadImage(kitBase + priFile  + bust) : Promise.resolve(null),
+  ]);
+
+  TMPL.shirt.secondary  = sec;
+  TMPL.shirt.tertiary   = ter;
+  TMPL.shirt.quaternary = quat;
+  /* If the kit supplies its own shirt primary mask, override fullkit's default */
+  if (pri) TMPL.shirt.primary = pri;
+
+  /* Rebuild display-res copies for shirt */
+  SM.shirt.secondary  = scaleDown(sec);
+  SM.shirt.tertiary   = scaleDown(ter);
+  SM.shirt.quaternary = scaleDown(quat);
+  if (pri) SM.shirt.primary = scaleDown(pri);
+
+  /* Update UI: show/hide color pickers based on available masks */
+  updateShirtColorVisibility();
+
+  console.log('[TMPL] Kit design loaded:', kitName, 'files:', files, 'from', kitBase);
+}
+
+/**
+ * Populate the kit design dropdown and load the first kit.
+ * The API now returns { kits: [{ name, files }, ...] }.
+ */
+const _kitFilesMap = {};   /* kitName -> files[] for quick lookup */
+const _shortsFilesMap = {}; /* styleName -> files[] */
+const _socksFilesMap = {};  /* styleName -> files[] */
+
+async function loadPartStyle(part, styleName, files) {
+  if (!styleName) {
+    return;
+  }
+  const bust = '?v=' + Date.now();
+  const styleBase = TMPL_BASE + styleName + '/';
+  files = (files || []).map(f => f.toLowerCase());
+
+  function findMask(role) {
+    const partSpecific = `mask_${part}_${role}.png`;
+    const generic = `mask_${role}.png`;
+    if (files.includes(partSpecific)) return partSpecific;
+    if (files.includes(generic)) return generic;
+    return null;
+  }
+
+  const secFile = findMask('secondary');
+  const terFile = findMask('tertiary');
+  const quatFile = findMask('quaternary');
+  const [sec, ter, quat] = await Promise.all([
+    secFile ? loadImage(styleBase + secFile + bust) : Promise.resolve(null),
+    terFile ? loadImage(styleBase + terFile + bust) : Promise.resolve(null),
+    quatFile ? loadImage(styleBase + quatFile + bust) : Promise.resolve(null),
+  ]);
+
+  TMPL[part].secondary = sec || _fullkitShortsMasks.secondary;
+  TMPL[part].tertiary = ter || _fullkitShortsMasks.tertiary;
+  TMPL[part].quaternary = quat || _fullkitShortsMasks.quaternary;
+  if (part === 'socks') {
+    TMPL[part].secondary = sec || _fullkitSocksMasks.secondary;
+    TMPL[part].tertiary = ter || _fullkitSocksMasks.tertiary;
+    TMPL[part].quaternary = quat || _fullkitSocksMasks.quaternary;
+  }
+
+  SM[part].secondary = scaleDown(TMPL[part].secondary);
+  SM[part].tertiary = scaleDown(TMPL[part].tertiary);
+  SM[part].quaternary = scaleDown(TMPL[part].quaternary);
+  updatePartColorVisibility(part);
+}
+
+async function loadKitList() {
+  try {
+    const res = await fetch('/kit-designer/api/kits');
+    const data = await res.json();
+    const kits = data.kits || [];
+    const sel = document.getElementById('kitSelect');
+    sel.innerHTML = '';
+    const defaultOpt = document.createElement('option');
+    defaultOpt.value = '';
+    defaultOpt.textContent = 'Default (fullkit primary)';
+    sel.appendChild(defaultOpt);
+    kits.forEach(k => {
+      _kitFilesMap[k.name] = k.files;
+      const opt = document.createElement('option');
+      opt.value = k.name;
+      opt.textContent = k.name;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', async () => {
+      state.kitName = sel.value;
+      if (sel.value) {
+        /* Restore fullkit shirt primary before loading new kit (in case previous kit overrode it) */
+        TMPL.shirt.primary = _fullkitShirtPrimary;
+        SM.shirt.primary   = scaleDown(_fullkitShirtPrimary);
+        /* Clear all kit-specific masks before loading new ones */
+        TMPL.shirt.secondary = null; TMPL.shirt.tertiary = null; TMPL.shirt.quaternary = null;
+        SM.shirt.secondary   = null; SM.shirt.tertiary   = null; SM.shirt.quaternary   = null;
+        await loadKitDesign(sel.value, _kitFilesMap[sel.value]);
+      } else {
+        TMPL.shirt.primary = _fullkitShirtPrimary;
+        SM.shirt.primary = scaleDown(_fullkitShirtPrimary);
+        TMPL.shirt.secondary = null;
+        TMPL.shirt.tertiary = null;
+        TMPL.shirt.quaternary = null;
+        SM.shirt.secondary = null;
+        SM.shirt.tertiary = null;
+        SM.shirt.quaternary = null;
+        updateShirtColorVisibility();
+      }
+      scheduleRender();
+    });
+    state.kitName = '';
+    sel.value = '';
+    updateShirtColorVisibility();
+  } catch (e) {
+    console.warn('Could not load kit list:', e);
+  }
+}
+
+async function loadShortsStyleList() {
+  try {
+    const res = await fetch('/kit-designer/api/shorts');
+    const data = await res.json();
+    const styles = data.shorts || [];
+    const sel = document.getElementById('shortsStyleSelect');
+    styles.forEach(s => {
+      _shortsFilesMap[s.name] = s.files;
+      const opt = document.createElement('option');
+      opt.value = s.name;
+      opt.textContent = s.name;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', async () => {
+      state.shortsStyleName = sel.value;
+      TMPL.shorts.primary = _fullkitShortsMasks.primary;
+      TMPL.shorts.secondary = _fullkitShortsMasks.secondary;
+      TMPL.shorts.tertiary = _fullkitShortsMasks.tertiary;
+      TMPL.shorts.quaternary = _fullkitShortsMasks.quaternary;
+      SM.shorts.primary = scaleDown(_fullkitShortsMasks.primary);
+      SM.shorts.secondary = scaleDown(_fullkitShortsMasks.secondary);
+      SM.shorts.tertiary = scaleDown(_fullkitShortsMasks.tertiary);
+      SM.shorts.quaternary = scaleDown(_fullkitShortsMasks.quaternary);
+      if (sel.value) {
+        await loadPartStyle('shorts', sel.value, _shortsFilesMap[sel.value]);
+      } else {
+        updatePartColorVisibility('shorts');
+      }
+      scheduleRender();
+    });
+  } catch (e) {
+    console.warn('Could not load shorts styles:', e);
+  }
+}
+
+async function loadSocksStyleList() {
+  try {
+    const res = await fetch('/kit-designer/api/socks');
+    const data = await res.json();
+    const styles = data.socks || [];
+    const sel = document.getElementById('socksStyleSelect');
+    styles.forEach(s => {
+      _socksFilesMap[s.name] = s.files;
+      const opt = document.createElement('option');
+      opt.value = s.name;
+      opt.textContent = s.name;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', async () => {
+      state.socksStyleName = sel.value;
+      TMPL.socks.primary = _fullkitSocksMasks.primary;
+      TMPL.socks.secondary = _fullkitSocksMasks.secondary;
+      TMPL.socks.tertiary = _fullkitSocksMasks.tertiary;
+      TMPL.socks.quaternary = _fullkitSocksMasks.quaternary;
+      SM.socks.primary = scaleDown(_fullkitSocksMasks.primary);
+      SM.socks.secondary = scaleDown(_fullkitSocksMasks.secondary);
+      SM.socks.tertiary = scaleDown(_fullkitSocksMasks.tertiary);
+      SM.socks.quaternary = scaleDown(_fullkitSocksMasks.quaternary);
+      if (sel.value) {
+        await loadPartStyle('socks', sel.value, _socksFilesMap[sel.value]);
+      } else {
+        updatePartColorVisibility('socks');
+      }
+      scheduleRender();
+    });
+  } catch (e) {
+    console.warn('Could not load socks styles:', e);
+  }
+}
+
+/**
+ * Populate the collar dropdown and load the first collar.
+ */
+async function loadCollarList() {
+  try {
+    const res = await fetch('/kit-designer/api/collars');
+    const data = await res.json();
+    const collars = data.collars || [];
+    const sel = document.getElementById('collarSelect');
+    sel.innerHTML = '';
+    collars.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c;
+      opt.textContent = c;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', async () => {
+      state.collarName = sel.value;
+      if (sel.value) {
+        await loadCollar(sel.value);
+      }
+      scheduleRender();
+    });
+    if (collars.length > 0) {
+      state.collarName = collars[0];
+      await loadCollar(collars[0]);
+    }
+  } catch (e) {
+    console.warn('Could not load collar list:', e);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. RENDERING ENGINE
+   ═══════════════════════════════════════════════════════════════════ */
+
+/** Kit parts — body parts first, collar rendered on top. */
+const BODY_PARTS = ['shirt', 'shorts', 'socks'];
+const PARTS = [...BODY_PARTS, 'collar'];
+
+/**
+ * Get the color for a given part + role from state.
+ * Returns null if the layer is set to transparent (secondary/tertiary/quaternary)
+ * or if there is no mask loaded for the part+role.
+ */
+function getColor(part, role) {
+  const key = part + role.charAt(0).toUpperCase() + role.slice(1);
+  if (state[key + 'Transparent']) return null;
+  return state[key + 'Color'];
+}
+
+/**
+ * Show/hide shirt color rows based on which masks the current kit has loaded.
+ * Primary is always visible.
+ * Also toggles the quaternary pattern target checkbox visibility.
+ */
+function updateShirtColorVisibility() {
+  const hasSec  = !!(TMPL.shirt.secondary);
+  const hasTer  = !!(TMPL.shirt.tertiary);
+  const hasQuat = !!(TMPL.shirt.quaternary);
+
+  document.getElementById('shirtSecRow').style.display  = hasSec  ? '' : 'none';
+  document.getElementById('shirtTerRow').style.display  = hasTer  ? '' : 'none';
+  document.getElementById('shirtQuatRow').style.display = hasQuat ? '' : 'none';
+
+  /* Also toggle pattern target checkbox for quaternary */
+  ['pat1_shirt_quat_row', 'pat2_shirt_quat_row', 'pat3_shirt_quat_row'].forEach((rowId) => {
+    const row = document.getElementById(rowId);
+    if (row) row.style.display = hasQuat ? '' : 'none';
+  });
+}
+
+function updatePartColorVisibility(part) {
+  const hasSec = !!(TMPL[part] && TMPL[part].secondary);
+  const hasTer = !!(TMPL[part] && TMPL[part].tertiary);
+  const secRow = document.getElementById(part + 'SecRow');
+  const terRow = document.getElementById(part + 'TerRow');
+  if (secRow) secRow.style.display = hasSec ? '' : 'none';
+  if (terRow) terRow.style.display = hasTer ? '' : 'none';
+}
+
+/** Helper: rounded rectangle path */
+function rrect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+/**
+ * Build a tiled, tinted, clipped pattern layer.
+ * @param {HTMLCanvasElement|HTMLImageElement} clipMask – mask to clip to
+ * @param {number} w – target width
+ * @param {number} h – target height
+ * @param {CanvasRenderingContext2D} pCtx – pattern scratch context
+ * @param {CanvasRenderingContext2D} tCtx – tint scratch context (used as temp buffer)
+ */
+function buildPatternAt(img, color, scale, offsetX, offsetY, rotateDeg, clipMask, w, h, pCtx, tCtx) {
+  const resFactor = w / CW;              /* 1.0 at preview res, ~5× at native export res */
+
+  /* Step 1: Tile the pattern at the chosen scale (proportional to canvas size) */
+  pCtx.clearRect(0, 0, w, h);
+  pCtx.save();
+  const sw = img.naturalWidth  * scale * resFactor;
+  const sh = img.naturalHeight * scale * resFactor;
+  _tileCvs.width  = Math.max(1, Math.round(sw));
+  _tileCvs.height = Math.max(1, Math.round(sh));
+  _tileCtx.drawImage(img, 0, 0, _tileCvs.width, _tileCvs.height);
+  const pat = pCtx.createPattern(_tileCvs, 'repeat');
+  /* Apply horizontal / vertical offset (fraction of one tile) */
+  const ox = offsetX * _tileCvs.width;
+  const oy = offsetY * _tileCvs.height;
+  pCtx.translate(w * 0.5, h * 0.5);
+  pCtx.rotate((rotateDeg || 0) * Math.PI / 180);
+  pCtx.translate(-w * 0.5, -h * 0.5);
+  pCtx.translate(ox, oy);
+  pCtx.fillStyle = pat;
+  pCtx.fillRect(-ox, -oy, w, h);
+  pCtx.restore();
+
+  /* Step 2: Tint – replace with patternColor, keep alpha */
+  tCtx.clearRect(0, 0, w, h);
+  tCtx.drawImage(pCtx.canvas, 0, 0);
+  pCtx.clearRect(0, 0, w, h);
+  pCtx.fillStyle = color;
+  pCtx.fillRect(0, 0, w, h);
+  pCtx.globalCompositeOperation = 'destination-in';
+  pCtx.drawImage(tCtx.canvas, 0, 0);
+  pCtx.globalCompositeOperation = 'source-over';
+
+  /* Step 3: Clip to the target mask zone */
+  pCtx.globalCompositeOperation = 'destination-in';
+  pCtx.drawImage(clipMask, 0, 0);
+  pCtx.globalCompositeOperation = 'source-over';
+
+  return pCtx.canvas;
+}
+
+/**
+ * Draw sponsor bg, sponsor image, and crest.
+ *
+ * @param {CanvasRenderingContext2D} ctx – the context to draw on
+ * @param {number} W – width of the coordinate space
+ * @param {number} H – height of the coordinate space
+ */
+function drawOverlays(ctx, W, H) {
+  const chestW = W * 0.72;
+
+  /* ── Sponsor (centered on chest, Y adjustable via slider) ─ */
+  const spCX = W * state.sponsorX;
+  const spCY = H * state.sponsorY;
+
+  const spMaxW = chestW * state.sponsorScale;
+  const spMaxH = spMaxW * 0.35;
+  const bgScaleX = Math.max(0.60, Math.min(1.20, state.sponsorBgScaleX || 1));
+  const bgScaleY = Math.max(0.60, Math.min(1.20, state.sponsorBgScaleY || 1));
+
+  if (state.sponsorVisible && (state.sponsorFixedImg || state.sponsorMaskPrimaryImg || state.sponsorMaskSecondaryImg || state.sponsorMaskTertiaryImg)) {
+    const baseImg = state.sponsorFixedImg || state.sponsorMaskPrimaryImg || state.sponsorMaskSecondaryImg || state.sponsorMaskTertiaryImg;
+    if (baseImg) {
+      const scale = Math.min(spMaxW / baseImg.naturalWidth, spMaxH / baseImg.naturalHeight);
+      const sw = baseImg.naturalWidth * scale;
+      const sh = baseImg.naturalHeight * scale;
+      const sx = spCX - sw / 2;
+      const sy = spCY - sh / 2;
+
+      if (state.sponsorBg !== 'transparent') {
+        const bgCol = state.sponsorBg === 'primary' ? state.shirtPrimaryColor : state.shirtSecondaryColor;
+        const pad = 4 * (W / CW);
+        const bw = sw * bgScaleX;
+        const bh = sh * bgScaleY;
+        const bx = spCX - bw / 2;
+        const by = spCY - bh / 2;
+        ctx.fillStyle = bgCol;
+        rrect(ctx, bx - pad, by - pad, bw + pad * 2, bh + pad * 2, 4 * (W / CW));
+        ctx.fill();
+      }
+
+      // Fixed-color sponsor art is drawn first, then tintable masks on top.
+      if (state.sponsorFixedImg) {
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(state.sponsorFixedImg, sx, sy, sw, sh);
+      }
+
+      const drawTintedMask = (img, color) => {
+        if (!img || !color) return;
+        _sponsorTint.width = Math.max(1, Math.round(sw));
+        _sponsorTint.height = Math.max(1, Math.round(sh));
+        _sponsorTintCtx.clearRect(0, 0, _sponsorTint.width, _sponsorTint.height);
+        _sponsorTintCtx.fillStyle = color;
+        _sponsorTintCtx.fillRect(0, 0, _sponsorTint.width, _sponsorTint.height);
+        _sponsorTintCtx.globalCompositeOperation = 'destination-in';
+        _sponsorTintCtx.drawImage(img, 0, 0, _sponsorTint.width, _sponsorTint.height);
+        _sponsorTintCtx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(_sponsorTint, sx, sy, sw, sh);
+      };
+
+      drawTintedMask(state.sponsorMaskPrimaryImg, state.sponsorMaskPrimaryColor);
+      if (!state.sponsorMaskSecondaryTransparent) {
+        drawTintedMask(state.sponsorMaskSecondaryImg, state.sponsorMaskSecondaryColor);
+      }
+      if (!state.sponsorMaskTertiaryTransparent) {
+        drawTintedMask(state.sponsorMaskTertiaryImg, state.sponsorMaskTertiaryColor);
+      }
+    }
+  } else if (state.sponsorBg !== 'transparent') {
+    const bgCol = state.sponsorBg === 'primary' ? state.shirtPrimaryColor : state.shirtSecondaryColor;
+    const bw = spMaxW * bgScaleX;
+    const bh = spMaxH * bgScaleY;
+    ctx.fillStyle = bgCol;
+    rrect(ctx, spCX - bw / 2, spCY - bh / 2, bw, bh, 4 * (W / CW));
+    ctx.fill();
+  }
+
+  /* ── Crest (position adjustable via sliders) ──────────── */
+  if (state.crestVisible && state.crestImg) {
+    const img = state.crestImg;
+    const maxS = H * state.crestScale;
+    const scale = Math.min(maxS / img.naturalWidth, maxS / img.naturalHeight);
+    const cw = img.naturalWidth  * scale;
+    const ch = img.naturalHeight * scale;
+    const cx = W * state.crestX - cw / 2;
+    const cy = H * state.crestY - ch / 2;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(img, cx, cy, cw, ch);
+  }
+}
+
+/**
+ * Core rendering pipeline — runs on any set of layer sources at any resolution.
+ *
+ * @param {Object}   src        – SM (display-res) or TMPL-like (native-res) layer set
+ * @param {number}   w          – render width
+ * @param {number}   h          – render height
+ * @param {CanvasRenderingContext2D} compCtx – compositing context
+ * @param {CanvasRenderingContext2D} tCtx    – tint scratch context
+ * @param {CanvasRenderingContext2D} pCtx    – pattern scratch context
+ * @param {CanvasRenderingContext2D} mCtx    – mask scratch context
+ * @param {CanvasRenderingContext2D} aCtx    – aux scratch context (export only)
+ * @param {boolean}  useCombined – true → use src.combinedShadows/Highlights
+ */
+function renderPipeline(src, w, h, compCtx, tCtx, pCtx, mCtx, aCtx, useCombined) {
+  compCtx.clearRect(0, 0, w, h);
+  const roles = ['primary', 'secondary', 'tertiary', 'quaternary'];
+
+  /** Helper: tint & pattern a set of parts for one role */
+  function renderPartsForRole(parts, role) {
+    for (const part of parts) {
+      const mask = src[part][role];
+      const color = getColor(part, role);
+      if (mask && color) {
+        tCtx.clearRect(0, 0, w, h);
+        tCtx.fillStyle = color;
+        tCtx.fillRect(0, 0, w, h);
+        tCtx.globalCompositeOperation = 'destination-in';
+        tCtx.drawImage(mask, 0, 0);
+        tCtx.globalCompositeOperation = 'source-over';
+        compCtx.drawImage(tCtx.canvas, 0, 0);
+      }
+    }
+
+    /* Apply each pattern layer to checked targets matching this role */
+    for (let layerIndex = 0; layerIndex < 3; layerIndex++) {
+      const layer = state.patternLayers[layerIndex];
+      const img = state.patternLayerImgs[layerIndex];
+      if (!img || !layer || !layer.targets || layer.targets.length === 0) {
+        continue;
+      }
+      const masksForRole = [];
+      for (const t of layer.targets) {
+        const [tPart, tRole] = t.split('_');
+        if (tRole === role && parts.includes(tPart) && src[tPart] && src[tPart][role]) {
+          masksForRole.push(src[tPart][role]);
+        }
+      }
+      if (masksForRole.length > 0) {
+        mCtx.clearRect(0, 0, w, h);
+        masksForRole.forEach(m => { if (m) mCtx.drawImage(m, 0, 0); });
+        compCtx.drawImage(
+          buildPatternAt(
+            img,
+            layer.color,
+            layer.scale ?? 1,
+            layer.offsetX ?? 0,
+            layer.offsetY ?? 0,
+            layer.rotateDeg ?? 0,
+            mCtx.canvas,
+            w,
+            h,
+            pCtx,
+            tCtx
+          ),
+          0,
+          0
+        );
+      }
+    }
+  }
+
+  /** Helper: apply a shadow layer (multiply blend, alpha-preserved) */
+  function applyShadow(shadowImg) {
+    if (!shadowImg) return;
+    tCtx.clearRect(0, 0, w, h);
+    tCtx.drawImage(compCtx.canvas, 0, 0);
+    tCtx.globalCompositeOperation = 'multiply';
+    tCtx.drawImage(shadowImg, 0, 0, w, h);
+    tCtx.globalCompositeOperation = 'source-over';
+    tCtx.globalCompositeOperation = 'destination-in';
+    tCtx.drawImage(compCtx.canvas, 0, 0);
+    tCtx.globalCompositeOperation = 'source-over';
+    compCtx.clearRect(0, 0, w, h);
+    compCtx.drawImage(tCtx.canvas, 0, 0);
+  }
+
+  /** Helper: apply a highlight layer (screen blend) */
+  function applyHighlight(highlightImg) {
+    if (!highlightImg) return;
+    compCtx.globalCompositeOperation = 'screen';
+    compCtx.drawImage(highlightImg, 0, 0, w, h);
+    compCtx.globalCompositeOperation = 'source-over';
+  }
+
+  /* ── 1. Body parts: shirt + shorts + socks (colors + patterns) ── */
+  for (const role of roles) {
+    renderPartsForRole(BODY_PARTS, role);
+  }
+
+  /* ── 2. Crest & sponsor overlays (on top of shirt, under collar) ── */
+  drawOverlays(compCtx, w, h);
+
+  /* ── 3. Body shadows (shirt + shorts/socks — NOT collar) ── */
+  if (useCombined) {
+    applyShadow(src.bodyShadows);
+  } else {
+    aCtx.clearRect(0, 0, w, h);
+    if (TMPL.shirtShadows)       aCtx.drawImage(TMPL.shirtShadows, 0, 0, w, h);
+    if (TMPL.shortsSocksShadows) aCtx.drawImage(TMPL.shortsSocksShadows, 0, 0, w, h);
+    applyShadow(aCtx.canvas);
+  }
+
+  /* ── 4. Body highlights (shirt + shorts/socks — NOT collar) ── */
+  if (useCombined) {
+    applyHighlight(src.bodyHighlights);
+  } else {
+    aCtx.clearRect(0, 0, w, h);
+    if (TMPL.shirtHighlights)       aCtx.drawImage(TMPL.shirtHighlights, 0, 0, w, h);
+    if (TMPL.shortsSocksHighlights) aCtx.drawImage(TMPL.shortsSocksHighlights, 0, 0, w, h);
+    applyHighlight(aCtx.canvas);
+  }
+
+  /* ── 5. Collar under-shadow (shadow cast by collar flip onto the shirt) ── */
+  const underSh = useCombined ? src.collarUnderShadows : TMPL.collarUnderShadows;
+  applyShadow(underSh);
+
+  /* ── 6. Collar color layers (rendered over body + lighting + under-shadow) ── */
+  for (const role of roles) {
+    renderPartsForRole(['collar'], role);
+  }
+
+  /* ── 7. Collar shadows (only affects the collar) ── */
+  if (useCombined) {
+    applyShadow(src.collarShadows);
+  } else {
+    applyShadow(TMPL.collarShadows);
+  }
+
+  /* ── 8. Collar highlights (only affects the collar, after collar shadows) ── */
+  if (useCombined) {
+    applyHighlight(src.collarHighlights);
+  } else {
+    applyHighlight(TMPL.collarHighlights);
+  }
+
+  /* ── 9. Boots (static, drawn on top of everything) ── */
+  const bootsImg = useCombined ? src.boots : TMPL.boots;
+  if (bootsImg) compCtx.drawImage(bootsImg, 0, 0, w, h);
+}
+
+/**
+ * PREVIEW render — uses display-res SM copies on shared offscreen canvases.
+ * OPT 3: All canvas operations run at 800×~900 instead of native resolution.
+ */
+function renderKit() {
+  const cvs = document.getElementById('cvsKit');
+  const ctx = cvs.getContext('2d');
+  ctx.clearRect(0, 0, CW, CH);
+
+  if (!TMPL.loaded) {
+    ctx.fillStyle = '#888';
+    ctx.font = '18px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Loading template...', CW / 2, CH / 2);
+    return;
+  }
+
+  renderPipeline(SM, CW, CH, _compCtx, _tintCtx, _patCtx, _maskCtx, _auxCtx, true);
+
+  /* Already at display resolution — draw 1:1, no scaling needed */
+  ctx.drawImage(_comp, 0, 0);
+}
+
+/**
+ * OPT 2 — Debounced render scheduling.
+ * Caps rendering at ~33 fps while dragging sliders, preventing jank.
+ * Clicks/changes still feel instant (≤30ms latency).
+ */
+let _schedTimer = null;
+function scheduleRender() {
+  if (_schedTimer !== null) return;
+  _schedTimer = setTimeout(() => {
+    _schedTimer = null;
+    requestAnimationFrame(renderKit);
+  }, 30);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. UI HELPERS
+   ═══════════════════════════════════════════════════════════════════ */
+
+function syncColor(pickId, hexId, key) {
+  const layerMatch = key.match(/^patternLayer([1-3])Color$/);
+  const layerIndex = layerMatch ? (parseInt(layerMatch[1], 10) - 1) : null;
+  const pick = document.getElementById(pickId);
+  const hex  = document.getElementById(hexId);
+  pick.addEventListener('input', () => {
+    hex.value = pick.value.toUpperCase();
+    state[key] = pick.value;
+    if (layerIndex !== null) state.patternLayers[layerIndex].color = pick.value;
+    scheduleRender();
+  });
+  hex.addEventListener('input', () => {
+    const v = hex.value.trim();
+    if (/^#[0-9A-Fa-f]{6}$/.test(v)) {
+      pick.value = v;
+      state[key] = v;
+      if (layerIndex !== null) state.patternLayers[layerIndex].color = v;
+      scheduleRender();
+    }
+  });
+}
+
+async function loadAssetList(endpoint, selectId, stateImgKey, stateFileKey, basePath) {
+  try {
+    const res = await fetch(endpoint);
+    const data = await res.json();
+    const key = Object.keys(data)[0];
+    const files = data[key] || [];
+    const sel = document.getElementById(selectId);
+    files.forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = f; opt.textContent = f;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', async () => {
+      state[stateFileKey] = sel.value;
+      if (sel.value) {
+        state[stateImgKey] = await loadImage(basePath + sel.value);
+      } else {
+        state[stateImgKey] = null;
+      }
+      scheduleRender();
+    });
+  } catch (e) {
+    console.warn('Could not load asset list:', endpoint, e);
+  }
+}
+
+async function loadPatternLists() {
+  try {
+    const res = await fetch('/kit-designer/api/patterns');
+    const data = await res.json();
+    const files = data.patterns || [];
+    const selectors = [
+      document.getElementById('pattern1Select'),
+      document.getElementById('pattern2Select'),
+      document.getElementById('pattern3Select')
+    ];
+    selectors.forEach((sel, idx) => {
+      files.forEach(f => {
+        const opt = document.createElement('option');
+        opt.value = f;
+        opt.textContent = f.replace(/\.[^.]+$/, '');
+        sel.appendChild(opt);
+      });
+      sel.addEventListener('change', async () => {
+        state.patternLayers[idx].file = sel.value;
+        if (sel.value) {
+          const bust = '?v=' + Date.now();
+          state.patternLayerImgs[idx] = await loadImage('/gfx/kit_templates/patterns/' + sel.value + bust);
+        } else {
+          state.patternLayerImgs[idx] = null;
+        }
+        scheduleRender();
+      });
+    });
+  } catch (e) {
+    console.warn('Could not load pattern lists:', e);
+  }
+}
+
+async function loadSponsorDesignList() {
+  try {
+    const res = await fetch('/kit-designer/api/sponsor-designs');
+    const data = await res.json();
+    const designs = data.sponsor_designs || [];
+    const sel = document.getElementById('sponsorDesignSelect');
+    sel.innerHTML = '<option value="">\u2014 None \u2014</option>';
+    const designFilesMap = {};
+    designs.forEach(d => {
+      designFilesMap[d.name] = (d.files || []).map(f => f.toLowerCase());
+      const opt = document.createElement('option');
+      opt.value = d.name;
+      opt.textContent = d.name;
+      sel.appendChild(opt);
+    });
+
+    const resolveMaskFile = (files, role) => {
+      const candidates = [
+        `mask_${role}.png`,
+        `sponsor_${role}.png`,
+      ];
+      for (const c of candidates) {
+        if (files.includes(c)) return c;
+      }
+      return null;
+    };
+
+    const resolveFixedFile = (files) => {
+      const candidates = ['fixed_color.png', 'sponsor_fixed.png'];
+      for (const c of candidates) {
+        if (files.includes(c)) return c;
+      }
+      return null;
+    };
+
+    sel.addEventListener('change', async () => {
+      state.sponsorDesignName = sel.value;
+      state.sponsorFixedImg = null;
+      state.sponsorMaskPrimaryImg = null;
+      state.sponsorMaskSecondaryImg = null;
+      state.sponsorMaskTertiaryImg = null;
+      if (!sel.value) {
+        scheduleRender();
+        return;
+      }
+      const files = designFilesMap[sel.value] || [];
+      const fixedFile = resolveFixedFile(files);
+      const primaryFile = resolveMaskFile(files, 'primary');
+      const secondaryFile = resolveMaskFile(files, 'secondary');
+      const tertiaryFile = resolveMaskFile(files, 'tertiary');
+      const base = '/gfx/sponsors/' + encodeURIComponent(sel.value) + '/';
+      const bust = '?v=' + Date.now();
+      if (fixedFile) {
+        state.sponsorFixedImg = await loadImage(base + fixedFile + bust);
+      }
+      if (primaryFile) {
+        state.sponsorMaskPrimaryImg = await loadImage(base + primaryFile + bust);
+      }
+      if (secondaryFile) {
+        state.sponsorMaskSecondaryImg = await loadImage(base + secondaryFile + bust);
+      }
+      if (tertiaryFile) {
+        state.sponsorMaskTertiaryImg = await loadImage(base + tertiaryFile + bust);
+      }
+      scheduleRender();
+    });
+  } catch (e) {
+    console.warn('Could not load sponsor design list:', e);
+  }
+}
+
+/**
+ * EXPORT — full-quality render at native resolution using TMPL originals.
+ * Creates dedicated offscreen canvases so the shared preview canvases stay untouched.
+ */
+function exportPNG(canvasId, filename) {
+  if (!TMPL.loaded) return;
+
+  const nw = TMPL.nw, nh = TMPL.nh;
+
+  /* Allocate temporary canvases at native resolution */
+  const eComp = document.createElement('canvas'); eComp.width = nw; eComp.height = nh;
+  const eTint = document.createElement('canvas'); eTint.width = nw; eTint.height = nh;
+  const ePat  = document.createElement('canvas'); ePat.width  = nw; ePat.height  = nh;
+  const eMask = document.createElement('canvas'); eMask.width = nw; eMask.height = nh;
+  const eAux  = document.createElement('canvas'); eAux.width  = nw; eAux.height  = nh;
+
+  renderPipeline(
+    TMPL, nw, nh,
+    eComp.getContext('2d'),
+    eTint.getContext('2d'),
+    ePat.getContext('2d'),
+    eMask.getContext('2d'),
+    eAux.getContext('2d'),
+    false  /* build shadow/highlight composites on the fly at native res */
+  );
+
+  const link = document.createElement('a');
+  link.download = filename;
+  link.href = eComp.toDataURL('image/png');
+  link.click();
+}
+
+function getConfigJSON() {
+  const {
+    crestImg,
+    sponsorFixedImg,
+    sponsorMaskPrimaryImg,
+    sponsorMaskSecondaryImg,
+    sponsorMaskTertiaryImg,
+    patternLayerImgs,
+    patternLayer1Color,
+    patternLayer2Color,
+    patternLayer3Color,
+    ...clean
+  } = state;
+  return JSON.stringify(clean, null, 2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5. INITIALISATION
+   ═══════════════════════════════════════════════════════════════════ */
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const rightControls = document.getElementById('rightControls');
+  ['patternSection', 'crestSection', 'sponsorSection', 'actionsSection'].forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) rightControls.appendChild(section);
+  });
+
+  /* ── Per-part color pickers ── */
+  syncColor('shirtPriPick',  'shirtPriHex',  'shirtPrimaryColor');
+  syncColor('shirtSecPick',  'shirtSecHex',  'shirtSecondaryColor');
+  syncColor('shirtTerPick',  'shirtTerHex',  'shirtTertiaryColor');
+  syncColor('shirtQuatPick', 'shirtQuatHex', 'shirtQuaternaryColor');
+  syncColor('shortsPriPick', 'shortsPriHex', 'shortsPrimaryColor');
+  syncColor('shortsSecPick', 'shortsSecHex', 'shortsSecondaryColor');
+  syncColor('shortsTerPick', 'shortsTerHex', 'shortsTertiaryColor');
+  syncColor('socksPriPick',  'socksPriHex',  'socksPrimaryColor');
+  syncColor('socksSecPick',  'socksSecHex',  'socksSecondaryColor');
+  syncColor('socksTerPick',  'socksTerHex',  'socksTertiaryColor');
+  syncColor('collarPriPick', 'collarPriHex', 'collarPrimaryColor');
+  syncColor('collarSecPick', 'collarSecHex', 'collarSecondaryColor');
+  syncColor('collarTerPick', 'collarTerHex', 'collarTertiaryColor');
+  syncColor('sponsorMaskPriPick', 'sponsorMaskPriHex', 'sponsorMaskPrimaryColor');
+  syncColor('sponsorMaskSecPick', 'sponsorMaskSecHex', 'sponsorMaskSecondaryColor');
+  syncColor('sponsorMaskTerPick', 'sponsorMaskTerHex', 'sponsorMaskTertiaryColor');
+  syncColor('pat1ColorPick', 'pat1ColorHex', 'patternLayer1Color');
+  syncColor('pat2ColorPick', 'pat2ColorHex', 'patternLayer2Color');
+  syncColor('pat3ColorPick', 'pat3ColorHex', 'patternLayer3Color');
+
+  state.patternLayer1Color = state.patternLayers[0].color;
+  state.patternLayer2Color = state.patternLayers[1].color;
+  state.patternLayer3Color = state.patternLayers[2].color;
+
+  /* ── Transparent toggles for secondary & tertiary colors ── */
+  const TRANS_IDS = [
+    ['shirtSecTrans',  'shirtSecondaryTransparent'],
+    ['shirtTerTrans',  'shirtTertiaryTransparent'],
+    ['shirtQuatTrans', 'shirtQuaternaryTransparent'],
+    ['shortsSecTrans', 'shortsSecondaryTransparent'],
+    ['shortsTerTrans', 'shortsTertiaryTransparent'],
+    ['socksSecTrans',  'socksSecondaryTransparent'],
+    ['socksTerTrans',  'socksTertiaryTransparent'],
+    ['collarSecTrans', 'collarSecondaryTransparent'],
+    ['collarTerTrans', 'collarTertiaryTransparent'],
+    ['sponsorMaskSecTrans', 'sponsorMaskSecondaryTransparent'],
+    ['sponsorMaskTerTrans', 'sponsorMaskTertiaryTransparent'],
+  ];
+  TRANS_IDS.forEach(([elId, stateKey]) => {
+    const cb = document.getElementById(elId);
+    cb.addEventListener('change', () => {
+      state[stateKey] = cb.checked;
+      scheduleRender();
+    });
+  });
+
+  /* ── Pattern target checkboxes by layer (multi-select per layer) ── */
+  function bindPatternTargetsForLayer(layerIndex, className) {
+    document.querySelectorAll('.' + className).forEach(cb => {
+      cb.addEventListener('change', () => {
+        state.patternLayers[layerIndex].targets = Array.from(document.querySelectorAll('.' + className + ':checked')).map(c => c.value);
+        scheduleRender();
+      });
+    });
+  }
+  bindPatternTargetsForLayer(0, 'patTarget1');
+  bindPatternTargetsForLayer(1, 'patTarget2');
+  bindPatternTargetsForLayer(2, 'patTarget3');
+
+  /* pattern sliders per layer */
+  function bindPatternLayerSliders(layerIndex, prefix) {
+    const scaleSlider = document.getElementById(prefix + 'Scale');
+    const scaleVal = document.getElementById(prefix + 'ScaleVal');
+    const oxSlider = document.getElementById(prefix + 'OffsetX');
+    const oxVal = document.getElementById(prefix + 'OffsetXVal');
+    const oySlider = document.getElementById(prefix + 'OffsetY');
+    const oyVal = document.getElementById(prefix + 'OffsetYVal');
+    const rotSlider = document.getElementById(prefix + 'Rotate');
+    const rotVal = document.getElementById(prefix + 'RotateVal');
+
+    scaleSlider.addEventListener('input', () => {
+      state.patternLayers[layerIndex].scale = parseFloat(scaleSlider.value);
+      scaleVal.textContent = state.patternLayers[layerIndex].scale.toFixed(1) + 'x';
+      scheduleRender();
+    });
+    oxSlider.addEventListener('input', () => {
+      state.patternLayers[layerIndex].offsetX = parseFloat(oxSlider.value);
+      oxVal.textContent = Math.round(state.patternLayers[layerIndex].offsetX * 100) + '%';
+      scheduleRender();
+    });
+    oySlider.addEventListener('input', () => {
+      state.patternLayers[layerIndex].offsetY = parseFloat(oySlider.value);
+      oyVal.textContent = Math.round(state.patternLayers[layerIndex].offsetY * 100) + '%';
+      scheduleRender();
+    });
+    rotSlider.addEventListener('input', () => {
+      state.patternLayers[layerIndex].rotateDeg = parseInt(rotSlider.value, 10);
+      rotVal.textContent = state.patternLayers[layerIndex].rotateDeg + 'deg';
+      scheduleRender();
+    });
+  }
+  bindPatternLayerSliders(0, 'pat1');
+  bindPatternLayerSliders(1, 'pat2');
+  bindPatternLayerSliders(2, 'pat3');
+
+  /* checkboxes */
+  document.getElementById('crestVisible').addEventListener('change', e => {
+    state.crestVisible = e.target.checked; scheduleRender();
+  });
+  document.getElementById('sponsorVisible').addEventListener('change', e => {
+    state.sponsorVisible = e.target.checked; scheduleRender();
+  });
+
+  /* crest scale slider */
+  const crestScaleSlider = document.getElementById('crestScale');
+  const crestScaleVal    = document.getElementById('crestScaleVal');
+  crestScaleSlider.addEventListener('input', () => {
+    state.crestScale = parseFloat(crestScaleSlider.value);
+    crestScaleVal.textContent = Math.round(state.crestScale * 100) + '%';
+    scheduleRender();
+  });
+
+  /* crest position sliders */
+  const crestXSlider = document.getElementById('crestX');
+  const crestXVal    = document.getElementById('crestXVal');
+  crestXSlider.addEventListener('input', () => {
+    state.crestX = parseFloat(crestXSlider.value);
+    crestXVal.textContent = Math.round(state.crestX * 100) + '%';
+    scheduleRender();
+  });
+  const crestYSlider = document.getElementById('crestY');
+  const crestYVal    = document.getElementById('crestYVal');
+  crestYSlider.addEventListener('input', () => {
+    state.crestY = parseFloat(crestYSlider.value);
+    crestYVal.textContent = Math.round(state.crestY * 100) + '%';
+    scheduleRender();
+  });
+
+  /* sponsor vertical position slider */
+  const spXSlider = document.getElementById('sponsorX');
+  const spXVal    = document.getElementById('sponsorXVal');
+  spXSlider.addEventListener('input', () => {
+    state.sponsorX = parseFloat(spXSlider.value);
+    spXVal.textContent = Math.round(state.sponsorX * 100) + '%';
+    scheduleRender();
+  });
+
+  const spYSlider = document.getElementById('sponsorY');
+  const spYVal    = document.getElementById('sponsorYVal');
+  spYSlider.addEventListener('input', () => {
+    state.sponsorY = parseFloat(spYSlider.value);
+    spYVal.textContent = Math.round(state.sponsorY * 100) + '%';
+    scheduleRender();
+  });
+
+  /* sponsor scale slider */
+  const spScaleSlider = document.getElementById('sponsorScale');
+  const spScaleVal    = document.getElementById('sponsorScaleVal');
+  spScaleSlider.addEventListener('input', () => {
+    state.sponsorScale = parseFloat(spScaleSlider.value);
+    spScaleVal.textContent = Math.round(state.sponsorScale * 100) + '%';
+    scheduleRender();
+  });
+
+  /* sponsor bg */
+  document.getElementById('sponsorBg').addEventListener('change', e => {
+    state.sponsorBg = e.target.value; scheduleRender();
+  });
+  const spBgScaleXSlider = document.getElementById('sponsorBgScaleX');
+  const spBgScaleXVal = document.getElementById('sponsorBgScaleXVal');
+  spBgScaleXSlider.addEventListener('input', () => {
+    state.sponsorBgScaleX = parseFloat(spBgScaleXSlider.value);
+    spBgScaleXVal.textContent = Math.round(state.sponsorBgScaleX * 100) + '%';
+    scheduleRender();
+  });
+  const spBgScaleYSlider = document.getElementById('sponsorBgScaleY');
+  const spBgScaleYVal = document.getElementById('sponsorBgScaleYVal');
+  spBgScaleYSlider.addEventListener('input', () => {
+    state.sponsorBgScaleY = parseFloat(spBgScaleYSlider.value);
+    spBgScaleYVal.textContent = Math.round(state.sponsorBgScaleY * 100) + '%';
+    scheduleRender();
+  });
+
+  /* load asset lists */
+  loadAssetList('/kit-designer/api/crests',   'crestSelect',   'crestImg',   'crestFile',   '/gfx/crests/');
+  loadSponsorDesignList();
+  loadPatternLists();
+
+  /* export */
+  document.getElementById('btnExport').addEventListener('click', () => exportPNG('cvsKit', 'kit.png'));
+
+  /* config JSON toggle */
+  document.getElementById('btnShowJSON').addEventListener('click', () => {
+    const panel = document.getElementById('configPanel');
+    const vis = panel.style.display === 'none';
+    panel.style.display = vis ? 'block' : 'none';
+    if (vis) document.getElementById('configJSON').value = getConfigJSON();
+  });
+
+  /* reset */
+  document.getElementById('btnReset').addEventListener('click', () => {
+    Object.assign(state, {
+      ...DEFAULTS,
+      crestImg: null,
+      sponsorFixedImg: null,
+      sponsorMaskPrimaryImg: null,
+      sponsorMaskSecondaryImg: null,
+      sponsorMaskTertiaryImg: null,
+      patternLayers: DEFAULTS.patternLayers.map(l => ({ ...l })),
+      patternLayerImgs: [null, null, null],
+      collarName: state.collarName,
+      kitName: state.kitName,
+      shortsStyleName: state.shortsStyleName,
+      socksStyleName: state.socksStyleName
+    });
+    state.patternLayer1Color = state.patternLayers[0].color;
+    state.patternLayer2Color = state.patternLayers[1].color;
+    state.patternLayer3Color = state.patternLayers[2].color;
+    /* shirt colors */
+    document.getElementById('shirtPriPick').value  = state.shirtPrimaryColor;
+    document.getElementById('shirtPriHex').value   = state.shirtPrimaryColor;
+    document.getElementById('shirtSecPick').value  = state.shirtSecondaryColor;
+    document.getElementById('shirtSecHex').value   = state.shirtSecondaryColor;
+    document.getElementById('shirtTerPick').value  = state.shirtTertiaryColor;
+    document.getElementById('shirtTerHex').value   = state.shirtTertiaryColor;
+    document.getElementById('shirtQuatPick').value = state.shirtQuaternaryColor;
+    document.getElementById('shirtQuatHex').value  = state.shirtQuaternaryColor;
+    /* shorts colors */
+    document.getElementById('shortsPriPick').value = state.shortsPrimaryColor;
+    document.getElementById('shortsPriHex').value  = state.shortsPrimaryColor;
+    document.getElementById('shortsSecPick').value = state.shortsSecondaryColor;
+    document.getElementById('shortsSecHex').value  = state.shortsSecondaryColor;
+    document.getElementById('shortsTerPick').value = state.shortsTertiaryColor;
+    document.getElementById('shortsTerHex').value  = state.shortsTertiaryColor;
+    /* socks colors */
+    document.getElementById('socksPriPick').value  = state.socksPrimaryColor;
+    document.getElementById('socksPriHex').value   = state.socksPrimaryColor;
+    document.getElementById('socksSecPick').value  = state.socksSecondaryColor;
+    document.getElementById('socksSecHex').value   = state.socksSecondaryColor;
+    document.getElementById('socksTerPick').value  = state.socksTertiaryColor;
+    document.getElementById('socksTerHex').value   = state.socksTertiaryColor;
+    /* collar colors */
+    document.getElementById('collarPriPick').value = state.collarPrimaryColor;
+    document.getElementById('collarPriHex').value  = state.collarPrimaryColor;
+    document.getElementById('collarSecPick').value = state.collarSecondaryColor;
+    document.getElementById('collarSecHex').value  = state.collarSecondaryColor;
+    document.getElementById('collarTerPick').value = state.collarTertiaryColor;
+    document.getElementById('collarTerHex').value  = state.collarTertiaryColor;
+    /* transparent ticks */
+    TRANS_IDS.forEach(([elId]) => { document.getElementById(elId).checked = false; });
+    /* pattern */
+    document.getElementById('pat1ColorPick').value  = state.patternLayers[0].color;
+    document.getElementById('pat1ColorHex').value   = state.patternLayers[0].color;
+    document.getElementById('pat2ColorPick').value  = state.patternLayers[1].color;
+    document.getElementById('pat2ColorHex').value   = state.patternLayers[1].color;
+    document.getElementById('pat3ColorPick').value  = state.patternLayers[2].color;
+    document.getElementById('pat3ColorHex').value   = state.patternLayers[2].color;
+    document.getElementById('pattern1Select').value = '';
+    document.getElementById('pattern2Select').value = '';
+    document.getElementById('pattern3Select').value = '';
+    document.getElementById('pat1Scale').value = state.patternLayers[0].scale;
+    document.getElementById('pat1ScaleVal').textContent = state.patternLayers[0].scale.toFixed(1) + 'x';
+    document.getElementById('pat1OffsetX').value = state.patternLayers[0].offsetX;
+    document.getElementById('pat1OffsetXVal').textContent = Math.round(state.patternLayers[0].offsetX * 100) + '%';
+    document.getElementById('pat1OffsetY').value = state.patternLayers[0].offsetY;
+    document.getElementById('pat1OffsetYVal').textContent = Math.round(state.patternLayers[0].offsetY * 100) + '%';
+    document.getElementById('pat1Rotate').value = state.patternLayers[0].rotateDeg;
+    document.getElementById('pat1RotateVal').textContent = state.patternLayers[0].rotateDeg + 'deg';
+    document.getElementById('pat2Scale').value = state.patternLayers[1].scale;
+    document.getElementById('pat2ScaleVal').textContent = state.patternLayers[1].scale.toFixed(1) + 'x';
+    document.getElementById('pat2OffsetX').value = state.patternLayers[1].offsetX;
+    document.getElementById('pat2OffsetXVal').textContent = Math.round(state.patternLayers[1].offsetX * 100) + '%';
+    document.getElementById('pat2OffsetY').value = state.patternLayers[1].offsetY;
+    document.getElementById('pat2OffsetYVal').textContent = Math.round(state.patternLayers[1].offsetY * 100) + '%';
+    document.getElementById('pat2Rotate').value = state.patternLayers[1].rotateDeg;
+    document.getElementById('pat2RotateVal').textContent = state.patternLayers[1].rotateDeg + 'deg';
+    document.getElementById('pat3Scale').value = state.patternLayers[2].scale;
+    document.getElementById('pat3ScaleVal').textContent = state.patternLayers[2].scale.toFixed(1) + 'x';
+    document.getElementById('pat3OffsetX').value = state.patternLayers[2].offsetX;
+    document.getElementById('pat3OffsetXVal').textContent = Math.round(state.patternLayers[2].offsetX * 100) + '%';
+    document.getElementById('pat3OffsetY').value = state.patternLayers[2].offsetY;
+    document.getElementById('pat3OffsetYVal').textContent = Math.round(state.patternLayers[2].offsetY * 100) + '%';
+    document.getElementById('pat3Rotate').value = state.patternLayers[2].rotateDeg;
+    document.getElementById('pat3RotateVal').textContent = state.patternLayers[2].rotateDeg + 'deg';
+    document.querySelectorAll('.patTarget').forEach(cb => { cb.checked = false; });
+    /* sponsor / crest */
+    document.getElementById('sponsorMaskPriPick').value = state.sponsorMaskPrimaryColor;
+    document.getElementById('sponsorMaskPriHex').value = state.sponsorMaskPrimaryColor;
+    document.getElementById('sponsorMaskSecPick').value = state.sponsorMaskSecondaryColor;
+    document.getElementById('sponsorMaskSecHex').value = state.sponsorMaskSecondaryColor;
+    document.getElementById('sponsorMaskTerPick').value = state.sponsorMaskTertiaryColor;
+    document.getElementById('sponsorMaskTerHex').value = state.sponsorMaskTertiaryColor;
+    document.getElementById('sponsorScale').value      = state.sponsorScale;
+    document.getElementById('sponsorScaleVal').textContent = Math.round(state.sponsorScale * 100) + '%';
+    document.getElementById('sponsorX').value          = state.sponsorX;
+    document.getElementById('sponsorXVal').textContent = Math.round(state.sponsorX * 100) + '%';
+    document.getElementById('sponsorY').value          = state.sponsorY;
+    document.getElementById('sponsorYVal').textContent = Math.round(state.sponsorY * 100) + '%';
+    document.getElementById('crestScale').value         = state.crestScale;
+    document.getElementById('crestScaleVal').textContent = Math.round(state.crestScale * 100) + '%';
+    document.getElementById('crestX').value            = state.crestX;
+    document.getElementById('crestXVal').textContent   = Math.round(state.crestX * 100) + '%';
+    document.getElementById('crestY').value            = state.crestY;
+    document.getElementById('crestYVal').textContent   = Math.round(state.crestY * 100) + '%';
+    document.getElementById('sponsorBg').value         = state.sponsorBg;
+    document.getElementById('sponsorBgScaleX').value    = state.sponsorBgScaleX;
+    document.getElementById('sponsorBgScaleXVal').textContent = Math.round(state.sponsorBgScaleX * 100) + '%';
+    document.getElementById('sponsorBgScaleY').value    = state.sponsorBgScaleY;
+    document.getElementById('sponsorBgScaleYVal').textContent = Math.round(state.sponsorBgScaleY * 100) + '%';
+    document.getElementById('sponsorDesignSelect').value = '';
+    document.getElementById('crestSelect').value       = '';
+    document.getElementById('crestVisible').checked    = true;
+    document.getElementById('sponsorVisible').checked  = true;
+    scheduleRender();
+  });
+
+  /* Load fullkit base, then kit design + collar, then render */
+  await loadFullKit();
+  await loadKitList();
+  await loadShortsStyleList();
+  await loadSocksStyleList();
+  await loadCollarList();
+  scheduleRender();
+});
+</script>
+</body>
+</html>

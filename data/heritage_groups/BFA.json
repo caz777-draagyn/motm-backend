@@ -1,0 +1,35 @@
+{
+    "nationality": "BFA",
+    "nationality_name": "Burkina Faso",
+    "heritage_groups": {
+        "BFA_AfricaWest": {
+            "weight": 1.0,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "BFA": 0.45,
+                "MLI": 0.2,
+                "GHA": 0.15,
+                "NIG": 0.1,
+                "CIV": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

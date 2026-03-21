@@ -1,0 +1,86 @@
+{
+    "nationality": "PAK",
+    "nationality_name": "Pakistan",
+    "heritage_groups": {
+        "PAK_AsiaSouth": {
+            "weight": 0.92,
+            "picture_folder": "AsiaSouth",
+            "origin_country_weights": {
+                "PAK": 0.95,
+                "IND": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "PAK_AsiaCentral": {
+            "weight": 0.05,
+            "picture_folder": "AsiaCentral",
+            "origin_country_weights": {
+                "AFG": 0.6,
+                "TJK": 0.2,
+                "UZB": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.08,
+                "HL": 0.04,
+                "HH": 0.88
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "PAK_MiddleEast": {
+            "weight": 0.03,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "IRN": 0.6,
+                "IRQ": 0.2,
+                "TUR": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.08,
+                "HL": 0.04,
+                "HH": 0.88
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

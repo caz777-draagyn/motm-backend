@@ -1,0 +1,34 @@
+{
+    "nationality": "LAO",
+    "nationality_name": "Laos",
+    "heritage_groups": {
+        "LAO_AsiaSouthEast": {
+            "weight": 0.92,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "LAO": 0.4,
+                "THA": 0.3,
+                "VIE": 0.2,
+                "CAM": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

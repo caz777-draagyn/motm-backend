@@ -1,0 +1,63 @@
+{
+    "nationality": "SOM",
+    "nationality_name": "Somalia",
+    "heritage_groups": {
+        "SOM_AfricaHorn": {
+            "weight": 0.97,
+            "picture_folder": "AfricaHorn",
+            "origin_country_weights": {
+                "SOM": 0.7,
+                "ETH": 0.15,
+                "ERI": 0.1,
+                "DJI": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "SOM_MiddleEast": {
+            "weight": 0.03,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "YEM": 0.35,
+                "KSA": 0.25,
+                "UAE": 0.15,
+                "EGY": 0.15,
+                "OMA": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

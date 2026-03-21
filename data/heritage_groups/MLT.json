@@ -1,0 +1,34 @@
+{
+    "nationality": "MLT",
+    "nationality_name": "Malta",
+    "heritage_groups": {
+        "MLT_EuroSouth": {
+            "weight": 1.0,
+            "picture_folder": "EuroSouth",
+            "origin_country_weights": {
+                "MLT": 0.4,
+                "ITA": 0.35,
+                "GRE": 0.15,
+                "ESP": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        }
+    }
+}

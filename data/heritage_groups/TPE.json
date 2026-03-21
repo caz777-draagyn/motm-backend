@@ -1,0 +1,84 @@
+{
+    "nationality": "TPE",
+    "nationality_name": "Taiwan",
+    "heritage_groups": {
+        "TPE_AsiaEast": {
+            "weight": 0.96,
+            "picture_folder": "AsiaEast",
+            "origin_country_weights": {
+                "TPE": 0.8,
+                "CHN": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "TPE_AsiaSouthEast": {
+            "weight": 0.02,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "VIE": 0.6,
+                "PHI": 0.4
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.1,
+                "HL": 0.05,
+                "HH": 0.85
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "TPE_AsiaSouth": {
+            "weight": 0.02,
+            "picture_folder": "AsiaSouth",
+            "origin_country_weights": {
+                "IND": 0.7,
+                "PAK": 0.3
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.1,
+                "HL": 0.05,
+                "HH": 0.85
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

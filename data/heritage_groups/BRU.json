@@ -1,0 +1,34 @@
+{
+    "nationality": "BRU",
+    "nationality_name": "Brunei",
+    "heritage_groups": {
+        "BRU_AsiaSouthEast": {
+            "weight": 0.7,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "BRU": 0.25,
+                "MAS": 0.45,
+                "IDN": 0.25,
+                "SIN": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

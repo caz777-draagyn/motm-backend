@@ -1,0 +1,60 @@
+{
+    "nationality": "JPN",
+    "nationality_name": "Japan",
+    "heritage_groups": {
+        "JPN_AsiaEast": {
+            "weight": 0.98,
+            "picture_folder": "AsiaEast",
+            "origin_country_weights": {
+                "JPN": 0.95,
+                "KOR": 0.03,
+                "CHN": 0.02
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "JPN_AsiaSouthEast": {
+            "weight": 0.02,
+            "picture_folder": "AsiaSouthEast",
+            "origin_country_weights": {
+                "PHI": 0.4,
+                "VIE": 0.3,
+                "THA": 0.3
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.1,
+                "HL": 0.05,
+                "HH": 0.85
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

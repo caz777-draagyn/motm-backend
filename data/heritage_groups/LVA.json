@@ -1,0 +1,90 @@
+{
+    "nationality": "LVA",
+    "nationality_name": "Latvia",
+    "heritage_groups": {
+        "LVA_Scandinavian": {
+            "weight": 0.18,
+            "picture_folder": "Scandinavia",
+            "origin_country_weights": {
+                "LVA": 0.85,
+                "LTU": 0.1,
+                "EST": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "LVA_EuroEast": {
+            "weight": 0.7,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "LVA": 0.35,
+                "LTU": 0.15,
+                "EST": 0.1,
+                "RUS": 0.25,
+                "BLR": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "LVA_EuroNorth": {
+            "weight": 0.12,
+            "picture_folder": "EuroNorth",
+            "origin_country_weights": {
+                "SWE": 0.3,
+                "FIN": 0.3,
+                "GER": 0.25,
+                "DEN": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "nationality": "CIV",
+    "nationality_name": "Cote d’Ivoire",
+    "heritage_groups": {
+        "CIV_AfricaWest": {
+            "weight": 0.98,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "CIV": 1.0
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "CIV_AfricaCentral": {
+            "weight": 0.02,
+            "picture_folder": "AfricaCentral",
+            "origin_country_weights": {
+                "GHA": 0.5,
+                "BFA": 0.5
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.07,
+                "HL": 0.03,
+                "HH": 0.9
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

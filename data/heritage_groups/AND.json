@@ -1,0 +1,33 @@
+{
+    "nationality": "AND",
+    "nationality_name": "Andorra",
+    "heritage_groups": {
+        "AND_EuroSouth": {
+            "weight": 1.0,
+            "picture_folder": "EuroSouth",
+            "origin_country_weights": {
+                "ESP": 0.55,
+                "FRA": 0.35,
+                "POR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        }
+    }
+}

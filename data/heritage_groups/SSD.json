@@ -1,0 +1,62 @@
+{
+    "nationality": "SSD",
+    "nationality_name": "South Sudan",
+    "heritage_groups": {
+        "SSD_AfricaEast": {
+            "weight": 0.8,
+            "picture_folder": "AfricaEast",
+            "origin_country_weights": {
+                "SSD": 0.4,
+                "SUD": 0.25,
+                "UGA": 0.2,
+                "KEN": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        },
+        "SSD_AfricaCentral": {
+            "weight": 0.2,
+            "picture_folder": "AfricaCentral",
+            "origin_country_weights": {
+                "CTA": 0.35,
+                "COD": 0.35,
+                "CHA": 0.2,
+                "CMR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

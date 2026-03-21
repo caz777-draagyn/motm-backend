@@ -1,0 +1,61 @@
+{
+    "nationality": "GAB",
+    "nationality_name": "Gabon",
+    "heritage_groups": {
+        "GAB_AfricaCentral": {
+            "weight": 0.97,
+            "picture_folder": "AfricaCentral",
+            "origin_country_weights": {
+                "GAB": 0.4,
+                "CMR": 0.25,
+                "EQG": 0.15,
+                "CGO": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        },
+        "GAB_AfricaWest": {
+            "weight": 0.03,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "NGA": 0.45,
+                "GHA": 0.3,
+                "BEN": 0.25
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

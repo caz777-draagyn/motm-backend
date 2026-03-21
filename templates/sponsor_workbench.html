@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Pull Workbench</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f8; color: #1f2937; margin: 0; padding: 20px; }
+        .container { max-width: 1500px; margin: 0 auto; }
+        h1 { margin-bottom: 20px; }
+        .section { background: #fff; border-radius: 8px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; }
+        .control { display: flex; flex-direction: column; gap: 4px; }
+        input, select, button { padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; }
+        button { background: #2563eb; color: white; cursor: pointer; border: none; }
+        button.secondary { background: #6b7280; }
+        button.warn { background: #b45309; }
+        button.danger { background: #b91c1c; }
+        button:disabled { background: #9ca3af; cursor: not-allowed; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 12px; }
+        .card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; background: #fafafa; }
+        .label { font-size: 12px; color: #6b7280; }
+        .value { font-weight: 600; margin-bottom: 6px; }
+        .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        pre { background: #0f172a; color: #e2e8f0; padding: 10px; border-radius: 6px; overflow-x: auto; font-size: 12px; }
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sponsor Pull Workbench</h1>
+
+        <div class="section">
+            <h2>Controls</h2>
+            <div class="controls">
+                <div class="control"><label>Week</label><input id="week" type="number" min="1" value="1"></div>
+                <div class="control"><label>Facilities (0-10)</label><input id="facilityLevel" type="number" min="0" max="10" value="5"></div>
+                <div class="control"><label>Staff (0-10)</label><input id="staffLevel" type="number" min="0" max="10" value="5"></div>
+                <div class="control"><label>Yearly Base Floor</label><input id="baseFloor" type="number" min="1" value="60000"></div>
+                <div class="control"><label>Yearly Base Ceiling</label><input id="baseCeiling" type="number" min="1" value="1400000"></div>
+                <button id="saveConfigBtn">Save Config</button>
+                <button id="pullBtn">Weekly Pull</button>
+                <button id="resetBtn" class="danger">Reset</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sponsor Slots</h2>
+            <div id="slots" class="grid"></div>
+        </div>
+
+        <div class="section">
+            <h2>Offers</h2>
+            <div id="offers" class="grid"></div>
+        </div>
+
+        <div class="section">
+            <h2>Portfolio</h2>
+            <div id="contracts" class="grid"></div>
+        </div>
+
+        <div class="section">
+            <h2>Diagnostics</h2>
+            <pre id="diagnostics"></pre>
+        </div>
+    </div>
+
+    <script>
+        const state = { data: null };
+
+        async function api(path, method = "GET", body = null) {
+            const res = await fetch(`/api/sponsor-workbench${path}`, {
+                method,
+                headers: { "Content-Type": "application/json" },
+                body: body ? JSON.stringify(body) : null
+            });
+            const payload = await res.json();
+            if (!res.ok) {
+                throw new Error(payload.detail || "Request failed");
+            }
+            return payload;
+        }
+
+        function money(v) {
+            return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(v || 0);
+        }
+
+        function refreshConfigInputs(config) {
+            if (!config) return;
+            document.getElementById("week").value = config.week_number;
+            document.getElementById("facilityLevel").value = config.facility_level;
+            document.getElementById("staffLevel").value = config.staff_level;
+            document.getElementById("baseFloor").value = config.yearly_base_floor;
+            document.getElementById("baseCeiling").value = config.yearly_base_ceiling;
+        }
+
+        function renderSlots(slots) {
+            const el = document.getElementById("slots");
+            el.innerHTML = "";
+            (slots || []).forEach(slot => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `
+                    <div class="label">Slot</div><div class="value">${slot.slot_id}</div>
+                    <div class="label">Tier</div><div class="value">${slot.tier}</div>
+                    <div class="label">Occupied</div><div class="value">${slot.occupied_contract_id || "No"}</div>
+                `;
+                el.appendChild(card);
+            });
+        }
+
+        function renderOffers(offers) {
+            const el = document.getElementById("offers");
+            el.innerHTML = "";
+            (offers || []).forEach(offer => {
+                const card = document.createElement("div");
+                card.className = "card";
+                const targets = (offer.targets || []).map(t => `<li>${t.label} (w:${t.weight}) -> ${money(t.payout)}</li>`).join("");
+                card.innerHTML = `
+                    <div class="label">Offer ID</div><div class="value">${offer.offer_id}</div>
+                    <div class="row">
+                        <div><div class="label">Potential</div><div class="value">${offer.base_potential}</div></div>
+                        <div><div class="label">Duration</div><div class="value">${offer.duration_years} years</div></div>
+                    </div>
+                    <div class="row">
+                        <div><div class="label">Guaranteed Type</div><div class="value">${offer.guaranteed_type_label}</div></div>
+                        <div><div class="label">Guaranteed Share</div><div class="value">${Math.round((offer.guaranteed_share || 0) * 100)}%</div></div>
+                    </div>
+                    <div class="row">
+                        <div><div class="label">Guaranteed Value</div><div class="value">${money(offer.guaranteed_value)}</div></div>
+                        <div><div class="label">Target Pool</div><div class="value">${money(offer.target_pool_value)}</div></div>
+                    </div>
+                    <div class="label">Total Deal Value</div><div class="value">${money(offer.adjusted_total_value)}</div>
+                    <div class="label">Targets</div>
+                    <ul>${targets}</ul>
+                    <div class="actions">
+                        <select id="neg-${offer.offer_id}">
+                            <option value="upfront">Upfront</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="end_lump">End Lump</option>
+                        </select>
+                        <button class="warn" ${offer.negotiated || offer.status !== "offered" ? "disabled" : ""} onclick="negotiate('${offer.offer_id}')">Negotiate</button>
+                        <button ${offer.status !== "offered" ? "disabled" : ""} onclick="acceptOffer('${offer.offer_id}')">Accept</button>
+                    </div>
+                `;
+                el.appendChild(card);
+            });
+        }
+
+        function renderContracts(contracts, slots) {
+            const el = document.getElementById("contracts");
+            el.innerHTML = "";
+            (contracts || []).forEach(contract => {
+                const card = document.createElement("div");
+                card.className = "card";
+                const quote = contract.cancellation_quote || {};
+                const options = (slots || []).map(s => `<option value="${s.slot_id}" ${s.occupied_contract_id ? "disabled" : ""}>${s.slot_id} (${s.tier}) ${s.occupied_contract_id ? "- occupied" : ""}</option>`).join("");
+                const targetLines = (contract.targets || []).map(t => `<li>${t.label}: ${money(t.payout)}</li>`).join("");
+                card.innerHTML = `
+                    <div class="label">Contract ID</div><div class="value">${contract.contract_id}</div>
+                    <div class="label">Status</div><div class="value">${contract.status}</div>
+                    <div class="row">
+                        <div><div class="label">Guaranteed Type</div><div class="value">${contract.guaranteed_type_label}</div></div>
+                        <div><div class="label">Slot</div><div class="value">${contract.slot_id || "Unassigned"}</div></div>
+                    </div>
+                    <div class="row">
+                        <div><div class="label">Guaranteed Value</div><div class="value">${money(contract.guaranteed_value)}</div></div>
+                        <div><div class="label">Target Pool</div><div class="value">${money(contract.target_pool_value)}</div></div>
+                    </div>
+                    <div class="label">Targets</div><ul>${targetLines}</ul>
+                    <div class="label">Cancellation Quote</div>
+                    <div class="value">${quote.cancellable ? `Fee ${money(quote.cancel_fee)} (${quote.reason})` : quote.reason || "N/A"}</div>
+                    <div class="actions">
+                        <select id="slot-${contract.contract_id}">${options}</select>
+                        <button ${contract.slot_id || contract.status === "cancelled" ? "disabled" : ""} onclick="assignSlot('${contract.contract_id}')">Assign Slot</button>
+                        <button class="danger" ${contract.status === "cancelled" ? "disabled" : ""} onclick="cancelContract('${contract.contract_id}')">Cancel</button>
+                    </div>
+                `;
+                el.appendChild(card);
+            });
+        }
+
+        function renderDiagnostics(data) {
+            document.getElementById("diagnostics").textContent = JSON.stringify({
+                week_number: data.week_number,
+                config: data.config,
+                constants: data.constants,
+                history: data.history
+            }, null, 2);
+        }
+
+        async function syncState() {
+            const data = await api("/state");
+            state.data = data;
+            refreshConfigInputs(data.config);
+            renderSlots(data.slots);
+            renderOffers(data.offers);
+            renderContracts(data.contracts, data.slots);
+            renderDiagnostics(data);
+        }
+
+        async function saveConfig() {
+            await api("/config", "POST", {
+                week_number: Number(document.getElementById("week").value),
+                facility_level: Number(document.getElementById("facilityLevel").value),
+                staff_level: Number(document.getElementById("staffLevel").value),
+                yearly_base_floor: Number(document.getElementById("baseFloor").value),
+                yearly_base_ceiling: Number(document.getElementById("baseCeiling").value)
+            });
+            await syncState();
+        }
+
+        async function pullOffers() {
+            await api("/pull", "POST", { week_number: Number(document.getElementById("week").value) });
+            await syncState();
+        }
+
+        async function resetState() {
+            await api("/reset", "POST");
+            await syncState();
+        }
+
+        async function negotiate(offerId) {
+            try {
+                const choice = document.getElementById(`neg-${offerId}`).value;
+                await api(`/offers/${offerId}/negotiate`, "POST", { new_guaranteed_type: choice });
+                await syncState();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        async function acceptOffer(offerId) {
+            try {
+                await api(`/offers/${offerId}/accept`, "POST");
+                await syncState();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        async function assignSlot(contractId) {
+            try {
+                const slotId = document.getElementById(`slot-${contractId}`).value;
+                await api(`/contracts/${contractId}/assign-slot`, "POST", { slot_id: slotId });
+                await syncState();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        async function cancelContract(contractId) {
+            try {
+                await api(`/contracts/${contractId}/cancel`, "POST");
+                await syncState();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        document.getElementById("saveConfigBtn").addEventListener("click", saveConfig);
+        document.getElementById("pullBtn").addEventListener("click", pullOffers);
+        document.getElementById("resetBtn").addEventListener("click", resetState);
+
+        syncState().catch(err => {
+            document.getElementById("diagnostics").textContent = `Failed to load initial state: ${err.message}`;
+        });
+    </script>
+</body>
+</html>

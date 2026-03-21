@@ -1,0 +1,91 @@
+{
+    "nationality": "LBY",
+    "nationality_name": "Libya",
+    "heritage_groups": {
+        "LBY_AfricaNorth": {
+            "weight": 0.9,
+            "picture_folder": "AfricaNorth",
+            "origin_country_weights": {
+                "LBY": 0.45,
+                "TUN": 0.25,
+                "ALG": 0.15,
+                "MAR": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "LBY_MiddleEast": {
+            "weight": 0.06,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "EGY": 0.35,
+                "IRQ": 0.2,
+                "KSA": 0.2,
+                "SYR": 0.15,
+                "LBN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "LBY_AfricaWest": {
+            "weight": 0.04,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "NIG": 0.35,
+                "NGA": 0.3,
+                "GHA": 0.2,
+                "SEN": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

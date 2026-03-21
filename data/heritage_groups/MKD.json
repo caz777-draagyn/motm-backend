@@ -1,0 +1,63 @@
+{
+    "nationality": "MKD",
+    "nationality_name": "Macedonia",
+    "heritage_groups": {
+        "MKD_EuroEast": {
+            "weight": 0.9,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "MKD": 0.4,
+                "SRB": 0.2,
+                "BUL": 0.15,
+                "GRE": 0.15,
+                "ALB": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "MKD_MiddleEast": {
+            "weight": 0.1,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "TUR": 0.7,
+                "SYR": 0.1,
+                "LBN": 0.1,
+                "IRQ": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

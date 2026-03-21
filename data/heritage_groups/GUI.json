@@ -1,0 +1,35 @@
+{
+    "nationality": "GUI",
+    "nationality_name": "Guinea",
+    "heritage_groups": {
+        "GUI_AfricaWest": {
+            "weight": 1.0,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "GUI": 0.45,
+                "SLE": 0.2,
+                "LBR": 0.15,
+                "MLI": 0.1,
+                "SEN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.35,
+                "common": 0.35,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.18,
+                "common": 0.4,
+                "mid": 0.32,
+                "rare": 0.1
+            }
+        }
+    }
+}

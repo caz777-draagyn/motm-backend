@@ -1,0 +1,12 @@
+# Keep Railway CLI uploads small (railway up zips the project)
+.git/
+.gitignore
+
+# Local-only profile packs (same idea as .gitignore)
+gfx/[0-9]*/
+
+# Optional
+.venv/
+venv/
+__pycache__/
+.cursor/

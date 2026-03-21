@@ -1,0 +1,202 @@
+{
+    "nationality": "FRA",
+    "nationality_name": "France",
+    "heritage_groups": {
+        "FRA_EuroCentral": {
+            "weight": 0.72,
+            "picture_folder": "EuroCentral",
+            "origin_country_weights": {
+                "FRA": 1.0
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "FRA_AfricaNorth": {
+            "weight": 0.1,
+            "picture_folder": "AfricaNorth",
+            "origin_country_weights": {
+                "ALG": 0.45,
+                "MAR": 0.35,
+                "TUN": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.5,
+                "HL": 0.01,
+                "HH": 0.45
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "FRA_AfricaWest": {
+            "weight": 0.06,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "SEN": 0.2,
+                "MLI": 0.2,
+                "CIV": 0.2,
+                "CMR": 0.2,
+                "GUI": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.45,
+                "HL": 0.01,
+                "HH": 0.5
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "FRA_MiddleEast": {
+            "weight": 0.03,
+            "picture_folder": "MiddleEast",
+            "origin_country_weights": {
+                "LBN": 0.3,
+                "SYR": 0.25,
+                "IRQ": 0.2,
+                "IRN": 0.15,
+                "TUR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.45,
+                "HL": 0.01,
+                "HH": 0.5
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "FRA_AsiaSouth": {
+            "weight": 0.03,
+            "picture_folder": "AsiaSouth",
+            "origin_country_weights": {
+                "IND": 0.55,
+                "PAK": 0.2,
+                "LKA": 0.15,
+                "BAN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.4,
+                "HL": 0.01,
+                "HH": 0.55
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "FRA_AmericaLatin": {
+            "weight": 0.03,
+            "picture_folder": "AmericaLatin",
+            "origin_country_weights": {
+                "BRA": 0.3,
+                "COL": 0.2,
+                "ARG": 0.15,
+                "MEX": 0.15,
+                "CHI": 0.1,
+                "PER": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.3,
+                "HL": 0.01,
+                "HH": 0.65
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "FRA_EuroEast": {
+            "weight": 0.03,
+            "picture_folder": "EuroEast",
+            "origin_country_weights": {
+                "ROU": 0.35,
+                "POL": 0.25,
+                "BUL": 0.2,
+                "UKR": 0.2
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.35,
+                "HL": 0.01,
+                "HH": 0.6
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

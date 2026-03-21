@@ -1,0 +1,62 @@
+{
+    "nationality": "AFG",
+    "nationality_name": "Afghanistan",
+    "heritage_groups": {
+        "AFG_AsiaCentral": {
+            "weight": 0.6,
+            "picture_folder": "AsiaCentral",
+            "origin_country_weights": {
+                "AFG": 0.7,
+                "IRN": 0.15,
+                "KAZ": 0.1,
+                "AZE": 0.05
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "AFG_AsiaSouth": {
+            "weight": 0.4,
+            "picture_folder": "AsiaSouth",
+            "origin_country_weights": {
+                "PAK": 0.55,
+                "IND": 0.25,
+                "BAN": 0.1,
+                "LKA": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 1.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "nationality": "BOL",
+    "nationality_name": "Bolivia",
+    "heritage_groups": {
+        "BOL_AmericaAndean": {
+            "weight": 0.6,
+            "picture_folder": "AmericaAndean",
+            "origin_country_weights": {
+                "BOL": 1.0
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "BOL_AmericaLatin": {
+            "weight": 0.35,
+            "picture_folder": "AmericaLatin",
+            "origin_country_weights": {
+                "BOL": 1.0
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "BOL_AfricaWest": {
+            "weight": 0.03,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "PER": 0.6,
+                "BRA": 0.4
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.08,
+                "HL": 0.04,
+                "HH": 0.88
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "BOL_EuroSouth": {
+            "weight": 0.02,
+            "picture_folder": "EuroSouth",
+            "origin_country_weights": {
+                "ESP": 0.7,
+                "ITA": 0.3
+            },
+            "name_structure_probs": {
+                "LL": 0.0,
+                "LH": 0.0,
+                "HL": 0.02,
+                "HH": 0.98
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}

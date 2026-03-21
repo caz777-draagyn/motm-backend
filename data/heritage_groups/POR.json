@@ -1,0 +1,114 @@
+{
+    "nationality": "POR",
+    "nationality_name": "Portugal",
+    "heritage_groups": {
+        "POR_EuroSouth": {
+            "weight": 0.85,
+            "picture_folder": "EuroSouth",
+            "origin_country_weights": {
+                "POR": 0.9,
+                "ESP": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 1.0,
+                "LH": 0.0,
+                "HL": 0.0,
+                "HH": 0.0
+            },
+            "given_tier_probs": {
+                "very_common": 0.4,
+                "common": 0.35,
+                "mid": 0.22,
+                "rare": 0.03
+            },
+            "surname_tier_probs": {
+                "very_common": 0.25,
+                "common": 0.4,
+                "mid": 0.28,
+                "rare": 0.07
+            }
+        },
+        "POR_AmericaLatin": {
+            "weight": 0.08,
+            "picture_folder": "AmericaLatin",
+            "origin_country_weights": {
+                "BRA": 0.75,
+                "CPV": 0.15,
+                "POR": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.02,
+                "LH": 0.25,
+                "HL": 0.03,
+                "HH": 0.7
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "POR_AfricaWest": {
+            "weight": 0.04,
+            "picture_folder": "AfricaWest",
+            "origin_country_weights": {
+                "ANG": 0.45,
+                "CPV": 0.25,
+                "GNB": 0.15,
+                "STP": 0.15
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.4,
+                "HL": 0.01,
+                "HH": 0.55
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        },
+        "POR_AfricaNorth": {
+            "weight": 0.03,
+            "picture_folder": "AfricaNorth",
+            "origin_country_weights": {
+                "MAR": 0.7,
+                "ALG": 0.2,
+                "TUN": 0.1
+            },
+            "name_structure_probs": {
+                "LL": 0.04,
+                "LH": 0.4,
+                "HL": 0.01,
+                "HH": 0.55
+            },
+            "given_tier_probs": {
+                "very_common": 0.3,
+                "common": 0.4,
+                "mid": 0.25,
+                "rare": 0.05
+            },
+            "surname_tier_probs": {
+                "very_common": 0.15,
+                "common": 0.4,
+                "mid": 0.35,
+                "rare": 0.1
+            }
+        }
+    }
+}
