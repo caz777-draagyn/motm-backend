@@ -590,9 +590,34 @@
         
         function showError(msg) {
             const errDiv = document.getElementById('errorMsg');
-            errDiv.textContent = msg;
+            let text = msg;
+            if (text && typeof text !== 'string') {
+                try {
+                    text = JSON.stringify(text);
+                } catch (e) {
+                    text = String(text);
+                }
+            }
+            errDiv.textContent = text || 'Unknown error';
             errDiv.style.display = 'block';
             setTimeout(() => errDiv.style.display = 'none', 5000);
+        }
+
+        async function readErrorDetail(response) {
+            // Try JSON first, then text; always return a string
+            try {
+                const data = await response.json();
+                const detail = (data && data.detail !== undefined) ? data.detail : data;
+                if (typeof detail === 'string') return detail;
+                return JSON.stringify(detail);
+            } catch (e) {
+                try {
+                    const t = await response.text();
+                    return t || `${response.status} ${response.statusText}`;
+                } catch (e2) {
+                    return `${response.status} ${response.statusText}`;
+                }
+            }
         }
         
         async function checkCapacity() {
@@ -602,8 +627,8 @@
             try {
                 const response = await yaFetch(url);
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to fetch capacity');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to fetch capacity');
                 }
                 const data = await response.json();
                 document.getElementById('capacityInfo').textContent = 
@@ -675,8 +700,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to generate prospects');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to generate prospects');
                 }
                 
                 const data = await response.json();
@@ -729,8 +754,8 @@
                 });
 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to generate prospects for all nations');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to generate prospects for all nations');
                 }
 
                 const data = await response.json();
@@ -768,8 +793,8 @@
                 const response = await yaFetch(url);
                 if (!response.ok) {
                     if (response.status === 404) return; // No prospects yet
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to load prospects');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to load prospects');
                 }
                 
                 const prospects = await response.json();
@@ -864,8 +889,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to promote prospect');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to promote prospect');
                 }
                 
                 await loadProspects();
@@ -890,8 +915,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to reject all prospects');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to reject all prospects');
                 }
                 
                 const data = await response.json();
@@ -909,8 +934,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to reject prospect');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to reject prospect');
                 }
                 
                 await loadProspects();
@@ -927,8 +952,8 @@
                 const response = await yaFetch(url);
                 if (!response.ok) {
                     if (response.status === 404) return;
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to load academy players');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to load academy players');
                 }
                 
                 const players = await response.json();
@@ -1077,8 +1102,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to update player');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to update player');
                 }
                 
                 await loadAcademyPlayers();
@@ -1094,8 +1119,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to promote player');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to promote player');
                 }
                 
                 await loadAcademyPlayers();
@@ -1113,8 +1138,8 @@
             try {
                 const response = await yaFetch(url);
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to load promoted players');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to load promoted players');
                 }
                 
                 const players = await response.json();
@@ -1223,8 +1248,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to train promoted players');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to train promoted players');
                 }
                 
                 const data = await response.json();
@@ -1389,8 +1414,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to release player');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to release player');
                 }
                 
                 await loadAcademyPlayers();
@@ -1415,8 +1440,8 @@
                 });
                 
                 if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.detail || 'Failed to progress week');
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to progress week');
                 }
                 
                 await loadAcademyPlayers();
