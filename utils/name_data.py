@@ -11,6 +11,11 @@ To add a new country:
 
 To add heritage groups for a nationality:
   1. Create data/heritage_groups/<NATIONALITY_CODE>.json with heritage_groups config.
+
+When data/heritage_composition/FullHeritageAndNamingComposition.txt is present, it
+overlays (replaces) HERITAGE_CONFIG for every nationality listed there, refreshes
+HERITAGE_PICTURE_FOLDER_MAP, and fills COUNTRY_FEDERATION (also written to
+data/country_federation.json).
 """
 
 import json
@@ -106,6 +111,10 @@ HERITAGE_PICTURE_FOLDER_MAP: Dict[str, str] = {}
 # Legacy alias — some code references this; it's now a subset of COUNTRY_NAME_POOLS
 HERITAGE_NAME_POOLS: Dict[str, Dict] = {}
 
+# Country code -> confederation (UEFA, CONMEBOL, …) from heritage composition / exports
+COUNTRY_FEDERATION: Dict[str, str] = {}
+
+
 def _load_heritage_groups():
     """Load all heritage group JSON files from the data/heritage_groups directory."""
     if not _HERITAGE_GROUPS_DIR.exists():
@@ -137,6 +146,21 @@ def _load_heritage_groups():
 # ── Initialize on import ──────────────────────────────────────────────────────
 _load_name_pools()
 _load_heritage_groups()
+
+
+def _apply_heritage_composition_file():
+    """Overlay data/heritage_composition/FullHeritageAndNamingComposition.txt when present."""
+    try:
+        from utils import heritage_composition
+
+        n, _rows = heritage_composition.apply_to_name_data()
+        if n:
+            pass  # optional: could log
+    except Exception as e:
+        print(f"Warning: heritage composition overlay skipped: {e}")
+
+
+_apply_heritage_composition_file()
 
 # Build HERITAGE_NAME_POOLS for backward compatibility
 # Any country referenced in heritage groups but not a "main" nationality gets added here

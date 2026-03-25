@@ -287,7 +287,7 @@ def create_player_data(
         
         # If we have a valid heritage group, use it; otherwise fall back to simple mixing
         if heritage_group:
-            from utils.name_generation import select_name_structure, get_country_name_pool
+            from utils.name_generation import select_name_structure_with_variants, get_country_name_pool
             name_obj = generate_name(
                 nationality=nationality,
                 heritage_group=heritage_group,
@@ -301,8 +301,10 @@ def create_player_data(
                 given_first = name_obj.given_first
                 surname_first = name_obj.surname_parts[0] if name_obj.surname_parts else ""
                 
-                # Get intended structure
-                given_origin_intended, surname_origin_intended = select_name_structure(nationality, heritage_group)
+                # Get intended structure (composition-aware; ignores double-surname / compound-given variant)
+                given_origin_intended, surname_origin_intended, _ = select_name_structure_with_variants(
+                    nationality, heritage_group
+                )
                 
                 # Check which pools contain these names
                 given_pool_local = get_country_name_pool(nationality, "given_names_male")
@@ -403,7 +405,7 @@ def create_player_data(
         # When origin_country == nationality or no origin_country, use heritage_group if available
         # This ensures names match the heritage group used for profile pictures
         if heritage_group:
-            from utils.name_generation import generate_name, select_name_structure, get_country_name_pool
+            from utils.name_generation import generate_name, select_name_structure_with_variants, get_country_name_pool
             name_obj = generate_name(
                 nationality=nationality,
                 heritage_group=heritage_group,
@@ -417,8 +419,9 @@ def create_player_data(
                 given_first = name_obj.given_first
                 surname_first = name_obj.surname_parts[0] if name_obj.surname_parts else ""
                 
-                # Get intended structure
-                given_origin_intended, surname_origin_intended = select_name_structure(nationality, heritage_group)
+                given_origin_intended, surname_origin_intended, _ = select_name_structure_with_variants(
+                    nationality, heritage_group
+                )
                 
                 # Get heritage config to find possible origin countries
                 from utils.name_data import HERITAGE_CONFIG

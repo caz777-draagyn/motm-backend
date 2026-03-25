@@ -421,6 +421,7 @@
                 
                 <button onclick="checkCapacity()">Check Capacity</button>
                 <button onclick="generateProspects()">Generate Prospects</button>
+                <button onclick="generateProspectsAllNations()">Generate 2 per Nation</button>
                 <button onclick="loadProspects()">Refresh Prospects</button>
                 <button class="btn-danger" onclick="rejectAllProspects()">Reject All Prospects</button>
             </div>
@@ -539,6 +540,23 @@
     
     <script>
         let currentClubId = null;
+
+        // Workbench token from URL (?token= or ?workbench_token=) for protected API routes
+        const _yaParams = new URLSearchParams(window.location.search);
+        const _yaWorkbenchToken = (_yaParams.get('token') || _yaParams.get('workbench_token') || '').trim();
+        function yaFetch(url, options) {
+            options = options || {};
+            const h = new Headers(options.headers || undefined);
+            if (_yaWorkbenchToken) {
+                h.set('X-Workbench-Token', _yaWorkbenchToken);
+            }
+            return fetch(url, Object.assign({}, options, { headers: h }));
+        }
+        
+        // SVG data URLs must be encodeURIComponent'd — raw " in src="..." breaks the attribute and leaks markup as text.
+        const PROFILE_PIC_FALLBACK_SRC = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><rect fill="#ddd" width="180" height="180"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#999" font-size="10">No pic</text></svg>'
+        );
         
         // Position options (from match_engine constants)
         const POSITIONS = ["GK", "DL", "DC", "DR", "DML", "DMC", "DMR", "ML", "MC", "MR", "OML", "OMC", "OMR", "FC"];
@@ -556,7 +574,7 @@
         // Load random profile picture as logo
         async function loadRandomLogo() {
             try {
-                const response = await fetch('/api/youth-academy/random-profile-picture');
+                const response = await yaFetch('/api/youth-academy/random-profile-picture');
                 if (response.ok) {
                     const data = await response.json();
                     const logoContainer = document.getElementById('logoContainer');
@@ -582,7 +600,7 @@
             const url = clubId ? `/api/youth-academy/capacity/${clubId}` : '/api/youth-academy/capacity';
             
             try {
-                const response = await fetch(url);
+                const response = await yaFetch(url);
                 if (!response.ok) {
                     const data = await response.json();
                     throw new Error(data.detail || 'Failed to fetch capacity');
@@ -650,7 +668,7 @@
             }
             
             try {
-                const response = await fetch('/api/youth-academy/generate-prospects', {
+                const response = await yaFetch('/api/youth-academy/generate-prospects', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(requestBody)
@@ -679,6 +697,61 @@
                 showError(error.message);
             }
         }
+
+        async function generateProspectsAllNations() {
+            const clubId = document.getElementById('clubId').value.trim() || null;
+            const gameModeId = document.getElementById('gameModeId').value.trim() || null;
+            const weekNumber = parseInt(document.getElementById('weekNumber').value);
+            const youthFacilities = parseInt(document.getElementById('youthFacilities').value);
+            const isGoalkeeper = document.getElementById('playerType').value === 'true';
+            const minPotential = document.getElementById('minPotential').value.trim();
+            const maxPotential = document.getElementById('maxPotential').value.trim();
+            const usePotentialRange = document.getElementById('usePotentialRange').checked;
+
+            const requestBody = {
+                club_id: clubId,
+                game_mode_id: gameModeId,
+                week_number: weekNumber,
+                youth_facilities_level: youthFacilities,
+                is_goalkeeper: isGoalkeeper,
+                per_nation: 2,
+                use_potential_range: usePotentialRange
+            };
+
+            if (minPotential) requestBody.min_potential = parseInt(minPotential);
+            if (maxPotential) requestBody.max_potential = parseInt(maxPotential);
+
+            try {
+                const response = await yaFetch('/api/youth-academy/generate-prospects-all-nations', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.detail || 'Failed to generate prospects for all nations');
+                }
+
+                const data = await response.json();
+                if (data.club_id && !clubId) {
+                    currentClubId = data.club_id;
+                    document.getElementById('clubId').value = data.club_id;
+                } else if (clubId) {
+                    currentClubId = clubId;
+                }
+
+                if (data.game_mode_id && !gameModeId) {
+                    document.getElementById('gameModeId').value = data.game_mode_id;
+                }
+
+                await loadProspects();
+                await loadAcademyPlayers();
+                await checkCapacity();
+            } catch (error) {
+                showError(error.message);
+            }
+        }
         
         function enableTestMode() {
             document.getElementById('clubId').value = '';
@@ -692,7 +765,7 @@
             const url = clubId ? `/api/youth-academy/prospects/${clubId}` : '/api/youth-academy/prospects';
             
             try {
-                const response = await fetch(url);
+                const response = await yaFetch(url);
                 if (!response.ok) {
                     if (response.status === 404) return; // No prospects yet
                     const data = await response.json();
@@ -709,17 +782,34 @@
         // Helper: build flag <img> HTML for a nationality code
         function buildFlagHtml(nationality) {
             if (!nationality) return '';
-            const flagSrc = `/gfx/flags/${encodeURIComponent(nationality)}.png`;
-            return `<img src="${flagSrc}" alt="${nationality}" class="player-flag" onerror="this.style.display='none'">`;
+            const FLAG_ALIASES = {
+                // Composition codes vs gfx/flags asset codes
+                // Aruba (ARU) uses ABW.png in gfx/flags
+                ARU: 'ABW',
+                // American Samoa (ASA) uses ASM.png in gfx/flags
+                ASA: 'ASM',
+            };
+
+            const primarySrc = `/gfx/flags/${encodeURIComponent(nationality)}.png`;
+            const fallbackCode = FLAG_ALIASES[nationality] || null;
+            const fallbackSrc = fallbackCode ? `/gfx/flags/${encodeURIComponent(fallbackCode)}.png` : null;
+
+            const onerrorAction = fallbackSrc
+                ? `this.onerror=null;this.src='${fallbackSrc}'`
+                : `this.style.display='none'`;
+            return `<img src="${primarySrc}" alt="${nationality}" class="player-flag" onerror="${onerrorAction}">`;
         }
         
         // Helper: build a profile-picture <img> src or placeholder SVG
         function buildPicSrc(profilePic, profilePicFolder) {
             if (profilePic && profilePicFolder) {
-                return `/gfx/${encodeURIComponent(profilePicFolder)}/${encodeURIComponent(profilePic)}`;
+                // Encode each path segment — do not encode '/' (composition uses player_profile_pics/Bucket)
+                const segs = String(profilePicFolder).split(/[/\\]+/).filter(Boolean)
+                    .map(s => encodeURIComponent(s));
+                const file = encodeURIComponent(profilePic);
+                return `/gfx/${segs.join('/')}/${file}`;
             }
-            // grey placeholder
-            return 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><rect fill="%23ddd" width="180" height="180"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="10">No pic</text></svg>';
+            return PROFILE_PIC_FALLBACK_SRC;
         }
         
         function displayProspects(prospects) {
@@ -740,7 +830,7 @@
                 card.innerHTML = `
                     <div class="player-header">
                         <div class="profile-pic-container">
-                            <img src="${picSrc}" alt="${prospect.name}" class="player-profile-pic" onerror="this.src='data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'180\\' height=\\'180\\'><rect fill=\\'%23ddd\\' width=\\'180\\' height=\\'180\\'/></svg>'">
+                            <img src="${picSrc}" alt="${prospect.name}" class="player-profile-pic" onerror="this.onerror=null;this.src='${PROFILE_PIC_FALLBACK_SRC}'">
                             ${buildFlagHtml(prospect.nationality)}
                         </div>
                         <div class="player-info">
@@ -769,7 +859,7 @@
         
         async function promoteProspect(prospectId) {
             try {
-                const response = await fetch(`/api/youth-academy/prospects/${prospectId}/promote`, {
+                const response = await yaFetch(`/api/youth-academy/prospects/${prospectId}/promote`, {
                     method: 'POST'
                 });
                 
@@ -792,7 +882,7 @@
             }
             
             try {
-                const response = await fetch('/api/youth-academy/prospects/reject-all', {
+                const response = await yaFetch('/api/youth-academy/prospects/reject-all', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -814,7 +904,7 @@
         
         async function rejectProspect(prospectId) {
             try {
-                const response = await fetch(`/api/youth-academy/prospects/${prospectId}/reject`, {
+                const response = await yaFetch(`/api/youth-academy/prospects/${prospectId}/reject`, {
                     method: 'POST'
                 });
                 
@@ -834,7 +924,7 @@
             const url = clubId ? `/api/youth-academy/players/${clubId}` : '/api/youth-academy/players';
             
             try {
-                const response = await fetch(url);
+                const response = await yaFetch(url);
                 if (!response.ok) {
                     if (response.status === 404) return;
                     const data = await response.json();
@@ -920,7 +1010,7 @@
                 card.innerHTML = `
                     <div class="player-header">
                         <div class="profile-pic-container">
-                            <img src="${picSrc}" alt="${player.name}" class="player-profile-pic" onerror="this.src='data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'180\\' height=\\'180\\'><rect fill=\\'%23ddd\\' width=\\'180\\' height=\\'180\\'/></svg>'">
+                            <img src="${picSrc}" alt="${player.name}" class="player-profile-pic" onerror="this.onerror=null;this.src='${PROFILE_PIC_FALLBACK_SRC}'">
                             ${buildFlagHtml(player.nationality)}
                         </div>
                         <div class="player-info">
@@ -977,7 +1067,7 @@
             const trainingProgram = document.getElementById(`training_${playerId}`).value || null;
             
             try {
-                const response = await fetch(`/api/youth-academy/players/${playerId}`, {
+                const response = await yaFetch(`/api/youth-academy/players/${playerId}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -999,7 +1089,7 @@
         
         async function promoteAcademyPlayer(playerId) {
             try {
-                const response = await fetch(`/api/youth-academy/players/${playerId}/promote`, {
+                const response = await yaFetch(`/api/youth-academy/players/${playerId}/promote`, {
                     method: 'POST'
                 });
                 
@@ -1021,7 +1111,7 @@
             const url = clubId ? `/api/youth-academy/promoted-players/${clubId}` : '/api/youth-academy/promoted-players';
             
             try {
-                const response = await fetch(url);
+                const response = await yaFetch(url);
                 if (!response.ok) {
                     const data = await response.json();
                     throw new Error(data.detail || 'Failed to load promoted players');
@@ -1068,7 +1158,7 @@
                 card.innerHTML = `
                     <div class="player-header">
                         <div class="profile-pic-container">
-                            <img src="${picSrc}" alt="${player.name}" class="player-profile-pic" onerror="this.src='data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'180\\' height=\\'180\\'><rect fill=\\'%23ddd\\' width=\\'180\\' height=\\'180\\'/></svg>'">
+                            <img src="${picSrc}" alt="${player.name}" class="player-profile-pic" onerror="this.onerror=null;this.src='${PROFILE_PIC_FALLBACK_SRC}'">
                             ${buildFlagHtml(player.nationality)}
                         </div>
                         <div class="player-info">
@@ -1117,7 +1207,7 @@
             const generalShare = 0.4; // Default general share
             
             try {
-                const response = await fetch('/api/youth-academy/train-promoted-players', {
+                const response = await yaFetch('/api/youth-academy/train-promoted-players', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1202,7 +1292,7 @@
                     // Profile picture with flag
                     const playerNationality = firstSnapshot.nationality || null;
                     const picHtml = (profilePic && profilePicFolder)
-                        ? `<div class="profile-pic-container"><img src="${buildPicSrc(profilePic, profilePicFolder)}" alt="${playerName}" class="player-profile-pic">${buildFlagHtml(playerNationality)}</div>`
+                        ? `<div class="profile-pic-container"><img src="${buildPicSrc(profilePic, profilePicFolder)}" alt="${playerName}" class="player-profile-pic" onerror="this.onerror=null;this.src='${PROFILE_PIC_FALLBACK_SRC}'">${buildFlagHtml(playerNationality)}</div>`
                         : '';
                     
                     constantInfoDiv.innerHTML = `
@@ -1294,7 +1384,7 @@
             }
             
             try {
-                const response = await fetch(`/api/youth-academy/players/${playerId}/release`, {
+                const response = await yaFetch(`/api/youth-academy/players/${playerId}/release`, {
                     method: 'POST'
                 });
                 
@@ -1320,7 +1410,7 @@
             }
             
             try {
-                const response = await fetch(url, {
+                const response = await yaFetch(url, {
                     method: 'POST'
                 });
                 
@@ -1339,7 +1429,7 @@
         // Load available nationalities into the dropdown
         async function loadNationalities() {
             try {
-                const response = await fetch('/api/youth-academy/nationalities');
+                const response = await yaFetch('/api/youth-academy/nationalities');
                 if (!response.ok) return;
                 const nationalities = await response.json();
                 const select = document.getElementById('nationality');

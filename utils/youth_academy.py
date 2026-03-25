@@ -5,6 +5,7 @@ Youth Academy module: Prospect generation, academy management, and information r
 import random
 import os
 import re
+import difflib
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from uuid import UUID
@@ -49,6 +50,80 @@ def _build_gfx_folder_map() -> Dict[str, str]:
         _GFX_FOLDER_MAP[entry] = entry           # also allow exact match
 
     return _GFX_FOLDER_MAP
+
+
+def _true_player_profile_pics_rel(gfx_root: str, rel: str) -> Optional[str]:
+    """
+    Map logical ``player_profile_pics/<VisualBucket>`` to the real subdirectory
+    name under ``gfx/`` (supports ``N. `` prefixes on the bucket folder, same
+    as top-level gfx folders).
+    """
+    rel = rel.replace("\\", "/").strip("/")
+    parts = rel.split("/")
+    if len(parts) != 2 or parts[0] != "player_profile_pics":
+        return None
+    bucket = parts[1]
+    ppp = os.path.join(gfx_root, "player_profile_pics")
+    direct = os.path.join(ppp, bucket)
+    if os.path.isdir(direct) and any(
+            _profile_pic_extensions(f) for f in os.listdir(direct)):
+        return rel
+    if not os.path.isdir(ppp):
+        return None
+
+    # Build clean-name → actual dir mapping (supports "N. " prefixes)
+    entries: List[str] = []
+    clean_to_entry: Dict[str, str] = {}
+    for entry in sorted(os.listdir(ppp)):
+        sub = os.path.join(ppp, entry)
+        if not os.path.isdir(sub):
+            continue
+        clean = re.sub(r"^\d+\.\s*", "", entry)
+        entries.append(clean)
+        # Prefer first occurrence if duplicates exist
+        clean_to_entry.setdefault(clean, entry)
+
+    # Deterministic normalization for known spelling/order patterns in
+    # FullHeritageAndNamingComposition.txt vs gfx folder names.
+    bucket_candidates: List[str] = [bucket]
+    if bucket.lower().startswith("sea "):
+        rest = bucket[4:].strip()
+        rest_clean = "".join([w.capitalize() for w in rest.split()])
+        bucket_candidates.append("SouthEastAsia" + rest_clean)
+
+    tokens = bucket.split()
+    if len(tokens) == 2 and tokens[1].lower() == "pardo":
+        bucket_candidates.append("Pardo" + tokens[0])
+
+    if bucket.lower() == "philipines":
+        # gfx uses "SouthEastAsiaPhilipine" (no trailing 's')
+        bucket_candidates.append("SouthEastAsiaPhilipine")
+
+    # Exact clean match (including candidate variants)
+    lower_map = {k.lower(): v for k, v in clean_to_entry.items()}
+    for cand in bucket_candidates:
+        entry = clean_to_entry.get(cand)
+        if entry:
+            sub = os.path.join(ppp, entry)
+            if any(_profile_pic_extensions(f) for f in os.listdir(sub)):
+                return f"player_profile_pics/{entry}"
+
+        entry = lower_map.get(cand.lower())
+        if entry:
+            sub = os.path.join(ppp, entry)
+            if any(_profile_pic_extensions(f) for f in os.listdir(sub)):
+                return f"player_profile_pics/{entry}"
+
+    # Fuzzy match (safe): only accept a single strong match
+    matches = difflib.get_close_matches(bucket, entries, n=2, cutoff=0.86)
+    if len(matches) == 1:
+        entry = clean_to_entry.get(matches[0])
+        if entry:
+            sub = os.path.join(ppp, entry)
+            if any(_profile_pic_extensions(f) for f in os.listdir(sub)):
+                return f"player_profile_pics/{entry}"
+
+    return None
 
 
 # Talent rating ranges (potential mapping)
@@ -109,50 +184,172 @@ def get_prospect_count(youth_facilities_level: int) -> int:
         return random.randint(5, 8)
 
 
-def get_profile_picture_folder(heritage_group: Optional[str] = None) -> Optional[str]:
+def _profile_pic_extensions(fname: str) -> bool:
+    fl = fname.lower()
+    return fl.endswith(".png") or fl.endswith(".webp")
+
+
+def _apply_afro_hairstyle_roll(
+    base_rel: str,
+    nationality: Optional[str],
+    gfx_root: str,
+) -> str:
+    """If base is an afro-lineage bucket, optionally switch to a specialty hairstyle folder."""
+    from .profile_picture_hairstyles import roll_player_profile_pics_rel
+
+    rolled = roll_player_profile_pics_rel(base_rel, nationality)
+    if rolled == base_rel:
+        return base_rel
+    rolled_fp = rolled.replace("\\", "/").strip("/")
+    rp = rolled_fp.split("/")
+    if len(rp) == 2 and rp[0] == "player_profile_pics":
+        mapped = _true_player_profile_pics_rel(gfx_root, rolled_fp)
+        if mapped:
+            rolled_fp = mapped
+    full_path = os.path.join(gfx_root, *rolled_fp.split("/"))
+    if not os.path.isdir(full_path):
+        return base_rel
+    if not any(_profile_pic_extensions(f) for f in os.listdir(full_path)):
+        return base_rel
+    return rolled_fp
+
+
+def get_profile_picture_folder(
+    heritage_group: Optional[str] = None,
+    nationality: Optional[str] = None,
+) -> Optional[str]:
     """
-    Get the *actual* gfx directory name for profile pictures, based on
-    the heritage group's ``picture_folder`` value.
+    Get the gfx-relative directory for profile pictures for this heritage group.
 
-    The gfx/ directory may contain numbered-prefix folders
-    (e.g. ``10. AfricaWest``).  This function maps the clean heritage
-    picture_folder name (``AfricaWest``) to the real directory name.
-
-    Returns:
-        The actual gfx sub-directory name (e.g. ``"10. AfricaWest"``),
-        or **None** when no matching directory with images exists.
+    Supports:
+    - Legacy single-segment folders (optionally with ``N. `` prefix), resolved via scan.
+    - Composition layout: ``player_profile_pics/<VisualBucket>`` under ``gfx/``.
+    - Afro-lineage buckets: optional ``nationality`` triggers a roll vs global specialty folders
+      (``hairshortloc``, ``hairbigloc``, ``cornrows``, ``HairBigAfro``).
     """
     from .name_data import HERITAGE_PICTURE_FOLDER_MAP
 
     folder_map = _build_gfx_folder_map()
     gfx_root = os.path.join(os.path.dirname(os.path.dirname(__file__)), "gfx")
 
-    # Determine the clean picture_folder name from the heritage group
     clean_name: Optional[str] = None
     if heritage_group and heritage_group in HERITAGE_PICTURE_FOLDER_MAP:
         clean_name = HERITAGE_PICTURE_FOLDER_MAP[heritage_group]
 
     if not clean_name:
-        return None  # No heritage group or no mapping → no picture
+        return None
 
-    # Resolve to actual directory name via the cached map
+    # Explicit path under gfx (e.g. player_profile_pics/Scandinavia)
+    if "/" in clean_name.replace("\\", "/"):
+        rel = clean_name.replace("\\", "/").strip("/")
+        parts = rel.split("/")
+        if len(parts) >= 2 and parts[0] == "player_profile_pics" and len(parts) == 2:
+            mapped = _true_player_profile_pics_rel(gfx_root, rel)
+            if mapped is None:
+                return None
+            rel = mapped
+        full_path = os.path.join(gfx_root, *rel.split("/"))
+        if not os.path.isdir(full_path):
+            return None
+        if not any(_profile_pic_extensions(f) for f in os.listdir(full_path)):
+            return None
+        rel = _apply_afro_hairstyle_roll(rel, nationality, gfx_root)
+        return rel
+
     actual_dir = folder_map.get(clean_name)
     if not actual_dir:
-        return None  # No matching gfx directory on disk
+        # Legacy scheme: some heritage_groups/*.json use picture_folder like
+        # "BritishIsles" (bucket name only) instead of
+        # "player_profile_pics/BritishIsles". Handle by mapping under
+        # gfx/player_profile_pics/<bucket>.
+        legacy_rel = _true_player_profile_pics_rel(
+            gfx_root, f"player_profile_pics/{clean_name}"
+        )
+        if legacy_rel:
+            legacy_rel = _apply_afro_hairstyle_roll(legacy_rel, nationality, gfx_root)
+            return legacy_rel
+        return None
 
     full_path = os.path.join(gfx_root, actual_dir)
     if not os.path.isdir(full_path):
         return None
 
-    # Ensure the folder actually contains at least one image
-    has_images = any(f.lower().endswith('.png') for f in os.listdir(full_path))
-    if not has_images:
+    if not any(_profile_pic_extensions(f) for f in os.listdir(full_path)):
         return None
 
-    return actual_dir  # e.g. "10. AfricaWest"
+    return actual_dir
 
 
-def get_profile_picture(heritage_group: Optional[str] = None) -> Tuple[Optional[str], Optional[str]]:
+def _gfx_root() -> str:
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), "gfx")
+
+
+def find_player_profile_pic_folder_rel(
+    profile_pic_filename: Optional[str],
+    gfx_root: Optional[str] = None,
+) -> Optional[str]:
+    """
+    If ``profile_pic_filename`` exists in exactly one immediate subfolder of
+    ``gfx/player_profile_pics/``, return ``player_profile_pics/<that folder>``
+    (forward slashes). Otherwise ``None``.
+    """
+    if not profile_pic_filename:
+        return None
+    root = gfx_root or _gfx_root()
+    ppp = os.path.join(root, "player_profile_pics")
+    if not os.path.isdir(ppp):
+        return None
+    matches: List[str] = []
+    try:
+        for entry in os.listdir(ppp):
+            sub = os.path.join(ppp, entry)
+            if not os.path.isdir(sub):
+                continue
+            fp = os.path.join(sub, profile_pic_filename)
+            if os.path.isfile(fp):
+                matches.append(f"player_profile_pics/{entry}")
+    except OSError:
+        return None
+    if len(matches) == 1:
+        return matches[0]
+    return None
+
+
+def resolve_profile_pic_folder_for_display(
+    heritage_group: Optional[str],
+    profile_pic_filename: Optional[str],
+    stored_folder: Optional[str] = None,
+) -> Optional[str]:
+    """
+    Folder path for serving a stored profile image (workbench / API).
+
+    Prefer a stored folder if the file exists there; else locate the file under
+    ``player_profile_pics``; else derive from heritage without a hairstyle re-roll
+    (``nationality=None``) so URLs stay stable when the folder was not persisted.
+    """
+    if not profile_pic_filename:
+        return None
+    gfx_root = _gfx_root()
+    if stored_folder:
+        rel = stored_folder.replace("\\", "/").strip("/")
+        sp = rel.split("/")
+        if len(sp) == 2 and sp[0] == "player_profile_pics":
+            mapped = _true_player_profile_pics_rel(gfx_root, rel)
+            if mapped:
+                rel = mapped
+        cand = os.path.join(gfx_root, *rel.split("/"), profile_pic_filename)
+        if os.path.isfile(cand):
+            return rel
+    found = find_player_profile_pic_folder_rel(profile_pic_filename, gfx_root)
+    if found:
+        return found
+    return get_profile_picture_folder(heritage_group, nationality=None)
+
+
+def get_profile_picture(
+    heritage_group: Optional[str] = None,
+    nationality: Optional[str] = None,
+) -> Tuple[Optional[str], Optional[str]]:
     """
     Randomly select a profile picture from the gfx sub-folder that matches
     the given heritage group.
@@ -161,18 +358,18 @@ def get_profile_picture(heritage_group: Optional[str] = None) -> Tuple[Optional[
         ``(filename, actual_folder_name)`` – e.g. ``("abc123.png", "10. AfricaWest")``
         ``(None, None)`` when no suitable folder / images exist.
     """
-    folder_name = get_profile_picture_folder(heritage_group)
+    folder_name = get_profile_picture_folder(heritage_group, nationality=nationality)
     if folder_name is None:
         return None, None
 
     gfx_root = os.path.join(os.path.dirname(os.path.dirname(__file__)), "gfx")
-    full_path = os.path.join(gfx_root, folder_name)
+    full_path = os.path.join(gfx_root, *folder_name.replace("\\", "/").split("/"))
 
-    png_files = [f for f in os.listdir(full_path) if f.lower().endswith('.png')]
-    if not png_files:
+    img_files = [f for f in os.listdir(full_path) if _profile_pic_extensions(f)]
+    if not img_files:
         return None, None
 
-    return random.choice(png_files), folder_name
+    return random.choice(img_files), folder_name
 
 
 def generate_weekly_prospects(
@@ -183,7 +380,8 @@ def generate_weekly_prospects(
     youth_facilities_level: int,
     is_goalkeeper: bool = False,
     nationality: Optional[str] = None,
-    heritage_options: Optional[List[str]] = None
+    heritage_options: Optional[List[str]] = None,
+    num_prospects_override: Optional[int] = None,
 ) -> List[Dict]:
     """
     Generate prospects for a club this week.
@@ -197,11 +395,17 @@ def generate_weekly_prospects(
         is_goalkeeper: Whether to generate goalkeepers only
         nationality: Optional nationality code to use for all prospects
         heritage_options: Optional list of heritage country codes to choose from
+        num_prospects_override: When set, forces an exact number of prospects instead of
+            using the youth-facilities distribution.
     
     Returns:
         List of prospect dictionaries with all data needed for YouthProspect model
     """
-    num_prospects = get_prospect_count(youth_facilities_level)
+    num_prospects = (
+        get_prospect_count(youth_facilities_level)
+        if num_prospects_override is None
+        else max(1, int(num_prospects_override))
+    )
     prospects = []
     
     for _ in range(num_prospects):
@@ -229,7 +433,10 @@ def generate_weekly_prospects(
             heritage_group = select_heritage_group(player_nationality)
         
         # Get profile picture based on heritage group (returns filename and folder)
-        profile_pic, profile_pic_folder = get_profile_picture(heritage_group=heritage_group)
+        profile_pic, profile_pic_folder = get_profile_picture(
+            heritage_group=heritage_group,
+            nationality=player_data.get("nationality"),
+        )
         
         prospect = {
             "club_id": club_id,

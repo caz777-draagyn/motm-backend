@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Optional, Any
 from uuid import UUID, uuid4
 from datetime import datetime
+from functools import lru_cache
 from sqlalchemy.orm import Session
 
 from database import SessionLocal, engine
@@ -18,8 +19,7 @@ from utils.youth_academy import (
     promote_academy_player,
     process_academy_week,
     assign_talent_rating,
-    get_profile_picture,
-    get_profile_picture_folder
+    resolve_profile_pic_folder_for_display,
 )
 from utils.name_generation import select_heritage_group
 from utils.player_development import get_program_catalog, compile_growth_schedule, train_one_season_with_growth
@@ -318,8 +318,6 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
             
             results = []
             for p in prospects_list:
-                # Use stored profile_pic_folder if available, otherwise determine from heritage group
-                profile_pic_folder = p.get("profile_pic_folder")
                 heritage_group = None
                 name_structure = None
                 
@@ -329,11 +327,14 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
                     heritage_group = player_data.get("heritage_group")
                     name_structure = player_data.get("name_structure")
                 
-                if not profile_pic_folder and p.get("profile_pic"):
-                    if not heritage_group:
-                        player_nationality = p.get("nationality", "ENG")
-                        heritage_group = select_heritage_group(player_nationality)
-                    profile_pic_folder = get_profile_picture_folder(heritage_group)
+                nat_for_pic = p.get("nationality", "ENG")
+                if not heritage_group:
+                    heritage_group = select_heritage_group(nat_for_pic)
+                profile_pic_folder = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    p.get("profile_pic"),
+                    p.get("profile_pic_folder"),
+                )
                 
                 results.append(ProspectResponse(
                     id=p["id"],
@@ -382,7 +383,11 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
             # Determine heritage group for folder
             player_nationality = p.nationality or "ENG"
             heritage_group = select_heritage_group(player_nationality)
-            profile_pic_folder = get_profile_picture_folder(heritage_group) if p.profile_pic else None
+            profile_pic_folder = resolve_profile_pic_folder_for_display(
+                heritage_group,
+                p.profile_pic,
+                None,
+            )
             
             # Get heritage_group and name_structure from database or determine
             heritage_group_db = heritage_group
@@ -473,6 +478,7 @@ async def promote_prospect(prospect_id: str, db: Optional[Session] = Depends(get
                 "nationality": prospect.get("nationality"),
                 "skin_tone": prospect.get("skin_tone"),
                 "profile_pic": prospect.get("profile_pic"),
+                "profile_pic_folder": prospect.get("profile_pic_folder"),
                 "talent_rating": prospect["talent_rating"],
                 "actual_potential": prospect["actual_potential"],
                 "actual_attributes": player_data["attributes"],
@@ -684,7 +690,11 @@ async def get_academy_players(club_id: Optional[str] = None, db: Optional[Sessio
                 # Determine heritage group for folder
                 player_nationality = p.get("nationality", "ENG")
                 heritage_group = select_heritage_group(player_nationality)
-                profile_pic_folder = get_profile_picture_folder(heritage_group) if p.get("profile_pic") else None
+                profile_pic_folder = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    p.get("profile_pic"),
+                    p.get("profile_pic_folder"),
+                )
                 
                 results.append(AcademyPlayerResponse(
                     id=p["id"],
@@ -737,7 +747,11 @@ async def get_academy_players(club_id: Optional[str] = None, db: Optional[Sessio
             # Determine heritage group for folder
             player_nationality = p.nationality or "ENG"
             heritage_group = select_heritage_group(player_nationality)
-            profile_pic_folder = get_profile_picture_folder(heritage_group) if p.profile_pic else None
+            profile_pic_folder = resolve_profile_pic_folder_for_display(
+                heritage_group,
+                p.profile_pic,
+                None,
+            )
             
             results.append(AcademyPlayerResponse(
                 id=str(p.id),
@@ -842,13 +856,30 @@ async def release_academy_player(academy_player_id: str, db: Session = Depends(g
 
 
 @router.post("/players/{academy_player_id}/promote")
-async def promote_academy_player_endpoint(academy_player_id: str, db: Session = Depends(get_db)):
+async def promote_academy_player_endpoint(academy_player_id: str, db: Optional[Session] = Depends(get_db)):
     """Promote an academy player to the main team (early promotion)."""
     try:
         player_uuid = UUID(academy_player_id)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid academy_player_id format")
-    
+
+    # In-memory mode: flip status so /promoted-players works.
+    if db is None:
+        academy_player = _in_memory_storage.academy_players.get(academy_player_id)
+        if not academy_player:
+            raise HTTPException(status_code=404, detail="Academy player not found")
+        if academy_player.get("status") != "active":
+            raise HTTPException(
+                status_code=400,
+                detail=f"Academy player is not active (status: {academy_player.get('status')})",
+            )
+
+        academy_player["status"] = "promoted"
+        academy_player["promoted_at"] = datetime.utcnow().isoformat()
+        # The UI expects `position` and `actual_attributes` to already exist.
+        return {"message": "Academy player promoted to main team", "player_id": academy_player_id}
+
+    # Database mode
     academy_player = db.query(YouthAcademyPlayer).filter(
         YouthAcademyPlayer.id == player_uuid
     ).first()
@@ -943,6 +974,22 @@ class GenerateProspectsRequest(BaseModel):
     use_potential_range: bool = Field(default=False, description="If True, generate potential uniformly within range instead of using youth facilities distribution")
     nationality: Optional[str] = Field(default=None, description="Nationality code for all prospects (e.g., 'ENG', 'NGA')")
     heritage_options: Optional[List[str]] = Field(default=None, description="List of heritage country codes to choose from (e.g., ['ENG', 'NGA'])")
+
+
+class GenerateProspectsForAllNationsRequest(BaseModel):
+    """Generate a fixed number of prospects per nationality code."""
+    club_id: Optional[str] = None
+    game_mode_id: Optional[str] = None
+    season_id: Optional[str] = None
+    week_number: int = Field(default=1, ge=1)
+    youth_facilities_level: int = Field(default=5, ge=0, le=10)
+    is_goalkeeper: bool = False
+    per_nation: int = Field(default=2, ge=1, le=5)
+    min_potential: Optional[int] = Field(default=None, ge=200, le=3000, description="Minimum potential for prospect generation")
+    max_potential: Optional[int] = Field(default=None, ge=200, le=3000, description="Maximum potential for prospect generation")
+    use_potential_range: bool = Field(default=False, description="If True, generate potential uniformly within range instead of using youth facilities distribution")
+    # If omitted, uses the same set as /api/youth-academy/nationalities
+    nationalities: Optional[List[str]] = Field(default=None, description="Optional list of nationality codes (e.g., ['ENG','NGA'])")
 
 
 @router.post("/generate-prospects")
@@ -1061,7 +1108,11 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
                     player_nationality = prospect_data.get("nationality", "ENG")
                     heritage_group = select_heritage_group(player_nationality)
                 
-                profile_pic_folder = get_profile_picture_folder(heritage_group) if prospect_data.get("profile_pic") else None
+                profile_pic_folder = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    prospect_data.get("profile_pic"),
+                    prospect_data.get("profile_pic_folder"),
+                )
                 
                 prospect_dict = {
                     "id": prospect_id,
@@ -1221,13 +1272,20 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
         created_prospects = []
         for prospect_data in prospect_data_list:
             player_data = prospect_data.pop("_player_data", None)
+            folder_stored = prospect_data.pop("profile_pic_folder", None)
             prospect = YouthProspect(**prospect_data)
             db.add(prospect)
             db.flush()
-            # Determine heritage group for folder
             player_nationality = prospect.nationality or "ENG"
-            heritage_group = select_heritage_group(player_nationality)
-            profile_pic_folder = get_profile_picture_folder(heritage_group) if prospect.profile_pic else None
+            if player_data and player_data.get("heritage_group"):
+                heritage_group = player_data["heritage_group"]
+            else:
+                heritage_group = select_heritage_group(player_nationality)
+            profile_pic_folder = resolve_profile_pic_folder_for_display(
+                heritage_group,
+                prospect.profile_pic,
+                folder_stored,
+            )
             
             # Get name_structure from player_data if available (for database mode, this may not be stored)
             name_structure_db = None
@@ -1258,6 +1316,232 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
             "club_id": str(club_uuid),
             "game_mode_id": str(game_mode_uuid)
         }
+    except HTTPException:
+        raise
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f"Invalid UUID format: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+
+
+@router.post("/generate-prospects-all-nations", response_model=dict)
+async def generate_prospects_all_nations_endpoint(
+    request: GenerateProspectsForAllNationsRequest,
+    db: Optional[Session] = Depends(get_db),
+):
+    """Generate `per_nation` prospects for every nationality code in the dropdown list."""
+    try:
+        from utils.name_data import COUNTRY_FEDERATION, HERITAGE_CONFIG
+        import random as _rnd
+
+        if request.nationalities and len(request.nationalities) > 0:
+            nation_codes = sorted(set(request.nationalities))
+        else:
+            # Same backing sources as /nationalities
+            nation_codes = sorted(set(COUNTRY_FEDERATION.keys()) | set(HERITAGE_CONFIG.keys()))
+
+        # In-memory mode
+        if db is None:
+            if not request.club_id or not request.game_mode_id:
+                club_uuid, game_mode_uuid = get_or_create_test_club_in_memory()
+                _in_memory_storage.youth_facilities_level = request.youth_facilities_level
+            else:
+                club_uuid = UUID(request.club_id)
+                game_mode_uuid = UUID(request.game_mode_id)
+
+            season_uuid = UUID(request.season_id) if request.season_id else None
+
+            created_count = 0
+            for nat_code in nation_codes:
+                # Generate exact `per_nation` prospects for this nationality
+                temp_prospects = generate_weekly_prospects(
+                    club_id=club_uuid,
+                    game_mode_id=game_mode_uuid,
+                    season_id=season_uuid,
+                    week_number=request.week_number,
+                    youth_facilities_level=request.youth_facilities_level,
+                    is_goalkeeper=request.is_goalkeeper,
+                    nationality=nat_code,
+                    heritage_options=None,
+                    num_prospects_override=request.per_nation,
+                )
+
+                # Optional potential shaping
+                if request.use_potential_range and request.min_potential is not None and request.max_potential is not None:
+                    for prospect in temp_prospects:
+                        new_potential = _rnd.randint(request.min_potential, request.max_potential)
+                        prospect["actual_potential"] = new_potential
+                        talent_rating, potential_min, potential_max = assign_talent_rating(
+                            new_potential, request.is_goalkeeper
+                        )
+                        prospect["talent_rating"] = talent_rating
+                        prospect["potential_min"] = potential_min
+                        prospect["potential_max"] = potential_max
+                        if "_player_data" in prospect:
+                            from utils.player_generation import apply_birth_development
+
+                            prospect["_player_data"]["potential"] = new_potential
+                            birth_dev_pct = prospect["_player_data"].get("birth_dev_pct", 0.25)
+                            attrs, nom, asg = apply_birth_development(
+                                is_gk=request.is_goalkeeper,
+                                potential=new_potential,
+                                birth_dev_pct=birth_dev_pct,
+                            )
+                            prospect["_player_data"]["attributes"] = attrs
+
+                elif request.min_potential is not None and request.max_potential is not None:
+                    # Filter-and-retry to keep the output fixed at `per_nation`
+                    passed = [p for p in temp_prospects if request.min_potential <= p["actual_potential"] <= request.max_potential]
+                    attempts = 0
+                    while len(passed) < request.per_nation and attempts < request.per_nation * 25:
+                        attempts += 1
+                        more = generate_weekly_prospects(
+                            club_id=club_uuid,
+                            game_mode_id=game_mode_uuid,
+                            season_id=season_uuid,
+                            week_number=request.week_number,
+                            youth_facilities_level=request.youth_facilities_level,
+                            is_goalkeeper=request.is_goalkeeper,
+                            nationality=nat_code,
+                            heritage_options=None,
+                            num_prospects_override=max(1, request.per_nation - len(passed)),
+                        )
+                        passed.extend([p for p in more if request.min_potential <= p["actual_potential"] <= request.max_potential])
+                    temp_prospects = passed[: request.per_nation]
+
+                # Store in memory
+                for prospect_data in temp_prospects:
+                    player_data = prospect_data.pop("_player_data", None)
+                    prospect_id = str(uuid4())
+
+                    heritage_group = None
+                    if player_data and player_data.get("heritage_group"):
+                        heritage_group = player_data.get("heritage_group")
+                    else:
+                        heritage_group = select_heritage_group(prospect_data.get("nationality", "ENG"))
+
+                    profile_pic_folder = resolve_profile_pic_folder_for_display(
+                        heritage_group,
+                        prospect_data.get("profile_pic"),
+                        prospect_data.get("profile_pic_folder"),
+                    )
+
+                    prospect_dict = {
+                        "id": prospect_id,
+                        "club_id": str(club_uuid),
+                        "game_mode_id": str(game_mode_uuid),
+                        "season_id": str(season_uuid) if season_uuid else None,
+                        "week_number": prospect_data["week_number"],
+                        "name": prospect_data["name"],
+                        "talent_rating": prospect_data["talent_rating"],
+                        "is_goalkeeper": prospect_data["is_goalkeeper"],
+                        "nationality": prospect_data.get("nationality"),
+                        "skin_tone": prospect_data.get("skin_tone"),
+                        "profile_pic": prospect_data.get("profile_pic"),
+                        "profile_pic_folder": profile_pic_folder,
+                        "potential_min": prospect_data["potential_min"],
+                        "potential_max": prospect_data["potential_max"],
+                        "actual_potential": prospect_data["actual_potential"],
+                        "status": "available",
+                        "_player_data": player_data,
+                    }
+                    _in_memory_storage.prospects[prospect_id] = prospect_dict
+                    created_count += 1
+
+            return {"message": "Bulk prospects generated", "count": created_count, "club_id": str(club_uuid), "game_mode_id": str(game_mode_uuid)}
+
+        # Database mode (slower for large nation counts, but supported)
+        if not request.club_id or not request.game_mode_id:
+            club, game_mode = get_or_create_test_club(db)
+            db.commit()
+            club_uuid = club.id
+            game_mode_uuid = game_mode.id
+        else:
+            club_uuid = UUID(request.club_id)
+            game_mode_uuid = UUID(request.game_mode_id)
+
+        season_uuid = UUID(request.season_id) if request.season_id else None
+
+        created_count = 0
+        for nat_code in nation_codes:
+            temp_prospects = generate_weekly_prospects(
+                club_id=club_uuid,
+                game_mode_id=game_mode_uuid,
+                season_id=season_uuid,
+                week_number=request.week_number,
+                youth_facilities_level=request.youth_facilities_level,
+                is_goalkeeper=request.is_goalkeeper,
+                nationality=nat_code,
+                heritage_options=None,
+                num_prospects_override=request.per_nation,
+            )
+
+            if request.use_potential_range and request.min_potential is not None and request.max_potential is not None:
+                for prospect in temp_prospects:
+                    new_potential = _rnd.randint(request.min_potential, request.max_potential)
+                    prospect["actual_potential"] = new_potential
+                    talent_rating, potential_min, potential_max = assign_talent_rating(
+                        new_potential, request.is_goalkeeper
+                    )
+                    prospect["talent_rating"] = talent_rating
+                    prospect["potential_min"] = potential_min
+                    prospect["potential_max"] = potential_max
+
+                    if "_player_data" in prospect:
+                        from utils.player_generation import apply_birth_development
+
+                        prospect["_player_data"]["potential"] = new_potential
+                        birth_dev_pct = prospect["_player_data"].get("birth_dev_pct", 0.25)
+                        attrs, nom, asg = apply_birth_development(
+                            is_gk=request.is_goalkeeper,
+                            potential=new_potential,
+                            birth_dev_pct=birth_dev_pct,
+                        )
+                        prospect["_player_data"]["attributes"] = attrs
+            elif request.min_potential is not None and request.max_potential is not None:
+                passed = [p for p in temp_prospects if request.min_potential <= p["actual_potential"] <= request.max_potential]
+                attempts = 0
+                while len(passed) < request.per_nation and attempts < request.per_nation * 25:
+                    attempts += 1
+                    more = generate_weekly_prospects(
+                        club_id=club_uuid,
+                        game_mode_id=game_mode_uuid,
+                        season_id=season_uuid,
+                        week_number=request.week_number,
+                        youth_facilities_level=request.youth_facilities_level,
+                        is_goalkeeper=request.is_goalkeeper,
+                        nationality=nat_code,
+                        heritage_options=None,
+                        num_prospects_override=max(1, request.per_nation - len(passed)),
+                    )
+                    passed.extend([p for p in more if request.min_potential <= p["actual_potential"] <= request.max_potential])
+                temp_prospects = passed[: request.per_nation]
+
+            for prospect_data in temp_prospects:
+                player_data = prospect_data.pop("_player_data", None)
+                # Not a DB column
+                prospect_data.pop("profile_pic_folder", None)
+
+                # Resolve a folder for display (computed in API responses, but helps with legacy stored folders)
+                heritage_group = None
+                if player_data and player_data.get("heritage_group"):
+                    heritage_group = player_data.get("heritage_group")
+                else:
+                    heritage_group = select_heritage_group(prospect_data.get("nationality", "ENG"))
+
+                _ = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    prospect_data.get("profile_pic"),
+                    prospect_data.get("profile_pic_folder"),
+                )
+
+                prospect = YouthProspect(**prospect_data)
+                db.add(prospect)
+                created_count += 1
+
+        db.commit()
+        return {"message": "Bulk prospects generated", "count": created_count, "club_id": str(club_uuid), "game_mode_id": str(game_mode_uuid)}
+
     except HTTPException:
         raise
     except ValueError as e:
@@ -1409,7 +1693,11 @@ async def get_promoted_players(club_id: Optional[str] = None, db: Optional[Sessi
                 # Determine heritage group for folder
                 player_nationality = p.get("nationality", "ENG")
                 heritage_group = select_heritage_group(player_nationality)
-                profile_pic_folder = get_profile_picture_folder(heritage_group) if p.get("profile_pic") else None
+                profile_pic_folder = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    p.get("profile_pic"),
+                    p.get("profile_pic_folder"),
+                )
                 
                 results.append(PromotedPlayerResponse(
                     id=p["id"],
@@ -1462,7 +1750,11 @@ async def get_promoted_players(club_id: Optional[str] = None, db: Optional[Sessi
                     # Determine heritage group for folder
                     player_nationality = player.nationality or "ENG"
                     heritage_group = select_heritage_group(player_nationality)
-                    profile_pic_folder = get_profile_picture_folder(heritage_group) if academy_player.profile_pic else None
+                    profile_pic_folder = resolve_profile_pic_folder_for_display(
+                        heritage_group,
+                        academy_player.profile_pic,
+                        None,
+                    )
                     
                     promoted_players.append(PromotedPlayerResponse(
                         id=str(player.id),
@@ -1554,6 +1846,7 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.name = data.get("name", "Player")
                     self.nationality = data.get("nationality", "ENG")
                     self.profile_pic = data.get("profile_pic")
+                    self.profile_pic_folder = data.get("profile_pic_folder")
             
             players = [SimplePlayer(p) for p in promoted_players_list]
         else:
@@ -1600,6 +1893,7 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.name = player.name
                     self.nationality = player.nationality
                     self.profile_pic = academy_player.profile_pic
+                    self.profile_pic_folder = None
             
             players = []
             for academy_player in promoted_academy_players:
@@ -1647,7 +1941,11 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
             player_nationality = getattr(player, 'nationality', None) or "ENG"
             heritage_group = select_heritage_group(player_nationality)
             profile_pic = getattr(player, 'profile_pic', None)
-            profile_pic_folder = get_profile_picture_folder(heritage_group) if profile_pic else None
+            profile_pic_folder = resolve_profile_pic_folder_for_display(
+                heritage_group,
+                profile_pic,
+                getattr(player, "profile_pic_folder", None),
+            )
             
             snapshot["players"].append({
                 "name": player.name,
@@ -1722,7 +2020,11 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                 player_nationality = getattr(player, 'nationality', None) or "ENG"
                 heritage_group = select_heritage_group(player_nationality)
                 profile_pic = getattr(player, 'profile_pic', None)
-                profile_pic_folder = get_profile_picture_folder(heritage_group) if profile_pic else None
+                profile_pic_folder = resolve_profile_pic_folder_for_display(
+                    heritage_group,
+                    profile_pic,
+                    getattr(player, "profile_pic_folder", None),
+                )
                 
                 snapshot["players"].append({
                     "name": player.name,
@@ -1783,11 +2085,30 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
 
 @router.get("/nationalities")
 async def get_available_nationalities():
-    """Return all nationalities that have heritage group configurations."""
-    from utils.name_data import HERITAGE_CONFIG, _HERITAGE_GROUPS_DIR
+    """Return all nationalities supported by the composition + any JSON heritage groups."""
+    from utils.name_data import COUNTRY_FEDERATION, HERITAGE_CONFIG, _HERITAGE_GROUPS_DIR
+    from utils import heritage_composition as _hc
     import json as _json
 
-    nationalities = []
+    by_code: dict = {}
+    @lru_cache(maxsize=1)
+    def _composition_country_display_map() -> Dict[str, str]:
+        rows = _hc.load_composition_rows()
+        out: Dict[str, str] = {}
+        for r in rows:
+            code = r.get("nationality_code")
+            disp = r.get("country_display")
+            if not code or not disp:
+                continue
+            if code not in out:
+                out[code] = str(disp).strip()
+        return out
+
+    composition_names = _composition_country_display_map()
+    # Composition-backed codes (full set of countries in FullHeritageAndNamingComposition)
+    for code in COUNTRY_FEDERATION.keys():
+        by_code[code] = {"code": code, "name": composition_names.get(code, code)}
+
     if _HERITAGE_GROUPS_DIR.exists():
         for json_file in sorted(_HERITAGE_GROUPS_DIR.glob("*.json")):
             try:
@@ -1795,10 +2116,27 @@ async def get_available_nationalities():
                     data = _json.load(f)
                 code = data.get("nationality", json_file.stem)
                 name = data.get("nationality_name", code)
-                nationalities.append({"code": code, "name": name})
+                by_code[code] = {"code": code, "name": name}
             except Exception:
                 continue
-    return nationalities
+    # Any other codes (should be rare) still appear in HERITAGE_CONFIG
+    for code in HERITAGE_CONFIG:
+        if code not in by_code:
+            by_code[code] = {"code": code, "name": code}
+    return sorted(by_code.values(), key=lambda x: x["code"])
+
+
+@router.get("/country-federations")
+async def get_country_federations():
+    """Country code → regional confederation (UEFA, CONMEBOL, …) from composition data."""
+    from utils.name_data import COUNTRY_FEDERATION
+
+    return {"by_country": dict(sorted(COUNTRY_FEDERATION.items()))}
+
+
+def _is_profile_image(fname: str) -> bool:
+    fl = fname.lower()
+    return fl.endswith(".png") or fl.endswith(".webp")
 
 
 @router.get("/random-profile-picture")
@@ -1810,24 +2148,35 @@ async def get_random_profile_picture():
     folder_map = _build_gfx_folder_map()
     gfx_root = _os.path.join(_os.path.dirname(_os.path.dirname(__file__)), "gfx")
 
-    # Collect all folders that have PNGs
     candidates = []
     for actual_dir in set(folder_map.values()):
         full = _os.path.join(gfx_root, actual_dir)
         if _os.path.isdir(full):
-            pngs = [f for f in _os.listdir(full) if f.lower().endswith(".png")]
-            if pngs:
-                candidates.append((actual_dir, pngs))
+            imgs = [f for f in _os.listdir(full) if _is_profile_image(f)]
+            if imgs:
+                candidates.append((actual_dir, imgs))
+
+    # Composition buckets: gfx/player_profile_pics/<bucket>/
+    ppp = _os.path.join(gfx_root, "player_profile_pics")
+    if _os.path.isdir(ppp):
+        for entry in _os.listdir(ppp):
+            sub = _os.path.join(ppp, entry)
+            if not _os.path.isdir(sub):
+                continue
+            rel = f"player_profile_pics/{entry}"
+            imgs = [f for f in _os.listdir(sub) if _is_profile_image(f)]
+            if imgs:
+                candidates.append((rel, imgs))
 
     if not candidates:
         raise HTTPException(status_code=404, detail="No profile pictures found")
 
-    chosen_dir, pngs = _rnd.choice(candidates)
-    chosen_file = _rnd.choice(pngs)
+    chosen_dir, imgs = _rnd.choice(candidates)
+    chosen_file = _rnd.choice(imgs)
     return {
         "filename": chosen_file,
         "folder": chosen_dir,
-        "path": f"/gfx/{chosen_dir}/{chosen_file}"
+        "path": f"/gfx/{chosen_dir}/{chosen_file}".replace("\\", "/"),
     }
 
 

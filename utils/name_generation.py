@@ -243,6 +243,53 @@ def select_name_structure(nationality: str, heritage_group: str) -> Tuple[str, s
     return structure_map.get(selected, ("LOCAL", "LOCAL"))
 
 
+def select_name_structure_with_variants(
+    nationality: str, heritage_group: str
+) -> Tuple[str, str, Optional[str]]:
+    """
+    Like select_name_structure but supports composition file extras:
+    LL_DOUBLE_SURNAME, LL_COMPOUND_GIVEN (local pools, special surname/given pattern).
+
+    Returns:
+        (given_origin, surname_origin, local_variant) where local_variant is
+        None, \"double_surname\", or \"compound_given\".
+    """
+    heritage_config = HERITAGE_CONFIG.get(nationality, {}).get(heritage_group)
+    if not heritage_config:
+        return ("LOCAL", "LOCAL", None)
+
+    extras = heritage_config.get("composition_extras") or {}
+    if not extras:
+        g, s = select_name_structure(nationality, heritage_group)
+        return (g, s, None)
+
+    struct_probs = heritage_config.get("name_structure_probs") or {}
+    combined: Dict[str, float] = dict(struct_probs)
+    for k, v in extras.items():
+        combined[k] = combined.get(k, 0.0) + float(v)
+
+    if not combined or sum(combined.values()) <= 0:
+        return ("LOCAL", "LOCAL", None)
+
+    keys = list(combined.keys())
+    weights = [combined[k] for k in keys]
+    selected = random.choices(keys, weights=weights, k=1)[0]
+
+    if selected == "LL_DOUBLE_SURNAME":
+        return ("LOCAL", "LOCAL", "double_surname")
+    if selected == "LL_COMPOUND_GIVEN":
+        return ("LOCAL", "LOCAL", "compound_given")
+
+    structure_map = {
+        "LL": ("LOCAL", "LOCAL"),
+        "LH": ("LOCAL", "HERITAGE"),
+        "HL": ("HERITAGE", "LOCAL"),
+        "HH": ("HERITAGE", "HERITAGE"),
+    }
+    g, s = structure_map.get(selected, ("LOCAL", "LOCAL"))
+    return (g, s, None)
+
+
 def generate_name(
     nationality: str,
     heritage_group: Optional[str] = None,
@@ -266,6 +313,7 @@ def generate_name(
     if used_names is None:
         used_names = set()
     
+    local_variant: Optional[str] = None
     for attempt in range(max_retries):
         # Select heritage group if not provided
         if heritage_group is None:
@@ -292,11 +340,14 @@ def generate_name(
                         if get_country_name_pool(origin_country, "given_names_male") is None and sorted_countries:
                             origin_country = sorted_countries[0][0]
             
-            given_origin, surname_origin = select_name_structure(nationality, heritage_group)
+            given_origin, surname_origin, local_variant = select_name_structure_with_variants(
+                nationality, heritage_group
+            )
         else:
             given_origin = "LOCAL"
             surname_origin = "LOCAL"
             origin_country = None
+            local_variant = None
         
         # Select country pools for given name and surname
         given_country = origin_country if given_origin == "HERITAGE" else nationality
@@ -336,9 +387,12 @@ def generate_name(
         surname_parts = [surname_first]
         surname_connector = None
         
-        # Check for compound surname
+        # Check for compound surname (composition: forced double local surname)
         compound_prob = COMPOUND_SURNAME_PROBS.get(nationality, COMPOUND_SURNAME_PROBS.get("default", 0.05))
-        if random.random() < compound_prob:
+        force_double_surname = local_variant == "double_surname"
+        if force_double_surname or (
+            local_variant is None and random.random() < compound_prob
+        ):
             # Sample second surname with tier bias
             # For compound, bias toward common/mid tiers
             compound_tier_probs = {
@@ -351,17 +405,24 @@ def generate_name(
             surname_parts.append(surname_second)
             surname_connector = SURNAME_CONNECTORS.get(nationality, SURNAME_CONNECTORS.get("default", "-"))
         
-        # Check for middle name
+        # Middle name (composition: compound given = always extra local given)
         middle_name = None
-        middle_prob = MIDDLE_NAME_PROBS.get(nationality, MIDDLE_NAME_PROBS.get("default", 0.15))
-        if random.random() < middle_prob:
-            # Middle names usually from LOCAL pool
+        if local_variant == "compound_given":
             middle_pool = get_country_name_pool(nationality, "given_names_male")
             if middle_pool:
-                # Use country-specific tier probabilities for middle name
                 country_tier_probs = COUNTRY_TIER_PROBS.get(nationality, {})
                 middle_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
                 middle_name = sample_name_from_pool(middle_pool, middle_tier_probs)
+        else:
+            middle_prob = MIDDLE_NAME_PROBS.get(nationality, MIDDLE_NAME_PROBS.get("default", 0.15))
+            if random.random() < middle_prob:
+                # Middle names usually from LOCAL pool
+                middle_pool = get_country_name_pool(nationality, "given_names_male")
+                if middle_pool:
+                    # Use country-specific tier probabilities for middle name
+                    country_tier_probs = COUNTRY_TIER_PROBS.get(nationality, {})
+                    middle_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
+                    middle_name = sample_name_from_pool(middle_pool, middle_tier_probs)
         
         # Create name object
         name = PlayerName(
