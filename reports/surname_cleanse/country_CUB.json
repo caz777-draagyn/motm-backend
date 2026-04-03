@@ -1,0 +1,89 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_CUB.json",
+  "pool_id": "country_CUB",
+  "country_code": "CUB",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4316
+    },
+    "total": 4516
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4266
+    },
+    "total": 4466
+  },
+  "removed": {
+    "total": 50,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 47,
+      "global_overlap_outlier": 2
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Anthony",
+        "Benjamin",
+        "Brian",
+        "Charles",
+        "Christopher",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Frank",
+        "George",
+        "Glenn",
+        "Grant",
+        "Henry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jordan",
+        "Julian",
+        "Justin",
+        "Keith",
+        "Lawrence",
+        "Lewis",
+        "Luke",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Oliver",
+        "Oscar",
+        "Paul",
+        "Robbie",
+        "Robert",
+        "Ross",
+        "Russell",
+        "Scott",
+        "Terry",
+        "Thomas",
+        "Tommy",
+        "Victor",
+        "William",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Araújo",
+        "Yüksel"
+      ]
+    }
+  }
+}

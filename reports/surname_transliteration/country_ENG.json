@@ -1,0 +1,42 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ENG.json",
+  "pool_id": "country_ENG",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ENG.json",
+  "before_total": 52526,
+  "after_total": 52523,
+  "changed_pairs_total": 8,
+  "changed_pairs_sample": [
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Ivanova"
+    ],
+    [
+      "\\u0432\\u0430\\u0441\\u0438\\u043b\\u044c\\u0435\\u0432",
+      "Vasil'ev"
+    ],
+    [
+      "\\u0431\\u0435\\u043b\\u043e\\u0432",
+      "Belov"
+    ],
+    [
+      "\\u0445\\u0430\\u0441\\u0430\\u043d\\u043e\\u0432",
+      "Khasanov"
+    ],
+    [
+      "\\u0441\\u043c\\u0438\\u0440\\u043d\\u043e\\u0432\\u0430",
+      "Smirnova"
+    ],
+    [
+      "\\u043c\\u0435\\u0434\\u0432\\u0435\\u0434\\u0435\\u0432\\u0430",
+      "Medvedeva"
+    ],
+    [
+      "\\u043a\\u0443\\u0437\\u044c\\u043c\\u0438\\u043d",
+      "Kuz'min"
+    ],
+    [
+      "\\u0432\\u043e\\u043b\\u043a\\u043e\\u0432\\u0430",
+      "Volkova"
+    ]
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LBN.json",
+  "pool_id": "country_LBN",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_LBN.json",
+  "before_total": 8153,
+  "after_total": 8151,
+  "changed_pairs_total": 21,
+  "changed_pairs_sample": [
+    [
+      "\\u044f\\u0440\\u0446\\u0435\\u0432",
+      "Iartsev"
+    ],
+    [
+      "\\u0444\\u0430\\u0437\\u043b\\u0438\\u0435\\u0432\\u0430",
+      "Fazlieva"
+    ],
+    [
+      "\\u0442\\u0443\\u0440\\u043e\\u0432",
+      "Turov"
+    ],
+    [
+      "\\u0441\\u0443\\u043b\\u0435\\u0439\\u043c\\u0430\\u043d",
+      "Suleiman"
+    ],
+    [
+      "\\u0440\\u0430\\u0444\\u0430\\u0438\\u043b\\u043e\\u0432",
+      "Rafailov"
+    ],
+    [
+      "\\u043d\\u043e\\u0432\\u0456\\u043a\\u043e\\u0432\\u0430",
+      "Novikova"
+    ],
+    [
+      "\\u043d\\u0438\\u043a\\u0438\\u0442\\u0438\\u043d",
+      "Nikitin"
+    ],
+    [
+      "\\u043c\\u0443\\u0441\\u0442\\u0430\\u0444\\u0430",
+      "Mustafa"
+    ],
+    [
+      "\\u043c\\u0435\\u0434\\u0432\\u0435\\u0434\\u0435\\u0432\\u0430",
+      "Medvedeva"
+    ],
+    [
+      "\\u043c\\u0430\\u0440\\u0442\\u044b\\u043d\\u043e\\u0432\\u0430",
+      "Martynova"
+    ],
+    [
+      "\\u043b\\u0435\\u0431\\u0435\\u0434\\u0435\\u0432",
+      "Lebedev"
+    ],
+    [
+      "\\u043a\\u043e\\u0441\\u0442\\u043e\\u043c\\u0430\\u0440\\u043e\\u0432",
+      "Kostomarov"
+    ],
+    [
+      "\\u0437\\u0430\\u0434\\u043e\\u0440\\u043e\\u0436\\u043d\\u044b\\u0439",
+      "Zadorozhnyi"
+    ],
+    [
+      "\\u0437\\u0430\\u0432\\u043e\\u0434\\u044e\\u043a",
+      "Zavodiuk"
+    ],
+    [
+      "\\u0433\\u043e\\u0440\\u0438\\u043a",
+      "Gorik"
+    ],
+    [
+      "\\u0432\\u044b\\u0441\\u043e\\u0446\\u043a\\u0430\\u044f",
+      "Vysotskaia"
+    ],
+    [
+      "\\u0431\\u044b\\u0441\\u0442\\u0440\\u043e\\u0432\\u0430",
+      "Bystrova"
+    ],
+    [
+      "\\u0431\\u043e\\u0431\\u044b\\u043b\\u0435\\u0432\\u0430",
+      "Bobyleva"
+    ],
+    [
+      "\\u0430\\u0445\\u043c\\u0435\\u0434",
+      "Akhmed"
+    ],
+    [
+      "\\u0430\\u043d\\u0430\\u043d\\u0438\\u0447",
+      "Ananich"
+    ],
+    [
+      "\\u0430\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u0438\\u0447",
+      "Alekseevich"
+    ]
+  ]
+}

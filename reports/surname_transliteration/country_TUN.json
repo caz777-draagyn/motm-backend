@@ -1,0 +1,38 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TUN.json",
+  "pool_id": "country_TUN",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_TUN.json",
+  "before_total": 6284,
+  "after_total": 6284,
+  "changed_pairs_total": 7,
+  "changed_pairs_sample": [
+    [
+      "\\u0441\\u0442\\u043e\\u0446\\u043a\\u0438\\u0439",
+      "Stotskii"
+    ],
+    [
+      "\\u0441\\u0435\\u043b\\u0435\\u0437\\u043d\\u0435\\u0432",
+      "Seleznev"
+    ],
+    [
+      "\\u0441\\u0430\\u0432\\u0438\\u043d\\u043e\\u0432",
+      "Savinov"
+    ],
+    [
+      "\\u0437\\u043e\\u043b\\u043e\\u0442\\u0430\\u044f",
+      "Zolotaia"
+    ],
+    [
+      "\\u0431\\u043e\\u0433\\u0443\\u043d\\u043e\\u0432",
+      "Bogunov"
+    ],
+    [
+      "\\u0431\\u0430\\u0443\\u043c\\u0430\\u043d",
+      "Bauman"
+    ],
+    [
+      "\\u0430\\u0431\\u0440\\u0430\\u043c\\u044e\\u043a",
+      "Abramiuk"
+    ]
+  ]
+}

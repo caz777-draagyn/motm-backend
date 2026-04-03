@@ -1,0 +1,46 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SRB.json",
+  "pool_id": "country_SRB",
+  "country_code": "SRB",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2084
+    },
+    "total": 2284
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2071
+    },
+    "total": 2271
+  },
+  "removed": {
+    "total": 13,
+    "by_reason_counts": {
+      "given_name_leak": 13
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "David",
+        "Frank",
+        "George",
+        "Guy",
+        "Ivan",
+        "Julian",
+        "Martin",
+        "Robert",
+        "Sam",
+        "Simon",
+        "Wayne"
+      ]
+    }
+  }
+}

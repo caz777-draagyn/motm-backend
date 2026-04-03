@@ -1,0 +1,70 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BHR.json",
+  "pool_id": "country_BHR",
+  "country_code": "BHR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2149
+    },
+    "total": 2349
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2118
+    },
+    "total": 2318
+  },
+  "removed": {
+    "total": 31,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 27,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Ji",
+        "Ly"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "George",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Jacob",
+        "Joe",
+        "Joseph",
+        "Kevin",
+        "Lawrence",
+        "Max",
+        "Morgan",
+        "Noah",
+        "Owen",
+        "Paul",
+        "Richard",
+        "Roy",
+        "Sam",
+        "Sebastian",
+        "Steve",
+        "Steven",
+        "Victor",
+        "Vincent"
+      ],
+      "global_overlap_outlier": [
+        "Oliveri"
+      ]
+    }
+  }
+}

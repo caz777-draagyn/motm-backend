@@ -1,0 +1,18 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_HAI.json",
+  "pool_id": "country_HAI",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_HAI.json",
+  "before_total": 3869,
+  "after_total": 3869,
+  "changed_pairs_total": 2,
+  "changed_pairs_sample": [
+    [
+      "\\u043a\\u0440\\u0443\\u0433\\u043b\\u043e\\u0432",
+      "Kruglov"
+    ],
+    [
+      "\\u0432\\u0443\\u043a\\u043e\\u043b\\u043e\\u0432\\u0430",
+      "Vukolova"
+    ]
+  ]
+}

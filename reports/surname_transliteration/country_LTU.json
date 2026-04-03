@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LTU.json",
+  "pool_id": "country_LTU",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LTU.json",
+  "before_total": 593,
+  "after_total": 593,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u0440\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Romanova"
+    ]
+  ]
+}

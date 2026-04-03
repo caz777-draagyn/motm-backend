@@ -1,0 +1,22 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BAH.json",
+  "pool_id": "country_BAH",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_BAH.json",
+  "before_total": 4876,
+  "after_total": 4876,
+  "changed_pairs_total": 3,
+  "changed_pairs_sample": [
+    [
+      "\\u043f\\u043e\\u043d\\u044c\\u043a\\u0430",
+      "Pon'ka"
+    ],
+    [
+      "\\u043c\\u0430\\u0442\\u0432\\u0435\\u0435\\u0432",
+      "Matveev"
+    ],
+    [
+      "\\u043c\\u0430\\u043a\\u0435\\u0435\\u0432\\u0430",
+      "Makeeva"
+    ]
+  ]
+}

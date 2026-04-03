@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_NCA.json",
+  "pool_id": "country_NCA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_NCA.json",
+  "before_total": 6924,
+  "after_total": 6924,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u043c\\u0430\\u043a\\u0430\\u0440\\u043e\\u0432\\u0430",
+      "Makarova"
+    ]
+  ]
+}

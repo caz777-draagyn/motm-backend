@@ -1,0 +1,70 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LVA.json",
+  "pool_id": "country_LVA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LVA.json",
+  "before_total": 963,
+  "after_total": 960,
+  "changed_pairs_total": 15,
+  "changed_pairs_sample": [
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Ivanova"
+    ],
+    [
+      "\\u0430\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432",
+      "Alekseev"
+    ],
+    [
+      "\\u0448\\u0435\\u0432\\u0447\\u0435\\u043d\\u043a\\u043e",
+      "Shevchenko"
+    ],
+    [
+      "\\u044f\\u043a\\u043e\\u0432\\u0435\\u043d\\u043a\\u043e",
+      "Iakovenko"
+    ],
+    [
+      "\\u0444\\u0451\\u0434\\u043e\\u0440\\u043e\\u0432",
+      "Fiodorov"
+    ],
+    [
+      "\\u0440\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432",
+      "Romanov"
+    ],
+    [
+      "\\u043f\\u0435\\u0442\\u0440\\u043e\\u0432",
+      "Petrov"
+    ],
+    [
+      "\\u043f\\u0430\\u0432\\u043b\\u043e\\u0432\\u0430",
+      "Pavlova"
+    ],
+    [
+      "\\u043b\\u0435\\u0431\\u0435\\u0434\\u0435\\u0432",
+      "Lebedev"
+    ],
+    [
+      "\\u043a\\u043e\\u0442\\u043e\\u0432\\u0430",
+      "Kotova"
+    ],
+    [
+      "\\u0437\\u0430\\u0445\\u0430\\u0440\\u043e\\u0432",
+      "Zakharov"
+    ],
+    [
+      "\\u0435\\u043c\\u0435\\u043b\\u044c\\u044f\\u043d\\u043e\\u0432",
+      "Emel'ianov"
+    ],
+    [
+      "\\u0434\\u0430\\u0432\\u044b\\u0434\\u043e\\u0432",
+      "Davydov"
+    ],
+    [
+      "\\u0433\\u0440\\u0438\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432\\u0430",
+      "Grigor'eva"
+    ],
+    [
+      "\\u0432\\u0430\\u0441\\u0438\\u043b\\u044c\\u0435\\u0432",
+      "Vasil'ev"
+    ]
+  ]
+}

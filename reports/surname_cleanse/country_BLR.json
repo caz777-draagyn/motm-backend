@@ -1,0 +1,41 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BLR.json",
+  "pool_id": "country_BLR",
+  "country_code": "BLR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1113
+    },
+    "total": 1313
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1105
+    },
+    "total": 1305
+  },
+  "removed": {
+    "total": 8,
+    "by_reason_counts": {
+      "given_name_leak": 8
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Alex",
+        "Bernard",
+        "Charles",
+        "David",
+        "Martin",
+        "Scott",
+        "Thomas",
+        "Wilson"
+      ]
+    }
+  }
+}

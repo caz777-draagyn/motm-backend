@@ -1,0 +1,108 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LBY.json",
+  "pool_id": "country_LBY",
+  "country_code": "LBY",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3103
+    },
+    "total": 3303
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3037
+    },
+    "total": 3237
+  },
+  "removed": {
+    "total": 66,
+    "by_reason_counts": {
+      "fragment": 17,
+      "given_name_leak": 32,
+      "global_overlap_outlier": 16,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ba",
+        "Bi",
+        "Da",
+        "De",
+        "Di",
+        "Do",
+        "Fa",
+        "Go",
+        "Ka",
+        "Lo",
+        "Mo",
+        "Na",
+        "Ra",
+        "Sa",
+        "Se",
+        "Sy",
+        "Ãş"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Ben",
+        "Benjamin",
+        "Christopher",
+        "Eric",
+        "Gabriel",
+        "Grant",
+        "Ian",
+        "Isaac",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Lewis",
+        "Marc",
+        "Mark",
+        "Martin",
+        "Max",
+        "Michael",
+        "Morgan",
+        "Noah",
+        "Owen",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Sam",
+        "Samuel",
+        "Scott",
+        "Simon",
+        "Tommy",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Alhashmi",
+        "Dorner",
+        "Frutos",
+        "Goran",
+        "Gök",
+        "Kurd",
+        "Manea",
+        "Matus",
+        "Noto",
+        "Osta",
+        "Qais",
+        "Sipos",
+        "Sto",
+        "Suan",
+        "Tabassum",
+        "Wajid"
+      ],
+      "placeholder": [
+        "Unknown"
+      ]
+    }
+  }
+}

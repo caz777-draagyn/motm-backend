@@ -1,0 +1,87 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BAH.json",
+  "pool_id": "country_BAH",
+  "country_code": "BAH",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4676
+    },
+    "total": 4876
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4613
+    },
+    "total": 4813
+  },
+  "removed": {
+    "total": 63,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 62
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Bernard",
+        "Carl",
+        "Christian",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "Dean",
+        "Dennis",
+        "Evan",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Jack",
+        "James",
+        "Jeff",
+        "Joel",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Joshua",
+        "Karl",
+        "Keith",
+        "Kevin",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Marcus",
+        "Mark",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Nicholas",
+        "Nick",
+        "Oliver",
+        "Oscar",
+        "Paul",
+        "Peter",
+        "Richard",
+        "Ricky",
+        "Roger",
+        "Ross"
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ZIM.json",
+  "pool_id": "country_ZIM",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ZIM.json",
+  "before_total": 5697,
+  "after_total": 5697,
+  "changed_pairs_total": 4,
+  "changed_pairs_sample": [
+    [
+      "\\u0441\\u0430\\u043b\\u0438\\u0435\\u0432",
+      "Saliev"
+    ],
+    [
+      "\\u043b\\u043e\\u0448\\u043a\\u0430\\u0440\\u0435\\u0432",
+      "Loshkarev"
+    ],
+    [
+      "\\u0436\\u043c\\u0443\\u0440\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f",
+      "Zhmurovskaia"
+    ],
+    [
+      "\\u0433\\u0430\\u0441\\u044b\\u043c\\u043e\\u0432",
+      "Gasymov"
+    ]
+  ]
+}

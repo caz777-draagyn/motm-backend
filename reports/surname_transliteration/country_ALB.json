@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ALB.json",
+  "pool_id": "country_ALB",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ALB.json",
+  "before_total": 1177,
+  "after_total": 1177,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u0431\\u0440\\u0435\\u0436\\u043d\\u0435\\u0432\\u0430",
+      "Brezhneva"
+    ]
+  ]
+}

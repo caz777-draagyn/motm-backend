@@ -1,0 +1,114 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_QAT.json",
+  "pool_id": "country_QAT",
+  "country_code": "QAT",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6713
+    },
+    "total": 6913
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6633
+    },
+    "total": 6833
+  },
+  "removed": {
+    "total": 80,
+    "by_reason_counts": {
+      "fragment": 4,
+      "given_name_leak": 55,
+      "global_overlap_outlier": 21
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Ji",
+        "Lu",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Carl",
+        "Christian",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Dominic",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "Jeff",
+        "Joe",
+        "Joel",
+        "Joseph",
+        "Joshua",
+        "Keith",
+        "Kyle",
+        "Lawrence",
+        "Lewis",
+        "Luke",
+        "Marcus",
+        "Max",
+        "Morgan",
+        "Nick",
+        "Patrick",
+        "Paul",
+        "Philip",
+        "Richard",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Samuel",
+        "Sean"
+      ],
+      "global_overlap_outlier": [
+        "Arbelaez",
+        "Blatter",
+        "Bodnar",
+        "Bonanno",
+        "Carvallo",
+        "Cofield",
+        "Danso",
+        "Dimatteo",
+        "Falconi",
+        "Godard",
+        "Gyamfi",
+        "Hendrickx",
+        "Le Grand",
+        "Levasseur",
+        "Markel",
+        "Okello",
+        "Oprea",
+        "Perin",
+        "Salzano",
+        "Sene",
+        "Yemane"
+      ]
+    }
+  }
+}

@@ -1,0 +1,116 @@
+bucket	name	rarity
+Catalan	Albert	Very common
+Catalan	Daniel	Very common
+Catalan	David	Very common
+Catalan	Joan	Very common
+Catalan	Jordi	Very common
+Catalan	Josep	Very common
+Catalan	Marc	Very common
+Catalan	Pau	Very common
+Catalan	Pol	Very common
+Catalan	Xavier	Very common
+Catalan	Francesc	Very common
+Catalan	Guillem	Very common
+Catalan	Sergi	Very common
+Catalan	Martí	Very common
+Catalan	Lluís	Very common
+Catalan	Carles	Very common
+Catalan	Aleix	Very common
+Catalan	Arnau	Very common
+Catalan	Ferran	Very common
+Catalan	Oriol	Very common
+Catalan	Adrià	Common
+Catalan	Àlex	Common
+Catalan	Àngel	Common
+Catalan	Antoni	Common
+Catalan	Biel	Common
+Catalan	Èric	Common
+Catalan	Gabriel	Common
+Catalan	Gerard	Common
+Catalan	Hèctor	Common
+Catalan	Jan	Common
+Catalan	Jaume	Common
+Catalan	Jesús	Common
+Catalan	Joaquim	Common
+Catalan	Miquel	Common
+Catalan	Nil	Common
+Catalan	Oliver	Common
+Catalan	Òscar	Common
+Catalan	Pere	Common
+Catalan	Ramon	Common
+Catalan	Robert	Common
+Catalan	Roger	Common
+Catalan	Víctor	Common
+Catalan	Xavi	Common
+Catalan	Enric	Common
+Catalan	Eloi	Common
+Catalan	Bernat	Common
+Catalan	Andreu	Common
+Catalan	Mateu	Common
+Catalan	Manel	Common
+Catalan	Guim	Common
+Catalan	Adam	Uncommon
+Catalan	Artur	Uncommon
+Catalan	Bru	Uncommon
+Catalan	Dídac	Uncommon
+Catalan	Eduard	Uncommon
+Catalan	Ignasi	Uncommon
+Catalan	Isaac	Uncommon
+Catalan	Josep Maria	Uncommon
+Catalan	Marcel	Uncommon
+Catalan	Raül	Uncommon
+Catalan	Ricard	Uncommon
+Catalan	Rubèn	Uncommon
+Catalan	Salvador	Uncommon
+Catalan	Agustí	Uncommon
+Catalan	Alexandre	Uncommon
+Catalan	Alfons	Uncommon
+Catalan	Alfred	Uncommon
+Catalan	Aniol	Uncommon
+Catalan	Armand	Uncommon
+Catalan	Blai	Uncommon
+Catalan	Cesc	Uncommon
+Catalan	Emili	Uncommon
+Catalan	Ernest	Uncommon
+Catalan	Esteve	Uncommon
+Catalan	Felip	Uncommon
+Catalan	Frederic	Uncommon
+Catalan	Genís	Uncommon
+Catalan	Hug	Uncommon
+Catalan	Jofre	Uncommon
+Catalan	Julià	Uncommon
+Catalan	Llorenç	Uncommon
+Catalan	Lluc	Uncommon
+Catalan	Max	Uncommon
+Catalan	Quim	Uncommon
+Catalan	Raimon	Uncommon
+Catalan	Roc	Uncommon
+Catalan	Tomàs	Uncommon
+Catalan	Amadeu	Rare
+Catalan	Aran	Rare
+Catalan	August	Rare
+Catalan	Bartomeu	Rare
+Catalan	Climent	Rare
+Catalan	Fabià	Rare
+Catalan	Feliu	Rare
+Catalan	Guifré	Rare
+Catalan	Joan Pau	Rare
+Catalan	Jordà	Rare
+Catalan	Màxim	Rare
+Catalan	Narcís	Rare
+Catalan	Nicolau	Rare
+Catalan	Oleguer	Rare
+Catalan	Roderic	Rare
+Catalan	Romà	Rare
+Catalan	Valentí	Rare
+Catalan	Vicenç	Rare
+Catalan	Vicent	Rare
+Catalan	Vidal	Rare
+Catalan	Berenguer	Rare
+Catalan	Bonaventura	Rare
+Catalan	Chimo	Rare
+Catalan	Gonçal	Rare
+Catalan	Higini	Rare
+Catalan	Jaumet	Rare
+Catalan	Ponç	Rare
+Catalan	Ximo	Rare

@@ -1,0 +1,78 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SIN.json",
+  "pool_id": "country_SIN",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_SIN.json",
+  "before_total": 24835,
+  "after_total": 24835,
+  "changed_pairs_total": 17,
+  "changed_pairs_sample": [
+    [
+      "\\u043f\\u043e\\u043f\\u043e\\u0432",
+      "Popov"
+    ],
+    [
+      "\\u043f\\u0430\\u0432\\u043b\\u043e\\u0432",
+      "Pavlov"
+    ],
+    [
+      "\\u043e\\u0441\\u043e\\u043a\\u0438\\u043d",
+      "Osokin"
+    ],
+    [
+      "\\u043c\\u044f\\u0441\\u043d\\u0438\\u043a\\u043e\\u0432\\u0430",
+      "Miasnikova"
+    ],
+    [
+      "\\u043c\\u0435\\u043b\\u044c\\u043d\\u0438\\u043a\\u043e\\u0432",
+      "Mel'nikov"
+    ],
+    [
+      "\\u043a\\u0443\\u0437\\u044c\\u043c\\u0438\\u043d",
+      "Kuz'min"
+    ],
+    [
+      "\\u043a\\u0440\\u044b\\u043b\\u043e\\u0432",
+      "Krylov"
+    ],
+    [
+      "\\u043a\\u043e\\u0441\\u0442\\u0443\\u0441\\u0435\\u0432",
+      "Kostusev"
+    ],
+    [
+      "\\u043a\\u043b\\u0438\\u043c\\u043e\\u0432",
+      "Klimov"
+    ],
+    [
+      "\\u043a\\u0430\\u0442\\u0435\\u0432",
+      "Katev"
+    ],
+    [
+      "\\u0437\\u0435\\u0432\\u0430\\u0445\\u0438\\u043d",
+      "Zevakhin"
+    ],
+    [
+      "\\u0437\\u0430\\u0439\\u0446\\u0435\\u0432",
+      "Zaitsev"
+    ],
+    [
+      "\\u0434\\u0430\\u0432\\u044b\\u0434\\u043e\\u0432",
+      "Davydov"
+    ],
+    [
+      "\\u0433\\u0443\\u0441\\u0435\\u0432",
+      "Gusev"
+    ],
+    [
+      "\\u0433\\u0440\\u0438\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432",
+      "Grigor'ev"
+    ],
+    [
+      "\\u0432\\u043e\\u043b\\u0447\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Volchanova"
+    ],
+    [
+      "\\u0432\\u0438\\u043d\\u043e\\u0433\\u0440\\u0430\\u0434\\u043e\\u0432\\u0430",
+      "Vinogradova"
+    ]
+  ]
+}

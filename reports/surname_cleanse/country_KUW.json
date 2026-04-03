@@ -1,0 +1,96 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_KUW.json",
+  "pool_id": "country_KUW",
+  "country_code": "KUW",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5902
+    },
+    "total": 6102
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5848
+    },
+    "total": 6048
+  },
+  "removed": {
+    "total": 54,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 46,
+      "global_overlap_outlier": 6,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ji"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Alexander",
+        "Ben",
+        "Bruce",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Ethan",
+        "George",
+        "Grant",
+        "Guy",
+        "Isaac",
+        "Jacob",
+        "Jim",
+        "Joe",
+        "Joseph",
+        "Joshua",
+        "Julian",
+        "Ken",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Marcus",
+        "Mark",
+        "Matthew",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Noah",
+        "Oliver",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Sam",
+        "Samuel",
+        "Sebastian",
+        "Shane",
+        "Tim",
+        "Tom",
+        "Tony",
+        "Victor",
+        "Vincent",
+        "Wayne",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Chocolat",
+        "Dimitrijevic",
+        "Galasso",
+        "Jasinski",
+        "Kargbo",
+        "Passalacqua"
+      ],
+      "placeholder": [
+        "Unknown"
+      ]
+    }
+  }
+}

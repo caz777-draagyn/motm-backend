@@ -1,0 +1,107 @@
+# Removed as not credible ethnic mainstream
+
+Empty section (none) means no ethnic-mainstream list for that country key in the script.
+
+## BOSNIA AND HERZEGOVINA (BIH)
+(none)
+
+## BULGARIA (BUL)
+- `John`
+- `Martin`
+- `Michael`
+- `Chris`
+- `Matt`
+- `Eric`
+- `George`
+- `Dan`
+- `Kevin`
+- `James`
+- `Andrew`
+- `Angel`
+- `Tom`
+- `Jon`
+- `Patrick`
+- `Tony`
+- `Jeremy`
+- `Victor`
+- `Richard`
+- `Mario`
+- `Thomas`
+- `Andy`
+- `Dennis`
+- `Christian`
+- `Lucas`
+- `Jonathan`
+- `Anthony`
+- `Philip`
+- `Julian`
+- `Marc`
+- `Bruno`
+- `Vincent`
+- `Gregory`
+- `Alexandre`
+- `Arthur`
+- `Nicolas`
+- `Karol`
+- `Andreas`
+- `Yann`
+- `Ronan`
+- `Eugene`
+- `Pierre`
+- `Oliver`
+- `Julien`
+- `Johny`
+- `Jerome`
+- `Stephane`
+- `Serge`
+- `Romain`
+- `Florian`
+- `Christophe`
+
+## CROATIA (CRO)
+- `Mario`
+- `Bruno`
+- `Martin`
+- `Tom`
+- `Thomas`
+- `Michael`
+- `John`
+- `Tony`
+- `Christian`
+- `Dan`
+- `Chris`
+- `Oliver`
+- `Andreas`
+- `Jon`
+- `Dennis`
+- `Andrew`
+- `Patrick`
+- `Matt`
+- `James`
+- `George`
+- `Piotr`
+- `Jonathan`
+- `Marc`
+- `Kevin`
+- `Julian`
+- `Johny`
+- `Eric`
+- `Anthony`
+- `Angel`
+- `Yann`
+- `Lucas`
+- `Karol`
+- `Jerome`
+- `Florian`
+- `Andrzej`
+- `Victor`
+- `Ronan`
+- `Richard`
+- `Pierre`
+- `Philip`
+- `Nicolas`
+- `Murad`
+- `Jeremy`
+- `Eugene`
+- `Benoît`
+- `Andy`

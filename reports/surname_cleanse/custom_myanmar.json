@@ -1,0 +1,95 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/custom_myanmar.json",
+  "pool_id": "custom_myanmar",
+  "country_code": "MMR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2186
+    },
+    "total": 2386
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2124
+    },
+    "total": 2324
+  },
+  "removed": {
+    "total": 62,
+    "by_reason_counts": {
+      "fragment": 9,
+      "given_name_leak": 53
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Du",
+        "Gu",
+        "Ji",
+        "Lu",
+        "Ly",
+        "Su",
+        "Yi"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Brian",
+        "Chris",
+        "Colin",
+        "Craig",
+        "Dennis",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Graham",
+        "Guy",
+        "Harry",
+        "Ian",
+        "Jack",
+        "Jamie",
+        "Jason",
+        "Joe",
+        "Johnny",
+        "Joseph",
+        "Joshua",
+        "Julian",
+        "Ken",
+        "Kyle",
+        "Leo",
+        "Lewis",
+        "Liam",
+        "Louis",
+        "Luke",
+        "Mark",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Nicholas",
+        "Nick",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Sean",
+        "Shane",
+        "Shawn",
+        "Steve",
+        "Terry",
+        "Tom",
+        "Tommy"
+      ]
+    }
+  }
+}

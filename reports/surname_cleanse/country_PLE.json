@@ -1,0 +1,65 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PLE.json",
+  "pool_id": "country_PLE",
+  "country_code": "PLE",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3560
+    },
+    "total": 3760
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3534
+    },
+    "total": 3734
+  },
+  "removed": {
+    "total": 26,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 19,
+      "global_overlap_outlier": 6
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Hê"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Craig",
+        "Dean",
+        "Gordon",
+        "Grant",
+        "Guy",
+        "Isaac",
+        "Jack",
+        "Jamie",
+        "Lawrence",
+        "Max",
+        "Phillip",
+        "Rob",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Tom"
+      ],
+      "global_overlap_outlier": [
+        "Casella",
+        "Landin",
+        "Legat",
+        "Schaer",
+        "Schön",
+        "Turcotte"
+      ]
+    }
+  }
+}

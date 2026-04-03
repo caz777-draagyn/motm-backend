@@ -1,0 +1,116 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MEX.json",
+  "pool_id": "country_MEX",
+  "country_code": "MEX",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 46899
+    },
+    "total": 47099
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 46752
+    },
+    "total": 46952
+  },
+  "removed": {
+    "total": 147,
+    "by_reason_counts": {
+      "fragment": 7,
+      "given_name_leak": 123,
+      "global_overlap_outlier": 14,
+      "placeholder": 3
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Au",
+        "Do",
+        "Lu",
+        "Su",
+        "To",
+        "Xí",
+        "Ye"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Derek",
+        "Dominic",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Ethan",
+        "Eugene",
+        "Evan",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Glen",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jamie",
+        "Jason",
+        "Jeff"
+      ],
+      "global_overlap_outlier": [
+        "Achraf",
+        "Akgün",
+        "Akka",
+        "Aydın",
+        "Gümüş",
+        "Kılıç",
+        "Mahmod",
+        "Minah",
+        "Moja",
+        "Nasher",
+        "Schön",
+        "Tarik",
+        "Türkmen",
+        "Vitoria"
+      ],
+      "placeholder": [
+        "Sample",
+        "Test",
+        "Unknown"
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SCO.json",
+  "pool_id": "country_SCO",
+  "country_code": "SCO",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 52323
+    },
+    "total": 52523
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 52174
+    },
+    "total": 52374
+  },
+  "removed": {
+    "total": 149,
+    "by_reason_counts": {
+      "given_name_leak": 145,
+      "placeholder": 4
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Derek",
+        "Dominic",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Ethan",
+        "Eugene",
+        "Evan",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Glen",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Isaac"
+      ],
+      "placeholder": [
+        "Null",
+        "Sample",
+        "Test",
+        "Unknown"
+      ]
+    }
+  }
+}

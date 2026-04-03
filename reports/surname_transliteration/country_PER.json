@@ -1,0 +1,9 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PER.json",
+  "pool_id": "country_PER",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_PER.json",
+  "before_total": 4891,
+  "after_total": 4891,
+  "changed_pairs_total": 0,
+  "changed_pairs_sample": []
+}

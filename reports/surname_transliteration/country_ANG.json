@@ -1,0 +1,70 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ANG.json",
+  "pool_id": "country_ANG",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ANG.json",
+  "before_total": 4980,
+  "after_total": 4980,
+  "changed_pairs_total": 15,
+  "changed_pairs_sample": [
+    [
+      "\\u0448\\u0443\\u0431\\u0438\\u043d",
+      "Shubin"
+    ],
+    [
+      "\\u0442\\u0438\\u043c\\u043e\\u0445\\u043e\\u0432\\u0438\\u0447",
+      "Timokhovich"
+    ],
+    [
+      "\\u0440\\u043e\\u0434\\u0438\\u043d",
+      "Rodin"
+    ],
+    [
+      "\\u0440\\u0435\\u043c\\u0435\\u0437\\u043e\\u0432",
+      "Remezov"
+    ],
+    [
+      "\\u043e\\u0432\\u0441\\u0435\\u0435\\u043d\\u043a\\u043e",
+      "Ovseenko"
+    ],
+    [
+      "\\u043d\\u0430\\u0443\\u043c\\u043e\\u0432",
+      "Naumov"
+    ],
+    [
+      "\\u043b\\u044b\\u043a\\u043e\\u0432",
+      "Lykov"
+    ],
+    [
+      "\\u043a\\u0438\\u0442\\u043e\\u0432",
+      "Kitov"
+    ],
+    [
+      "\\u043a\\u0438\\u0441\\u0435\\u043b\\u0451\\u0432",
+      "Kiseliov"
+    ],
+    [
+      "\\u043a\\u0430\\u0447\\u0430\\u043b\\u0435\\u043d\\u043a\\u043e",
+      "Kachalenko"
+    ],
+    [
+      "\\u0437\\u0430\\u0440\\u0430\\u0439\\u0441\\u043a\\u0430\\u044f",
+      "Zaraiskaia"
+    ],
+    [
+      "\\u0434\\u0435\\u0440\\u0435\\u0432",
+      "Derev"
+    ],
+    [
+      "\\u0433\\u0440\\u0443\\u0437\\u0438\\u043d",
+      "Gruzin"
+    ],
+    [
+      "\\u0430\\u043b\\u0447\\u0430\\u043a\\u043e\\u0432",
+      "Alchakov"
+    ],
+    [
+      "\\u03b1\\u03c0\\u03bf\\u03c3\\u03c4\\u03bf\\u03bb\\u03b9\\u03b4\\u03bf\\u03c5",
+      "Apostolidou"
+    ]
+  ]
+}

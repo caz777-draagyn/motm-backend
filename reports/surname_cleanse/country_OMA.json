@@ -1,0 +1,93 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_OMA.json",
+  "pool_id": "country_OMA",
+  "country_code": "OMA",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3983
+    },
+    "total": 4183
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3929
+    },
+    "total": 4129
+  },
+  "removed": {
+    "total": 54,
+    "by_reason_counts": {
+      "fragment": 4,
+      "given_name_leak": 45,
+      "global_overlap_outlier": 5
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Ji",
+        "Ly",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Charles",
+        "Dean",
+        "Dominic",
+        "Duncan",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Harry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "Jeff",
+        "Joe",
+        "Joseph",
+        "Joshua",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Max",
+        "Morgan",
+        "Nicholas",
+        "Owen",
+        "Paul",
+        "Philip",
+        "Richard",
+        "Ricky",
+        "Roy",
+        "Sam",
+        "Samuel",
+        "Sebastian",
+        "Simon",
+        "Steven",
+        "Victor",
+        "Vincent",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Campi",
+        "Kohut",
+        "Menna",
+        "Muscat",
+        "Ramírez"
+      ]
+    }
+  }
+}

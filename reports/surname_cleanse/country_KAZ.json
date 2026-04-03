@@ -1,0 +1,99 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_KAZ.json",
+  "pool_id": "country_KAZ",
+  "country_code": "KAZ",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7639
+    },
+    "total": 7839
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7579
+    },
+    "total": 7779
+  },
+  "removed": {
+    "total": 60,
+    "by_reason_counts": {
+      "fragment": 4,
+      "given_name_leak": 46,
+      "global_overlap_outlier": 10
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Lu",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Anthony",
+        "Christian",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Henry",
+        "Ian",
+        "Ivan",
+        "Jack",
+        "Jeff",
+        "Jim",
+        "Johnny",
+        "Joseph",
+        "Julian",
+        "Ken",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Liam",
+        "Louis",
+        "Max",
+        "Morgan",
+        "Owen",
+        "Paul",
+        "Richard",
+        "Ross",
+        "Ryan",
+        "Simon",
+        "Tim",
+        "Tom",
+        "Tony",
+        "Wayne"
+      ],
+      "global_overlap_outlier": [
+        "Benvenuto",
+        "Bota",
+        "De Visser",
+        "Krauze",
+        "Lauber",
+        "Liberman",
+        "Mihail",
+        "Stadnik",
+        "Stanciu",
+        "Veber"
+      ]
+    }
+  }
+}

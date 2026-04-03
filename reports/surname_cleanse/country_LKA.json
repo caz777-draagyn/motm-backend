@@ -1,0 +1,95 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LKA.json",
+  "pool_id": "country_LKA",
+  "country_code": "LKA",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3416
+    },
+    "total": 3616
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3342
+    },
+    "total": 3542
+  },
+  "removed": {
+    "total": 74,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 68,
+      "global_overlap_outlier": 4
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ji",
+        "Lu"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Charles",
+        "Chris",
+        "Christopher",
+        "Dean",
+        "Dennis",
+        "Derek",
+        "Edward",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Graham",
+        "Guy",
+        "Henry",
+        "Ivan",
+        "Jacob",
+        "Joe",
+        "Joel",
+        "Jonathan",
+        "Joseph",
+        "Julian",
+        "Keith",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Liam",
+        "Louis",
+        "Marcus",
+        "Mark",
+        "Matthew",
+        "Max",
+        "Morgan",
+        "Nathan",
+        "Nicholas",
+        "Oliver",
+        "Patrick",
+        "Paul",
+        "Philip",
+        "Richard"
+      ],
+      "global_overlap_outlier": [
+        "Hermon",
+        "Loch",
+        "Mccloud",
+        "Stricker"
+      ]
+    }
+  }
+}

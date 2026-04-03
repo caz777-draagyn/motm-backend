@@ -1,0 +1,86 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PAR.json",
+  "pool_id": "country_PAR",
+  "country_code": "PAR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1580
+    },
+    "total": 1780
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1533
+    },
+    "total": 1733
+  },
+  "removed": {
+    "total": 47,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 21,
+      "global_overlap_outlier": 23
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Go",
+        "Lo",
+        "Sa"
+      ],
+      "given_name_leak": [
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Anthony",
+        "Benjamin",
+        "Daniel",
+        "David",
+        "Gabriel",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Joel",
+        "Julian",
+        "Martin",
+        "Oliver",
+        "Paul",
+        "Ross",
+        "Samuel",
+        "Simon",
+        "Victor",
+        "Wayne"
+      ],
+      "global_overlap_outlier": [
+        "Ahrens",
+        "Aid",
+        "Antar",
+        "Biedermann",
+        "Butterworth",
+        "Darman",
+        "Delorme",
+        "Dose",
+        "Gibbons",
+        "Gregor",
+        "Gustafson",
+        "Hijazi",
+        "Laguardia",
+        "Leith",
+        "Matthias",
+        "Parris",
+        "Penner",
+        "Preda",
+        "Rahi",
+        "Snead",
+        "Soley",
+        "Stallard",
+        "Urquhart"
+      ]
+    }
+  }
+}

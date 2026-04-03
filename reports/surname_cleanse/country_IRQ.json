@@ -1,0 +1,106 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_IRQ.json",
+  "pool_id": "country_IRQ",
+  "country_code": "IRQ",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 9182
+    },
+    "total": 9382
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 9091
+    },
+    "total": 9291
+  },
+  "removed": {
+    "total": 91,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 74,
+      "global_overlap_outlier": 14
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Du",
+        "Ly",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Brian",
+        "Bruce",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Connor",
+        "Dean",
+        "Dennis",
+        "Dominic",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jason",
+        "Jim",
+        "Joe",
+        "Johnny",
+        "Joseph",
+        "Keith",
+        "Ken",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Mark",
+        "Max",
+        "Morgan",
+        "Noah",
+        "Oliver"
+      ],
+      "global_overlap_outlier": [
+        "Benna",
+        "Blaq",
+        "Buso",
+        "Frid",
+        "Frigo",
+        "Horseman",
+        "Le Roi",
+        "Möller",
+        "Nemes",
+        "Ozen",
+        "Scala",
+        "Semedo",
+        "Svoboda",
+        "Wassermann"
+      ]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+namingpool	name	rarity
+Basque	Aimar	Very common
+Basque	Aitor	Very common
+Basque	Ander	Very common
+Basque	Asier	Very common
+Basque	Gorka	Very common
+Basque	Ibai	Very common
+Basque	Iker	Very common
+Basque	Imanol	Very common
+Basque	Iñaki	Very common
+Basque	Jon	Very common
+Basque	Julen	Very common
+Basque	Markel	Very common
+Basque	Mikel	Very common
+Basque	Oier	Very common
+Basque	Oihan	Very common
+Basque	Unai	Very common
+Basque	Xabier	Very common
+Basque	Aiur	Common
+Basque	Amets	Common
+Basque	Andoni	Common
+Basque	Aritz	Common
+Basque	Beñat	Common
+Basque	Danel	Common
+Basque	Eneko	Common
+Basque	Gaizka	Common
+Basque	Haritz	Common
+Basque	Igor	Common
+Basque	Izei	Common
+Basque	Joseba	Common
+Basque	Josu	Common
+Basque	Kepa	Common
+Basque	Koldo	Common
+Basque	Luken	Common
+Basque	Patxi	Common
+Basque	Peio	Common
+Basque	Peru	Common
+Basque	Unax	Common
+Basque	Xabi	Common
+Basque	Adei	Uncommon
+Basque	Adur	Uncommon
+Basque	Aingeru	Uncommon
+Basque	Antton	Uncommon
+Basque	Aratz	Uncommon
+Basque	Arkaitz	Uncommon
+Basque	Eder	Uncommon
+Basque	Ekain	Uncommon
+Basque	Ekaitz	Uncommon
+Basque	Ekhi	Uncommon
+Basque	Eki	Uncommon
+Basque	Enaitz	Uncommon
+Basque	Endika	Uncommon
+Basque	Erlantz	Uncommon
+Basque	Fermin	Uncommon
+Basque	Gotzon	Uncommon
+Basque	Harkaitz	Uncommon
+Basque	Hodei	Uncommon
+Basque	Iban	Uncommon
+Basque	Inar	Uncommon
+Basque	Inhar	Uncommon
+Basque	Ion	Uncommon
+Basque	Jokin	Uncommon
+Basque	Kerman	Uncommon
+Basque	Mattin	Uncommon
+Basque	Oinatz	Uncommon
+Basque	Ortzi	Uncommon
+Basque	Txomin	Uncommon
+Basque	Urko	Uncommon
+Basque	Zigor	Uncommon
+Basque	Ametz	Rare
+Basque	Bittor	Rare
+Basque	Edorta	Rare
+Basque	Erramun	Rare
+Basque	Estebe	Rare
+Basque	Frantzisko	Rare
+Basque	Gurutz	Rare
+Basque	Izar	Rare
+Basque	Jakes	Rare
+Basque	Kemen	Rare
+Basque	Koldobika	Rare
+Basque	Lur	Rare
+Basque	Marko	Rare
+Basque	Martzel	Rare
+Basque	Matia	Rare
+Basque	Mitxel	Rare
+Basque	Nikola	Rare
+Basque	Oroitz	Rare
+Basque	Oskar	Rare
+Basque	Sabin	Rare
+Basque	Sendoa	Rare
+Basque	Urki	Rare
+Basque	Xanti	Rare
+Basque	Zorion	Rare
+Basque	Zuhaitz	Rare
+Basque	Alesander	Very rare
+Basque	Argi	Very rare
+Basque	Argider	Very rare
+Basque	Arrats	Very rare
+Basque	Bakar	Very rare
+Basque	Balendin	Very rare
+Basque	Bikendi	Very rare
+Basque	Edur	Very rare
+Basque	Eguzki	Very rare
+Basque	Eztebe	Very rare
+Basque	Fermintxo	Very rare
+Basque	Ganix	Very rare
+Basque	Garaile	Very rare
+Basque	Goizeder	Very rare
+Basque	Igon	Very rare
+Basque	Izotz	Very rare
+Basque	Juantxo	Very rare
+Basque	Matxin	Very rare
+Basque	Mintxo	Very rare
+Basque	Petri	Very rare
+Basque	Ximun	Very rare
+Basque	Zeru	Very rare
+Basque	Zuzen	Very rare

@@ -1,0 +1,105 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TUN.json",
+  "pool_id": "country_TUN",
+  "country_code": "TUN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6084
+    },
+    "total": 6284
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6018
+    },
+    "total": 6218
+  },
+  "removed": {
+    "total": 66,
+    "by_reason_counts": {
+      "fragment": 15,
+      "given_name_leak": 36,
+      "global_overlap_outlier": 15
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ba",
+        "Be",
+        "Bi",
+        "Bo",
+        "Da",
+        "Di",
+        "Fa",
+        "Ka",
+        "Lô",
+        "Mo",
+        "Ny",
+        "Nä",
+        "Ra",
+        "Sa",
+        "Se"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Alex",
+        "Ben",
+        "Bernard",
+        "Christian",
+        "Daniel",
+        "Eric",
+        "Gary",
+        "Harry",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "Jamie",
+        "Joe",
+        "John",
+        "Jonathan",
+        "Joseph",
+        "Justin",
+        "Kevin",
+        "Leo",
+        "Lewis",
+        "Max",
+        "Oliver",
+        "Oscar",
+        "Paul",
+        "Ricky",
+        "Rob",
+        "Robert",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Steve",
+        "Tom",
+        "Tony",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Akgül",
+        "Attias",
+        "Balouch",
+        "Beres",
+        "Bergamini",
+        "Bonfiglio",
+        "Colas",
+        "Cristiani",
+        "Ezer",
+        "Fabris",
+        "Sandri",
+        "Sayes",
+        "Viviani",
+        "Waqar",
+        "Zaiter"
+      ]
+    }
+  }
+}

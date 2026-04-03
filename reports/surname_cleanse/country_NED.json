@@ -1,0 +1,87 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_NED.json",
+  "pool_id": "country_NED",
+  "country_code": "NED",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 33552
+    },
+    "total": 33752
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 33436
+    },
+    "total": 33636
+  },
+  "removed": {
+    "total": 116,
+    "by_reason_counts": {
+      "given_name_leak": 115,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glen",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jason",
+        "Jim",
+        "Joe",
+        "Joel"
+      ],
+      "placeholder": [
+        "Unknown"
+      ]
+    }
+  }
+}

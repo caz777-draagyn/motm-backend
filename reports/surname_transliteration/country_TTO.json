@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TTO.json",
+  "pool_id": "country_TTO",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_TTO.json",
+  "before_total": 2855,
+  "after_total": 2855,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u0433\\u0435\\u0440\\u0430\\u0441\\u0438\\u043c\\u043e\\u0432\\u0430",
+      "Gerasimova"
+    ]
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_NCA.json",
+  "pool_id": "country_NCA",
+  "country_code": "NCA",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6724
+    },
+    "total": 6924
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6669
+    },
+    "total": 6869
+  },
+  "removed": {
+    "total": 55,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 51,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Lu",
+        "Lí",
+        "To"
+      ],
+      "given_name_leak": [
+        "Alex",
+        "Andrew",
+        "Arthur",
+        "Benjamin",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Daniel",
+        "David",
+        "Dean",
+        "Duncan",
+        "Edward",
+        "Frank",
+        "Gabriel",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "James",
+        "Joel",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Kenneth",
+        "Kevin",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Martin",
+        "Matthew",
+        "Mike",
+        "Nathan",
+        "Neil",
+        "Oliver",
+        "Oscar",
+        "Owen",
+        "Paul",
+        "Roger",
+        "Ross",
+        "Scott",
+        "Steve",
+        "Steven",
+        "Tyler",
+        "Victor",
+        "Wayne",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Ayas"
+      ]
+    }
+  }
+}

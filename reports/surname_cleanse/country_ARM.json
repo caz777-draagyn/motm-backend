@@ -1,0 +1,67 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ARM.json",
+  "pool_id": "country_ARM",
+  "country_code": "ARM",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2064
+    },
+    "total": 2264
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2036
+    },
+    "total": 2236
+  },
+  "removed": {
+    "total": 28,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 26,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Du"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Brian",
+        "Charles",
+        "Chris",
+        "Craig",
+        "Dominic",
+        "Eric",
+        "Grant",
+        "Greg",
+        "Ian",
+        "Jonathan",
+        "Julian",
+        "Leo",
+        "Louis",
+        "Mark",
+        "Mike",
+        "Morgan",
+        "Neil",
+        "Nick",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Samuel"
+      ],
+      "global_overlap_outlier": [
+        "Katerine"
+      ]
+    }
+  }
+}

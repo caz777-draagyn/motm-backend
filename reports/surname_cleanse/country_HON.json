@@ -1,0 +1,93 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_HON.json",
+  "pool_id": "country_HON",
+  "country_code": "HON",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6684
+    },
+    "total": 6884
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6608
+    },
+    "total": 6808
+  },
+  "removed": {
+    "total": 76,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 72,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Kö",
+        "Lu",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Alan",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Charles",
+        "Christian",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Evan",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jason",
+        "Joel",
+        "John",
+        "Johnny",
+        "Jonathan",
+        "Jordan",
+        "Joshua",
+        "Julian",
+        "Justin",
+        "Kenneth",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Mark",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Oscar",
+        "Owen"
+      ],
+      "global_overlap_outlier": [
+        "Aktaş"
+      ]
+    }
+  }
+}

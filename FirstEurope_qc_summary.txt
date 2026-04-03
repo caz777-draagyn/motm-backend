@@ -1,0 +1,100 @@
+Input:  C:\_Private\Misc\MotM\CursorGitClone\motm-backend\FirstEurope.csv
+Output: C:\_Private\Misc\MotM\CursorGitClone\motm-backend\FirstEurope_qc.csv
+Rows:   249658
+
+Counts per QC column:
+  qc_global_junk:              discard=361, keep=249297
+  qc_country_quality:        discard=6, keep=249652
+  qc_country_ethnic:         discard=105, keep=249553
+  qc_duplicate_within_country: discard=2, keep=249656
+  qc_suggested_row_action:   discard=474, keep=249184
+
+Row-level discard counts (single reason columns):
+  qc_country_quality discard: 6
+  qc_country_ethnic discard:  105
+
+Country codes in input (40): AL, AT, BA, BE, BG, BY, CH, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IS, IT, JE, LT, LU, LV, MD, MK, MT, NL, NO, PL, PT, RO, RS, RU, SE, SI, SK, UA
+
+Per-country rule list sizes (empty = checked, no discards from that list):
+  AL: quality_list=3 ethnic_list=12
+  AT: quality_list=0 ethnic_list=25
+  BA: quality_list=0 ethnic_list=0
+  BE: quality_list=0 ethnic_list=0
+  BG: quality_list=0 ethnic_list=0
+  BY: quality_list=3 ethnic_list=68
+  CH: quality_list=0 ethnic_list=0
+  CY: quality_list=0 ethnic_list=0
+  CZ: quality_list=0 ethnic_list=0
+  DE: quality_list=0 ethnic_list=0
+  DK: quality_list=0 ethnic_list=0
+  EE: quality_list=0 ethnic_list=0
+  ES: quality_list=0 ethnic_list=0
+  FI: quality_list=0 ethnic_list=0
+  FR: quality_list=0 ethnic_list=0
+  GB: quality_list=0 ethnic_list=0
+  GR: quality_list=0 ethnic_list=0
+  HR: quality_list=0 ethnic_list=0
+  HU: quality_list=0 ethnic_list=0
+  IE: quality_list=0 ethnic_list=0
+  IS: quality_list=0 ethnic_list=0
+  IT: quality_list=0 ethnic_list=0
+  JE: quality_list=0 ethnic_list=0
+  LT: quality_list=0 ethnic_list=0
+  LU: quality_list=0 ethnic_list=0
+  LV: quality_list=0 ethnic_list=0
+  MD: quality_list=0 ethnic_list=0
+  MK: quality_list=0 ethnic_list=0
+  MT: quality_list=0 ethnic_list=0
+  NL: quality_list=0 ethnic_list=0
+  NO: quality_list=0 ethnic_list=0
+  PL: quality_list=0 ethnic_list=0
+  PT: quality_list=0 ethnic_list=0
+  RO: quality_list=0 ethnic_list=0
+  RS: quality_list=0 ethnic_list=0
+  RU: quality_list=0 ethnic_list=0
+  SE: quality_list=0 ethnic_list=0
+  SI: quality_list=0 ethnic_list=0
+  SK: quality_list=0 ethnic_list=0
+  UA: quality_list=0 ethnic_list=0
+
+Per-country row discard (qc_suggested_row_action == discard):
+  AL: 22
+  AT: 38
+  BA: 10
+  BE: 11
+  BG: 8
+  BY: 80
+  CH: 10
+  CY: 7
+  CZ: 10
+  DE: 11
+  DK: 7
+  EE: 6
+  ES: 11
+  FI: 11
+  FR: 11
+  GB: 10
+  GR: 10
+  HR: 8
+  HU: 9
+  IE: 11
+  IS: 5
+  IT: 10
+  JE: 8
+  LT: 7
+  LU: 10
+  LV: 9
+  MD: 7
+  MK: 5
+  MT: 4
+  NL: 11
+  NO: 9
+  PL: 11
+  PT: 11
+  RO: 11
+  RS: 9
+  RU: 11
+  SE: 11
+  SI: 6
+  SK: 8
+  UA: 10

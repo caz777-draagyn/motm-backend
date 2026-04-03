@@ -1,0 +1,51 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SVK.json",
+  "pool_id": "country_SVK",
+  "country_code": "SVK",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1809
+    },
+    "total": 2009
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1791
+    },
+    "total": 1991
+  },
+  "removed": {
+    "total": 18,
+    "by_reason_counts": {
+      "given_name_leak": 18
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Albert",
+        "Alex",
+        "Ben",
+        "Daniel",
+        "Frank",
+        "Gabriel",
+        "Ivan",
+        "James",
+        "Jordan",
+        "Justin",
+        "Lawrence",
+        "Max",
+        "Morgan",
+        "Paul",
+        "Peter",
+        "Scott",
+        "Thomas",
+        "Wilson"
+      ]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TTO.json",
+  "pool_id": "country_TTO",
+  "country_code": "TTO",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2655
+    },
+    "total": 2855
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2574
+    },
+    "total": 2774
+  },
+  "removed": {
+    "total": 81,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 79
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Lu",
+        "Ye"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Bruce",
+        "Charles",
+        "Christian",
+        "Christopher",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jeff",
+        "Joel",
+        "John",
+        "Johnny",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Julian",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marcus",
+        "Mark",
+        "Martin",
+        "Matthew",
+        "Morgan",
+        "Neil",
+        "Nicholas"
+      ]
+    }
+  }
+}

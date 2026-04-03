@@ -1,0 +1,22 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SUD.json",
+  "pool_id": "country_SUD",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_SUD.json",
+  "before_total": 3950,
+  "after_total": 3950,
+  "changed_pairs_total": 3,
+  "changed_pairs_sample": [
+    [
+      "\\u0442\\u0435\\u0441\\u043b\\u0435\\u043d\\u043a\\u043e",
+      "Teslenko"
+    ],
+    [
+      "\\u043f\\u043e\\u043b\\u0438\\u0435\\u043d\\u043a\\u043e",
+      "Polienko"
+    ],
+    [
+      "\\u0432\\u043e\\u0440\\u043e\\u043d\\u043e\\u0432",
+      "Voronov"
+    ]
+  ]
+}

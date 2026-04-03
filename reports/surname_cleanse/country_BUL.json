@@ -1,0 +1,91 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BUL.json",
+  "pool_id": "country_BUL",
+  "country_code": "BUL",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2112
+    },
+    "total": 2312
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2057
+    },
+    "total": 2257
+  },
+  "removed": {
+    "total": 55,
+    "by_reason_counts": {
+      "given_name_leak": 53,
+      "global_overlap_outlier": 1,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Alex",
+        "Alexander",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Bruce",
+        "Christian",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "Dean",
+        "Duncan",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Jack",
+        "James",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Julian",
+        "Keith",
+        "Lawrence",
+        "Lewis",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Neil",
+        "Oliver",
+        "Owen",
+        "Patrick",
+        "Paul",
+        "Philip",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Scott",
+        "Simon",
+        "Stuart",
+        "Thomas",
+        "Tyler"
+      ],
+      "global_overlap_outlier": [
+        "Azure"
+      ],
+      "placeholder": [
+        "Sample"
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_QAT.json",
+  "pool_id": "country_QAT",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_QAT.json",
+  "before_total": 6913,
+  "after_total": 6913,
+  "changed_pairs_total": 5,
+  "changed_pairs_sample": [
+    [
+      "\\u043d\\u0430\\u0433\\u043e\\u0440\\u043d\\u043e\\u0432\\u0430",
+      "Nagornova"
+    ],
+    [
+      "\\u043c\\u0430\\u0440\\u043a\\u0435\\u043b\\u043e\\u0432",
+      "Markelov"
+    ],
+    [
+      "\\u043a\\u0443\\u0433\\u0430",
+      "Kuga"
+    ],
+    [
+      "\\u0438\\u043b\\u044c\\u044f\\u0441\\u043e\\u0432",
+      "Il'iasov"
+    ],
+    [
+      "\\u0432\\u0430\\u0441\\u0438\\u043b\\u044c\\u0435\\u0432\\u0438\\u0447",
+      "Vasil'evich"
+    ]
+  ]
+}

@@ -6,7 +6,7 @@ Based on the PlayerGenAndTraining notebook.
 import random
 import math
 import uuid
-from typing import Dict, Optional, Tuple, List
+from typing import Dict, Optional, Tuple, List, Set
 import numpy as np
 
 from match_engine.constants import OUTFIELD_ATTRS, GOALKEEPER_ATTRS
@@ -39,7 +39,38 @@ def clamp(v: int, lo: int = 1, hi: int = 20) -> int:
     return max(lo, min(hi, v))
 
 
-def rnd_name(nationality: Optional[str] = None, used_names: Optional[set] = None) -> str:
+def _format_naming_pool_attempted(d: Dict[str, str]) -> Optional[str]:
+    """Human-readable line for workbench: which pools were used for name sampling."""
+    if not d:
+        return None
+    order_keys = (
+        "mode",
+        "name_structure",
+        "local_pool_id",
+        "heritage_pool_id",
+        "heritage_origin_pool_id",
+        "given_pool_id",
+        "surname_pool_id",
+        "given_sample_pool_id",
+        "surname_sample_pool_id",
+    )
+    seen: Set[str] = set()
+    parts: List[str] = []
+    for k in order_keys:
+        if k in d:
+            parts.append(f"{k}={d[k]}")
+            seen.add(k)
+    for k in sorted(d.keys()):
+        if k not in seen:
+            parts.append(f"{k}={d[k]}")
+    return " | ".join(parts)
+
+
+def rnd_name(
+    nationality: Optional[str] = None,
+    used_names: Optional[set] = None,
+    name_pool_debug: Optional[Dict[str, str]] = None,
+) -> str:
     """
     Generate a random player name using the new name generation system.
     
@@ -53,7 +84,7 @@ def rnd_name(nationality: Optional[str] = None, used_names: Optional[set] = None
     if nationality is None:
         nationality = "ENG"  # Default to England
     
-    return generate_name_string(nationality, used_names=used_names)
+    return generate_name_string(nationality, used_names=used_names, name_pool_debug=name_pool_debug)
 
 
 def sample_potential(youth_facilities: int, is_goalkeeper: bool) -> int:
@@ -264,6 +295,7 @@ def create_player_data(
     origin_country = None
     heritage_group = None
     name_structure = None  # Initialize name_structure
+    name_pool_debug: Dict[str, str] = {}
     
     if heritage_options and len(heritage_options) > 0:
         origin_country = random.choice(heritage_options)
@@ -284,97 +316,36 @@ def create_player_data(
         # This bypasses the heritage group system for simplicity
         from utils.name_generation import generate_name
         # Try to use a heritage group if available
-        
+
         # If we have a valid heritage group, use it; otherwise fall back to simple mixing
         if heritage_group:
-            from utils.name_generation import select_name_structure_with_variants, get_country_name_pool
             name_obj = generate_name(
                 nationality=nationality,
                 heritage_group=heritage_group,
                 origin_country=origin_country,
-                used_names=None
+                used_names=None,
+                name_pool_debug=name_pool_debug,
             )
             player_name = str(name_obj)
-            # Determine name structure for display - check which pools the actual names came from
-            if heritage_group != "ENG_Mainstream":
-                # Get the actual name parts
-                given_first = name_obj.given_first
-                surname_first = name_obj.surname_parts[0] if name_obj.surname_parts else ""
-                
-                # Get intended structure (composition-aware; ignores double-surname / compound-given variant)
-                given_origin_intended, surname_origin_intended, _ = select_name_structure_with_variants(
-                    nationality, heritage_group
-                )
-                
-                # Check which pools contain these names
-                given_pool_local = get_country_name_pool(nationality, "given_names_male")
-                surname_pool_local = get_country_name_pool(nationality, "surnames")
-                given_pool_her = get_country_name_pool(origin_country, "given_names_male") if origin_country else None
-                surname_pool_her = get_country_name_pool(origin_country, "surnames") if origin_country else None
-                
-                # Helper function to check if name exists in a pool
-                def name_in_pool(name: str, pool: Optional[Dict[str, List[str]]]) -> bool:
-                    if not pool:
-                        return False
-                    for tier in ["very_common", "common", "mid", "rare"]:
-                        if name in pool.get(tier, []):
-                            return True
-                    return False
-                
-                # Check if names exist in pools
-                given_in_local = name_in_pool(given_first, given_pool_local)
-                given_in_her = name_in_pool(given_first, given_pool_her)
-                surname_in_local = name_in_pool(surname_first, surname_pool_local)
-                surname_in_her = name_in_pool(surname_first, surname_pool_her)
-                
-                # Determine actual structure:
-                # - If name exists ONLY in heritage pool → HERITAGE
-                # - If name exists ONLY in local pool → LOCAL
-                # - If name exists in both:
-                #   - If intended was HERITAGE and exists in heritage → HERITAGE
-                #   - Otherwise → LOCAL (fallback scenario)
-                if given_in_her and not given_in_local:
-                    given_origin_actual = "HERITAGE"
-                elif given_in_local and not given_in_her:
-                    given_origin_actual = "LOCAL"
-                else:
-                    # Exists in both or neither - use intended if heritage exists, otherwise local
-                    given_origin_actual = "HERITAGE" if (given_origin_intended == "HERITAGE" and given_in_her) else "LOCAL"
-                
-                if surname_in_her and not surname_in_local:
-                    surname_origin_actual = "HERITAGE"
-                elif surname_in_local and not surname_in_her:
-                    surname_origin_actual = "LOCAL"
-                else:
-                    # Exists in both or neither - use intended if heritage exists, otherwise local
-                    surname_origin_actual = "HERITAGE" if (surname_origin_intended == "HERITAGE" and surname_in_her) else "LOCAL"
-                
-                # Convert to structure code (LL, LH, HL, HH)
-                structure_map = {
-                    ("LOCAL", "LOCAL"): "LL",
-                    ("LOCAL", "HERITAGE"): "LH",
-                    ("HERITAGE", "LOCAL"): "HL",
-                    ("HERITAGE", "HERITAGE"): "HH"
-                }
-                name_structure = structure_map.get((given_origin_actual, surname_origin_actual), "LL")
-            else:
-                name_structure = "LL"  # Mainstream is always LOCAL/LOCAL
+            name_structure = name_pool_debug.get("name_structure", "LL")
         else:
             # Simple 50/50 mix for testing when heritage group not configured
-            from utils.name_generation import get_country_name_pool, sample_name_from_pool, COUNTRY_TIER_PROBS, DEFAULT_GIVEN_NAME_TIER_PROBS, DEFAULT_SURNAME_TIER_PROBS
+            from utils.name_generation import (
+                get_name_pool,
+                resolve_local_pool_id,
+                sample_name_from_pool,
+                name_structure_code,
+                COUNTRY_TIER_PROBS,
+                DEFAULT_GIVEN_NAME_TIER_PROBS,
+                DEFAULT_SURNAME_TIER_PROBS,
+            )
             
-            given_pool_nat = get_country_name_pool(nationality, "given_names_male")
-            surname_pool_nat = get_country_name_pool(nationality, "surnames")
-            given_pool_her = get_country_name_pool(origin_country, "given_names_male")
-            surname_pool_her = get_country_name_pool(origin_country, "surnames")
-            
-            # Fallback to ENG if pools not found
-            if not given_pool_nat or not surname_pool_nat:
-                given_pool_nat = get_country_name_pool("ENG", "given_names_male")
-                surname_pool_nat = get_country_name_pool("ENG", "surnames")
-            if not given_pool_her or not surname_pool_her:
-                given_pool_her = get_country_name_pool("ENG", "given_names_male")
-                surname_pool_her = get_country_name_pool("ENG", "surnames")
+            _lpid = resolve_local_pool_id(nationality)
+            given_pool_nat = get_name_pool(_lpid, "given_names_male")
+            surname_pool_nat = get_name_pool(_lpid, "surnames")
+            _hpid = f"country_{origin_country}" if origin_country and len(origin_country) == 3 else origin_country
+            given_pool_her = get_name_pool(_hpid, "given_names_male") if _hpid else None
+            surname_pool_her = get_name_pool(_hpid, "surnames") if _hpid else None
             
             # 50% chance to use heritage for given name, 50% for surname
             given_country = origin_country if random.random() < 0.5 else nationality
@@ -382,124 +353,68 @@ def create_player_data(
             
             given_pool = given_pool_her if given_country == origin_country else given_pool_nat
             surname_pool = surname_pool_her if surname_country == origin_country else surname_pool_nat
+
+            name_pool_debug.clear()
+            name_pool_debug["mode"] = "heritage_mix_test"
+            name_pool_debug["local_pool_id"] = _lpid
+            name_pool_debug["heritage_pool_id"] = str(_hpid)
+            name_pool_debug["given_sample_pool_id"] = str(
+                _hpid if given_country == origin_country else _lpid
+            )
+            name_pool_debug["surname_sample_pool_id"] = str(
+                _hpid if surname_country == origin_country else _lpid
+            )
             
             country_tier_probs = COUNTRY_TIER_PROBS.get(given_country, {})
             given_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
             surname_tier_probs = COUNTRY_TIER_PROBS.get(surname_country, {}).get("surname", DEFAULT_SURNAME_TIER_PROBS)
             
-            given_first = sample_name_from_pool(given_pool, given_tier_probs)
-            surname_first = sample_name_from_pool(surname_pool, surname_tier_probs)
+            given_first = (
+                sample_name_from_pool(given_pool, given_tier_probs)
+                if given_pool
+                else ""
+            )
+            surname_first = (
+                sample_name_from_pool(surname_pool, surname_tier_probs)
+                if surname_pool
+                else ""
+            )
+            if not (given_first or "").strip():
+                given_first = "NoFirstName"
+            if not (surname_first or "").strip():
+                surname_first = "NoLastName"
             player_name = f"{given_first} {surname_first}"
             
             # Determine actual name structure based on what was used
             given_origin = "HERITAGE" if given_country == origin_country else "LOCAL"
             surname_origin = "HERITAGE" if surname_country == origin_country else "LOCAL"
-            structure_map = {
-                ("LOCAL", "LOCAL"): "LL",
-                ("LOCAL", "HERITAGE"): "LH",
-                ("HERITAGE", "LOCAL"): "HL",
-                ("HERITAGE", "HERITAGE"): "HH"
-            }
-            name_structure = structure_map.get((given_origin, surname_origin), "LL")
+            name_structure = name_structure_code(given_origin, surname_origin)
+            name_pool_debug["name_structure"] = name_structure
     else:
         # When origin_country == nationality or no origin_country, use heritage_group if available
         # This ensures names match the heritage group used for profile pictures
         if heritage_group:
-            from utils.name_generation import generate_name, select_name_structure_with_variants, get_country_name_pool
+            from utils.name_generation import generate_name
+
             name_obj = generate_name(
                 nationality=nationality,
                 heritage_group=heritage_group,
                 origin_country=None,  # No heritage origin when origin_country == nationality
-                used_names=None
+                used_names=None,
+                name_pool_debug=name_pool_debug,
             )
             player_name = str(name_obj)
-            # Determine name structure for display - check which pools the actual names came from
-            if heritage_group != "ENG_Mainstream":
-                # Get the actual name parts
-                given_first = name_obj.given_first
-                surname_first = name_obj.surname_parts[0] if name_obj.surname_parts else ""
-                
-                given_origin_intended, surname_origin_intended, _ = select_name_structure_with_variants(
-                    nationality, heritage_group
-                )
-                
-                # Get heritage config to find possible origin countries
-                from utils.name_data import HERITAGE_CONFIG
-                heritage_config = HERITAGE_CONFIG.get(nationality, {}).get(heritage_group)
-                origin_weights = heritage_config.get("origin_country_weights", {}) if heritage_config else {}
-                
-                # Check which pools contain these names
-                given_pool_local = get_country_name_pool(nationality, "given_names_male")
-                surname_pool_local = get_country_name_pool(nationality, "surnames")
-                
-                # Helper function to check if name exists in a pool
-                def name_in_pool(name: str, pool: Optional[Dict[str, List[str]]]) -> bool:
-                    if not pool:
-                        return False
-                    for tier in ["very_common", "common", "mid", "rare"]:
-                        if name in pool.get(tier, []):
-                            return True
-                    return False
-                
-                # Check if names exist in any heritage pool
-                given_in_her = False
-                surname_in_her = False
-                
-                # Check all possible origin countries for this heritage group
-                for origin_country_code in origin_weights.keys():
-                    given_pool_her = get_country_name_pool(origin_country_code, "given_names_male")
-                    surname_pool_her = get_country_name_pool(origin_country_code, "surnames")
-                    
-                    if name_in_pool(given_first, given_pool_her):
-                        given_in_her = True
-                    if name_in_pool(surname_first, surname_pool_her):
-                        surname_in_her = True
-                
-                # Check if names exist in local pools
-                given_in_local = name_in_pool(given_first, given_pool_local)
-                surname_in_local = name_in_pool(surname_first, surname_pool_local)
-                
-                # Determine actual structure:
-                # - If name exists ONLY in heritage pool → HERITAGE
-                # - If name exists ONLY in local pool → LOCAL
-                # - If name exists in both:
-                #   - If intended was HERITAGE and exists in heritage → HERITAGE
-                #   - Otherwise → LOCAL (fallback scenario)
-                if given_in_her and not given_in_local:
-                    given_origin_actual = "HERITAGE"
-                elif given_in_local and not given_in_her:
-                    given_origin_actual = "LOCAL"
-                else:
-                    # Exists in both or neither - use intended if heritage exists, otherwise local
-                    given_origin_actual = "HERITAGE" if (given_origin_intended == "HERITAGE" and given_in_her) else "LOCAL"
-                
-                if surname_in_her and not surname_in_local:
-                    surname_origin_actual = "HERITAGE"
-                elif surname_in_local and not surname_in_her:
-                    surname_origin_actual = "LOCAL"
-                else:
-                    # Exists in both or neither - use intended if heritage exists, otherwise local
-                    surname_origin_actual = "HERITAGE" if (surname_origin_intended == "HERITAGE" and surname_in_her) else "LOCAL"
-                
-                # Convert to structure code (LL, LH, HL, HH)
-                structure_map = {
-                    ("LOCAL", "LOCAL"): "LL",
-                    ("LOCAL", "HERITAGE"): "LH",
-                    ("HERITAGE", "LOCAL"): "HL",
-                    ("HERITAGE", "HERITAGE"): "HH"
-                }
-                name_structure = structure_map.get((given_origin_actual, surname_origin_actual), "LL")
-            else:
-                name_structure = "LL"  # Mainstream is always LOCAL/LOCAL
+            name_structure = name_pool_debug.get("name_structure", "LL")
         else:
-            player_name = rnd_name(nationality=nationality)
-            name_structure = "LL"  # Default to LOCAL/LOCAL when no heritage group
+            player_name = rnd_name(nationality=nationality, name_pool_debug=name_pool_debug)
+            name_structure = name_pool_debug.get("name_structure", "LL")
     
     return {
         "name": player_name,
         "nationality": nationality,
         "heritage_group": heritage_group,  # Store heritage group for profile picture selection
         "name_structure": name_structure,  # Store name structure (LL, LH, HL, HH) for display
+        "naming_pool_attempted": _format_naming_pool_attempted(name_pool_debug),
         "skin_tone": random.choice(SKIN_TONES),
         "is_goalkeeper": is_goalkeeper,
         "actual_age_months": actual_age_months,

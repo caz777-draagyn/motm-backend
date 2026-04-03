@@ -1,0 +1,59 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BIH.json",
+  "pool_id": "country_BIH",
+  "country_code": "BIH",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1166
+    },
+    "total": 1366
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1140
+    },
+    "total": 1340
+  },
+  "removed": {
+    "total": 26,
+    "by_reason_counts": {
+      "given_name_leak": 26
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Arthur",
+        "Benjamin",
+        "Connor",
+        "Dean",
+        "Grant",
+        "Guy",
+        "James",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Martin",
+        "Michael",
+        "Morgan",
+        "Owen",
+        "Peter",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Scott",
+        "Simon",
+        "Thomas",
+        "Vincent",
+        "Wilson"
+      ]
+    }
+  }
+}

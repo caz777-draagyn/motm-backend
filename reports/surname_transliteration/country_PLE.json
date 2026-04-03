@@ -1,0 +1,18 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PLE.json",
+  "pool_id": "country_PLE",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_PLE.json",
+  "before_total": 3760,
+  "after_total": 3760,
+  "changed_pairs_total": 2,
+  "changed_pairs_sample": [
+    [
+      "\\u0444\\u0435\\u0434\\u043e\\u0441\\u043e\\u0432\\u0430",
+      "Fedosova"
+    ],
+    [
+      "\\u043b\\u0430\\u0432\\u0440\\u0438\\u043d\\u0435\\u043d\\u043a\\u043e",
+      "Lavrinenko"
+    ]
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BOL.json",
+  "pool_id": "country_BOL",
+  "country_code": "BOL",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1017
+    },
+    "total": 1217
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 944
+    },
+    "total": 1144
+  },
+  "removed": {
+    "total": 73,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 49,
+      "global_overlap_outlier": 23
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Mc"
+      ],
+      "given_name_leak": [
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Benjamin",
+        "Bernard",
+        "Charles",
+        "Christian",
+        "Christopher",
+        "Daniel",
+        "David",
+        "Edward",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Ivan",
+        "Jacob",
+        "James",
+        "Joel",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Ken",
+        "Kevin",
+        "Lewis",
+        "Louis",
+        "Mark",
+        "Martin",
+        "Mike",
+        "Morgan",
+        "Nicholas",
+        "Oliver",
+        "Oscar",
+        "Paul",
+        "Philip",
+        "Phillip",
+        "Richard",
+        "Ross",
+        "Ryan",
+        "Sam",
+        "Samuel",
+        "Scott",
+        "Sebastian",
+        "Simon",
+        "Thomas",
+        "Victor",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Brathwaite",
+        "Demir",
+        "Farell",
+        "Feeney",
+        "Forde",
+        "Hosein",
+        "Mahabir",
+        "Maharaj",
+        "Mita",
+        "Moh'd",
+        "Moses",
+        "Moye",
+        "Patino",
+        "Paye",
+        "Persad",
+        "Pommier",
+        "Ramcharan",
+        "Rampersad",
+        "Rune",
+        "Sankar",
+        "Walcott",
+        "Yıldız",
+        "Çelebi"
+      ]
+    }
+  }
+}

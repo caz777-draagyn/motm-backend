@@ -1,0 +1,114 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_GUI.json",
+  "pool_id": "country_GUI",
+  "country_code": "GUI",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2372
+    },
+    "total": 2572
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2286
+    },
+    "total": 2486
+  },
+  "removed": {
+    "total": 86,
+    "by_reason_counts": {
+      "fragment": 5,
+      "given_name_leak": 61,
+      "global_overlap_outlier": 20
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ba",
+        "Do",
+        "Ka",
+        "Lo",
+        "Sy"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Bruce",
+        "Charles",
+        "Christopher",
+        "Daniel",
+        "David",
+        "Dennis",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Harry",
+        "Henry",
+        "Jack",
+        "James",
+        "Jeffrey",
+        "Jim",
+        "Joe",
+        "Joel",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Keith",
+        "Ken",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marcus",
+        "Martin",
+        "Max",
+        "Michael",
+        "Morgan",
+        "Owen",
+        "Paul",
+        "Peter",
+        "Philip",
+        "Richard",
+        "Ricky",
+        "Robert",
+        "Roger"
+      ],
+      "global_overlap_outlier": [
+        "Celebi",
+        "Coste",
+        "Del Pozo",
+        "Delfin",
+        "Engin",
+        "Guillén",
+        "Halawi",
+        "Lavi",
+        "Leia",
+        "Malena",
+        "Mattei",
+        "Mete",
+        "Miletic",
+        "Moron",
+        "Naing",
+        "Niu",
+        "Orosco",
+        "Reynaldo",
+        "Sert",
+        "Topo"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SWE.json",
+  "pool_id": "country_SWE",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_SWE.json",
+  "before_total": 6063,
+  "after_total": 6063,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u043a\\u043e\\u0432\\u0430\\u043b\\u0451\\u0432",
+      "Kovaliov"
+    ]
+  ]
+}

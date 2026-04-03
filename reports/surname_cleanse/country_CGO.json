@@ -1,0 +1,116 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_CGO.json",
+  "pool_id": "country_CGO",
+  "country_code": "CGO",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3586
+    },
+    "total": 3786
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3484
+    },
+    "total": 3684
+  },
+  "removed": {
+    "total": 102,
+    "by_reason_counts": {
+      "fragment": 7,
+      "given_name_leak": 75,
+      "global_overlap_outlier": 20
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ba",
+        "Da",
+        "Di",
+        "Du",
+        "Lo",
+        "Mo",
+        "Sy"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alfred",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Daniel",
+        "David",
+        "Dean",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Greg",
+        "Guy",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "James",
+        "Jason",
+        "Jeff",
+        "Jeremy",
+        "Joe",
+        "Joel",
+        "John",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Julian",
+        "Keith",
+        "Ken",
+        "Kenneth",
+        "Kevin",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marcus",
+        "Mark",
+        "Martin",
+        "Michael",
+        "Mike"
+      ],
+      "global_overlap_outlier": [
+        "Araújo",
+        "Balu",
+        "Bresciani",
+        "Camero",
+        "Cuadrado",
+        "De Diego",
+        "Del Río",
+        "Dewi",
+        "Gallen",
+        "Galvis",
+        "Hartig",
+        "Haru",
+        "Justicia",
+        "Khatiwada",
+        "Lalwani",
+        "Lastra",
+        "Lebel",
+        "Mahendra",
+        "Rebeca",
+        "Zivkovic"
+      ]
+    }
+  }
+}

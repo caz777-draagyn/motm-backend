@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "composition_file": "data\\heritage_composition\\FullHeritageAndNamingComposition.txt",
+  "covered_by_country_name_match": [
+    "Albania",
+    "Algeria",
+    "Angola",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahrain",
+    "Bangladesh",
+    "Belarus",
+    "Belgium",
+    "Benin",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Brazil",
+    "Bulgaria",
+    "Burkina Faso",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Cape Verde",
+    "Chile",
+    "China",
+    "Colombia",
+    "Costa Rica",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "DR Congo",
+    "Denmark",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "England",
+    "Estonia",
+    "Ethiopia",
+    "Faroe Islands",
+    "Finland",
+    "France",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Guatemala",
+    "Guinea",
+    "Haiti",
+    "Honduras",
+    "Hong Kong",
+    "Hungary",
+    "Iceland",
+    "Iran",
+    "Iraq",
+    "Ireland",
+    "Italy",
+    "Ivory Coast",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kosovo",
+    "Kuwait",
+    "Latvia",
+    "Lebanon",
+    "Liberia",
+    "Libya",
+    "Lithuania",
+    "Mali",
+    "Malta",
+    "Mexico",
+    "Moldova",
+    "Morocco",
+    "Mozambique",
+    "Nepal",
+    "Netherlands",
+    "New Caledonia",
+    "New Zealand",
+    "Nicaragua",
+    "Nigeria",
+    "North Macedonia",
+    "Northern Ireland",
+    "Norway",
+    "Oman",
+    "Palestine",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Qatar",
+    "Romania",
+    "Russia",
+    "Rwanda",
+    "Samoa",
+    "Saudi Arabia",
+    "Scotland",
+    "Senegal",
+    "Serbia",
+    "Slovakia",
+    "Slovenia",
+    "Solomon Islands",
+    "Somalia",
+    "South Africa",
+    "South Korea",
+    "Spain",
+    "Sudan",
+    "Suriname",
+    "Sweden",
+    "Syria",
+    "Taiwan",
+    "Tajikistan",
+    "Tanzania",
+    "Thailand",
+    "Tonga",
+    "Trinidad and Tobago",
+    "Tunisia",
+    "Turkey",
+    "Uganda",
+    "Ukraine",
+    "United States",
+    "Uruguay",
+    "Uzbekistan",
+    "Vanuatu",
+    "Venezuela",
+    "Vietnam",
+    "Wales",
+    "Zambia",
+    "Zimbabwe"
+  ],
+  "custom_pools": [
+    {
+      "composition_label": "Afghanistan Dari",
+      "pool_id": "custom_afghanistan_dari",
+      "file": "custom_afghanistan_dari.json",
+      "country_code": "AFG"
+    },
+    {
+      "composition_label": "Belgium Dutch",
+      "pool_id": "custom_belgium_dutch",
+      "file": "custom_belgium_dutch.json",
+      "country_code": "BEL"
+    },
+    {
+      "composition_label": "Belgium French",
+      "pool_id": "custom_belgium_french",
+      "file": "custom_belgium_french.json",
+      "country_code": "BEL"
+    },
+    {
+      "composition_label": "Catalan",
+      "pool_id": "custom_catalan",
+      "file": "custom_catalan.json",
+      "country_code": "ESP"
+    },
+    {
+      "composition_label": "China North",
+      "pool_id": "custom_china_north",
+      "file": "custom_china_north.json",
+      "country_code": "CHN"
+    },
+    {
+      "composition_label": "China South",
+      "pool_id": "custom_china_south",
+      "file": "custom_china_south.json",
+      "country_code": "CHN"
+    },
+    {
+      "composition_label": "Congo",
+      "pool_id": "custom_congo",
+      "file": "custom_congo.json",
+      "country_code": "CGO"
+    },
+    {
+      "composition_label": "Dutch Caribbean",
+      "pool_id": "custom_dutch_caribbean",
+      "file": "custom_dutch_caribbean.json",
+      "country_code": "NED"
+    },
+    {
+      "composition_label": "Fiji Indian",
+      "pool_id": "custom_fiji_indian",
+      "file": "custom_fiji_indian.json",
+      "country_code": "FIJ"
+    },
+    {
+      "composition_label": "Fiji Indigenous",
+      "pool_id": "custom_fiji_indigenous",
+      "file": "custom_fiji_indigenous.json",
+      "country_code": "FIJ"
+    },
+    {
+      "composition_label": "French Caribbean",
+      "pool_id": "custom_french_caribbean",
+      "file": "custom_french_caribbean.json",
+      "country_code": "FRA"
+    },
+    {
+      "composition_label": "Gibraltar",
+      "pool_id": "custom_gibraltar",
+      "file": "custom_gibraltar.json",
+      "country_code": "GBR"
+    },
+    {
+      "composition_label": "India Bengali",
+      "pool_id": "custom_india_bengali",
+      "file": "custom_india_bengali.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "India Gangetic",
+      "pool_id": "custom_india_gangetic",
+      "file": "custom_india_gangetic.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "India Punjabi",
+      "pool_id": "custom_india_punjabi",
+      "file": "custom_india_punjabi.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "India South",
+      "pool_id": "custom_india_south",
+      "file": "custom_india_south.json",
+      "country_code": "UNK"
+    },
+    {
+      "composition_label": "Indonesia Javanese",
+      "pool_id": "custom_indonesia_javanese",
+      "file": "custom_indonesia_javanese.json",
+      "country_code": "IDN"
+    },
+    {
+      "composition_label": "Indonesia Other",
+      "pool_id": "custom_indonesia_other",
+      "file": "custom_indonesia_other.json",
+      "country_code": "IDN"
+    },
+    {
+      "composition_label": "Indonesia Sumatran",
+      "pool_id": "custom_indonesia_sumatran",
+      "file": "custom_indonesia_sumatran.json",
+      "country_code": "IDN"
+    },
+    {
+      "composition_label": "Israel Hebrew",
+      "pool_id": "custom_israel_hebrew",
+      "file": "custom_israel_hebrew.json",
+      "country_code": "ISR"
+    },
+    {
+      "composition_label": "Kannada",
+      "pool_id": "custom_kannada",
+      "file": "custom_kannada.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "Korea",
+      "pool_id": "custom_korea",
+      "file": "custom_korea.json",
+      "country_code": "UNK"
+    },
+    {
+      "composition_label": "Laos",
+      "pool_id": "custom_laos",
+      "file": "custom_laos.json",
+      "country_code": "UNK"
+    },
+    {
+      "composition_label": "Madagascar",
+      "pool_id": "custom_madagascar",
+      "file": "custom_madagascar.json",
+      "country_code": "UNK"
+    },
+    {
+      "composition_label": "Malaylam",
+      "pool_id": "custom_malaylam",
+      "file": "custom_malaylam.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "Malaysia Chinese",
+      "pool_id": "custom_malaysia_chinese",
+      "file": "custom_malaysia_chinese.json",
+      "country_code": "MAS"
+    },
+    {
+      "composition_label": "Malaysia Indian",
+      "pool_id": "custom_malaysia_indian",
+      "file": "custom_malaysia_indian.json",
+      "country_code": "MAS"
+    },
+    {
+      "composition_label": "Malaysia Malay",
+      "pool_id": "custom_malaysia_malay",
+      "file": "custom_malaysia_malay.json",
+      "country_code": "MAS"
+    },
+    {
+      "composition_label": "Mauritius",
+      "pool_id": "custom_mauritius",
+      "file": "custom_mauritius.json",
+      "country_code": "UNK"
+    },
+    {
+      "composition_label": "Melanesia",
+      "pool_id": "custom_melanesia",
+      "file": "custom_melanesia.json",
+      "country_code": "PNG"
+    },
+    {
+      "composition_label": "Myanmar",
+      "pool_id": "custom_myanmar",
+      "file": "custom_myanmar.json",
+      "country_code": "MMR"
+    },
+    {
+      "composition_label": "New Zealand Māori",
+      "pool_id": "custom_new_zealand_m_ori",
+      "file": "custom_new_zealand_m_ori.json",
+      "country_code": "NZL"
+    },
+    {
+      "composition_label": "Pakistan Pashtun",
+      "pool_id": "custom_pakistan_pashtun",
+      "file": "custom_pakistan_pashtun.json",
+      "country_code": "PAK"
+    },
+    {
+      "composition_label": "Pakistan Punjabi",
+      "pool_id": "custom_pakistan_punjabi",
+      "file": "custom_pakistan_punjabi.json",
+      "country_code": "PAK"
+    },
+    {
+      "composition_label": "Pakistan Sindhi",
+      "pool_id": "custom_pakistan_sindhi",
+      "file": "custom_pakistan_sindhi.json",
+      "country_code": "PAK"
+    },
+    {
+      "composition_label": "Pays Basque",
+      "pool_id": "custom_pays_basque",
+      "file": "custom_pays_basque.json",
+      "country_code": "ESP"
+    },
+    {
+      "composition_label": "Philippines Tagalog",
+      "pool_id": "custom_philippines_tagalog",
+      "file": "custom_philippines_tagalog.json",
+      "country_code": "PHI"
+    },
+    {
+      "composition_label": "Philippines Visayan",
+      "pool_id": "custom_philippines_visayan",
+      "file": "custom_philippines_visayan.json",
+      "country_code": "PHI"
+    },
+    {
+      "composition_label": "Polynesia",
+      "pool_id": "custom_polynesia",
+      "file": "custom_polynesia.json",
+      "country_code": "TAH"
+    },
+    {
+      "composition_label": "Puerto Rico",
+      "pool_id": "custom_puerto_rico",
+      "file": "custom_puerto_rico.json",
+      "country_code": "USA"
+    },
+    {
+      "composition_label": "Singapore Chinese",
+      "pool_id": "custom_singapore_chinese",
+      "file": "custom_singapore_chinese.json",
+      "country_code": "SIN"
+    },
+    {
+      "composition_label": "Singapore Indian",
+      "pool_id": "custom_singapore_indian",
+      "file": "custom_singapore_indian.json",
+      "country_code": "SIN"
+    },
+    {
+      "composition_label": "Singapore Malay",
+      "pool_id": "custom_singapore_malay",
+      "file": "custom_singapore_malay.json",
+      "country_code": "SIN"
+    },
+    {
+      "composition_label": "Sri Lanka Sinhala",
+      "pool_id": "custom_sri_lanka_sinhala",
+      "file": "custom_sri_lanka_sinhala.json",
+      "country_code": "LKA"
+    },
+    {
+      "composition_label": "Suriname Hindustani",
+      "pool_id": "custom_suriname_hindustani",
+      "file": "custom_suriname_hindustani.json",
+      "country_code": "SUR"
+    },
+    {
+      "composition_label": "Swiss French",
+      "pool_id": "custom_swiss_french",
+      "file": "custom_swiss_french.json",
+      "country_code": "SUI"
+    },
+    {
+      "composition_label": "Swiss German",
+      "pool_id": "custom_swiss_german",
+      "file": "custom_swiss_german.json",
+      "country_code": "SUI"
+    },
+    {
+      "composition_label": "Swiss Italian",
+      "pool_id": "custom_swiss_italian",
+      "file": "custom_swiss_italian.json",
+      "country_code": "SUI"
+    },
+    {
+      "composition_label": "Tamil",
+      "pool_id": "custom_tamil",
+      "file": "custom_tamil.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "Telugu",
+      "pool_id": "custom_telugu",
+      "file": "custom_telugu.json",
+      "country_code": "IND"
+    },
+    {
+      "composition_label": "UAE",
+      "pool_id": "custom_uae",
+      "file": "custom_uae.json",
+      "country_code": "UAE"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ETH.json",
+  "pool_id": "country_ETH",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ETH.json",
+  "before_total": 3993,
+  "after_total": 3993,
+  "changed_pairs_total": 18,
+  "changed_pairs_sample": [
+    [
+      "\\u0448\\u0430\\u043b\\u044c",
+      "Shal'"
+    ],
+    [
+      "\\u0445\\u0440\\u0438\\u0441\\u0442\\u043e\\u0432",
+      "Khristov"
+    ],
+    [
+      "\\u0442\\u0443\\u0440\\u0447\\u0443\\u043a",
+      "Turchuk"
+    ],
+    [
+      "\\u0441\\u0443\\u0445\\u0430\\u0447\\u0451\\u0432",
+      "Sukhachiov"
+    ],
+    [
+      "\\u0441\\u0443\\u0440\\u043e\\u0432\\u0435\\u0433\\u0438\\u043d",
+      "Surovegin"
+    ],
+    [
+      "\\u0441\\u0442\\u0440\\u0443\\u0447\\u043a\\u043e\\u0432",
+      "Struchkov"
+    ],
+    [
+      "\\u043f\\u0443\\u0448\\u043a\\u043e\\u0432",
+      "Pushkov"
+    ],
+    [
+      "\\u043f\\u0440\\u0438\\u0433\\u043e\\u0436\\u0438\\u043d",
+      "Prigozhin"
+    ],
+    [
+      "\\u043f\\u043b\\u043e\\u0442\\u043d\\u0438\\u043a\\u043e\\u0432",
+      "Plotnikov"
+    ],
+    [
+      "\\u043f\\u0435\\u0442\\u0440\\u043e\\u0432",
+      "Petrov"
+    ],
+    [
+      "\\u043c\\u0438\\u0440\\u043a\\u043e\\u0432",
+      "Mirkov"
+    ],
+    [
+      "\\u043c\\u0430\\u0442\\u0432\\u0435\\u0435\\u0432",
+      "Matveev"
+    ],
+    [
+      "\\u043a\\u0438\\u0440\\u0438\\u0435\\u0432\\u0441\\u043a\\u0430\\u044f",
+      "Kirievskaia"
+    ],
+    [
+      "\\u043a\\u0430\\u0440\\u0446\\u0435\\u0432",
+      "Kartsev"
+    ],
+    [
+      "\\u0434\\u0443\\u0445\\u0430\\u043d\\u0438\\u043d",
+      "Dukhanin"
+    ],
+    [
+      "\\u0433\\u0443\\u043b\\u044f\\u0435\\u0432",
+      "Guliaev"
+    ],
+    [
+      "\\u0433\\u0443\\u0431\\u0430\\u043d\\u043e\\u0432",
+      "Gubanov"
+    ],
+    [
+      "\\u0430\\u0444\\u0430\\u043d\\u0430\\u0441\\u044c\\u0435\\u0432",
+      "Afanas'ev"
+    ]
+  ]
+}

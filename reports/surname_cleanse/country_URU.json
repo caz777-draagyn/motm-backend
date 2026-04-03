@@ -1,0 +1,98 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_URU.json",
+  "pool_id": "country_URU",
+  "country_code": "URU",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2345
+    },
+    "total": 2545
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2286
+    },
+    "total": 2486
+  },
+  "removed": {
+    "total": 59,
+    "by_reason_counts": {
+      "fragment": 5,
+      "given_name_leak": 22,
+      "global_overlap_outlier": 32
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Go",
+        "Le",
+        "Lo",
+        "Lu",
+        "Mc"
+      ],
+      "given_name_leak": [
+        "Daniel",
+        "David",
+        "Frank",
+        "Gabriel",
+        "Grant",
+        "James",
+        "Justin",
+        "Lewis",
+        "Martin",
+        "Max",
+        "Morgan",
+        "Nathan",
+        "Oliver",
+        "Oscar",
+        "Peter",
+        "Richard",
+        "Robert",
+        "Sebastian",
+        "Simon",
+        "Thomas",
+        "William",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Amsterdam",
+        "Benoit",
+        "Bonjour",
+        "Brossard",
+        "Candan",
+        "Caprio",
+        "Charbonnier",
+        "Coates",
+        "Condon",
+        "Douma",
+        "Ferrao",
+        "Gaudin",
+        "Gaye",
+        "Gonda",
+        "Ingold",
+        "Izzi",
+        "Lawlor",
+        "Mackinnon",
+        "Misa",
+        "Moar",
+        "Oxley",
+        "Pallas",
+        "Prosper",
+        "Remedios",
+        "Rondeau",
+        "Sire",
+        "Slinger",
+        "Soulier",
+        "Suhr",
+        "Sum",
+        "Toya",
+        "Verdier"
+      ]
+    }
+  }
+}

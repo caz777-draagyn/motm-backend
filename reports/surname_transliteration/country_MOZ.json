@@ -1,0 +1,26 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MOZ.json",
+  "pool_id": "country_MOZ",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_MOZ.json",
+  "before_total": 3429,
+  "after_total": 3429,
+  "changed_pairs_total": 4,
+  "changed_pairs_sample": [
+    [
+      "\\u0440\\u043e\\u043c\\u0430\\u043d\\u0435\\u043d\\u043a\\u043e",
+      "Romanenko"
+    ],
+    [
+      "\\u043f\\u0443\\u0442\\u0438\\u043d",
+      "Putin"
+    ],
+    [
+      "\\u043a\\u0443\\u0440\\u0431\\u0430\\u0442\\u043e\\u0432",
+      "Kurbatov"
+    ],
+    [
+      "\\u0432\\u043b\\u0430\\u0441\\u0435\\u043d\\u043a\\u043e",
+      "Vlasenko"
+    ]
+  ]
+}

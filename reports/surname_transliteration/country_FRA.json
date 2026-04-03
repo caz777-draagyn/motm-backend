@@ -1,0 +1,62 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_FRA.json",
+  "pool_id": "country_FRA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_FRA.json",
+  "before_total": 40978,
+  "after_total": 40972,
+  "changed_pairs_total": 13,
+  "changed_pairs_sample": [
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Ivanova"
+    ],
+    [
+      "\\u0440\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Romanova"
+    ],
+    [
+      "\\u043e\\u0440\\u043b\\u043e\\u0432",
+      "Orlov"
+    ],
+    [
+      "\\u0447\\u0435\\u0440\\u043d\\u043e\\u0432",
+      "Chernov"
+    ],
+    [
+      "\\u0444\\u0435\\u0434\\u043e\\u0442\\u043e\\u0432",
+      "Fedotov"
+    ],
+    [
+      "\\u0442\\u0438\\u0442\\u043e\\u0432",
+      "Titov"
+    ],
+    [
+      "\\u0442\\u0435\\u043d",
+      "Ten"
+    ],
+    [
+      "\\u043f\\u043e\\u043f\\u043e\\u0432\\u0430",
+      "Popova"
+    ],
+    [
+      "\\u043f\\u043e\\u043f\\u043e\\u0432",
+      "Popov"
+    ],
+    [
+      "\\u043a\\u043e\\u0442\\u043e\\u0432\\u0430",
+      "Kotova"
+    ],
+    [
+      "\\u0432\\u043e\\u0440\\u043e\\u0431\\u044c\\u0435\\u0432",
+      "Vorob'ev"
+    ],
+    [
+      "\\u0432\\u0430\\u0441\\u0438\\u043b\\u044c\\u0435\\u0432\\u0430",
+      "Vasil'eva"
+    ],
+    [
+      "\\u0431\\u0438\\u0440\\u044e\\u043a\\u043e\\u0432\\u0430",
+      "Biriukova"
+    ]
+  ]
+}

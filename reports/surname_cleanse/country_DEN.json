@@ -1,0 +1,83 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_DEN.json",
+  "pool_id": "country_DEN",
+  "country_code": "DEN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3444
+    },
+    "total": 3644
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3393
+    },
+    "total": 3593
+  },
+  "removed": {
+    "total": 51,
+    "by_reason_counts": {
+      "given_name_leak": 51
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Alexander",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bruce",
+        "Chris",
+        "Daniel",
+        "Dean",
+        "Duncan",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "Joe",
+        "Jordan",
+        "Joseph",
+        "Justin",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Marcus",
+        "Mark",
+        "Martin",
+        "Max",
+        "Michael",
+        "Nathan",
+        "Oliver",
+        "Owen",
+        "Patrick",
+        "Paul",
+        "Philip",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Scott",
+        "Simon",
+        "Stuart",
+        "Thomas",
+        "Victor",
+        "Vincent"
+      ]
+    }
+  }
+}

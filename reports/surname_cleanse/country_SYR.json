@@ -1,0 +1,106 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SYR.json",
+  "pool_id": "country_SYR",
+  "country_code": "SYR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6243
+    },
+    "total": 6443
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6159
+    },
+    "total": 6359
+  },
+  "removed": {
+    "total": 84,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 70,
+      "global_overlap_outlier": 10,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christopher",
+        "Connor",
+        "Dominic",
+        "Edward",
+        "Ethan",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Glenn",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "Jason",
+        "Joe",
+        "Joshua",
+        "Ken",
+        "Kenneth",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Marc",
+        "Marcus",
+        "Mark",
+        "Matthew",
+        "Max",
+        "Mick",
+        "Mike",
+        "Morgan",
+        "Nicholas",
+        "Noah"
+      ],
+      "global_overlap_outlier": [
+        "Demo",
+        "Frick",
+        "Gillon",
+        "Mayson",
+        "Senatore",
+        "Simeone",
+        "Spadaro",
+        "Toros",
+        "Valdés",
+        "Weis"
+      ],
+      "placeholder": [
+        "Unknown"
+      ]
+    }
+  }
+}

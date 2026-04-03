@@ -1,0 +1,64 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_HUN.json",
+  "pool_id": "country_HUN",
+  "country_code": "HUN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2271
+    },
+    "total": 2471
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2240
+    },
+    "total": 2440
+  },
+  "removed": {
+    "total": 31,
+    "by_reason_counts": {
+      "given_name_leak": 31
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Ben",
+        "Bernard",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Frank",
+        "Greg",
+        "Guy",
+        "Joe",
+        "John",
+        "Kevin",
+        "Lawrence",
+        "Lewis",
+        "Marc",
+        "Martin",
+        "Matthew",
+        "Mike",
+        "Oliver",
+        "Owen",
+        "Patrick",
+        "Richard",
+        "Ross",
+        "Sam",
+        "Scott",
+        "Simon",
+        "Thomas",
+        "Wayne",
+        "Wilson"
+      ]
+    }
+  }
+}

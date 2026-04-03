@@ -1,0 +1,120 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_IRN.json",
+  "pool_id": "country_IRN",
+  "country_code": "IRN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 11411
+    },
+    "total": 11611
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 11316
+    },
+    "total": 11516
+  },
+  "removed": {
+    "total": 95,
+    "by_reason_counts": {
+      "fragment": 5,
+      "given_name_leak": 64,
+      "global_overlap_outlier": 26
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Du",
+        "Lu",
+        "Ly",
+        "Yi"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Alexander",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Bruce",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Connor",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jason",
+        "Jeff",
+        "Jim",
+        "Julian",
+        "Keith",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Mark",
+        "Max",
+        "Mike",
+        "Morgan",
+        "Neil",
+        "Nicholas",
+        "Nick",
+        "Noah",
+        "Oliver",
+        "Owen",
+        "Patrick",
+        "Paul"
+      ],
+      "global_overlap_outlier": [
+        "Aybar",
+        "Báez",
+        "Craciun",
+        "D'elia",
+        "Davidovic",
+        "Faal",
+        "Federici",
+        "Fiorillo",
+        "Hof",
+        "Ilie",
+        "Iorio",
+        "Koppel",
+        "Lamothe",
+        "Maertens",
+        "Marmol",
+        "Maxime",
+        "Ostrowski",
+        "Palazzolo",
+        "Passaro",
+        "Simard",
+        "Stanek",
+        "Sulejmani",
+        "Syla",
+        "Zaremba",
+        "Zito",
+        "Zoller"
+      ]
+    }
+  }
+}

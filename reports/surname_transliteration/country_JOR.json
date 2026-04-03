@@ -1,0 +1,38 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_JOR.json",
+  "pool_id": "country_JOR",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_JOR.json",
+  "before_total": 5588,
+  "after_total": 5587,
+  "changed_pairs_total": 7,
+  "changed_pairs_sample": [
+    [
+      "\\u0442\\u0438\\u043c\\u043e\\u0444\\u0435\\u0435\\u0432\\u0430",
+      "Timofeeva"
+    ],
+    [
+      "\\u0441\\u0435\\u0440\\u044b\\u0439",
+      "Seryi"
+    ],
+    [
+      "\\u0440\\u0435\\u0432\\u044f\\u043a\\u0438\\u043d\\u0430",
+      "Reviakina"
+    ],
+    [
+      "\\u043f\\u0430\\u0448\\u0430",
+      "Pasha"
+    ],
+    [
+      "\\u043b\\u0435\\u0434\\u0435\\u043d\\u0435\\u0432\\u0430",
+      "Ledeneva"
+    ],
+    [
+      "\\u043a\\u043e\\u0448\\u043a\\u0430\\u0440\\u043e\\u0432",
+      "Koshkarov"
+    ],
+    [
+      "\\u0432\\u0438\\u0441\\u043a\\u043e\\u0432",
+      "Viskov"
+    ]
+  ]
+}

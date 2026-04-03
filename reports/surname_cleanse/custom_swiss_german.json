@@ -1,0 +1,83 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/custom_swiss_german.json",
+  "pool_id": "custom_swiss_german",
+  "country_code": "SUI",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5712
+    },
+    "total": 5912
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5626
+    },
+    "total": 5826
+  },
+  "removed": {
+    "total": 86,
+    "by_reason_counts": {
+      "given_name_leak": 86
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Duncan",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jeffrey",
+        "Jeremy",
+        "Joe",
+        "Joel",
+        "John",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Kevin",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marc",
+        "Mark",
+        "Martin"
+      ]
+    }
+  }
+}

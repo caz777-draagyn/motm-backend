@@ -1,0 +1,26 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_HON.json",
+  "pool_id": "country_HON",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_HON.json",
+  "before_total": 6884,
+  "after_total": 6884,
+  "changed_pairs_total": 4,
+  "changed_pairs_sample": [
+    [
+      "\\u0448\\u0435\\u0440\\u0448\\u043e\\u0432",
+      "Shershov"
+    ],
+    [
+      "\\u043a\\u0443\\u0442\\u043e\\u0432\\u0438\\u0439",
+      "Kutovii"
+    ],
+    [
+      "\\u0432\\u043b\\u0430\\u0441\\u043e\\u0432\\u0430",
+      "Vlasova"
+    ],
+    [
+      "\\u0430\\u0445\\u043c\\u0430\\u0442\\u043e\\u0432\\u0430",
+      "Akhmatova"
+    ]
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_AZE.json",
+  "pool_id": "country_AZE",
+  "country_code": "AZE",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3020
+    },
+    "total": 3220
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2998
+    },
+    "total": 3198
+  },
+  "removed": {
+    "total": 22,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 17,
+      "global_overlap_outlier": 4
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Connor",
+        "Frank",
+        "Graham",
+        "Guy",
+        "Jack",
+        "Jeff",
+        "Morgan",
+        "Paul",
+        "Ryan",
+        "Sam",
+        "Tim",
+        "Wayne",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Jabi",
+        "Juba",
+        "Lii",
+        "Shaheer"
+      ]
+    }
+  }
+}

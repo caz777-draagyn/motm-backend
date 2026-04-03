@@ -1,0 +1,74 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MAS.json",
+  "pool_id": "country_MAS",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_MAS.json",
+  "before_total": 13861,
+  "after_total": 13859,
+  "changed_pairs_total": 16,
+  "changed_pairs_sample": [
+    [
+      "\\u0445\\u0440\\u0430\\u043c\\u0447\\u0438\\u0445\\u0438\\u043d\\u0430",
+      "Khramchikhina"
+    ],
+    [
+      "\\u0441\\u0443\\u043b\\u0435\\u0439\\u043c\\u0430\\u043d",
+      "Suleiman"
+    ],
+    [
+      "\\u043f\\u043e\\u043b\\u044f\\u043a\\u043e\\u0432",
+      "Poliakov"
+    ],
+    [
+      "\\u043e\\u0441\\u043c\\u0430\\u043d",
+      "Osman"
+    ],
+    [
+      "\\u043c\\u044f\\u0433\\u043a\\u043e\\u0432\\u0430",
+      "Miagkova"
+    ],
+    [
+      "\\u043c\\u0438\\u0445\\u0430\\u0439\\u043b\\u043e\\u0432",
+      "Mikhailov"
+    ],
+    [
+      "\\u043b\\u0443\\u043a\\u0438\\u043d\\u0430",
+      "Lukina"
+    ],
+    [
+      "\\u043b\\u043e\\u0431\\u0430\\u043d\\u043e\\u0432",
+      "Lobanov"
+    ],
+    [
+      "\\u043b\\u0430\\u043f\\u0442\\u0438\\u0435\\u0432\\u0430",
+      "Laptieva"
+    ],
+    [
+      "\\u043a\\u0443\\u0434\\u0430\\u043a",
+      "Kudak"
+    ],
+    [
+      "\\u043a\\u043e\\u0440\\u044f\\u043a\\u0438\\u043d\\u0430",
+      "Koriakina"
+    ],
+    [
+      "\\u043a\\u043e\\u043a\\u043e\\u0432\\u0438\\u043d",
+      "Kokovin"
+    ],
+    [
+      "\\u043a\\u0430\\u0437\\u0430\\u043a\\u043e\\u0432",
+      "Kazakov"
+    ],
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Ivanova"
+    ],
+    [
+      "\\u0433\\u043e\\u0440\\u0431\\u0430\\u0447\\u0438\\u043a",
+      "Gorbachik"
+    ],
+    [
+      "\\u0431\\u0435\\u0440\\u0435\\u0437\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f",
+      "Berezovskaia"
+    ]
+  ]
+}

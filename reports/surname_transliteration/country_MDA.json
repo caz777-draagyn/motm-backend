@@ -1,0 +1,54 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MDA.json",
+  "pool_id": "country_MDA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MDA.json",
+  "before_total": 270,
+  "after_total": 267,
+  "changed_pairs_total": 11,
+  "changed_pairs_sample": [
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432",
+      "Ivanov"
+    ],
+    [
+      "\\u043b\\u0443\\u043d\\u0433\\u0443",
+      "Lungu"
+    ],
+    [
+      "\\u0448\\u0432\\u0435\\u0446",
+      "Shvets"
+    ],
+    [
+      "\\u0446\\u0443\\u0440\\u043a\\u0430\\u043d",
+      "Tsurkan"
+    ],
+    [
+      "\\u043f\\u043e\\u043f\\u043e\\u0432\\u0430",
+      "Popova"
+    ],
+    [
+      "\\u0443\\u043d\\u0433\\u0443\\u0440\\u044f\\u043d\\u0443",
+      "Ungurianu"
+    ],
+    [
+      "\\u043f\\u0435\\u0442\\u0440\\u043e\\u0432\\u0430",
+      "Petrova"
+    ],
+    [
+      "\\u043f\\u0435\\u0442\\u0440\\u043e\\u0432",
+      "Petrov"
+    ],
+    [
+      "\\u043c\\u0435\\u043b\\u044c\\u043d\\u0438\\u043a",
+      "Mel'nik"
+    ],
+    [
+      "\\u043c\\u0430\\u043b\\u0430\\u0439",
+      "Malai"
+    ],
+    [
+      "\\u0432\\u043e\\u043b\\u043a\\u043e\\u0432\\u0430",
+      "Volkova"
+    ]
+  ]
+}

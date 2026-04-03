@@ -1,0 +1,119 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_VIE.json",
+  "pool_id": "country_VIE",
+  "country_code": "VIE",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5780
+    },
+    "total": 5980
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5664
+    },
+    "total": 5864
+  },
+  "removed": {
+    "total": 116,
+    "by_reason_counts": {
+      "fragment": 10,
+      "given_name_leak": 86,
+      "global_overlap_outlier": 20
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Du",
+        "Gu",
+        "Ji",
+        "Ly",
+        "Lù",
+        "Su",
+        "Xù",
+        "Yi"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Chris",
+        "Christian",
+        "Colin",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "Jamie",
+        "Jason",
+        "Jeffrey",
+        "Jeremy",
+        "Joe",
+        "Johnny",
+        "Jonathan",
+        "Joseph",
+        "Karl",
+        "Keith",
+        "Ken",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Leo"
+      ],
+      "global_overlap_outlier": [
+        "Brisson",
+        "Brunetti",
+        "Caplan",
+        "Conejo",
+        "Eckhardt",
+        "Gassner",
+        "Hamelin",
+        "Kloster",
+        "Kobus",
+        "Konopka",
+        "Martinho",
+        "Mons",
+        "Pucci",
+        "Riggio",
+        "Seltzer",
+        "Timm",
+        "Viteri",
+        "Walczak",
+        "Wehrle",
+        "Westman"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BRA.json",
+  "pool_id": "country_BRA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_BRA.json",
+  "before_total": 22779,
+  "after_total": 22778,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u0431\\u0435\\u043d\\u0434\\u0435\\u0440",
+      "Bender"
+    ]
+  ]
+}

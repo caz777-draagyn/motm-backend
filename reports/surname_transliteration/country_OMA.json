@@ -1,0 +1,22 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_OMA.json",
+  "pool_id": "country_OMA",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_OMA.json",
+  "before_total": 4183,
+  "after_total": 4183,
+  "changed_pairs_total": 3,
+  "changed_pairs_sample": [
+    [
+      "\\u0441\\u0435\\u0440\\u0433\\u0435\\u0435\\u0432",
+      "Sergeev"
+    ],
+    [
+      "\\u043f\\u0430\\u0432\\u043b\\u043e\\u0432",
+      "Pavlov"
+    ],
+    [
+      "\\u0430\\u0440\\u0441\\u043b\\u0430\\u043d\\u0431\\u0430\\u0435\\u0432",
+      "Arslanbaev"
+    ]
+  ]
+}

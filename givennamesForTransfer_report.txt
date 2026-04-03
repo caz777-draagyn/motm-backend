@@ -1,0 +1,242 @@
+# Given names import report
+Source: givennamesForTransfer.csv
+Tiers: top 20 very_common, next 30 common, next 50 mid, remainder rare.
+Countries resolved by matching `Country` column to `country_name` in `country_*.json`.
+
+## Cleansing policy
+- **Ethnic pool = credible local mainstream** where `ETHNIC_NON_MAINSTREAM` lists exist.
+- Other countries: global junk, dedupe, shared normalizations only (extend dicts in script as needed).
+- Composition reference below (not local_core).
+
+### Heritage composition reference
+
+#### BIH
+**Population-weighted origin country shares** (naming pool column × visual %): 
+  - BIH: 65.74%
+  - SRB: 16.86%
+  - CRO: 11.40%
+  - TUR: 2.50%
+  - NGA: 0.70%
+  - KOS: 0.70%
+  - GHA: 0.50%
+  - ITA: 0.40%
+  - SEN: 0.40%
+  - MLI: 0.40%
+  - ALB: 0.40%
+
+**By visual bucket** (percent of nationality, naming pools):
+  - EuroBalkans (82.0%): BIH 0.72, SRB 0.18, CRO 0.10
+  - EuroEast (4.0%): SRB 0.40, BIH 0.35, CRO 0.25
+  - EuroItaMed (4.0%): CRO 0.45, BIH 0.45, ITA 0.10
+  - Levant (4.0%): BIH 0.75, TUR 0.25
+  - AfricaWest (2.0%): NGA 0.35, GHA 0.25, SEN 0.20, MLI 0.20
+  - Anatolian (2.0%): TUR 0.75, BIH 0.25
+  - EuroBalkans (2.0%): KOS 0.35, SRB 0.25, CRO 0.20, ALB 0.20
+
+#### BUL
+**Population-weighted origin country shares** (naming pool column × visual %): 
+  - BUL: 56.62%
+  - ROU: 8.60%
+  - TUR: 7.56%
+  - SRB: 7.40%
+  - MKD: 7.02%
+  - ARM: 1.80%
+  - ALB: 1.50%
+  - KOS: 1.50%
+  - GEO: 1.20%
+  - GRE: 1.00%
+  - AZE: 1.00%
+  - HUN: 0.80%
+  - SYR: 0.70%
+  - NGA: 0.70%
+  - IRQ: 0.60%
+  - GHA: 0.50%
+  - LBN: 0.40%
+  - SEN: 0.40%
+  - MLI: 0.40%
+  - PLE: 0.30%
+
+**By visual bucket** (percent of nationality, naming pools):
+  - EuroBalkans (52.0%): BUL 0.84, MKD 0.06, SRB 0.05, ROU 0.05
+  - EuroEast (18.0%): BUL 0.55, ROU 0.20, SRB 0.10, TUR 0.10, MKD 0.05
+  - EuroBalkans (10.0%): MKD 0.30, SRB 0.20, ALB 0.15, KOS 0.15, ROU 0.10, GRE 0.10
+  - Anatolian (8.0%): TUR 0.72, BUL 0.28
+  - EuroCentral (4.0%): ROU 0.35, SRB 0.25, HUN 0.20, BUL 0.20
+  - Caucasus (4.0%): ARM 0.45, GEO 0.30, AZE 0.25
+  - Levant (2.0%): SYR 0.35, IRQ 0.30, LBN 0.20, PLE 0.15
+  - AfricaWest (2.0%): NGA 0.35, GHA 0.25, SEN 0.20, MLI 0.20
+
+#### CRO
+**Population-weighted origin country shares** (naming pool column × visual %): 
+  - CRO: 69.66%
+  - SRB: 6.80%
+  - BIH: 6.20%
+  - SVN: 5.04%
+  - ITA: 4.00%
+  - HUN: 1.90%
+  - AUT: 1.50%
+  - TUR: 1.50%
+  - NGA: 0.70%
+  - KOS: 0.60%
+  - GHA: 0.50%
+  - SEN: 0.40%
+  - CIV: 0.40%
+  - MKD: 0.40%
+  - ALB: 0.40%
+
+**By visual bucket** (percent of nationality, naming pools):
+  - EuroBalkans (72.0%): CRO 0.88, BIH 0.05, SRB 0.05, SVN 0.02
+  - EuroItaMed (10.0%): ITA 0.40, CRO 0.35, SVN 0.15, SRB 0.10
+  - EuroCentral (6.0%): SVN 0.35, AUT 0.25, CRO 0.25, HUN 0.15
+  - EuroEast (4.0%): SRB 0.35, HUN 0.25, BIH 0.20, CRO 0.20
+  - EuroBalkans (4.0%): BIH 0.45, SRB 0.20, KOS 0.15, MKD 0.10, ALB 0.10
+  - AfricaWest (2.0%): NGA 0.35, GHA 0.25, SEN 0.20, CIV 0.20
+  - Anatolian (2.0%): TUR 0.75, CRO 0.25
+
+## BOSNIA AND HERZEGOVINA → country_BIH.json (BIH)
+Raw rows: 2762, kept: 2756, discarded: 6 (ethnic mainstream: 0, other quality: 6)
+*Ethnic mainstream filter: not configured for this country (empty list).*
+Tiers: very_common=20 common=30 mid=50 rare=2656
+
+### Discarded — ethnic mainstream filter
+(none)
+
+### Discarded — quality / junk / duplicates
+- `Just` → global junk / not a plausible given name
+- `Little` → global junk / not a plausible given name
+- `Red` → global junk / not a plausible given name
+- `Dark` → global junk / not a plausible given name
+- `Silver` → global junk / not a plausible given name
+- `Sad` → global junk / not a plausible given name
+
+### Spelling / normalization (input → output)
+(none)
+
+## BULGARIA → country_BUL.json (BUL)
+Raw rows: 3611, kept: 3554, discarded: 57 (ethnic mainstream: 51, other quality: 6)
+Tiers: very_common=20 common=30 mid=50 rare=3454
+
+### Discarded — ethnic mainstream filter
+- `John` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Martin` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Michael` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Chris` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Matt` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Eric` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `George` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Dan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Kevin` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `James` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andrew` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Angel` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Tom` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jon` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Patrick` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Tony` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jeremy` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Victor` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Richard` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Mario` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Thomas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andy` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Dennis` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Christian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Lucas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jonathan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Anthony` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Philip` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Julian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Marc` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Bruno` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Vincent` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Gregory` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Alexandre` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Arthur` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Nicolas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Karol` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andreas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Yann` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Ronan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Eugene` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Pierre` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Oliver` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Julien` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Johny` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jerome` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Stephane` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Serge` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Romain` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Florian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Christophe` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+
+### Discarded — quality / junk / duplicates
+- `Just` → global junk / not a plausible given name
+- `Little` → global junk / not a plausible given name
+- `Silver` → global junk / not a plausible given name
+- `Sad` → global junk / not a plausible given name
+- `Red` → global junk / not a plausible given name
+- `Dark` → global junk / not a plausible given name
+
+### Spelling / normalization (input → output)
+(none)
+
+## CROATIA → country_CRO.json (CRO)
+Raw rows: 2112, kept: 2062, discarded: 50 (ethnic mainstream: 46, other quality: 4)
+Tiers: very_common=20 common=30 mid=50 rare=1962
+
+### Discarded — ethnic mainstream filter
+- `Mario` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Bruno` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Martin` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Tom` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Thomas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Michael` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `John` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Tony` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Christian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Dan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Chris` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Oliver` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andreas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jon` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Dennis` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andrew` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Patrick` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Matt` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `James` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `George` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Piotr` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jonathan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Marc` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Kevin` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Julian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Johny` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Eric` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Anthony` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Angel` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Yann` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Lucas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Karol` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jerome` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Florian` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andrzej` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Victor` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Ronan` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Richard` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Pierre` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Philip` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Nicolas` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Murad` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Jeremy` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Eugene` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Benoît` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+- `Andy` → not credible ethnic mainstream (model via heritage / other country pools if needed)
+
+### Discarded — quality / junk / duplicates
+- `Just` → global junk / not a plausible given name
+- `Little` → global junk / not a plausible given name
+- `Dark` → global junk / not a plausible given name
+- `Red` → global junk / not a plausible given name
+
+### Spelling / normalization (input → output)
+(none)

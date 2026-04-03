@@ -1,0 +1,74 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_CMR.json",
+  "pool_id": "country_CMR",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_CMR.json",
+  "before_total": 15378,
+  "after_total": 15377,
+  "changed_pairs_total": 16,
+  "changed_pairs_sample": [
+    [
+      "\\u0448\\u0435\\u0432\\u0447\\u0443\\u043a",
+      "Shevchuk"
+    ],
+    [
+      "\\u0448\\u0435\\u0432\\u0447\\u0435\\u043d\\u043a\\u043e",
+      "Shevchenko"
+    ],
+    [
+      "\\u0441\\u0442\\u043e\\u044f\\u043d\\u043e\\u0432",
+      "Stoianov"
+    ],
+    [
+      "\\u043f\\u0435\\u0442\\u0440\\u043e\\u0432",
+      "Petrov"
+    ],
+    [
+      "\\u043f\\u0430\\u043d\\u0444\\u0438\\u043b\\u043e\\u0432",
+      "Panfilov"
+    ],
+    [
+      "\\u043c\\u0435\\u0437\\u0435\\u043d\\u0446\\u0435\\u0432",
+      "Mezentsev"
+    ],
+    [
+      "\\u043b\\u0435\\u043a\\u0430\\u0440\\u044c",
+      "Lekar'"
+    ],
+    [
+      "\\u043b\\u0435\\u0432\\u0438\\u043d\\u0441\\u043a\\u0438\\u0439",
+      "Levinskii"
+    ],
+    [
+      "\\u0438\\u043b\\u0430\\u0440\\u0438\\u043e\\u043d\\u043e\\u0432",
+      "Ilarionov"
+    ],
+    [
+      "\\u0437\\u043e\\u043b\\u043e\\u0442\\u0430\\u0440\\u0435\\u0432\\u0441\\u043a\\u0438\\u0439",
+      "Zolotarevskii"
+    ],
+    [
+      "\\u0436\\u0438\\u0433\\u0430\\u043b\\u043e\\u0432",
+      "Zhigalov"
+    ],
+    [
+      "\\u0433\\u043e\\u043d\\u043a\\u043e\\u0432",
+      "Gonkov"
+    ],
+    [
+      "\\u0433\\u043e\\u043b\\u0456\\u043d\\u0435\\u0446\\u044c",
+      "Golinets'"
+    ],
+    [
+      "\\u0430\\u0440\\u0445\\u0438\\u043f\\u043e\\u0432",
+      "Arkhipov"
+    ],
+    [
+      "\\u0430\\u043b\\u0435\\u043a\\u0441\\u043e\\u0432",
+      "Aleksov"
+    ],
+    [
+      "\\u0430\\u043b\\u0435\\u043a\\u0441\\u0430\\u043d\\u0434\\u0440\\u043e\\u0432\\u0438\\u0447",
+      "Aleksandrovich"
+    ]
+  ]
+}

@@ -1,8 +1,8 @@
 """
 Name generation engine for realistic player names.
 
-Implements tier-based sampling, heritage naming, middle names, compound surnames,
-and anti-duplication logic.
+Tier-based sampling, heritage LL/LH/HL/HH structure from composition, middle name and
+compound surname probabilities from each selected name pool JSON, and anti-duplication.
 """
 
 import random
@@ -11,15 +11,16 @@ from dataclasses import dataclass
 
 from .name_data import (
     COUNTRY_NAME_POOLS,
+    COUNTRY_TIER_PROBS,
     HERITAGE_CONFIG,
-    MIDDLE_NAME_PROBS,
-    COMPOUND_SURNAME_PROBS,
-    SURNAME_CONNECTORS,
-    COMPOUND_SURNAME_TIER_BIAS,
+    HERITAGE_NAME_POOLS,
+    NAME_POOLS_BY_ID,
+    POOL_ID_TO_COUNTRY_CODE,
+    compound_surname_prob_for_pool,
+    middle_name_prob_for_pool,
+    surname_connector_for_pool,
     DEFAULT_GIVEN_NAME_TIER_PROBS,
     DEFAULT_SURNAME_TIER_PROBS,
-    COUNTRY_TIER_PROBS,
-    HERITAGE_NAME_POOLS
 )
 
 
@@ -128,6 +129,34 @@ def sample_name_from_pool(
     return sample_from_tier(tier_list, tier_probs)
 
 
+def _names_equivalent(a: str, b: str) -> bool:
+    return (a or "").strip().casefold() == (b or "").strip().casefold()
+
+
+def sample_distinct_from_pool(
+    name_pool: Dict[str, List[str]],
+    tier_probs: Dict[str, float],
+    avoid: str,
+    max_attempts: int = 40,
+) -> Optional[str]:
+    """
+    Sample from a tiered pool until we get a name different from `avoid` (case-insensitive).
+    If random tries fail, scan tiers for any distinct name. Returns None if the pool has no alternative.
+    """
+    af = (avoid or "").strip().casefold()
+    if not af:
+        return sample_name_from_pool(name_pool, tier_probs)
+    for _ in range(max_attempts):
+        cand = sample_name_from_pool(name_pool, tier_probs)
+        if (cand or "").strip() and not _names_equivalent(cand, avoid):
+            return cand
+    for tier in ("very_common", "common", "mid", "rare"):
+        for n in name_pool.get(tier, []):
+            if (n or "").strip() and not _names_equivalent(n, avoid):
+                return n
+    return None
+
+
 def get_country_name_pool(country_code: str, name_type: str) -> Optional[Dict[str, List[str]]]:
     """
     Get name pool for a country and name type.
@@ -143,6 +172,132 @@ def get_country_name_pool(country_code: str, name_type: str) -> Optional[Dict[st
     if not country_pools:
         return None
     return country_pools.get(name_type)
+
+
+def get_name_pool(pool_id: str, name_type: str) -> Optional[Dict[str, List[str]]]:
+    """
+    Tiered names for a pool_id (country_ENG, custom_belgium_dutch) or bare 3-letter FIFA code.
+    """
+    np = NAME_POOLS_BY_ID.get(pool_id)
+    if np:
+        return np.get(name_type)
+    if len(pool_id) == 3 and pool_id.isupper():
+        p = COUNTRY_NAME_POOLS.get(pool_id)
+        if p:
+            return p.get(name_type)
+    return None
+
+
+def pool_has_names(pool_id: str, name_type: str) -> bool:
+    pool = get_name_pool(pool_id, name_type)
+    if not pool:
+        return False
+    return any(len(pool.get(t, [])) > 0 for t in ("very_common", "common", "mid", "rare"))
+
+
+def _pool_id_is_registered(pool_id: str) -> bool:
+    """True if this pool_id was loaded into NAME_POOLS_BY_ID or COUNTRY_NAME_POOLS."""
+    if pool_id in NAME_POOLS_BY_ID:
+        return True
+    return len(pool_id) == 3 and pool_id.isupper() and pool_id in COUNTRY_NAME_POOLS
+
+
+def _local_pool_entry_is_usable(pool_id: str) -> bool:
+    """Local core entry must be loadable and have non-empty given + surname tiers."""
+    if not _pool_id_is_registered(pool_id):
+        return False
+    return pool_has_names(pool_id, "given_names_male") and pool_has_names(
+        pool_id, "surnames"
+    )
+
+
+def pool_id_to_country_code(pool_id: str) -> Optional[str]:
+    if pool_id.startswith("country_"):
+        return pool_id[len("country_") :]
+    return None
+
+
+def country_code_for_tier_probs(pool_id: str, nationality: str) -> str:
+    """FIFA code used for COUNTRY_TIER_PROBS lookup for this pool_id."""
+    cc = POOL_ID_TO_COUNTRY_CODE.get(pool_id)
+    if cc:
+        return cc
+    if len(pool_id) == 3 and pool_id.isupper() and pool_id in COUNTRY_NAME_POOLS:
+        return pool_id
+    if pool_id.startswith("country_"):
+        return pool_id[len("country_") :]
+    return nationality
+
+
+def resolve_local_pool_id(nationality: str) -> str:
+    """
+    pool_id to use for LOCAL given/surname (local_core_naming_pools.json or country_<NAT>).
+    """
+    from .name_data import LOCAL_CORE_NAMING_POOLS
+
+    entries = LOCAL_CORE_NAMING_POOLS.get(nationality)
+    if not entries:
+        cand = f"country_{nationality}"
+        if cand in NAME_POOLS_BY_ID:
+            return cand
+        if nationality in COUNTRY_NAME_POOLS:
+            return nationality
+        return cand if cand in NAME_POOLS_BY_ID else nationality
+    # Only choose among entries that are actually loaded and have both given + surnames.
+    # Otherwise random.choices can pick a missing pool and fall through to bare FIFA code
+    # (e.g. ATG) with no name data, while heritage still uses country_JAM/TTO — breaks LH/LL.
+    valid: List[Tuple[str, float]] = []
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        pid = str(e.get("pool_id") or "").strip()
+        if not pid:
+            continue
+        w = float(e.get("weight", 1.0))
+        if _local_pool_entry_is_usable(pid):
+            valid.append((pid, w))
+    if valid:
+        pool_ids = [p for p, _ in valid]
+        weights = [w for _, w in valid]
+        return random.choices(pool_ids, weights=weights, k=1)[0]
+    cand = f"country_{nationality}"
+    if cand in NAME_POOLS_BY_ID and _local_pool_entry_is_usable(cand):
+        return cand
+    if nationality in COUNTRY_NAME_POOLS and _local_pool_entry_is_usable(nationality):
+        return nationality
+    return cand if cand in NAME_POOLS_BY_ID else nationality
+
+
+def resolve_local_pool_country(nationality: str) -> str:
+    """FIFA code for tier probabilities for the resolved local pool_id."""
+    return country_code_for_tier_probs(resolve_local_pool_id(nationality), nationality)
+
+
+def heritage_origin_weights_as_pool_ids(heritage_config: dict) -> Dict[str, float]:
+    """Normalize origin_pool_weights or legacy origin_country_weights (FIFA keys) to pool_id keys."""
+    ow = heritage_config.get("origin_pool_weights")
+    if ow:
+        return dict(ow)
+    ow = heritage_config.get("origin_country_weights") or {}
+    if not ow:
+        return {}
+    out: Dict[str, float] = {}
+    for k, v in ow.items():
+        if len(k) == 3 and k.isupper():
+            out[f"country_{k}"] = float(v)
+        else:
+            out[k] = float(v)
+    return out
+
+
+def _coerce_origin_pool_id(origin: Optional[str]) -> Optional[str]:
+    if not origin:
+        return None
+    if origin.startswith("country_") or origin.startswith("custom_"):
+        return origin
+    if len(origin) == 3 and origin.isupper():
+        return f"country_{origin}"
+    return origin
 
 
 def select_heritage_group(nationality: str) -> Optional[str]:
@@ -174,43 +329,38 @@ def select_heritage_group(nationality: str) -> Optional[str]:
     return random.choices(groups, weights=weights, k=1)[0]
 
 
-def select_origin_country(nationality: str, heritage_group: str) -> Optional[str]:
+def select_origin_pool_id(nationality: str, heritage_group: str) -> Optional[str]:
     """
-    Select origin country for heritage name generation.
-    
-    If the selected country doesn't exist in name pools, falls back to the
-    highest weight country in the heritage group.
-    
-    Args:
-        nationality: Player's nationality
-        heritage_group: Selected heritage group
-    
-    Returns:
-        Origin country code or None
+    Select origin naming pool_id (country_* or custom_*) for heritage name generation.
+    Falls back to highest-weight pool that has non-empty given names.
     """
     heritage_config = HERITAGE_CONFIG.get(nationality, {}).get(heritage_group)
     if not heritage_config:
         return None
-    
-    origin_weights = heritage_config.get("origin_country_weights", {})
+
+    origin_weights = heritage_origin_weights_as_pool_ids(heritage_config)
     if not origin_weights:
         return None
-    
-    countries = list(origin_weights.keys())
-    weights = [origin_weights[c] for c in countries]
-    selected_country = random.choices(countries, weights=weights, k=1)[0]
-    
-    # Check if selected country has name pools, if not, use highest weight country
-    if get_country_name_pool(selected_country, "given_names_male") is None:
-        # Find country with highest weight that has name pools
-        sorted_countries = sorted(origin_weights.items(), key=lambda x: x[1], reverse=True)
-        for country_code, _ in sorted_countries:
-            if get_country_name_pool(country_code, "given_names_male") is not None:
-                return country_code
-        # If no country has pools, return the highest weight one anyway
-        return sorted_countries[0][0] if sorted_countries else selected_country
-    
-    return selected_country
+
+    pool_ids = list(origin_weights.keys())
+    weights = [origin_weights[p] for p in pool_ids]
+    selected = random.choices(pool_ids, weights=weights, k=1)[0]
+
+    if pool_has_names(selected, "given_names_male"):
+        return selected
+    sorted_pools = sorted(origin_weights.items(), key=lambda x: x[1], reverse=True)
+    for pid, _ in sorted_pools:
+        if pool_has_names(pid, "given_names_male"):
+            return pid
+    return sorted_pools[0][0] if sorted_pools else selected
+
+
+def select_origin_country(nationality: str, heritage_group: str) -> Optional[str]:
+    """Backward compatibility: returns FIFA code for the selected origin pool."""
+    pid = select_origin_pool_id(nationality, heritage_group)
+    if not pid:
+        return None
+    return country_code_for_tier_probs(pid, nationality)
 
 
 def select_name_structure(nationality: str, heritage_group: str) -> Tuple[str, str]:
@@ -245,49 +395,23 @@ def select_name_structure(nationality: str, heritage_group: str) -> Tuple[str, s
 
 def select_name_structure_with_variants(
     nationality: str, heritage_group: str
-) -> Tuple[str, str, Optional[str]]:
+) -> Tuple[str, str, None]:
     """
-    Like select_name_structure but supports composition file extras:
-    LL_DOUBLE_SURNAME, LL_COMPOUND_GIVEN (local pools, special surname/given pattern).
-
-    Returns:
-        (given_origin, surname_origin, local_variant) where local_variant is
-        None, \"double_surname\", or \"compound_given\".
+    Returns (given_origin, surname_origin, None). Middle and compound surname are rolled
+    per name pool JSON after pools are chosen, not from composition extras.
     """
-    heritage_config = HERITAGE_CONFIG.get(nationality, {}).get(heritage_group)
-    if not heritage_config:
-        return ("LOCAL", "LOCAL", None)
-
-    extras = heritage_config.get("composition_extras") or {}
-    if not extras:
-        g, s = select_name_structure(nationality, heritage_group)
-        return (g, s, None)
-
-    struct_probs = heritage_config.get("name_structure_probs") or {}
-    combined: Dict[str, float] = dict(struct_probs)
-    for k, v in extras.items():
-        combined[k] = combined.get(k, 0.0) + float(v)
-
-    if not combined or sum(combined.values()) <= 0:
-        return ("LOCAL", "LOCAL", None)
-
-    keys = list(combined.keys())
-    weights = [combined[k] for k in keys]
-    selected = random.choices(keys, weights=weights, k=1)[0]
-
-    if selected == "LL_DOUBLE_SURNAME":
-        return ("LOCAL", "LOCAL", "double_surname")
-    if selected == "LL_COMPOUND_GIVEN":
-        return ("LOCAL", "LOCAL", "compound_given")
-
-    structure_map = {
-        "LL": ("LOCAL", "LOCAL"),
-        "LH": ("LOCAL", "HERITAGE"),
-        "HL": ("HERITAGE", "LOCAL"),
-        "HH": ("HERITAGE", "HERITAGE"),
-    }
-    g, s = structure_map.get(selected, ("LOCAL", "LOCAL"))
+    g, s = select_name_structure(nationality, heritage_group)
     return (g, s, None)
+
+
+def name_structure_code(given_origin: str, surname_origin: str) -> str:
+    """LL/LH/HL/HH from LOCAL/HERITAGE origins (matches rolled structure in generate_name)."""
+    return {
+        ("LOCAL", "LOCAL"): "LL",
+        ("LOCAL", "HERITAGE"): "LH",
+        ("HERITAGE", "LOCAL"): "HL",
+        ("HERITAGE", "HERITAGE"): "HH",
+    }.get((given_origin, surname_origin), "LL")
 
 
 def generate_name(
@@ -295,7 +419,8 @@ def generate_name(
     heritage_group: Optional[str] = None,
     origin_country: Optional[str] = None,
     used_names: Optional[Set[str]] = None,
-    max_retries: int = 50
+    max_retries: int = 50,
+    name_pool_debug: Optional[Dict[str, str]] = None,
 ) -> PlayerName:
     """
     Generate a player name based on nationality and heritage.
@@ -306,123 +431,149 @@ def generate_name(
         origin_country: Optional origin country (if None and heritage, will be selected)
         used_names: Set of already-used full names to avoid duplicates
         max_retries: Maximum retries if duplicate detected
+        name_pool_debug: If provided, cleared each attempt then filled with pool ids used for sampling
     
     Returns:
         PlayerName object with structured name components
     """
     if used_names is None:
         used_names = set()
-    
-    local_variant: Optional[str] = None
+
+    name = PlayerName(given_first="NoFirstName", surname_parts=["NoLastName"])
+    origin_override = _coerce_origin_pool_id(origin_country)
     for attempt in range(max_retries):
+        if name_pool_debug is not None:
+            name_pool_debug.clear()
+        local_pool_id = resolve_local_pool_id(nationality)
         # Select heritage group if not provided
         if heritage_group is None:
             heritage_group = select_heritage_group(nationality)
         
         # Determine name structure
         if heritage_group and heritage_group != "ENG_Mainstream":
-            if origin_country is None:
-                origin_country = select_origin_country(nationality, heritage_group)
-            
-            # If origin_country doesn't have name pools, fall back to highest weight country
-            if origin_country and get_country_name_pool(origin_country, "given_names_male") is None:
+            origin_pool_id = origin_override
+            if origin_pool_id is None:
+                origin_pool_id = select_origin_pool_id(nationality, heritage_group)
+
+            if origin_pool_id and not pool_has_names(origin_pool_id, "given_names_male"):
                 heritage_config = HERITAGE_CONFIG.get(nationality, {}).get(heritage_group)
                 if heritage_config:
-                    origin_weights = heritage_config.get("origin_country_weights", {})
+                    origin_weights = heritage_origin_weights_as_pool_ids(heritage_config)
                     if origin_weights:
-                        # Find country with highest weight that has name pools
-                        sorted_countries = sorted(origin_weights.items(), key=lambda x: x[1], reverse=True)
-                        for country_code, _ in sorted_countries:
-                            if get_country_name_pool(country_code, "given_names_male") is not None:
-                                origin_country = country_code
+                        for pid, _ in sorted(
+                            origin_weights.items(), key=lambda x: x[1], reverse=True
+                        ):
+                            if pool_has_names(pid, "given_names_male"):
+                                origin_pool_id = pid
                                 break
-                        # If still no valid country found, use highest weight anyway
-                        if get_country_name_pool(origin_country, "given_names_male") is None and sorted_countries:
-                            origin_country = sorted_countries[0][0]
-            
-            given_origin, surname_origin, local_variant = select_name_structure_with_variants(
+
+            given_origin, surname_origin, _ = select_name_structure_with_variants(
                 nationality, heritage_group
             )
         else:
             given_origin = "LOCAL"
             surname_origin = "LOCAL"
-            origin_country = None
-            local_variant = None
+            origin_pool_id = None
         
-        # Select country pools for given name and surname
-        given_country = origin_country if given_origin == "HERITAGE" else nationality
-        surname_country = origin_country if surname_origin == "HERITAGE" else nationality
+        # If heritage origin missing, fall back to local pool_id for HERITAGE parts
+        eff_heritage_pid = (
+            origin_pool_id if origin_pool_id is not None else local_pool_id
+        )
+        given_pid = eff_heritage_pid if given_origin == "HERITAGE" else local_pool_id
+        surname_pid = eff_heritage_pid if surname_origin == "HERITAGE" else local_pool_id
+
+        if name_pool_debug is not None:
+            name_pool_debug["local_pool_id"] = local_pool_id
+            name_pool_debug["given_pool_id"] = given_pid
+            name_pool_debug["surname_pool_id"] = surname_pid
+            name_pool_debug["name_structure"] = name_structure_code(
+                given_origin, surname_origin
+            )
+            if origin_pool_id is not None:
+                name_pool_debug["heritage_origin_pool_id"] = str(origin_pool_id)
         
-        # Get name pools
-        given_pool = get_country_name_pool(given_country, "given_names_male")
-        surname_pool = get_country_name_pool(surname_country, "surnames")
-        
+        given_pool = get_name_pool(given_pid, "given_names_male")
+        surname_pool = get_name_pool(surname_pid, "surnames")
+        # Fill missing slots without discarding a valid mixed-structure pool: the old
+        # "if either missing, reload BOTH from local only" broke LH/HL when local was
+        # empty but heritage had data (e.g. given_pool_id=ATG, surname_pool_id=country_TTO).
+        if not given_pool:
+            given_pool = get_name_pool(local_pool_id, "given_names_male")
+        if not surname_pool:
+            surname_pool = get_name_pool(local_pool_id, "surnames")
+        if not given_pool:
+            given_pool = get_name_pool(eff_heritage_pid, "given_names_male")
+        if not surname_pool:
+            surname_pool = get_name_pool(eff_heritage_pid, "surnames")
         if not given_pool or not surname_pool:
-            # Fallback to nationality pool
-            given_pool = get_country_name_pool(nationality, "given_names_male")
-            surname_pool = get_country_name_pool(nationality, "surnames")
-            if not given_pool or not surname_pool:
-                # Fallback to ENG (England) if nationality not found in pools
-                # This handles cases where player has nationality like SCO, WAL, ESP, etc.
-                # but we only have name pools for ENG
-                given_pool = get_country_name_pool("ENG", "given_names_male")
-                surname_pool = get_country_name_pool("ENG", "surnames")
-                if not given_pool or not surname_pool:
-                    # Ultimate fallback
-                    return PlayerName(
-                        given_first="John",
-                        surname_parts=["Smith"]
-                    )
+            name = PlayerName(
+                given_first="NoFirstName",
+                surname_parts=["NoLastName"],
+            )
+            full_name = name.display_full
+            if full_name not in used_names:
+                used_names.add(full_name)
+                return name
+            continue
         
-        # Get country-specific tier probabilities if available
-        country_tier_probs = COUNTRY_TIER_PROBS.get(given_country, {})
-        given_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
-        surname_tier_probs = country_tier_probs.get("surname", DEFAULT_SURNAME_TIER_PROBS)
+        g_cc = country_code_for_tier_probs(given_pid, nationality)
+        s_cc = country_code_for_tier_probs(surname_pid, nationality)
+        given_tier_probs = COUNTRY_TIER_PROBS.get(g_cc, {}).get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
+        surname_tier_probs = COUNTRY_TIER_PROBS.get(s_cc, {}).get("surname", DEFAULT_SURNAME_TIER_PROBS)
         
         # Sample given name
         given_first = sample_name_from_pool(given_pool, given_tier_probs)
+        if not (given_first or "").strip():
+            given_first = "NoFirstName"
         
         # Sample surname
         surname_first = sample_name_from_pool(surname_pool, surname_tier_probs)
+        if not (surname_first or "").strip():
+            surname_first = "NoLastName"
         surname_parts = [surname_first]
         surname_connector = None
-        
-        # Check for compound surname (composition: forced double local surname)
-        compound_prob = COMPOUND_SURNAME_PROBS.get(nationality, COMPOUND_SURNAME_PROBS.get("default", 0.05))
-        force_double_surname = local_variant == "double_surname"
-        if force_double_surname or (
-            local_variant is None and random.random() < compound_prob
-        ):
-            # Sample second surname with tier bias
-            # For compound, bias toward common/mid tiers
-            compound_tier_probs = {
-                "very_common": 0.10,
-                "common": 0.50,
-                "mid": 0.35,
-                "rare": 0.05
-            }
+
+        # Compound surname: probability from the *surname* pool JSON only
+        compound_prob = compound_surname_prob_for_pool(surname_pid, nationality)
+        compound_tier_probs = {
+            "very_common": 0.10,
+            "common": 0.50,
+            "mid": 0.35,
+            "rare": 0.05,
+        }
+        if random.random() < compound_prob:
             surname_second = sample_name_from_pool(surname_pool, compound_tier_probs)
-            surname_parts.append(surname_second)
-            surname_connector = SURNAME_CONNECTORS.get(nationality, SURNAME_CONNECTORS.get("default", "-"))
-        
-        # Middle name (composition: compound given = always extra local given)
+            if not (surname_second or "").strip():
+                surname_second = "NoLastName"
+            if _names_equivalent(surname_second, surname_first):
+                alt = sample_distinct_from_pool(
+                    surname_pool, compound_tier_probs, surname_first
+                )
+                surname_second = alt if alt else None
+            if surname_second is not None and (surname_second or "").strip():
+                surname_parts.append(surname_second)
+                surname_connector = surname_connector_for_pool(surname_pid, nationality)
+
+        # Middle name: probability from the *given* pool JSON; sample from same given pool
         middle_name = None
-        if local_variant == "compound_given":
-            middle_pool = get_country_name_pool(nationality, "given_names_male")
-            if middle_pool:
-                country_tier_probs = COUNTRY_TIER_PROBS.get(nationality, {})
-                middle_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
-                middle_name = sample_name_from_pool(middle_pool, middle_tier_probs)
-        else:
-            middle_prob = MIDDLE_NAME_PROBS.get(nationality, MIDDLE_NAME_PROBS.get("default", 0.15))
-            if random.random() < middle_prob:
-                # Middle names usually from LOCAL pool
-                middle_pool = get_country_name_pool(nationality, "given_names_male")
-                if middle_pool:
-                    # Use country-specific tier probabilities for middle name
-                    country_tier_probs = COUNTRY_TIER_PROBS.get(nationality, {})
-                    middle_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
-                    middle_name = sample_name_from_pool(middle_pool, middle_tier_probs)
+        middle_prob = middle_name_prob_for_pool(given_pid, nationality)
+        if random.random() < middle_prob and given_pool:
+            middle_tier_probs = COUNTRY_TIER_PROBS.get(g_cc, {}).get(
+                "given", DEFAULT_GIVEN_NAME_TIER_PROBS
+            )
+            middle_name = sample_name_from_pool(given_pool, middle_tier_probs)
+            if middle_name and _names_equivalent(middle_name, given_first):
+                middle_name = sample_distinct_from_pool(
+                    given_pool, middle_tier_probs, given_first
+                )
+
+        # Max three logical parts: not given + middle + two surnames — drop middle or second surname
+        if middle_name and len(surname_parts) == 2:
+            if random.random() < 0.5:
+                middle_name = None
+            else:
+                surname_parts = [surname_parts[0]]
+                surname_connector = None
         
         # Create name object
         name = PlayerName(

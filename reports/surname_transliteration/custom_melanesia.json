@@ -1,0 +1,18 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/custom_melanesia.json",
+  "pool_id": "custom_melanesia",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/custom_melanesia.json",
+  "before_total": 3527,
+  "after_total": 3527,
+  "changed_pairs_total": 2,
+  "changed_pairs_sample": [
+    [
+      "\\u043c\\u0438\\u0447\\u043a\\u043e\\u0432",
+      "Michkov"
+    ],
+    [
+      "\\u043b\\u0435\\u0433\\u043e\\u0441\\u0442\\u0435\\u0432",
+      "Legostev"
+    ]
+  ]
+}

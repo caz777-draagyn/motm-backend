@@ -1,0 +1,26 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LBR.json",
+  "pool_id": "country_LBR",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_LBR.json",
+  "before_total": 19554,
+  "after_total": 19554,
+  "changed_pairs_total": 4,
+  "changed_pairs_sample": [
+    [
+      "\\u0441\\u0435\\u043b\\u044f\\u043c\\u0435\\u0442\\u043e\\u0432",
+      "Seliametov"
+    ],
+    [
+      "\\u0441\\u0435\\u043b\\u0435\\u0437\\u043d\\u0451\\u0432",
+      "Selezniov"
+    ],
+    [
+      "\\u043b\\u044e\\u0441\\u0442\\u0440\\u043e\\u0432",
+      "Liustrov"
+    ],
+    [
+      "\\u0433\\u043b\\u0438\\u043d\\u043d\\u0438\\u043a\\u043e\\u0432",
+      "Glinnikov"
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_GEO.json",
+  "pool_id": "country_GEO",
+  "country_code": "GEO",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 10410
+    },
+    "total": 10610
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 10277
+    },
+    "total": 10477
+  },
+  "removed": {
+    "total": 133,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 99,
+      "global_overlap_outlier": 32,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Lu"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Dominic",
+        "Duncan",
+        "Edward",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "Jamie",
+        "Jason",
+        "Jeff",
+        "Jeffrey",
+        "Joe",
+        "Joel",
+        "Joseph",
+        "Joshua"
+      ],
+      "global_overlap_outlier": [
+        "Adamz",
+        "Al-Amin",
+        "Alhadi",
+        "Bui",
+        "Carrasquillo",
+        "Choudhury",
+        "Desai",
+        "Fredy",
+        "Hartono",
+        "Hilmy",
+        "Kang",
+        "Layman",
+        "Lumumba",
+        "Maji",
+        "Marino",
+        "Mize",
+        "Nakata",
+        "Nand",
+        "Near",
+        "Panga",
+        "Pranata",
+        "Sabu",
+        "Sapp",
+        "Satterfield",
+        "Seay",
+        "Shino",
+        "Sizemore",
+        "Spain",
+        "Swane",
+        "Tesfaye",
+        "Xie",
+        "Xu"
+      ],
+      "placeholder": [
+        "Sample"
+      ]
+    }
+  }
+}

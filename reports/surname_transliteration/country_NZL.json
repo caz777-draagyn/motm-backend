@@ -1,0 +1,26 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_NZL.json",
+  "pool_id": "country_NZL",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_NZL.json",
+  "before_total": 16871,
+  "after_total": 16871,
+  "changed_pairs_total": 4,
+  "changed_pairs_sample": [
+    [
+      "\\u043c\\u0435\\u0437\\u0435\\u043d\\u0446\\u0435\\u0432",
+      "Mezentsev"
+    ],
+    [
+      "\\u043c\\u0430\\u0440\\u0438\\u0447",
+      "Marich"
+    ],
+    [
+      "\\u0437\\u043b\\u043e\\u0442\\u043d\\u0438\\u043a",
+      "Zlotnik"
+    ],
+    [
+      "\\u0430\\u0440\\u0443\\u0442\\u044e\\u043d\\u043e\\u0432",
+      "Arutiunov"
+    ]
+  ]
+}

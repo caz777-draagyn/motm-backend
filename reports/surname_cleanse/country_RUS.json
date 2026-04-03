@@ -1,0 +1,100 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_RUS.json",
+  "pool_id": "country_RUS",
+  "country_code": "RUS",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 16283
+    },
+    "total": 16483
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 16173
+    },
+    "total": 16373
+  },
+  "removed": {
+    "total": 110,
+    "by_reason_counts": {
+      "given_name_leak": 99,
+      "global_overlap_outlier": 9,
+      "placeholder": 2
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Eugene",
+        "Frank",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jason",
+        "Jeff",
+        "Jim",
+        "Joe",
+        "John",
+        "Johnny",
+        "Jordan",
+        "Joseph",
+        "Joshua",
+        "Justin"
+      ],
+      "global_overlap_outlier": [
+        "Biya",
+        "Dero",
+        "Kham",
+        "Kido",
+        "Kito",
+        "Lissa",
+        "Samin",
+        "Suga",
+        "Yaro"
+      ],
+      "placeholder": [
+        "None",
+        "Unknown"
+      ]
+    }
+  }
+}

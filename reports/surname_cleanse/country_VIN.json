@@ -1,0 +1,88 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_VIN.json",
+  "pool_id": "country_VIN",
+  "country_code": "VIN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 8828
+    },
+    "total": 9028
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 8739
+    },
+    "total": 8939
+  },
+  "removed": {
+    "total": 89,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 87
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Au",
+        "Lu"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Charles",
+        "Christian",
+        "Christopher",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "James",
+        "Jason",
+        "Jeff",
+        "Jeffrey",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Julian",
+        "Justin",
+        "Keith",
+        "Kevin",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke"
+      ]
+    }
+  }
+}

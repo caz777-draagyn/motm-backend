@@ -1,0 +1,65 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_FIN.json",
+  "pool_id": "country_FIN",
+  "country_code": "FIN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4123
+    },
+    "total": 4323
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4091
+    },
+    "total": 4291
+  },
+  "removed": {
+    "total": 32,
+    "by_reason_counts": {
+      "given_name_leak": 32
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Arthur",
+        "Bernard",
+        "Christian",
+        "George",
+        "Gordon",
+        "Guy",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "James",
+        "John",
+        "Jordan",
+        "Justin",
+        "Ken",
+        "Lewis",
+        "Martin",
+        "Michael",
+        "Morgan",
+        "Nick",
+        "Paul",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Scott",
+        "Thomas",
+        "Victor",
+        "Vincent",
+        "Wilson"
+      ]
+    }
+  }
+}

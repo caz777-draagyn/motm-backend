@@ -1,0 +1,58 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_UZB.json",
+  "pool_id": "country_UZB",
+  "country_code": "UZB",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2173
+    },
+    "total": 2373
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2154
+    },
+    "total": 2354
+  },
+  "removed": {
+    "total": 19,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 15,
+      "global_overlap_outlier": 2
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Lu"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Andrew",
+        "Frank",
+        "Gordon",
+        "Guy",
+        "Henry",
+        "Max",
+        "Morgan",
+        "Oscar",
+        "Owen",
+        "Paul",
+        "Ross",
+        "Samuel",
+        "Wayne"
+      ],
+      "global_overlap_outlier": [
+        "Coban",
+        "Spada"
+      ]
+    }
+  }
+}

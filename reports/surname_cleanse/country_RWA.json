@@ -1,0 +1,101 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_RWA.json",
+  "pool_id": "country_RWA",
+  "country_code": "RWA",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2161
+    },
+    "total": 2361
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2068
+    },
+    "total": 2268
+  },
+  "removed": {
+    "total": 93,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 81,
+      "global_overlap_outlier": 10
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ka",
+        "Ny"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Carl",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Daniel",
+        "David",
+        "Dennis",
+        "Derek",
+        "Dominic",
+        "Eric",
+        "Ethan",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Guy",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Ivan",
+        "Jacob",
+        "James",
+        "Jeff",
+        "Joe",
+        "Joel",
+        "John",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Joshua",
+        "Julian",
+        "Justin",
+        "Keith",
+        "Kenneth",
+        "Lawrence",
+        "Louis"
+      ],
+      "global_overlap_outlier": [
+        "Andresen",
+        "Bykov",
+        "Ciftci",
+        "Deprez",
+        "Juno",
+        "Kyu",
+        "Montfort",
+        "Regnier",
+        "Sasson",
+        "Tseng"
+      ]
+    }
+  }
+}

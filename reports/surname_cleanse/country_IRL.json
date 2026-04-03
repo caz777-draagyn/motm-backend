@@ -1,0 +1,87 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_IRL.json",
+  "pool_id": "country_IRL",
+  "country_code": "IRL",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6375
+    },
+    "total": 6575
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6271
+    },
+    "total": 6471
+  },
+  "removed": {
+    "total": 104,
+    "by_reason_counts": {
+      "given_name_leak": 103,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Charles",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dennis",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glen",
+        "Glenn",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jamie",
+        "Jason",
+        "Jeffrey",
+        "Jim",
+        "Joe",
+        "John",
+        "Johnny",
+        "Jordan",
+        "Joseph"
+      ],
+      "global_overlap_outlier": [
+        "Calderón"
+      ]
+    }
+  }
+}

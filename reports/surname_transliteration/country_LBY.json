@@ -1,0 +1,46 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LBY.json",
+  "pool_id": "country_LBY",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_LBY.json",
+  "before_total": 3304,
+  "after_total": 3303,
+  "changed_pairs_total": 9,
+  "changed_pairs_sample": [
+    [
+      "\\u044e\\u0441\\u0435\\u0444",
+      "Iusef"
+    ],
+    [
+      "\\u0444\\u0430\\u0440\\u043a\\u0430\\u0448",
+      "Farkash"
+    ],
+    [
+      "\\u0443\\u0441\\u0435\\u043d\\u043e\\u0432",
+      "Usenov"
+    ],
+    [
+      "\\u0441\\u0438\\u043b\\u0430",
+      "Sila"
+    ],
+    [
+      "\\u0430\\u043d\\u0442\\u043e\\u043d\\u044e\\u043a",
+      "Antoniuk"
+    ],
+    [
+      "\\u03c7\\u03bf\\u03c5\\u03b6\\u03bf\\u03c5\\u03c1\\u03b7\\u03c3",
+      "Khouzoures"
+    ],
+    [
+      "\\u03c3\\u03c4\\u03c1\\u03b9\\u03bc\\u03c0\\u03b1\\u03ba\\u03bf\\u03c5",
+      "Strimpakou"
+    ],
+    [
+      "\\u03c0\\u03bf\\u03bd\\u03c4\\u03b9\\u03ba\\u03b7",
+      "Pontike"
+    ],
+    [
+      "\\u03ba\\u03b1\\u03c1\\u03b1\\u03bb\\u03b7",
+      "Karale"
+    ]
+  ]
+}

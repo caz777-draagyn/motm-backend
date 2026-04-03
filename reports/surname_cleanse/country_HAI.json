@@ -1,0 +1,92 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_HAI.json",
+  "pool_id": "country_HAI",
+  "country_code": "HAI",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3669
+    },
+    "total": 3869
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3587
+    },
+    "total": 3787
+  },
+  "removed": {
+    "total": 82,
+    "by_reason_counts": {
+      "fragment": 1,
+      "given_name_leak": 79,
+      "global_overlap_outlier": 2
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Charles",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Derek",
+        "Edward",
+        "Eugene",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Grant",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jamie",
+        "Jason",
+        "Jeff",
+        "Jeffrey",
+        "John",
+        "Johnny",
+        "Jonathan",
+        "Joseph",
+        "Justin",
+        "Karl",
+        "Keith",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Marc",
+        "Martin",
+        "Michael",
+        "Mick"
+      ],
+      "global_overlap_outlier": [
+        "Lefèvre",
+        "Özcan"
+      ]
+    }
+  }
+}

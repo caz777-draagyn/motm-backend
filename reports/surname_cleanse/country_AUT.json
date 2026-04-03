@@ -1,0 +1,88 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_AUT.json",
+  "pool_id": "country_AUT",
+  "country_code": "AUT",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4852
+    },
+    "total": 5052
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4796
+    },
+    "total": 4996
+  },
+  "removed": {
+    "total": 56,
+    "by_reason_counts": {
+      "given_name_leak": 54,
+      "global_overlap_outlier": 2
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Ben",
+        "Bernard",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Daniel",
+        "David",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "James",
+        "John",
+        "Jordan",
+        "Justin",
+        "Karl",
+        "Kevin",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Mark",
+        "Martin",
+        "Max",
+        "Michael",
+        "Morgan",
+        "Oliver",
+        "Patrick",
+        "Paul",
+        "Peter",
+        "Richard",
+        "Robert",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Samuel",
+        "Scott",
+        "Sebastian",
+        "Simon"
+      ],
+      "global_overlap_outlier": [
+        "Boob",
+        "Martinz"
+      ]
+    }
+  }
+}

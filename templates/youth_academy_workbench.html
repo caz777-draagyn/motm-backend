@@ -867,6 +867,11 @@
                                     ${prospect.name_structure ? `<span>${prospect.name_structure}</span>` : ''}
                                 </div>
                             ` : ''}
+                            ${prospect.naming_pool_attempted ? `
+                                <div style="font-size: 10px; color: #888; margin-top: 2px; line-height: 1.3;" title="Name pools used for sampling">
+                                    Pools: ${prospect.naming_pool_attempted}
+                                </div>
+                            ` : ''}
                             <span class="talent-badge talent-${prospect.talent_rating.toLowerCase()}">${prospect.talent_rating} Talent</span>
                             <div class="potential-range">Potential: ${prospect.potential_min}-${prospect.potential_max}</div>
                         </div>

@@ -1,0 +1,92 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PNG.json",
+  "pool_id": "country_PNG",
+  "country_code": "PNG",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3327
+    },
+    "total": 3527
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3244
+    },
+    "total": 3444
+  },
+  "removed": {
+    "total": 83,
+    "by_reason_counts": {
+      "fragment": 6,
+      "given_name_leak": 77
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Go",
+        "Lo",
+        "Po",
+        "So",
+        "Su",
+        "Te"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Alex",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Brian",
+        "Carl",
+        "Christian",
+        "Christopher",
+        "David",
+        "Dean",
+        "Derek",
+        "Dominic",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Gordon",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Ivan",
+        "Jacob",
+        "James",
+        "Jeff",
+        "Joe",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Joshua",
+        "Julian",
+        "Justin",
+        "Karl",
+        "Ken",
+        "Kenneth",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Liam",
+        "Marc",
+        "Marcus",
+        "Mark",
+        "Martin"
+      ]
+    }
+  }
+}

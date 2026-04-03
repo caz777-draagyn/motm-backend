@@ -1,0 +1,78 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TPE.json",
+  "pool_id": "country_TPE",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_TPE.json",
+  "before_total": 3691,
+  "after_total": 3691,
+  "changed_pairs_total": 17,
+  "changed_pairs_sample": [
+    [
+      "\\u044f\\u043c\\u0449\\u0438\\u043a\\u043e\\u0432",
+      "Iamshchikov"
+    ],
+    [
+      "\\u044e\\u0449\\u0435\\u043d\\u043a\\u043e",
+      "Iushchenko"
+    ],
+    [
+      "\\u0445\\u0440\\u0443\\u0449\\u0451\\u0432",
+      "Khrushchiov"
+    ],
+    [
+      "\\u043f\\u0443\\u0442\\u0435\\u043d\\u043a\\u043e",
+      "Putenko"
+    ],
+    [
+      "\\u043d\\u0435\\u0440\\u043e\\u043d\\u043e\\u0432",
+      "Neronov"
+    ],
+    [
+      "\\u043d\\u0430\\u0437\\u0430\\u0440\\u043e\\u0432",
+      "Nazarov"
+    ],
+    [
+      "\\u043c\\u0435\\u0434\\u0432\\u0435\\u0434\\u0435\\u0432",
+      "Medvedev"
+    ],
+    [
+      "\\u043a\\u043e\\u043c\\u0430\\u0440\\u043e\\u0432",
+      "Komarov"
+    ],
+    [
+      "\\u043a\\u0430\\u0437\\u0430\\u043a\\u043e\\u0432",
+      "Kazakov"
+    ],
+    [
+      "\\u0437\\u0430\\u0445\\u0430\\u0440\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f",
+      "Zakharovskaia"
+    ],
+    [
+      "\\u0437\\u0430\\u0439\\u043d\\u0443\\u043b\\u043b\\u0438\\u043d\\u0430",
+      "Zainullina"
+    ],
+    [
+      "\\u0433\\u0440\\u0438\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432",
+      "Grigor'ev"
+    ],
+    [
+      "\\u0432\\u043e\\u043b\\u043a\\u043e\\u0432",
+      "Volkov"
+    ],
+    [
+      "\\u0432\\u0430\\u0441\\u044c\\u043a\\u043e\\u0432\\u0430",
+      "Vas'kova"
+    ],
+    [
+      "\\u0432\\u0430\\u043d\\u044e\\u0448\\u043a\\u0438\\u043d\\u0430",
+      "Vaniushkina"
+    ],
+    [
+      "\\u0431\\u043e\\u0441\\u044e\\u043a",
+      "Bosiuk"
+    ],
+    [
+      "\\u0430\\u0440\\u0438\\u0441\\u0442\\u043e\\u0432\\u0430",
+      "Aristova"
+    ]
+  ]
+}

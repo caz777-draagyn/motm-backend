@@ -1,0 +1,3126 @@
+{
+  "AFG": [
+    {
+      "pool_id": "custom_afghanistan_dari",
+      "weight": 1
+    }
+  ],
+  "ALB": [
+    {
+      "pool_id": "country_ALB",
+      "weight": 1.0
+    }
+  ],
+  "ALG": [
+    {
+      "pool_id": "country_ALG",
+      "weight": 1.0
+    }
+  ],
+  "AND": [
+    {
+      "pool_id": "custom_catalan",
+      "weight": 1
+    }
+  ],
+  "ANG": [
+    {
+      "pool_id": "country_ANG",
+      "weight": 1.0
+    }
+  ],
+  "ARG": [
+    {
+      "pool_id": "country_ARG",
+      "weight": 1.0
+    }
+  ],
+  "ARM": [
+    {
+      "pool_id": "country_ARM",
+      "weight": 1.0
+    }
+  ],
+  "ARU": [
+    {
+      "pool_id": "custom_dutch_caribbean",
+      "weight": 1
+    }
+  ],
+  "ATG": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.5
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.5
+    }
+  ],
+  "ASA": [
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.5
+    },
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.30000000000000004
+    },
+    {
+      "pool_id": "country_USA",
+      "weight": 0.18000000000000002
+    },
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.020000000000000004
+    }
+  ],
+  "AUS": [
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.4518918918918919
+    },
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.16405405405405402
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.1445945945945946
+    },
+    {
+      "pool_id": "country_AUS",
+      "weight": 0.11297297297297294
+    },
+    {
+      "pool_id": "custom_wales",
+      "weight": 0.08594594594594591
+    },
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.040540540540540536
+    }
+  ],
+  "AUT": [
+    {
+      "pool_id": "country_AUT",
+      "weight": 1.0
+    }
+  ],
+  "AZE": [
+    {
+      "pool_id": "country_AZE",
+      "weight": 1.0
+    }
+  ],
+  "BAH": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.3978723404255319
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.21702127659574466
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.14893617021276592
+    },
+    {
+      "pool_id": "country_CUB",
+      "weight": 0.1404255319148936
+    },
+    {
+      "pool_id": "custom_puerto_rico",
+      "weight": 0.05106382978723403
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.044680851063829775
+    }
+  ],
+  "BAN": [
+    {
+      "pool_id": "country_BAN",
+      "weight": 1.0
+    }
+  ],
+  "BDI": [
+    {
+      "pool_id": "country_TAN",
+      "weight": 0.2769396551724138
+    },
+    {
+      "pool_id": "country_RWA",
+      "weight": 0.2747844827586207
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.21551724137931036
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.10775862068965518
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.10775862068965518
+    },
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.01724137931034483
+    }
+  ],
+  "BEL": [
+    {
+      "pool_id": "custom_belgium_dutch",
+      "weight": 0.3434690639873083
+    },
+    {
+      "pool_id": "custom_belgium_french",
+      "weight": 0.270888418826018
+    },
+    {
+      "pool_id": "country_NED",
+      "weight": 0.12096774193548387
+    },
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.11422527763088312
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.09399788471708091
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.05645161290322581
+    }
+  ],
+  "BEN": [
+    {
+      "pool_id": "country_BEN",
+      "weight": 1.0
+    }
+  ],
+  "BER": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.323269130661114
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.2467464862051015
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.2040603852160333
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.10098906819364914
+    },
+    {
+      "pool_id": "country_USA",
+      "weight": 0.09682457053617907
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.02811035918792296
+    }
+  ],
+  "BFA": [
+    {
+      "pool_id": "country_BFA",
+      "weight": 1.0
+    }
+  ],
+  "BHR": [
+    {
+      "pool_id": "country_BHR",
+      "weight": 1.0
+    }
+  ],
+  "BHU": [
+    {
+      "pool_id": "country_CHN",
+      "weight": 0.47199170124481327
+    },
+    {
+      "pool_id": "country_NEP",
+      "weight": 0.35373443983402486
+    },
+    {
+      "pool_id": "custom_india_gangetic",
+      "weight": 0.07468879668049792
+    },
+    {
+      "pool_id": "custom_india_bengali",
+      "weight": 0.058091286307053944
+    },
+    {
+      "pool_id": "custom_tajikistan",
+      "weight": 0.02282157676348548
+    },
+    {
+      "pool_id": "custom_afghanistan_dari",
+      "weight": 0.018672199170124484
+    }
+  ],
+  "BIH": [
+    {
+      "pool_id": "country_BIH",
+      "weight": 1.0
+    }
+  ],
+  "BLR": [
+    {
+      "pool_id": "country_BLR",
+      "weight": 1.0
+    }
+  ],
+  "BLZ": [
+    {
+      "pool_id": "country_MEX",
+      "weight": 0.27208480565371024
+    },
+    {
+      "pool_id": "country_GUA",
+      "weight": 0.23674911660777387
+    },
+    {
+      "pool_id": "country_HON",
+      "weight": 0.15547703180212016
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.11660777385159012
+    },
+    {
+      "pool_id": "country_SLV",
+      "weight": 0.11307420494699646
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.10600706713780919
+    }
+  ],
+  "BOL": [
+    {
+      "pool_id": "country_BOL",
+      "weight": 1.0
+    }
+  ],
+  "BOT": [
+    {
+      "pool_id": "country_RSA",
+      "weight": 0.4564777327935222
+    },
+    {
+      "pool_id": "country_ZIM",
+      "weight": 0.3380566801619433
+    },
+    {
+      "pool_id": "country_ZAM",
+      "weight": 0.1589068825910931
+    },
+    {
+      "pool_id": "country_TAN",
+      "weight": 0.018218623481781375
+    },
+    {
+      "pool_id": "country_ANG",
+      "weight": 0.016194331983805668
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.01214574898785425
+    }
+  ],
+  "BRA": [
+    {
+      "pool_id": "country_BRA",
+      "weight": 1.0
+    }
+  ],
+  "BRB": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.43274244004171014
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.2877997914494265
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.1480709071949948
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.10010427528675706
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.003041362530413625
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.013034410844629824
+    }
+  ],
+  "BUL": [
+    {
+      "pool_id": "country_BUL",
+      "weight": 1.0
+    }
+  ],
+  "CAM": [
+    {
+      "pool_id": "custom_cambodia",
+      "weight": 0.8689075630252101
+    },
+    {
+      "pool_id": "country_THA",
+      "weight": 0.055462184873949584
+    },
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.029411764705882353
+    },
+    {
+      "pool_id": "country_KOR",
+      "weight": 0.02100840336134454
+    },
+    {
+      "pool_id": "custom_china_north",
+      "weight": 0.012605042016806723
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.012605042016806723
+    }
+  ],
+  "CAN": [
+    {
+      "pool_id": "country_CAN",
+      "weight": 1.0
+    }
+  ],
+  "CAY": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.5142857142857142
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.24675324675324672
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.15584415584415584
+    },
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.031168831168831162
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.031168831168831162
+    },
+    {
+      "pool_id": "country_CUB",
+      "weight": 0.02077922077922078
+    }
+  ],
+  "CGO": [
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.7597894736842105
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.13957894736842102
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.0648421052631579
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.014736842105263156
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0017543859649122807
+    },
+    {
+      "pool_id": "country_RWA",
+      "weight": 0.010526315789473684
+    }
+  ],
+  "CHA": [
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.3300733496332518
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.2799511002444988
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.024653626731866343
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.11124694376528117
+    },
+    {
+      "pool_id": "country_ALG",
+      "weight": 0.08312958435207825
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.047677261613691936
+    }
+  ],
+  "CHI": [
+    {
+      "pool_id": "country_CHI",
+      "weight": 1.0
+    }
+  ],
+  "CHN": [
+    {
+      "pool_id": "custom_china_north",
+      "weight": 0.4626728110599077
+    },
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.42327188940092164
+    },
+    {
+      "pool_id": "country_KOR",
+      "weight": 0.04608294930875575
+    },
+    {
+      "pool_id": "country_VIE",
+      "weight": 0.024193548387096767
+    },
+    {
+      "pool_id": "country_JPN",
+      "weight": 0.023041474654377874
+    },
+    {
+      "pool_id": "country_KAZ",
+      "weight": 0.02073732718894009
+    }
+  ],
+  "CIV": [
+    {
+      "pool_id": "country_CIV",
+      "weight": 1.0
+    }
+  ],
+  "CMR": [
+    {
+      "pool_id": "country_CMR",
+      "weight": 1.0
+    }
+  ],
+  "COD": [
+    {
+      "pool_id": "country_COD",
+      "weight": 1.0
+    }
+  ],
+  "COK": [
+    {
+      "pool_id": "custom_polynesia",
+      "weight": 0.35246727089627394
+    },
+    {
+      "pool_id": "custom_new_zealand_m_ori",
+      "weight": 0.27341389728096677
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.19234642497482377
+    },
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.14300100704934543
+    },
+    {
+      "pool_id": "country_NZL",
+      "weight": 0.028197381671701917
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.010574018126888218
+    }
+  ],
+  "COL": [
+    {
+      "pool_id": "country_COL",
+      "weight": 1.0
+    }
+  ],
+  "CPV": [
+    {
+      "pool_id": "country_CPV",
+      "weight": 1.0
+    }
+  ],
+  "CRC": [
+    {
+      "pool_id": "country_CRC",
+      "weight": 1.0
+    }
+  ],
+  "CRO": [
+    {
+      "pool_id": "country_CRO",
+      "weight": 1.0
+    }
+  ],
+  "CTA": [
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.2933930571108623
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.21388577827547592
+    },
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.1858902575587906
+    },
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.15677491601343785
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.11646136618141098
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.0335946248600224
+    }
+  ],
+  "CUB": [
+    {
+      "pool_id": "country_CUB",
+      "weight": 1.0
+    }
+  ],
+  "CUW": [
+    {
+      "pool_id": "custom_dutch_caribbean",
+      "weight": 0.8213096559378467
+    },
+    {
+      "pool_id": "country_VEN",
+      "weight": 0.05105438401775804
+    },
+    {
+      "pool_id": "country_BRA",
+      "weight": 0.042175360710321866
+    },
+    {
+      "pool_id": "country_COL",
+      "weight": 0.03995560488346281
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.024417314095449495
+    },
+    {
+      "pool_id": "country_NED",
+      "weight": 0.02108768035516093
+    }
+  ],
+  "CYP": [
+    {
+      "pool_id": "country_GRE",
+      "weight": 0.5612403100775193
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.25869324473975636
+    },
+    {
+      "pool_id": "country_LBN",
+      "weight": 0.09590254706533773
+    },
+    {
+      "pool_id": "country_ITA",
+      "weight": 0.044296788482835
+    },
+    {
+      "pool_id": "country_CYP",
+      "weight": 0.023255813953488372
+    },
+    {
+      "pool_id": "country_SYR",
+      "weight": 0.01661129568106312
+    }
+  ],
+  "CZE": [
+    {
+      "pool_id": "country_CZE",
+      "weight": 1.0
+    }
+  ],
+  "DEN": [
+    {
+      "pool_id": "country_DEN",
+      "weight": 1.0
+    }
+  ],
+  "DJI": [
+    {
+      "pool_id": "country_SOM",
+      "weight": 0.37165178571428564
+    },
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.32031249999999994
+    },
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.17410714285714282
+    },
+    {
+      "pool_id": "country_KSA",
+      "weight": 0.05022321428571428
+    },
+    {
+      "pool_id": "country_EGY",
+      "weight": 0.04464285714285713
+    },
+    {
+      "pool_id": "country_OMA",
+      "weight": 0.039062499999999986
+    }
+  ],
+  "DOM": [
+    {
+      "pool_id": "country_DOM",
+      "weight": 1.0
+    }
+  ],
+  "ECU": [
+    {
+      "pool_id": "country_ECU",
+      "weight": 1.0
+    }
+  ],
+  "EGY": [
+    {
+      "pool_id": "country_EGY",
+      "weight": 1.0
+    }
+  ],
+  "ENG": [
+    {
+      "pool_id": "country_ENG",
+      "weight": 1.0
+    }
+  ],
+  "EQG": [
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.44347826086956516
+    },
+    {
+      "pool_id": "country_ESP",
+      "weight": 0.22391304347826083
+    },
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.2152173913043478
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.008152173913043476
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.039130434782608685
+    },
+    {
+      "pool_id": "country_CIV",
+      "weight": 0.029347826086956515
+    }
+  ],
+  "ERI": [
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.5188284518828452
+    },
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.24686192468619245
+    },
+    {
+      "pool_id": "country_SOM",
+      "weight": 0.18619246861924688
+    },
+    {
+      "pool_id": "country_KSA",
+      "weight": 0.01882845188284519
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.014644351464435143
+    },
+    {
+      "pool_id": "country_OMA",
+      "weight": 0.014644351464435143
+    }
+  ],
+  "ESP": [
+    {
+      "pool_id": "country_ESP",
+      "weight": 1.0
+    }
+  ],
+  "EST": [
+    {
+      "pool_id": "country_EST",
+      "weight": 1.0
+    }
+  ],
+  "ETH": [
+    {
+      "pool_id": "country_ETH",
+      "weight": 1.0
+    }
+  ],
+  "FIJ": [
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.4293785310734464
+    },
+    {
+      "pool_id": "custom_fiji_indian",
+      "weight": 0.20197740112994353
+    },
+    {
+      "pool_id": "country_PNG",
+      "weight": 0.11581920903954801
+    },
+    {
+      "pool_id": "custom_solomon_islands",
+      "weight": 0.08757062146892655
+    },
+    {
+      "pool_id": "custom_vanuatu",
+      "weight": 0.0847457627118644
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.08050847457627118
+    }
+  ],
+  "FIN": [
+    {
+      "pool_id": "country_FIN",
+      "weight": 1.0
+    }
+  ],
+  "FRA": [
+    {
+      "pool_id": "country_FRA",
+      "weight": 1.0
+    }
+  ],
+  "FRO": [
+    {
+      "pool_id": "country_FRO",
+      "weight": 1.0
+    }
+  ],
+  "GAB": [
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.38331573389651535
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.34635691657866946
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.23442449841605068
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.01478352692713833
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0017599436818021823
+    },
+    {
+      "pool_id": "country_RWA",
+      "weight": 0.010559662090813094
+    }
+  ],
+  "GAM": [
+    {
+      "pool_id": "country_SEN",
+      "weight": 0.4781914893617021
+    },
+    {
+      "pool_id": "country_GUI",
+      "weight": 0.22606382978723402
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.16170212765957445
+    },
+    {
+      "pool_id": "country_CPV",
+      "weight": 0.09042553191489362
+    },
+    {
+      "pool_id": "country_BFA",
+      "weight": 0.022340425531914895
+    },
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.021276595744680854
+    }
+  ],
+  "GBZ": [
+    {
+      "pool_id": "custom_gibraltar",
+      "weight": 0.6280000000000001
+    },
+    {
+      "pool_id": "country_ESP",
+      "weight": 0.24550000000000002
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.09900000000000002
+    },
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.027500000000000007
+    }
+  ],
+  "GEO": [
+    {
+      "pool_id": "country_GEO",
+      "weight": 1.0
+    }
+  ],
+  "GER": [
+    {
+      "pool_id": "country_GER",
+      "weight": 1.0
+    }
+  ],
+  "GHA": [
+    {
+      "pool_id": "country_GHA",
+      "weight": 1.0
+    }
+  ],
+  "GLP": [
+    {
+      "pool_id": "country_GLP",
+      "weight": 1.0
+    }
+  ],
+  "GNB": [
+    {
+      "pool_id": "country_SEN",
+      "weight": 0.3955555555555556
+    },
+    {
+      "pool_id": "country_GUI",
+      "weight": 0.31888888888888883
+    },
+    {
+      "pool_id": "country_CPV",
+      "weight": 0.1422222222222222
+    },
+    {
+      "pool_id": "country_POR",
+      "weight": 0.08555555555555555
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.031111111111111103
+    },
+    {
+      "pool_id": "country_BFA",
+      "weight": 0.026666666666666665
+    }
+  ],
+  "GRE": [
+    {
+      "pool_id": "country_GRE",
+      "weight": 1.0
+    }
+  ],
+  "GRN": [
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.47722567287784684
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.3819875776397516
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.09937888198757766
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.003019323671497584
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.012939958592132506
+    },
+    {
+      "pool_id": "country_SEN",
+      "weight": 0.010351966873706006
+    }
+  ],
+  "GUA": [
+    {
+      "pool_id": "country_GUA",
+      "weight": 1.0
+    }
+  ],
+  "GUF": [
+    {
+      "pool_id": "country_BRA",
+      "weight": 0.34010152284263956
+    },
+    {
+      "pool_id": "country_COL",
+      "weight": 0.21827411167512692
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.1979695431472081
+    },
+    {
+      "pool_id": "country_VEN",
+      "weight": 0.12182741116751272
+    },
+    {
+      "pool_id": "country_HAI",
+      "weight": 0.060913705583756354
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.060913705583756354
+    }
+  ],
+  "GUI": [
+    {
+      "pool_id": "country_GUI",
+      "weight": 1.0
+    }
+  ],
+  "GUM": [
+    {
+      "pool_id": "custom_polynesia",
+      "weight": 0.4400977995110024
+    },
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.17603911980440093
+    },
+    {
+      "pool_id": "custom_philippines_visayan",
+      "weight": 0.11246943765281173
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.11002444987775059
+    },
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.08801955990220048
+    },
+    {
+      "pool_id": "country_USA",
+      "weight": 0.07334963325183372
+    }
+  ],
+  "GUY": [
+    {
+      "pool_id": "country_BRA",
+      "weight": 0.2912621359223301
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.28155339805825236
+    },
+    {
+      "pool_id": "custom_india_gangetic",
+      "weight": 0.17354368932038833
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.10922330097087377
+    },
+    {
+      "pool_id": "country_VEN",
+      "weight": 0.07766990291262134
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.06674757281553396
+    }
+  ],
+  "HAI": [
+    {
+      "pool_id": "country_HAI",
+      "weight": 1.0
+    }
+  ],
+  "HKG": [
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.6322505800464036
+    },
+    {
+      "pool_id": "custom_china_north",
+      "weight": 0.18445475638051045
+    },
+    {
+      "pool_id": "country_HKG",
+      "weight": 0.08816705336426915
+    },
+    {
+      "pool_id": "country_JPN",
+      "weight": 0.04640371229698376
+    },
+    {
+      "pool_id": "custom_singapore_chinese",
+      "weight": 0.02436194895591647
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.02436194895591647
+    }
+  ],
+  "HON": [
+    {
+      "pool_id": "country_HON",
+      "weight": 1.0
+    }
+  ],
+  "HUN": [
+    {
+      "pool_id": "country_HUN",
+      "weight": 1.0
+    }
+  ],
+  "IDN": [
+    {
+      "pool_id": "custom_indonesia_javanese",
+      "weight": 0.3605493133583021
+    },
+    {
+      "pool_id": "custom_indonesia_sumatran",
+      "weight": 0.22771535580524344
+    },
+    {
+      "pool_id": "custom_indonesia_other",
+      "weight": 0.1707865168539326
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.11235955056179776
+    },
+    {
+      "pool_id": "custom_malaysia_malay",
+      "weight": 0.09488139825218478
+    },
+    {
+      "pool_id": "country_PNG",
+      "weight": 0.033707865168539325
+    }
+  ],
+  "IND": [
+    {
+      "pool_id": "custom_india_gangetic",
+      "weight": 0.3037621922898282
+    },
+    {
+      "pool_id": "custom_india_punjabi",
+      "weight": 0.2187645146307478
+    },
+    {
+      "pool_id": "custom_india_bengali",
+      "weight": 0.14909428704133768
+    },
+    {
+      "pool_id": "custom_tamil",
+      "weight": 0.13585694379934976
+    },
+    {
+      "pool_id": "custom_telugu",
+      "weight": 0.11263353460287973
+    },
+    {
+      "pool_id": "custom_kannada",
+      "weight": 0.07988852763585695
+    }
+  ],
+  "IRL": [
+    {
+      "pool_id": "country_IRL",
+      "weight": 1.0
+    }
+  ],
+  "IRN": [
+    {
+      "pool_id": "country_IRN",
+      "weight": 1.0
+    }
+  ],
+  "IRQ": [
+    {
+      "pool_id": "country_IRQ",
+      "weight": 1.0
+    }
+  ],
+  "ISL": [
+    {
+      "pool_id": "country_ISL",
+      "weight": 1.0
+    }
+  ],
+  "ISR": [
+    {
+      "pool_id": "custom_israel_hebrew",
+      "weight": 0.77144337911376
+    },
+    {
+      "pool_id": "country_PLE",
+      "weight": 0.058046125939362536
+    },
+    {
+      "pool_id": "country_GER",
+      "weight": 0.0476807463073335
+    },
+    {
+      "pool_id": "country_JOR",
+      "weight": 0.046644208344130605
+    },
+    {
+      "pool_id": "country_POL",
+      "weight": 0.03835190463850738
+    },
+    {
+      "pool_id": "country_LBN",
+      "weight": 0.03783363565690594
+    }
+  ],
+  "ITA": [
+    {
+      "pool_id": "country_ITA",
+      "weight": 1.0
+    }
+  ],
+  "JAM": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 1.0
+    }
+  ],
+  "JOR": [
+    {
+      "pool_id": "country_JOR",
+      "weight": 1.0
+    }
+  ],
+  "JPN": [
+    {
+      "pool_id": "country_JPN",
+      "weight": 1.0
+    }
+  ],
+  "KAZ": [
+    {
+      "pool_id": "country_KAZ",
+      "weight": 1.0
+    }
+  ],
+  "KEN": [
+    {
+      "pool_id": "country_KEN",
+      "weight": 1.0
+    }
+  ],
+  "KGZ": [
+    {
+      "pool_id": "country_KAZ",
+      "weight": 0.4874213836477988
+    },
+    {
+      "pool_id": "country_UZB",
+      "weight": 0.28197064989517817
+    },
+    {
+      "pool_id": "custom_tajikistan",
+      "weight": 0.0880503144654088
+    },
+    {
+      "pool_id": "country_CHN",
+      "weight": 0.07337526205450733
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.04402515723270439
+    },
+    {
+      "pool_id": "country_RUS",
+      "weight": 0.025157232704402514
+    }
+  ],
+  "KOR": [
+    {
+      "pool_id": "country_KOR",
+      "weight": 1.0
+    }
+  ],
+  "KOS": [
+    {
+      "pool_id": "country_ALB",
+      "weight": 0.41338912133891204
+    },
+    {
+      "pool_id": "country_KOS",
+      "weight": 0.25355648535564856
+    },
+    {
+      "pool_id": "country_SRB",
+      "weight": 0.20815899581589958
+    },
+    {
+      "pool_id": "country_MKD",
+      "weight": 0.08828451882845187
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.029288702928870283
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0012203626220362617
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0012203626220362617
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0012203626220362617
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0012203626220362617
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0012203626220362617
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0012203626220362617
+    }
+  ],
+  "KSA": [
+    {
+      "pool_id": "country_KSA",
+      "weight": 1.0
+    }
+  ],
+  "KUW": [
+    {
+      "pool_id": "country_KUW",
+      "weight": 1.0
+    }
+  ],
+  "LAO": [
+    {
+      "pool_id": "country_THA",
+      "weight": 0.5871848739495797
+    },
+    {
+      "pool_id": "custom_cambodia",
+      "weight": 0.3161764705882352
+    },
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.04411764705882352
+    },
+    {
+      "pool_id": "country_KOR",
+      "weight": 0.021008403361344533
+    },
+    {
+      "pool_id": "custom_china_north",
+      "weight": 0.01890756302521008
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.012605042016806721
+    }
+  ],
+  "LBN": [
+    {
+      "pool_id": "country_LBN",
+      "weight": 1.0
+    }
+  ],
+  "LBR": [
+    {
+      "pool_id": "country_LBR",
+      "weight": 1.0
+    }
+  ],
+  "LBY": [
+    {
+      "pool_id": "country_LBY",
+      "weight": 1.0
+    }
+  ],
+  "LCA": [
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.28450555261766264
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.2474881015335801
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.19672131147540986
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.15124272871496564
+    },
+    {
+      "pool_id": "country_HAI",
+      "weight": 0.10153358011634056
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0030847875903402076
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0030847875903402076
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0030847875903402076
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0030847875903402076
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0030847875903402076
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0030847875903402076
+    }
+  ],
+  "LKA": [
+    {
+      "pool_id": "custom_sri_lanka_sinhala",
+      "weight": 0.4905213270142181
+    },
+    {
+      "pool_id": "custom_tamil",
+      "weight": 0.29857819905213273
+    },
+    {
+      "pool_id": "custom_telugu",
+      "weight": 0.07819905213270142
+    },
+    {
+      "pool_id": "custom_kannada",
+      "weight": 0.057345971563981045
+    },
+    {
+      "pool_id": "custom_malaylam",
+      "weight": 0.04691943127962085
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.028436018957345974
+    }
+  ],
+  "LTU": [
+    {
+      "pool_id": "country_LTU",
+      "weight": 1.0
+    }
+  ],
+  "LUX": [
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.32853154662199885
+    },
+    {
+      "pool_id": "country_GER",
+      "weight": 0.2540480178671133
+    },
+    {
+      "pool_id": "custom_belgium_french",
+      "weight": 0.18146286990508095
+    },
+    {
+      "pool_id": "country_POR",
+      "weight": 0.17398101619207146
+    },
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.03350083752093802
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.028475711892797316
+    }
+  ],
+  "LVA": [
+    {
+      "pool_id": "country_LVA",
+      "weight": 1.0
+    }
+  ],
+  "MAR": [
+    {
+      "pool_id": "country_MAR",
+      "weight": 1.0
+    }
+  ],
+  "MAS": [
+    {
+      "pool_id": "custom_malaysia_malay",
+      "weight": 0.397610513739546
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.24946236559139787
+    },
+    {
+      "pool_id": "custom_malaysia_indian",
+      "weight": 0.17204301075268819
+    },
+    {
+      "pool_id": "custom_singapore_malay",
+      "weight": 0.0919952210274791
+    },
+    {
+      "pool_id": "custom_singapore_chinese",
+      "weight": 0.05806451612903226
+    },
+    {
+      "pool_id": "custom_singapore_indian",
+      "weight": 0.03082437275985663
+    }
+  ],
+  "MDA": [
+    {
+      "pool_id": "country_MDA",
+      "weight": 1.0
+    }
+  ],
+  "MDV": [
+    {
+      "pool_id": "custom_tamil",
+      "weight": 0.3130193905817174
+    },
+    {
+      "pool_id": "custom_sri_lanka_sinhala",
+      "weight": 0.2742382271468144
+    },
+    {
+      "pool_id": "custom_telugu",
+      "weight": 0.1606648199445983
+    },
+    {
+      "pool_id": "custom_kannada",
+      "weight": 0.10360110803324099
+    },
+    {
+      "pool_id": "custom_malaylam",
+      "weight": 0.09030470914127423
+    },
+    {
+      "pool_id": "country_KSA",
+      "weight": 0.058171745152354556
+    }
+  ],
+  "MEX": [
+    {
+      "pool_id": "country_MEX",
+      "weight": 1.0
+    }
+  ],
+  "MKD": [
+    {
+      "pool_id": "country_MKD",
+      "weight": 0.4743644067796611
+    },
+    {
+      "pool_id": "country_ALB",
+      "weight": 0.1440677966101695
+    },
+    {
+      "pool_id": "country_BUL",
+      "weight": 0.12584745762711863
+    },
+    {
+      "pool_id": "country_SRB",
+      "weight": 0.1233050847457627
+    },
+    {
+      "pool_id": "country_KOS",
+      "weight": 0.10275423728813558
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.029661016949152536
+    }
+  ],
+  "MLI": [
+    {
+      "pool_id": "country_MLI",
+      "weight": 1.0
+    }
+  ],
+  "MLT": [
+    {
+      "pool_id": "country_MLT",
+      "weight": 1.0
+    }
+  ],
+  "MMR": [
+    {
+      "pool_id": "custom_myanmar",
+      "weight": 0.7688053097345132
+    },
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.06194690265486724
+    },
+    {
+      "pool_id": "country_THA",
+      "weight": 0.05818584070796459
+    },
+    {
+      "pool_id": "custom_india_gangetic",
+      "weight": 0.04424778761061946
+    },
+    {
+      "pool_id": "custom_cambodia",
+      "weight": 0.035840707964601766
+    },
+    {
+      "pool_id": "country_BAN",
+      "weight": 0.03097345132743362
+    }
+  ],
+  "MNE": [
+    {
+      "pool_id": "country_SRB",
+      "weight": 0.48632218844984804
+    },
+    {
+      "pool_id": "country_CRO",
+      "weight": 0.24113475177304963
+    },
+    {
+      "pool_id": "country_BIH",
+      "weight": 0.23606889564336372
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.015197568389057751
+    },
+    {
+      "pool_id": "country_ALB",
+      "weight": 0.014184397163120565
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0011820330969267137
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0011820330969267137
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0011820330969267137
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0011820330969267137
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0011820330969267137
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0011820330969267137
+    }
+  ],
+  "MNG": [
+    {
+      "pool_id": "country_CHN",
+      "weight": 0.4719216898505924
+    },
+    {
+      "pool_id": "country_KAZ",
+      "weight": 0.2957238536836682
+    },
+    {
+      "pool_id": "country_UZB",
+      "weight": 0.1391035548686244
+    },
+    {
+      "pool_id": "custom_tajikistan",
+      "weight": 0.04791344667697063
+    },
+    {
+      "pool_id": "country_KOR",
+      "weight": 0.02472952086553323
+    },
+    {
+      "pool_id": "country_JPN",
+      "weight": 0.020607934054611025
+    }
+  ],
+  "MOZ": [
+    {
+      "pool_id": "country_MOZ",
+      "weight": 1.0
+    }
+  ],
+  "MTN": [
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.29380341880341876
+    },
+    {
+      "pool_id": "country_SEN",
+      "weight": 0.25641025641025633
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.19978632478632477
+    },
+    {
+      "pool_id": "country_ALG",
+      "weight": 0.15705128205128205
+    },
+    {
+      "pool_id": "country_TUN",
+      "weight": 0.05876068376068375
+    },
+    {
+      "pool_id": "country_GUI",
+      "weight": 0.034188034188034185
+    }
+  ],
+  "MTQ": [
+    {
+      "pool_id": "custom_french_caribbean",
+      "weight": 0.9183128670581954
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.003737319807794981
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.017084890549919914
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.01601708489054992
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.013347570742124934
+    },
+    {
+      "pool_id": "country_SEN",
+      "weight": 0.012813667912439937
+    }
+  ],
+  "MWI": [
+    {
+      "pool_id": "country_ZAM",
+      "weight": 0.32620320855614976
+    },
+    {
+      "pool_id": "country_TAN",
+      "weight": 0.2812834224598931
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.1165775401069519
+    },
+    {
+      "pool_id": "country_ZIM",
+      "weight": 0.0962566844919786
+    },
+    {
+      "pool_id": "country_RSA",
+      "weight": 0.0962566844919786
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.08342245989304814
+    }
+  ],
+  "NAM": [
+    {
+      "pool_id": "country_RSA",
+      "weight": 0.37261146496815284
+    },
+    {
+      "pool_id": "country_ANG",
+      "weight": 0.2558386411889596
+    },
+    {
+      "pool_id": "country_ZIM",
+      "weight": 0.14861995753715498
+    },
+    {
+      "pool_id": "country_ZAM",
+      "weight": 0.1464968152866242
+    },
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.03821656050955413
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.03821656050955413
+    }
+  ],
+  "NCA": [
+    {
+      "pool_id": "country_NCA",
+      "weight": 1.0
+    }
+  ],
+  "NCL": [
+    {
+      "pool_id": "custom_new_caledonia",
+      "weight": 0.4670731707317073
+    },
+    {
+      "pool_id": "custom_vanuatu",
+      "weight": 0.16097560975609757
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.13170731707317074
+    },
+    {
+      "pool_id": "custom_solomon_islands",
+      "weight": 0.12073170731707317
+    },
+    {
+      "pool_id": "country_PNG",
+      "weight": 0.08048780487804878
+    },
+    {
+      "pool_id": "custom_belgium_french",
+      "weight": 0.03902439024390244
+    }
+  ],
+  "NED": [
+    {
+      "pool_id": "country_NED",
+      "weight": 1.0
+    }
+  ],
+  "NEP": [
+    {
+      "pool_id": "country_NEP",
+      "weight": 1.0
+    }
+  ],
+  "NGA": [
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.16666666666666666
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.16666666666666666
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.16666666666666666
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.16666666666666666
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.16666666666666666
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.16666666666666666
+    }
+  ],
+  "NIG": [
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.05402425578831311
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.23153252480705622
+    },
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.19294377067254684
+    },
+    {
+      "pool_id": "country_ALG",
+      "weight": 0.18081587651598674
+    },
+    {
+      "pool_id": "country_BFA",
+      "weight": 0.035281146637265705
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.035281146637265705
+    }
+  ],
+  "NIR": [
+    {
+      "pool_id": "custom_northern_ireland",
+      "weight": 0.5216494845360825
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.2412371134020619
+    },
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.1288659793814433
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.077319587628866
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.00309278350515464
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.012371134020618558
+    }
+  ],
+  "NOR": [
+    {
+      "pool_id": "country_NOR",
+      "weight": 1.0
+    }
+  ],
+  "NZL": [
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.3393124065769806
+    },
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.15650224215246633
+    },
+    {
+      "pool_id": "custom_new_zealand_m_ori",
+      "weight": 0.1517189835575486
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.14334828101644245
+    },
+    {
+      "pool_id": "country_NZL",
+      "weight": 0.10523168908819133
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.1038863976083707
+    }
+  ],
+  "OMA": [
+    {
+      "pool_id": "country_OMA",
+      "weight": 1.0
+    }
+  ],
+  "PAK": [
+    {
+      "pool_id": "custom_pakistan_punjabi",
+      "weight": 0.5129464285714285
+    },
+    {
+      "pool_id": "custom_afghanistan_dari",
+      "weight": 0.16406249999999997
+    },
+    {
+      "pool_id": "country_IRN",
+      "weight": 0.09374999999999997
+    },
+    {
+      "pool_id": "custom_pakistan_sindhi",
+      "weight": 0.0919642857142857
+    },
+    {
+      "pool_id": "custom_pakistan_pashtun",
+      "weight": 0.07924107142857142
+    },
+    {
+      "pool_id": "custom_india_punjabi",
+      "weight": 0.05803571428571428
+    }
+  ],
+  "PAN": [
+    {
+      "pool_id": "country_PAN",
+      "weight": 1.0
+    }
+  ],
+  "PAR": [
+    {
+      "pool_id": "country_PAR",
+      "weight": 1.0
+    }
+  ],
+  "PER": [
+    {
+      "pool_id": "country_PER",
+      "weight": 1.0
+    }
+  ],
+  "PHI": [
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.45830508474576265
+    },
+    {
+      "pool_id": "custom_philippines_visayan",
+      "weight": 0.42305084745762706
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.03841807909604519
+    },
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.03050847457627118
+    },
+    {
+      "pool_id": "custom_indonesia_other",
+      "weight": 0.027118644067796606
+    },
+    {
+      "pool_id": "custom_malaysia_malay",
+      "weight": 0.02259887005649717
+    }
+  ],
+  "PLE": [
+    {
+      "pool_id": "country_PLE",
+      "weight": 1.0
+    }
+  ],
+  "PNG": [
+    {
+      "pool_id": "country_PNG",
+      "weight": 1.0
+    }
+  ],
+  "POL": [
+    {
+      "pool_id": "country_POL",
+      "weight": 1.0
+    }
+  ],
+  "POR": [
+    {
+      "pool_id": "country_POR",
+      "weight": 1.0
+    }
+  ],
+  "QAT": [
+    {
+      "pool_id": "country_QAT",
+      "weight": 1.0
+    }
+  ],
+  "ROU": [
+    {
+      "pool_id": "country_ROU",
+      "weight": 1.0
+    }
+  ],
+  "RSA": [
+    {
+      "pool_id": "country_RSA",
+      "weight": 1.0
+    }
+  ],
+  "RUS": [
+    {
+      "pool_id": "country_RUS",
+      "weight": 1.0
+    }
+  ],
+  "RWA": [
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.2823275862068966
+    },
+    {
+      "pool_id": "country_RWA",
+      "weight": 0.2771551724137931
+    },
+    {
+      "pool_id": "country_TAN",
+      "weight": 0.19655172413793104
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.1508620689655172
+    },
+    {
+      "pool_id": "country_COD",
+      "weight": 0.07586206896551725
+    },
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.017241379310344824
+    }
+  ],
+  "SAM": [
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.7790466212676795
+    },
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.10267155578837091
+    },
+    {
+      "pool_id": "custom_new_zealand_m_ori",
+      "weight": 0.08213724463069672
+    },
+    {
+      "pool_id": "country_NZL",
+      "weight": 0.014143530644316398
+    },
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.011000523834468309
+    },
+    {
+      "pool_id": "country_AUS",
+      "weight": 0.011000523834468309
+    }
+  ],
+  "SCO": [
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.7695951280027067
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.07556106913273937
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.07556106913273937
+    },
+    {
+      "pool_id": "custom_wales",
+      "weight": 0.03022442765309575
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.004229164317130936
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.02368332017593323
+    }
+  ],
+  "SEN": [
+    {
+      "pool_id": "country_SEN",
+      "weight": 1.0
+    }
+  ],
+  "SIN": [
+    {
+      "pool_id": "custom_singapore_chinese",
+      "weight": 0.37437045327364293
+    },
+    {
+      "pool_id": "custom_singapore_malay",
+      "weight": 0.18522663682148852
+    },
+    {
+      "pool_id": "custom_singapore_indian",
+      "weight": 0.18298824846110798
+    },
+    {
+      "pool_id": "custom_malaysia_chinese",
+      "weight": 0.12842753217683267
+    },
+    {
+      "pool_id": "custom_malaysia_malay",
+      "weight": 0.0685506435366536
+    },
+    {
+      "pool_id": "custom_malaysia_indian",
+      "weight": 0.0604364857302742
+    }
+  ],
+  "SLE": [
+    {
+      "pool_id": "country_LBR",
+      "weight": 0.3793103448275862
+    },
+    {
+      "pool_id": "country_GUI",
+      "weight": 0.23706896551724135
+    },
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.1896551724137931
+    },
+    {
+      "pool_id": "country_CIV",
+      "weight": 0.1422413793103448
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.029094827586206892
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.02262931034482758
+    }
+  ],
+  "SLV": [
+    {
+      "pool_id": "country_SLV",
+      "weight": 1.0
+    }
+  ],
+  "SMR": [
+    {
+      "pool_id": "country_ITA",
+      "weight": 0.9677419354838709
+    },
+    {
+      "pool_id": "country_MAR",
+      "weight": 0.012096774193548387
+    },
+    {
+      "pool_id": "country_ALB",
+      "weight": 0.006048387096774193
+    },
+    {
+      "pool_id": "country_TUN",
+      "weight": 0.005040322580645161
+    },
+    {
+      "pool_id": "country_CRO",
+      "weight": 0.005040322580645161
+    },
+    {
+      "pool_id": "country_SRB",
+      "weight": 0.004032258064516129
+    }
+  ],
+  "SOL": [
+    {
+      "pool_id": "custom_solomon_islands",
+      "weight": 0.7695378151260504
+    },
+    {
+      "pool_id": "country_PNG",
+      "weight": 0.09768907563025211
+    },
+    {
+      "pool_id": "custom_vanuatu",
+      "weight": 0.0781512605042017
+    },
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.025210084033613446
+    },
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.016806722689075633
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.012605042016806723
+    }
+  ],
+  "SOM": [
+    {
+      "pool_id": "country_SOM",
+      "weight": 1.0
+    }
+  ],
+  "SRB": [
+    {
+      "pool_id": "country_SRB",
+      "weight": 1.0
+    }
+  ],
+  "SSD": [
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.3333333333333333
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.21212121212121213
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.18303030303030304
+    },
+    {
+      "pool_id": "country_TAN",
+      "weight": 0.13575757575757577
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.08484848484848484
+    },
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.05090909090909091
+    }
+  ],
+  "STP": [
+    {
+      "pool_id": "country_ANG",
+      "weight": 0.24129930394431556
+    },
+    {
+      "pool_id": "country_CPV",
+      "weight": 0.22157772621809746
+    },
+    {
+      "pool_id": "country_BRA",
+      "weight": 0.18677494199535963
+    },
+    {
+      "pool_id": "custom_congo",
+      "weight": 0.12412993039443157
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.12296983758700697
+    },
+    {
+      "pool_id": "country_POR",
+      "weight": 0.10324825986078888
+    }
+  ],
+  "SUD": [
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.4316182937554969
+    },
+    {
+      "pool_id": "country_EGY",
+      "weight": 0.18931398416886547
+    },
+    {
+      "pool_id": "country_ETH",
+      "weight": 0.1521547933157432
+    },
+    {
+      "pool_id": "country_SOM",
+      "weight": 0.0949868073878628
+    },
+    {
+      "pool_id": "country_KEN",
+      "weight": 0.08355321020228672
+    },
+    {
+      "pool_id": "country_UGA",
+      "weight": 0.048372911169744945
+    }
+  ],
+  "SUI": [
+    {
+      "pool_id": "custom_swiss_german",
+      "weight": 0.4628969790859798
+    },
+    {
+      "pool_id": "custom_swiss_french",
+      "weight": 0.1724244771494965
+    },
+    {
+      "pool_id": "custom_swiss_italian",
+      "weight": 0.11154144074360958
+    },
+    {
+      "pool_id": "country_GER",
+      "weight": 0.09852827265685514
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.08892331525948875
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.06568551510457009
+    }
+  ],
+  "SUR": [
+    {
+      "pool_id": "custom_suriname",
+      "weight": 0.5838509316770187
+    },
+    {
+      "pool_id": "custom_dutch_caribbean",
+      "weight": 0.2111801242236025
+    },
+    {
+      "pool_id": "custom_india_gangetic",
+      "weight": 0.10144927536231885
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.07453416149068323
+    },
+    {
+      "pool_id": "custom_tamil",
+      "weight": 0.014492753623188408
+    },
+    {
+      "pool_id": "custom_telugu",
+      "weight": 0.014492753623188408
+    }
+  ],
+  "SVK": [
+    {
+      "pool_id": "country_SVK",
+      "weight": 1.0
+    }
+  ],
+  "SVN": [
+    {
+      "pool_id": "country_SVN",
+      "weight": 1.0
+    }
+  ],
+  "SWE": [
+    {
+      "pool_id": "country_SWE",
+      "weight": 1.0
+    }
+  ],
+  "SYR": [
+    {
+      "pool_id": "country_SYR",
+      "weight": 1.0
+    }
+  ],
+  "TAH": [
+    {
+      "pool_id": "custom_polynesia",
+      "weight": 0.487
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.164
+    },
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.12299999999999998
+    },
+    {
+      "pool_id": "custom_new_zealand_m_ori",
+      "weight": 0.12299999999999998
+    },
+    {
+      "pool_id": "country_FRA",
+      "weight": 0.078
+    },
+    {
+      "pool_id": "custom_melanesia",
+      "weight": 0.025
+    }
+  ],
+  "TAN": [
+    {
+      "pool_id": "country_TAN",
+      "weight": 1.0
+    }
+  ],
+  "TGA": [
+    {
+      "pool_id": "custom_tonga",
+      "weight": 0.7790466212676795
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.10267155578837091
+    },
+    {
+      "pool_id": "custom_new_zealand_m_ori",
+      "weight": 0.08213724463069672
+    },
+    {
+      "pool_id": "country_NZL",
+      "weight": 0.014143530644316398
+    },
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.011000523834468309
+    },
+    {
+      "pool_id": "country_AUS",
+      "weight": 0.011000523834468309
+    }
+  ],
+  "THA": [
+    {
+      "pool_id": "country_THA",
+      "weight": 1.0
+    }
+  ],
+  "TJK": [
+    {
+      "pool_id": "custom_tajikistan",
+      "weight": 0.5816305469556243
+    },
+    {
+      "pool_id": "country_UZB",
+      "weight": 0.14334365325077403
+    },
+    {
+      "pool_id": "custom_afghanistan_dari",
+      "weight": 0.1264189886480908
+    },
+    {
+      "pool_id": "country_IRN",
+      "weight": 0.08720330237358102
+    },
+    {
+      "pool_id": "country_KAZ",
+      "weight": 0.04695562435500516
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.014447884416924664
+    }
+  ],
+  "TKM": [
+    {
+      "pool_id": "country_UZB",
+      "weight": 0.4625267665952891
+    },
+    {
+      "pool_id": "country_KAZ",
+      "weight": 0.316916488222698
+    },
+    {
+      "pool_id": "country_IRN",
+      "weight": 0.07815845824411136
+    },
+    {
+      "pool_id": "country_TUR",
+      "weight": 0.05995717344753746
+    },
+    {
+      "pool_id": "custom_afghanistan_dari",
+      "weight": 0.056745182012847964
+    },
+    {
+      "pool_id": "country_AZE",
+      "weight": 0.02569593147751606
+    }
+  ],
+  "TOG": [
+    {
+      "pool_id": "country_GHA",
+      "weight": 0.5521472392638036
+    },
+    {
+      "pool_id": "country_BEN",
+      "weight": 0.36809815950920244
+    },
+    {
+      "pool_id": "country_BFA",
+      "weight": 0.021472392638036804
+    },
+    {
+      "pool_id": "country_MLI",
+      "weight": 0.021472392638036804
+    },
+    {
+      "pool_id": "country_CMR",
+      "weight": 0.01840490797546012
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0030674846625766863
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0030674846625766863
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0030674846625766863
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0030674846625766863
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0030674846625766863
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0030674846625766863
+    }
+  ],
+  "TPE": [
+    {
+      "pool_id": "custom_china_south",
+      "weight": 0.5083927591881513
+    },
+    {
+      "pool_id": "custom_china_north",
+      "weight": 0.28370817334064724
+    },
+    {
+      "pool_id": "country_TPE",
+      "weight": 0.08557323093801426
+    },
+    {
+      "pool_id": "country_JPN",
+      "weight": 0.05485463521667581
+    },
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.034558420186505755
+    },
+    {
+      "pool_id": "country_KOR",
+      "weight": 0.03291278113000548
+    }
+  ],
+  "TTO": [
+    {
+      "pool_id": "country_TTO",
+      "weight": 1.0
+    }
+  ],
+  "TUN": [
+    {
+      "pool_id": "country_TUN",
+      "weight": 1.0
+    }
+  ],
+  "TUR": [
+    {
+      "pool_id": "country_TUR",
+      "weight": 1.0
+    }
+  ],
+  "UAE": [
+    {
+      "pool_id": "custom_uae",
+      "weight": 0.6643708609271523
+    },
+    {
+      "pool_id": "country_KSA",
+      "weight": 0.08741721854304635
+    },
+    {
+      "pool_id": "country_JOR",
+      "weight": 0.07231788079470199
+    },
+    {
+      "pool_id": "country_OMA",
+      "weight": 0.06993377483443708
+    },
+    {
+      "pool_id": "country_IRN",
+      "weight": 0.0662251655629139
+    },
+    {
+      "pool_id": "country_EGY",
+      "weight": 0.03973509933774834
+    }
+  ],
+  "UGA": [
+    {
+      "pool_id": "country_UGA",
+      "weight": 1.0
+    }
+  ],
+  "UKR": [
+    {
+      "pool_id": "country_UKR",
+      "weight": 1.0
+    }
+  ],
+  "URU": [
+    {
+      "pool_id": "country_URU",
+      "weight": 1.0
+    }
+  ],
+  "USA": [
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.276760016446617
+    },
+    {
+      "pool_id": "custom_puerto_rico",
+      "weight": 0.2752524098862442
+    },
+    {
+      "pool_id": "country_CUB",
+      "weight": 0.15350175887432044
+    },
+    {
+      "pool_id": "country_USA",
+      "weight": 0.1356389053862671
+    },
+    {
+      "pool_id": "country_ESP",
+      "weight": 0.09182694504088813
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.06701996436566313
+    }
+  ],
+  "UZB": [
+    {
+      "pool_id": "country_UZB",
+      "weight": 1.0
+    }
+  ],
+  "VAN": [
+    {
+      "pool_id": "custom_vanuatu",
+      "weight": 0.7389006342494715
+    },
+    {
+      "pool_id": "custom_solomon_islands",
+      "weight": 0.09619450317124736
+    },
+    {
+      "pool_id": "country_PNG",
+      "weight": 0.09513742071881608
+    },
+    {
+      "pool_id": "custom_fiji_indigenous",
+      "weight": 0.02536997885835095
+    },
+    {
+      "pool_id": "custom_philippines_tagalog",
+      "weight": 0.02536997885835095
+    },
+    {
+      "pool_id": "custom_samoa",
+      "weight": 0.01902748414376321
+    }
+  ],
+  "VEN": [
+    {
+      "pool_id": "country_VEN",
+      "weight": 1.0
+    }
+  ],
+  "VGB": [
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.4350547730829421
+    },
+    {
+      "pool_id": "country_TTO",
+      "weight": 0.36254564423578506
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.10798122065727699
+    },
+    {
+      "pool_id": "custom_puerto_rico",
+      "weight": 0.04955659885237349
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.023995826812728223
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.020865936358894107
+    }
+  ],
+  "VIE": [
+    {
+      "pool_id": "country_VIE",
+      "weight": 1.0
+    }
+  ],
+  "VIR": [
+    {
+      "pool_id": "custom_puerto_rico",
+      "weight": 0.37244897959183676
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.2729591836734694
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.19642857142857142
+    },
+    {
+      "pool_id": "country_USA",
+      "weight": 0.10714285714285712
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.03061224489795918
+    },
+    {
+      "pool_id": "country_CUB",
+      "weight": 0.020408163265306124
+    }
+  ],
+  "WAL": [
+    {
+      "pool_id": "custom_wales",
+      "weight": 0.6202614379084966
+    },
+    {
+      "pool_id": "country_ENG",
+      "weight": 0.19847494553376907
+    },
+    {
+      "pool_id": "country_IRL",
+      "weight": 0.08758169934640521
+    },
+    {
+      "pool_id": "custom_scotland",
+      "weight": 0.04139433551198257
+    },
+    {
+      "pool_id": "custom_nigeriaYoruba",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "custom_nigeriaIgbo",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "custom_nigeriaHausa",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "custom_nigeriaDelta",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "custom_nigeriaMiddleBelt",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "custom_nigeriaFulani",
+      "weight": 0.0049019607843137246
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.022875816993464047
+    }
+  ],
+  "YEM": [
+    {
+      "pool_id": "country_KSA",
+      "weight": 0.6100217864923746
+    },
+    {
+      "pool_id": "country_JOR",
+      "weight": 0.18954248366013074
+    },
+    {
+      "pool_id": "country_OMA",
+      "weight": 0.08714596949891068
+    },
+    {
+      "pool_id": "country_EGY",
+      "weight": 0.04357298474945533
+    },
+    {
+      "pool_id": "country_SOM",
+      "weight": 0.0392156862745098
+    },
+    {
+      "pool_id": "country_SUD",
+      "weight": 0.030501089324618733
+    }
+  ],
+  "ZAM": [
+    {
+      "pool_id": "country_ZAM",
+      "weight": 1.0
+    }
+  ],
+  "ZIM": [
+    {
+      "pool_id": "country_ZIM",
+      "weight": 1.0
+    }
+  ]
+}

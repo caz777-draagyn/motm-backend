@@ -1,0 +1,98 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PAK.json",
+  "pool_id": "country_PAK",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_PAK.json",
+  "before_total": 10855,
+  "after_total": 10855,
+  "changed_pairs_total": 22,
+  "changed_pairs_sample": [
+    [
+      "\\u0433\\u0438\\u043c\\u0430\\u0435\\u0432\\u0430",
+      "Gimaeva"
+    ],
+    [
+      "\\u0448\\u0430\\u0445",
+      "Shakh"
+    ],
+    [
+      "\\u0442\\u0438\\u0442\\u043e\\u0432",
+      "Titov"
+    ],
+    [
+      "\\u0441\\u044b\\u0447\\u0451\\u0432\\u0430",
+      "Sychiova"
+    ],
+    [
+      "\\u0441\\u0430\\u043f\\u043e\\u0436\\u043d\\u0438\\u043a\\u043e\\u0432",
+      "Sapozhnikov"
+    ],
+    [
+      "\\u043f\\u0443\\u043f\\u043a\\u0438\\u043d",
+      "Pupkin"
+    ],
+    [
+      "\\u043f\\u0440\\u043e\\u0445\\u043e\\u0440\\u0446\\u0435\\u0432\\u0430",
+      "Prokhortseva"
+    ],
+    [
+      "\\u043d\\u0430\\u0437\\u0430\\u0440\\u043e\\u0432",
+      "Nazarov"
+    ],
+    [
+      "\\u043c\\u0443\\u0440\\u0430\\u0445\\u043e\\u0432\\u0441\\u043a\\u0438\\u0439",
+      "Murakhovskii"
+    ],
+    [
+      "\\u043c\\u0430\\u0447\\u0443\\u043b\\u044c\\u0441\\u043a\\u0430\\u044f",
+      "Machul'skaia"
+    ],
+    [
+      "\\u043c\\u0430\\u043a\\u0430\\u0440\\u043e\\u0432\\u0430",
+      "Makarova"
+    ],
+    [
+      "\\u043a\\u0443\\u043a\\u043e\\u0431\\u0430",
+      "Kukoba"
+    ],
+    [
+      "\\u043a\\u0440\\u0430\\u0441\\u043d\\u043e\\u0432\\u0430",
+      "Krasnova"
+    ],
+    [
+      "\\u043a\\u043e\\u043b\\u044c\\u0446\\u043e\\u0432",
+      "Kol'tsov"
+    ],
+    [
+      "\\u043a\\u0430\\u0441\\u043f\\u0430\\u0440\\u043e\\u0432\\u0430",
+      "Kasparova"
+    ],
+    [
+      "\\u0433\\u043e\\u043f\\u043a\\u0430\\u043b\\u043e",
+      "Gopkalo"
+    ],
+    [
+      "\\u0432\\u044f\\u0437\\u043d\\u0438\\u043a\\u043e\\u0432\\u0430",
+      "Viaznikova"
+    ],
+    [
+      "\\u0432\\u043e\\u043b\\u043e\\u0449\\u0443\\u043a",
+      "Voloshchuk"
+    ],
+    [
+      "\\u0432\\u043e\\u0434\\u043e\\u043b\\u0430\\u0437\\u0441\\u043a\\u0438\\u0439",
+      "Vodolazskii"
+    ],
+    [
+      "\\u0431\\u043e\\u0434\\u0443\\u043d\\u043e\\u0432",
+      "Bodunov"
+    ],
+    [
+      "\\u0431\\u043e\\u0431\\u0435\\u0448\\u043a\\u043e",
+      "Bobeshko"
+    ],
+    [
+      "\\u0430\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432",
+      "Alekseev"
+    ]
+  ]
+}

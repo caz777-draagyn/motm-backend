@@ -1,0 +1,114 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_KSA.json",
+  "pool_id": "country_KSA",
+  "country_code": "KSA",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 12326
+    },
+    "total": 12526
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 12232
+    },
+    "total": 12432
+  },
+  "removed": {
+    "total": 94,
+    "by_reason_counts": {
+      "fragment": 6,
+      "given_name_leak": 72,
+      "global_overlap_outlier": 15,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Ji",
+        "Ly",
+        "Qi",
+        "Su",
+        "Ěß"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Andrew",
+        "Anthony",
+        "Ben",
+        "Benjamin",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Christian",
+        "Connor",
+        "Duncan",
+        "Evan",
+        "Frank",
+        "George",
+        "Gordon",
+        "Graham",
+        "Guy",
+        "Henry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "Jason",
+        "Jeff",
+        "Joe",
+        "Joseph",
+        "Joshua",
+        "Julian",
+        "Keith",
+        "Kevin",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marc",
+        "Mark",
+        "Matthew",
+        "Max",
+        "Mick",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Neil",
+        "Oscar",
+        "Owen",
+        "Patrick",
+        "Paul"
+      ],
+      "global_overlap_outlier": [
+        "Amoah",
+        "Ashur",
+        "Azzouzi",
+        "Backman",
+        "Beauté",
+        "Dahmen",
+        "Kany",
+        "Kastrati",
+        "Maribel",
+        "Nason",
+        "Nyirenda",
+        "Pendergast",
+        "Russi",
+        "Sadiki",
+        "Stylianou"
+      ],
+      "placeholder": [
+        "Null"
+      ]
+    }
+  }
+}

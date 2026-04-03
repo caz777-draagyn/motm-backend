@@ -1,0 +1,129 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_KOR.json",
+  "pool_id": "country_KOR",
+  "country_code": "KOR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7618
+    },
+    "total": 7818
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7483
+    },
+    "total": 7683
+  },
+  "removed": {
+    "total": 135,
+    "by_reason_counts": {
+      "fragment": 10,
+      "given_name_leak": 98,
+      "global_overlap_outlier": 26,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Du",
+        "Gu",
+        "Ji",
+        "Lu",
+        "Ly",
+        "Qi",
+        "Su",
+        "Yi"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Bernard",
+        "Brian",
+        "Bruce",
+        "Charles",
+        "Chris",
+        "Christian",
+        "Christopher",
+        "Colin",
+        "Connor",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Dominic",
+        "Duncan",
+        "Edward",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "Jason",
+        "Jeff",
+        "Jeremy",
+        "Jim",
+        "Joe",
+        "Johnny",
+        "Jonathan",
+        "Joseph",
+        "Joshua",
+        "Julian"
+      ],
+      "global_overlap_outlier": [
+        "Adamou",
+        "Bathory",
+        "Bongiovanni",
+        "Bost",
+        "Burda",
+        "Bustillos",
+        "Campagna",
+        "Cantoni",
+        "Carreiro",
+        "Fellah",
+        "Gundersen",
+        "Horvat",
+        "Jarrell",
+        "Konrad",
+        "Kubik",
+        "Lindquist",
+        "Lipp",
+        "Morrone",
+        "Morvan",
+        "Pawlowski",
+        "Perro",
+        "Sagan",
+        "Stenberg",
+        "Szekely",
+        "Ugur",
+        "Vitiello"
+      ],
+      "placeholder": [
+        "Test"
+      ]
+    }
+  }
+}

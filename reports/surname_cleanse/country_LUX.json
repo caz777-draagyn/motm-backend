@@ -1,0 +1,77 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LUX.json",
+  "pool_id": "country_LUX",
+  "country_code": "LUX",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1635
+    },
+    "total": 1835
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1594
+    },
+    "total": 1794
+  },
+  "removed": {
+    "total": 41,
+    "by_reason_counts": {
+      "given_name_leak": 40,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Ben",
+        "Bernard",
+        "Chris",
+        "Christian",
+        "Daniel",
+        "David",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "Guy",
+        "Henry",
+        "John",
+        "Joseph",
+        "Kevin",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Mark",
+        "Martin",
+        "Max",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Oliver",
+        "Patrick",
+        "Paul",
+        "Robert",
+        "Roy",
+        "Sam",
+        "Scott",
+        "Simon",
+        "Thomas",
+        "Tim",
+        "Victor",
+        "Vincent",
+        "Wayne",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "René"
+      ]
+    }
+  }
+}

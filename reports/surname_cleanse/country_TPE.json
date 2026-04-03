@@ -1,0 +1,118 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_TPE.json",
+  "pool_id": "country_TPE",
+  "country_code": "TPE",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3491
+    },
+    "total": 3691
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3378
+    },
+    "total": 3578
+  },
+  "removed": {
+    "total": 113,
+    "by_reason_counts": {
+      "fragment": 10,
+      "given_name_leak": 87,
+      "global_overlap_outlier": 15,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Du",
+        "Gu",
+        "Ji",
+        "Lu",
+        "Ly",
+        "Qi",
+        "Su",
+        "Yi"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Brian",
+        "Bruce",
+        "Chris",
+        "Christian",
+        "Craig",
+        "Dean",
+        "Derek",
+        "Edward",
+        "Eric",
+        "Evan",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "Gordon",
+        "Graham",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "Jason",
+        "Jeff",
+        "Jeffrey",
+        "Jim",
+        "Joe",
+        "Johnny",
+        "Jonathan",
+        "Joseph",
+        "Joshua",
+        "Keith",
+        "Ken",
+        "Kevin",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Luke",
+        "Marc",
+        "Marcus",
+        "Mark"
+      ],
+      "global_overlap_outlier": [
+        "Bastien",
+        "Berge",
+        "Brossard",
+        "Capelle",
+        "Conklin",
+        "Desimone",
+        "Giovanna",
+        "Guijarro",
+        "Hagemann",
+        "Hight",
+        "Leveque",
+        "Perron",
+        "Prato",
+        "Rhode",
+        "Ubeda"
+      ],
+      "placeholder": [
+        "Test"
+      ]
+    }
+  }
+}

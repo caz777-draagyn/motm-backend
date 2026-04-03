@@ -1,0 +1,80 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_JOR.json",
+  "pool_id": "country_JOR",
+  "country_code": "JOR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5387
+    },
+    "total": 5587
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 5346
+    },
+    "total": 5546
+  },
+  "removed": {
+    "total": 41,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 28,
+      "global_overlap_outlier": 10
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Ly",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Alan",
+        "Alexander",
+        "Arthur",
+        "Bernard",
+        "Christian",
+        "Craig",
+        "Dean",
+        "Dominic",
+        "Evan",
+        "Frank",
+        "George",
+        "Gordon",
+        "Grant",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "Jamie",
+        "Jason",
+        "Joe",
+        "Lewis",
+        "Max",
+        "Morgan",
+        "Phillip",
+        "Richard",
+        "Sam",
+        "Tom",
+        "William"
+      ],
+      "global_overlap_outlier": [
+        "Avallone",
+        "Baas",
+        "Capasso",
+        "Cinelli",
+        "Garbarino",
+        "Hamou",
+        "Lindqvist",
+        "Pisano",
+        "Radic",
+        "Ungureanu"
+      ]
+    }
+  }
+}

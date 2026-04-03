@@ -1,0 +1,110 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_NEP.json",
+  "pool_id": "country_NEP",
+  "country_code": "NEP",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4633
+    },
+    "total": 4833
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4552
+    },
+    "total": 4752
+  },
+  "removed": {
+    "total": 81,
+    "by_reason_counts": {
+      "fragment": 4,
+      "given_name_leak": 60,
+      "global_overlap_outlier": 17
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Bu",
+        "Do",
+        "Ji",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Anthony",
+        "Arthur",
+        "Bernard",
+        "Chris",
+        "Connor",
+        "Craig",
+        "Duncan",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glen",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Harry",
+        "Henry",
+        "Jack",
+        "Jacob",
+        "Jeremy",
+        "Joe",
+        "Jonathan",
+        "Joseph",
+        "Kenneth",
+        "Kyle",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Liam",
+        "Louis",
+        "Luke",
+        "Marc",
+        "Max",
+        "Mike",
+        "Morgan",
+        "Nicholas",
+        "Oliver",
+        "Owen",
+        "Patrick",
+        "Paul",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Samuel"
+      ],
+      "global_overlap_outlier": [
+        "Antonioli",
+        "Arévalo",
+        "Drea",
+        "Ducharme",
+        "Gasparini",
+        "Hajdari",
+        "Haughey",
+        "Hirschmann",
+        "Hübner",
+        "Lazare",
+        "Linarez",
+        "Lucien",
+        "Quant",
+        "Rampersad",
+        "Rosin",
+        "Schiavo",
+        "Spagnolo"
+      ]
+    }
+  }
+}

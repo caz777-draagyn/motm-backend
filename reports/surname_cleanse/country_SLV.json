@@ -1,0 +1,92 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SLV.json",
+  "pool_id": "country_SLV",
+  "country_code": "SLV",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4669
+    },
+    "total": 4869
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4602
+    },
+    "total": 4802
+  },
+  "removed": {
+    "total": 67,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 64,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Lu"
+      ],
+      "given_name_leak": [
+        "Alex",
+        "Anthony",
+        "Benjamin",
+        "Carl",
+        "Christian",
+        "Christopher",
+        "Connor",
+        "Daniel",
+        "David",
+        "Dominic",
+        "Ethan",
+        "Frank",
+        "Gabriel",
+        "Gary",
+        "George",
+        "Graham",
+        "Grant",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jeff",
+        "Joel",
+        "Jonathan",
+        "Joseph",
+        "Julian",
+        "Keith",
+        "Kenneth",
+        "Lawrence",
+        "Lewis",
+        "Louis",
+        "Mark",
+        "Martin",
+        "Matthew",
+        "Michael",
+        "Morgan",
+        "Neil",
+        "Nick",
+        "Oliver",
+        "Oscar",
+        "Patrick",
+        "Paul",
+        "Peter",
+        "Richard",
+        "Robert",
+        "Ross",
+        "Russell"
+      ],
+      "placeholder": [
+        "Unknown"
+      ]
+    }
+  }
+}

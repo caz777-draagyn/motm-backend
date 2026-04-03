@@ -1,0 +1,9 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/custom_swiss_italian.json",
+  "pool_id": "custom_swiss_italian",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/custom_swiss_italian.json",
+  "before_total": 5912,
+  "after_total": 5912,
+  "changed_pairs_total": 0,
+  "changed_pairs_sample": []
+}

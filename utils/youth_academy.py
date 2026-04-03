@@ -258,7 +258,7 @@ def get_profile_picture_folder(
 
     actual_dir = folder_map.get(clean_name)
     if not actual_dir:
-        # Legacy scheme: some heritage_groups/*.json use picture_folder like
+        # Legacy scheme: some configs use picture_folder like
         # "BritishIsles" (bucket name only) instead of
         # "player_profile_pics/BritishIsles". Handle by mapping under
         # gfx/player_profile_pics/<bucket>.

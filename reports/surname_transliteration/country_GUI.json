@@ -1,0 +1,22 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_GUI.json",
+  "pool_id": "country_GUI",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_GUI.json",
+  "before_total": 2572,
+  "after_total": 2572,
+  "changed_pairs_total": 3,
+  "changed_pairs_sample": [
+    [
+      "\\u0440\\u0430\\u0448\\u0438\\u0442\\u043e\\u0432",
+      "Rashitov"
+    ],
+    [
+      "\\u0433\\u0438\\u043b\\u0435\\u0432\\u0438\\u0447",
+      "Gilevich"
+    ],
+    [
+      "\\u0431\\u0443\\u0440\\u043e\\u0432",
+      "Burov"
+    ]
+  ]
+}

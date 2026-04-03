@@ -1,0 +1,18 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ESP.json",
+  "pool_id": "country_ESP",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_ESP.json",
+  "before_total": 31810,
+  "after_total": 31808,
+  "changed_pairs_total": 2,
+  "changed_pairs_sample": [
+    [
+      "\\u043a\\u0443\\u0437\\u043d\\u0435\\u0446\\u043e\\u0432\\u0430",
+      "Kuznetsova"
+    ],
+    [
+      "\\u0438\\u0432\\u0430\\u043d\\u043e\\u0432\\u0430",
+      "Ivanova"
+    ]
+  ]
+}

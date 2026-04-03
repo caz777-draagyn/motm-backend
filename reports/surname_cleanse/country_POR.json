@@ -1,0 +1,79 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_POR.json",
+  "pool_id": "country_POR",
+  "country_code": "POR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2467
+    },
+    "total": 2667
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2421
+    },
+    "total": 2621
+  },
+  "removed": {
+    "total": 46,
+    "by_reason_counts": {
+      "given_name_leak": 46
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Daniel",
+        "David",
+        "Eric",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Isaac",
+        "Jacob",
+        "James",
+        "Joe",
+        "John",
+        "Jordan",
+        "Joseph",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Martin",
+        "Max",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Oliver",
+        "Oscar",
+        "Owen",
+        "Patrick",
+        "Peter",
+        "Richard",
+        "Ross",
+        "Samuel",
+        "Scott",
+        "Stuart",
+        "Thomas",
+        "Victor",
+        "Vincent",
+        "Wayne",
+        "William",
+        "Wilson"
+      ]
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_PAN.json",
+  "pool_id": "country_PAN",
+  "country_code": "PAN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6608
+    },
+    "total": 6808
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 6526
+    },
+    "total": 6726
+  },
+  "removed": {
+    "total": 82,
+    "by_reason_counts": {
+      "fragment": 6,
+      "given_name_leak": 75,
+      "global_overlap_outlier": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Lu",
+        "Qi",
+        "Su",
+        "Xi",
+        "Ye"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Alan",
+        "Alex",
+        "Anthony",
+        "Arthur",
+        "Benjamin",
+        "Bernard",
+        "Bruce",
+        "Charles",
+        "Chris",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Duncan",
+        "Edward",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Graham",
+        "Grant",
+        "Greg",
+        "Harry",
+        "Henry",
+        "Isaac",
+        "Ivan",
+        "Jack",
+        "Jacob",
+        "James",
+        "Jason",
+        "Joel",
+        "John",
+        "Johnny",
+        "Jonathan",
+        "Jordan",
+        "Joseph",
+        "Julian",
+        "Justin",
+        "Karl",
+        "Kenneth",
+        "Kyle",
+        "Lawrence",
+        "Lewis",
+        "Liam",
+        "Louis",
+        "Luke",
+        "Marc",
+        "Marcus",
+        "Martin"
+      ],
+      "global_overlap_outlier": [
+        "Akbaş"
+      ]
+    }
+  }
+}

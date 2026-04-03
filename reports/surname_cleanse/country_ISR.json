@@ -1,0 +1,117 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ISR.json",
+  "pool_id": "country_ISR",
+  "country_code": "ISR",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 10844
+    },
+    "total": 11044
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 10740
+    },
+    "total": 10940
+  },
+  "removed": {
+    "total": 104,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 76,
+      "global_overlap_outlier": 25
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Lu",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Alan",
+        "Albert",
+        "Alexander",
+        "Alfred",
+        "Andrew",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Benjamin",
+        "Brian",
+        "Bruce",
+        "Chris",
+        "Christian",
+        "Dean",
+        "Eric",
+        "Ethan",
+        "Eugene",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Guy",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "Jason",
+        "Jeff",
+        "Joe",
+        "Joel",
+        "Jonathan",
+        "Joseph",
+        "Joshua",
+        "Karl",
+        "Kenneth",
+        "Lawrence",
+        "Leo",
+        "Lewis",
+        "Marcus",
+        "Mark",
+        "Max",
+        "Mick",
+        "Mike",
+        "Morgan",
+        "Nathan"
+      ],
+      "global_overlap_outlier": [
+        "Aqel",
+        "Ataya",
+        "Austria",
+        "Canlas",
+        "Dahlan",
+        "Firas",
+        "Flakes",
+        "Haile",
+        "Hossin",
+        "Jarrah",
+        "Jouda",
+        "Mesh",
+        "Mukherjee",
+        "Saddam",
+        "Sae",
+        "Saqer",
+        "Shahwan",
+        "Shalash",
+        "Shera",
+        "Suede",
+        "Truong",
+        "Wagle",
+        "Wari",
+        "Yonas",
+        "Zuhair"
+      ]
+    }
+  }
+}

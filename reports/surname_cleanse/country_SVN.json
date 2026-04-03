@@ -1,0 +1,50 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_SVN.json",
+  "pool_id": "country_SVN",
+  "country_code": "SVN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1267
+    },
+    "total": 1467
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1250
+    },
+    "total": 1450
+  },
+  "removed": {
+    "total": 17,
+    "by_reason_counts": {
+      "given_name_leak": 17
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Aaron",
+        "Adam",
+        "Anthony",
+        "Charles",
+        "Frank",
+        "George",
+        "Grant",
+        "Guy",
+        "James",
+        "Jordan",
+        "Justin",
+        "Lawrence",
+        "Martin",
+        "Morgan",
+        "Ross",
+        "Scott",
+        "Simon"
+      ]
+    }
+  }
+}

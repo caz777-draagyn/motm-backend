@@ -1,0 +1,106 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MLI.json",
+  "pool_id": "country_MLI",
+  "country_code": "MLI",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1918
+    },
+    "total": 2118
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 1854
+    },
+    "total": 2054
+  },
+  "removed": {
+    "total": 64,
+    "by_reason_counts": {
+      "fragment": 6,
+      "given_name_leak": 38,
+      "global_overlap_outlier": 19,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Ba",
+        "Da",
+        "Du",
+        "Lo",
+        "Na",
+        "Sy"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Anthony",
+        "Arthur",
+        "Ben",
+        "Bruce",
+        "Charles",
+        "Christian",
+        "Daniel",
+        "Gabriel",
+        "George",
+        "Grant",
+        "Guy",
+        "Jack",
+        "James",
+        "John",
+        "Joseph",
+        "Keith",
+        "Leo",
+        "Louis",
+        "Marcus",
+        "Mark",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Paul",
+        "Sam",
+        "Scott",
+        "Sebastian",
+        "Simon",
+        "Terry",
+        "Thomas",
+        "Tim",
+        "Victor",
+        "Wayne",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Andrieu",
+        "Cavalieri",
+        "Coss",
+        "Fermin",
+        "Franssen",
+        "Hate",
+        "Hirata",
+        "Josse",
+        "Kazemi",
+        "Kretz",
+        "Oriol",
+        "Paudel",
+        "Royo",
+        "Shcherbakov",
+        "Snapper",
+        "Tenorio",
+        "Tolson",
+        "Yamada",
+        "Zappa"
+      ],
+      "placeholder": [
+        "Test"
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_LBN.json",
+  "pool_id": "country_LBN",
+  "country_code": "LBN",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7951
+    },
+    "total": 8151
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 7885
+    },
+    "total": 8085
+  },
+  "removed": {
+    "total": 66,
+    "by_reason_counts": {
+      "fragment": 2,
+      "given_name_leak": 48,
+      "global_overlap_outlier": 15,
+      "placeholder": 1
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Lu",
+        "Su"
+      ],
+      "given_name_leak": [
+        "Adam",
+        "Albert",
+        "Alex",
+        "Alexander",
+        "Anthony",
+        "Ben",
+        "Bernard",
+        "Charles",
+        "Christian",
+        "Connor",
+        "Gabriel",
+        "George",
+        "Glenn",
+        "Graham",
+        "Guy",
+        "Henry",
+        "Ian",
+        "Isaac",
+        "Jack",
+        "Jacob",
+        "Joe",
+        "Joseph",
+        "Julian",
+        "Keith",
+        "Lewis",
+        "Louis",
+        "Max",
+        "Mike",
+        "Morgan",
+        "Noah",
+        "Owen",
+        "Patrick",
+        "Philip",
+        "Richard",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Ryan",
+        "Sam",
+        "Samuel",
+        "Shane",
+        "Simon",
+        "Steve",
+        "Stuart",
+        "Terry",
+        "Tom",
+        "Tony",
+        "Tyler"
+      ],
+      "global_overlap_outlier": [
+        "Bacher",
+        "Bonneau",
+        "Carra",
+        "Conseil",
+        "Cremona",
+        "Gilmer",
+        "Irizarry",
+        "Korman",
+        "Messa",
+        "Ormsby",
+        "Probst",
+        "Rosato",
+        "Rousse",
+        "Soussi",
+        "Xuereb"
+      ],
+      "placeholder": [
+        "Sample"
+      ]
+    }
+  }
+}

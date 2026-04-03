@@ -1,0 +1,89 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_BLZ.json",
+  "pool_id": "country_BLZ",
+  "country_code": "BLZ",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 4054
+    },
+    "total": 4254
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 3999
+    },
+    "total": 4199
+  },
+  "removed": {
+    "total": 55,
+    "by_reason_counts": {
+      "fragment": 3,
+      "given_name_leak": 52
+    },
+    "sample_by_reason": {
+      "fragment": [
+        "Do",
+        "Lu",
+        "To"
+      ],
+      "given_name_leak": [
+        "Anthony",
+        "Arthur",
+        "Bernard",
+        "Bruce",
+        "Christopher",
+        "Craig",
+        "Dean",
+        "Dennis",
+        "Dominic",
+        "Edward",
+        "Frank",
+        "Gary",
+        "Gordon",
+        "Graham",
+        "Grant",
+        "Henry",
+        "Jack",
+        "James",
+        "John",
+        "Jordan",
+        "Keith",
+        "Kyle",
+        "Lawrence",
+        "Lewis",
+        "Marcus",
+        "Mark",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Nathan",
+        "Neil",
+        "Nick",
+        "Oliver",
+        "Oscar",
+        "Patrick",
+        "Paul",
+        "Philip",
+        "Phillip",
+        "Richard",
+        "Ross",
+        "Russell",
+        "Scott",
+        "Simon",
+        "Steve",
+        "Steven",
+        "Stuart",
+        "Thomas",
+        "Tony",
+        "Tyler",
+        "Victor"
+      ]
+    }
+  }
+}

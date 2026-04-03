@@ -1,0 +1,43 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_ALB.json",
+  "pool_id": "country_ALB",
+  "country_code": "ALB",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 977
+    },
+    "total": 1177
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 970
+    },
+    "total": 1170
+  },
+  "removed": {
+    "total": 7,
+    "by_reason_counts": {
+      "given_name_leak": 5,
+      "global_overlap_outlier": 2
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Graham",
+        "James",
+        "Martin",
+        "Wayne",
+        "Wilson"
+      ],
+      "global_overlap_outlier": [
+        "Dula",
+        "Zela"
+      ]
+    }
+  }
+}

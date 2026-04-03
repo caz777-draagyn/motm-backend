@@ -1,0 +1,14 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_MLI.json",
+  "pool_id": "country_MLI",
+  "baseline": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/_backup_surnames/country_MLI.json",
+  "before_total": 2118,
+  "after_total": 2118,
+  "changed_pairs_total": 1,
+  "changed_pairs_sample": [
+    [
+      "\\u0449\\u0435\\u0440\\u0431\\u0430\\u043a\\u043e\\u0432",
+      "Shcherbakov"
+    ]
+  ]
+}

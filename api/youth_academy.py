@@ -245,6 +245,7 @@ class ProspectResponse(BaseModel):
     profile_pic_folder: Optional[str] = None  # Folder name for profile picture (e.g., "BritishIsles", "AfricaWest")
     heritage_group: Optional[str] = None  # Heritage group (e.g., "ENG_Mainstream", "ENG_WestAfrica")
     name_structure: Optional[str] = None  # Name structure (e.g., "LL", "LH", "HL", "HH")
+    naming_pool_attempted: Optional[str] = None  # Pools used for name sampling (workbench diagnostic)
     potential_min: int
     potential_max: int
     status: str
@@ -323,9 +324,11 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
                 
                 # Get heritage_group and name_structure from _player_data if available
                 player_data = p.get("_player_data")
+                naming_pool_attempted = None
                 if player_data:
                     heritage_group = player_data.get("heritage_group")
                     name_structure = player_data.get("name_structure")
+                    naming_pool_attempted = player_data.get("naming_pool_attempted")
                 
                 nat_for_pic = p.get("nationality", "ENG")
                 if not heritage_group:
@@ -347,6 +350,7 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
                     profile_pic_folder=profile_pic_folder,
                     heritage_group=heritage_group,
                     name_structure=name_structure,
+                    naming_pool_attempted=naming_pool_attempted,
                     potential_min=p["potential_min"],
                     potential_max=p["potential_max"],
                     status=p["status"],
@@ -1137,8 +1141,10 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
                 
                 # Get name_structure from player_data if available
                 name_structure = None
+                naming_pool_attempted = None
                 if player_data:
                     name_structure = player_data.get("name_structure")
+                    naming_pool_attempted = player_data.get("naming_pool_attempted")
                 
                 created_prospects.append(ProspectResponse(
                     id=prospect_id,
@@ -1151,6 +1157,7 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
                     profile_pic_folder=profile_pic_folder,
                     heritage_group=heritage_group,
                     name_structure=name_structure,
+                    naming_pool_attempted=naming_pool_attempted,
                     potential_min=prospect_dict["potential_min"],
                     potential_max=prospect_dict["potential_max"],
                     status=prospect_dict["status"],
@@ -1287,9 +1294,11 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
                 folder_stored,
             )
             
-            # Get name_structure from player_data if available (for database mode, this may not be stored)
-            name_structure_db = None
-            # Note: For database mode, name_structure is not stored, so it will be None for existing prospects
+            # name_structure / naming pools from generation (not persisted on YouthProspect row)
+            name_structure_db = player_data.get("name_structure") if player_data else None
+            naming_pool_attempted_db = (
+                player_data.get("naming_pool_attempted") if player_data else None
+            )
             
             created_prospects.append(ProspectResponse(
                 id=str(prospect.id),
@@ -1302,6 +1311,7 @@ async def generate_prospects_endpoint(request: GenerateProspectsRequest, db: Opt
                 profile_pic_folder=profile_pic_folder,
                 heritage_group=heritage_group,
                 name_structure=name_structure_db,
+                naming_pool_attempted=naming_pool_attempted_db,
                 potential_min=prospect.potential_min,
                 potential_max=prospect.potential_max,
                 status=prospect.status,
@@ -2085,10 +2095,9 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
 
 @router.get("/nationalities")
 async def get_available_nationalities():
-    """Return all nationalities supported by the composition + any JSON heritage groups."""
-    from utils.name_data import COUNTRY_FEDERATION, HERITAGE_CONFIG, _HERITAGE_GROUPS_DIR
+    """Return all nationalities from heritage composition (COUNTRY_FEDERATION + display names)."""
+    from utils.name_data import COUNTRY_FEDERATION, HERITAGE_CONFIG
     from utils import heritage_composition as _hc
-    import json as _json
 
     by_code: dict = {}
     @lru_cache(maxsize=1)
@@ -2105,24 +2114,12 @@ async def get_available_nationalities():
         return out
 
     composition_names = _composition_country_display_map()
-    # Composition-backed codes (full set of countries in FullHeritageAndNamingComposition)
     for code in COUNTRY_FEDERATION.keys():
         by_code[code] = {"code": code, "name": composition_names.get(code, code)}
 
-    if _HERITAGE_GROUPS_DIR.exists():
-        for json_file in sorted(_HERITAGE_GROUPS_DIR.glob("*.json")):
-            try:
-                with open(json_file, "r", encoding="utf-8") as f:
-                    data = _json.load(f)
-                code = data.get("nationality", json_file.stem)
-                name = data.get("nationality_name", code)
-                by_code[code] = {"code": code, "name": name}
-            except Exception:
-                continue
-    # Any other codes (should be rare) still appear in HERITAGE_CONFIG
     for code in HERITAGE_CONFIG:
         if code not in by_code:
-            by_code[code] = {"code": code, "name": code}
+            by_code[code] = {"code": code, "name": composition_names.get(code, code)}
     return sorted(by_code.values(), key=lambda x: x["code"])
 
 

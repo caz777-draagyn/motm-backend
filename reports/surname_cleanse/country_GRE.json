@@ -1,0 +1,78 @@
+{
+  "pool_file": "C:/_Private/Misc/MotM/CursorGitClone/motm-backend/data/name_pools/country_GRE.json",
+  "pool_id": "country_GRE",
+  "country_code": "GRE",
+  "before": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2723
+    },
+    "total": 2923
+  },
+  "after": {
+    "tier_counts": {
+      "very_common": 40,
+      "common": 60,
+      "mid": 100,
+      "rare": 2678
+    },
+    "total": 2878
+  },
+  "removed": {
+    "total": 45,
+    "by_reason_counts": {
+      "given_name_leak": 45
+    },
+    "sample_by_reason": {
+      "given_name_leak": [
+        "Adam",
+        "Alex",
+        "Alexander",
+        "Bruce",
+        "Charles",
+        "Chris",
+        "Craig",
+        "Daniel",
+        "David",
+        "Dean",
+        "Dennis",
+        "Frank",
+        "Gabriel",
+        "George",
+        "Greg",
+        "Guy",
+        "James",
+        "John",
+        "Johnny",
+        "Jordan",
+        "Joseph",
+        "Justin",
+        "Leo",
+        "Lewis",
+        "Louis",
+        "Mark",
+        "Martin",
+        "Michael",
+        "Mike",
+        "Morgan",
+        "Nick",
+        "Oliver",
+        "Patrick",
+        "Paul",
+        "Ross",
+        "Roy",
+        "Russell",
+        "Sam",
+        "Scott",
+        "Simon",
+        "Thomas",
+        "Tom",
+        "Victor",
+        "William",
+        "Wilson"
+      ]
+    }
+  }
+}
