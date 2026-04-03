@@ -2263,6 +2263,32 @@
       "weight": 1.0
     }
   ],
+  "PUR": [
+    {
+      "pool_id": "custom_puerto_rico",
+      "weight": 0.6070528967254407
+    },
+    {
+      "pool_id": "country_DOM",
+      "weight": 0.19949622166246853
+    },
+    {
+      "pool_id": "country_CUB",
+      "weight": 0.0947103274559194
+    },
+    {
+      "pool_id": "country_ESP",
+      "weight": 0.060453400503778336
+    },
+    {
+      "pool_id": "country_JAM",
+      "weight": 0.02821158690176323
+    },
+    {
+      "pool_id": "country_COL",
+      "weight": 0.010075566750629726
+    }
+  ],
   "QAT": [
     {
       "pool_id": "country_QAT",
@@ -2919,28 +2945,28 @@
   ],
   "USA": [
     {
-      "pool_id": "country_DOM",
-      "weight": 0.276760016446617
+      "pool_id": "custom_us_modern",
+      "weight": 0.25494655446895614
     },
     {
-      "pool_id": "custom_puerto_rico",
-      "weight": 0.2752524098862442
+      "pool_id": "country_ENG",
+      "weight": 0.2533545599272231
     },
     {
-      "pool_id": "country_CUB",
-      "weight": 0.15350175887432044
+      "pool_id": "country_MEX",
+      "weight": 0.16010916534000458
     },
     {
-      "pool_id": "country_USA",
-      "weight": 0.1356389053862671
+      "pool_id": "country_GER",
+      "weight": 0.12508528542187858
     },
     {
-      "pool_id": "country_ESP",
-      "weight": 0.09182694504088813
+      "pool_id": "custom_african_american",
+      "weight": 0.12281100750511713
     },
     {
-      "pool_id": "country_JAM",
-      "weight": 0.06701996436566313
+      "pool_id": "country_IRL",
+      "weight": 0.08369342733682056
     }
   ],
   "UZB": [
