@@ -335,6 +335,7 @@ def create_player_data(
                 resolve_local_pool_id,
                 sample_name_from_pool,
                 name_structure_code,
+                effective_surname_pool_for_sampling,
                 COUNTRY_TIER_PROBS,
                 DEFAULT_GIVEN_NAME_TIER_PROBS,
                 DEFAULT_SURNAME_TIER_PROBS,
@@ -342,7 +343,7 @@ def create_player_data(
             
             _lpid = resolve_local_pool_id(nationality)
             given_pool_nat = get_name_pool(_lpid, "given_names_male")
-            surname_pool_nat = get_name_pool(_lpid, "surnames")
+            _nat_sid, surname_pool_nat = effective_surname_pool_for_sampling(_lpid)
             _hpid = f"country_{origin_country}" if origin_country and len(origin_country) == 3 else origin_country
             given_pool_her = get_name_pool(_hpid, "given_names_male") if _hpid else None
             surname_pool_her = get_name_pool(_hpid, "surnames") if _hpid else None

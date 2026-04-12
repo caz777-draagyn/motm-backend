@@ -3,12 +3,14 @@
   "country_code": "NCL",
   "country_name": "New Caledonia",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Philippe",
       "Jean",
       "Eric",
       "Patrick",
-      "Thierry",
+      "Thierry"
+    ],
+    "very_common": [
       "Christophe",
       "Didier",
       "Pascal",
@@ -18,14 +20,14 @@
       "Bernard",
       "Daniel",
       "Bruno",
-      "David",
+      "David"
+    ],
+    "common": [
       "Alain",
       "William",
       "Vincent",
       "Stephane",
-      "Marc"
-    ],
-    "common": [
+      "Marc",
       "Julien",
       "Alexandre",
       "Nicolas",
@@ -35,7 +37,9 @@
       "Francois",
       "Laurent",
       "Antoine",
-      "Guillaume",
+      "Guillaume"
+    ],
+    "familiar": [
       "Mathieu",
       "Cedric",
       "Jerome",
@@ -55,9 +59,7 @@
       "Etienne",
       "Fabien",
       "Florent",
-      "Francis"
-    ],
-    "mid": [
+      "Francis",
       "Gael",
       "Geoffrey",
       "Gerald",
@@ -82,7 +84,9 @@
       "Leo",
       "Louis",
       "Ludovic",
-      "Luc",
+      "Luc"
+    ],
+    "uncommon": [
       "Lucien",
       "Manuel",
       "Mathis",
@@ -107,57 +111,51 @@
       "Thomas",
       "Tristan",
       "Victor",
-      "Warren"
-    ],
-    "rare": [
-      "Xavier",
-      "Yann",
-      "Yohan",
+      "Warren",
       "Aloisio",
-      "Aurelien",
-      "Aymeric",
-      "Bastien",
-      "Brice",
       "Clement",
+      "Jean-Paul",
+      "Xavier",
+      "Aurelien",
+      "Mare",
       "Corentin",
-      "Damien",
-      "Edouard",
-      "Felix",
-      "Flavien",
-      "Gaetan",
+      "Yann",
+      "Mapou",
       "Gautier",
       "Gregoire",
-      "Jean-Marie",
-      "Jean-Paul",
-      "Kabar",
-      "Wamytan",
-      "Waheo",
-      "Benebig",
-      "Mwe",
-      "Mare",
-      "Mapou",
-      "Gowe",
-      "Weiss",
-      "Courtot",
-      "Fabre",
-      "Gastaldi",
-      "Launay",
-      "Marlier",
-      "Delrieu",
-      "Song",
-      "Tjibaou",
-      "Naisseline",
       "Nidoish",
-      "Bako"
-    ]
+      "Damien",
+      "Tjibaou",
+      "Flavien",
+      "Kabar",
+      "Gowe",
+      "Edouard",
+      "Yohan",
+      "Mwe",
+      "Benebig",
+      "Bako",
+      "Waheo",
+      "Brice",
+      "Bastien",
+      "Felix",
+      "Aymeric",
+      "Wamytan",
+      "Naisseline",
+      "Gaetan",
+      "Jean-Marie"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Dubois",
       "Courtot",
       "Thomas",
       "Wamytan",
-      "Weiss",
+      "Weiss"
+    ],
+    "very_common": [
       "Kabar",
       "Martin",
       "Fabre",
@@ -167,7 +165,9 @@
       "Benebig",
       "Coulon",
       "David",
-      "Bui",
+      "Bui"
+    ],
+    "common": [
       "Marlier",
       "Waheo",
       "Martinez",
@@ -182,7 +182,9 @@
       "Boyer",
       "Rousseau",
       "Boissery",
-      "Bon",
+      "Bon"
+    ],
+    "familiar": [
       "Song",
       "Karembeu",
       "Tjibaou",
@@ -192,9 +194,7 @@
       "Wetta",
       "Zimako",
       "Loueckhote",
-      "Keletaona"
-    ],
-    "common": [
+      "Keletaona",
       "Walo",
       "Wahoo",
       "Kombouare",
@@ -229,7 +229,9 @@
       "Beraud",
       "Bernut",
       "Beaujeu",
-      "Frouin",
+      "Frouin"
+    ],
+    "uncommon": [
       "Gardel",
       "Hoarau",
       "Leconte",
@@ -254,9 +256,7 @@
       "Legrand",
       "Garnier",
       "Gautier",
-      "Rivière"
-    ],
-    "mid": [
+      "Rivière",
       "Paul",
       "Pons",
       "Royer",
@@ -295,23 +295,31 @@
       "Lafleur",
       "Poue"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

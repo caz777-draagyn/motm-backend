@@ -26,15 +26,17 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 from name_pool_text import canon_name, is_plausible_token  # noqa: E402
+from utils.name_data import NAME_POOL_TIER_KEYS, tier_key_for_pool_seq  # noqa: E402
 
 NAME_POOLS_DIR = ROOT / "data" / "name_pools"
 BACKUP_DIR = NAME_POOLS_DIR / "_backup_surnames"
 REPORT_DIR = ROOT / "reports" / "surname_cleanse"
 FED_PATH = ROOT / "data" / "country_federation.json"
 
-TIERS = ("very_common", "common", "mid", "rare")
+TIERS = NAME_POOL_TIER_KEYS
 
 
 COMMON_PLACEHOLDER = frozenset(
@@ -272,14 +274,11 @@ def flatten_tiers(tiered: dict) -> list[str]:
 
 
 def split_into_tiers(names: list[str]) -> dict[str, list[str]]:
-    # Keep original tier sizes for top tiers if they exist; otherwise keep default 40/60/100.
-    # Since all large pools were constructed with 40/60/100, we preserve that layout.
-    return {
-        "very_common": names[:40],
-        "common": names[40:100],
-        "mid": names[100:200],
-        "rare": names[200:],
-    }
+    """Re-bucket cleansed flat list by 1-based rank (same bands as master CSV / name_data)."""
+    out: dict[str, list[str]] = {k: [] for k in NAME_POOL_TIER_KEYS}
+    for i, name in enumerate(names, start=1):
+        out[tier_key_for_pool_seq(i)].append(name)
+    return out
 
 
 def dedupe_preserve_order(names: Iterable[str]) -> list[str]:

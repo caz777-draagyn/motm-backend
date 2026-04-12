@@ -3,12 +3,14 @@
   "country_code": "SOL",
   "country_name": "Solomon Islands",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "John",
       "Peter",
       "David",
       "James",
-      "Michael",
+      "Michael"
+    ],
+    "very_common": [
       "George",
       "Francis",
       "Robert",
@@ -18,14 +20,14 @@
       "Stephen",
       "Richard",
       "Joseph",
-      "Mark",
+      "Mark"
+    ],
+    "common": [
       "Andrew",
       "Ben",
       "Christopher",
       "Anthony",
-      "Junior"
-    ],
-    "common": [
+      "Junior",
       "Luke",
       "Simon",
       "William",
@@ -35,7 +37,9 @@
       "Victor",
       "Vincent",
       "Harry",
-      "Henry",
+      "Henry"
+    ],
+    "familiar": [
       "Jack",
       "Jonathan",
       "Joshua",
@@ -55,9 +59,7 @@
       "Caleb",
       "Chris",
       "Dominic",
-      "Donald"
-    ],
-    "mid": [
+      "Donald",
       "Edward",
       "Elijah",
       "Eric",
@@ -82,7 +84,9 @@
       "Leonard",
       "Levi",
       "Louis",
-      "Malachi",
+      "Malachi"
+    ],
+    "uncommon": [
       "Marcus",
       "Moses",
       "Nathan",
@@ -107,58 +111,49 @@
       "Wesley",
       "Wilfred",
       "Zachary",
-      "Alick"
-    ],
-    "rare": [
-      "Billy",
-      "Bosa",
-      "Haga",
-      "Honiara",
-      "Hou",
-      "Iro",
-      "Leua",
-      "Mae",
-      "Ramo",
-      "Roviana",
-      "Sade",
-      "Sale",
-      "Samy",
-      "Sau",
-      "Sikua",
-      "Taro",
-      "Tome",
+      "Alick",
       "Wale",
-      "Wate",
-      "Arosi",
-      "Anuta",
-      "Gela",
-      "Hoava",
-      "Marovo",
-      "Oroha",
+      "Hou",
       "Varisi",
-      "Birao",
-      "Asubuo",
       "Amba",
-      "Bani",
-      "Boe",
-      "Kolo",
-      "Nori",
-      "Tahi",
-      "Vavine",
-      "Rini",
+      "Bosa",
+      "Wate",
       "Afa",
+      "Tahi",
+      "Iro",
+      "Haga",
+      "Birao",
       "Joses",
-      "Moffat",
-      "Tavake"
-    ]
+      "Taro",
+      "Billy",
+      "Tome",
+      "Leua",
+      "Boe",
+      "Sikua",
+      "Nori",
+      "Samy",
+      "Tavake",
+      "Sale",
+      "Asubuo",
+      "Kolo",
+      "Sade",
+      "Rini",
+      "Ramo",
+      "Bani",
+      "Sau"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Mae",
       "Ramo",
       "Sau",
       "Sale",
-      "Iro",
+      "Iro"
+    ],
+    "very_common": [
       "Hou",
       "Wale",
       "Wate",
@@ -168,7 +163,9 @@
       "Billy",
       "Sogavare",
       "Manele",
-      "Houenipwela",
+      "Houenipwela"
+    ],
+    "common": [
       "Kenilorea",
       "Ulufaalu",
       "Kabui",
@@ -183,7 +180,9 @@
       "Ramofafia",
       "Kile",
       "Tanangada",
-      "Rini",
+      "Rini"
+    ],
+    "familiar": [
       "Rore",
       "Sanga",
       "Soaki",
@@ -193,9 +192,7 @@
       "Tara",
       "Taro",
       "Tome",
-      "Vaka"
-    ],
-    "common": [
+      "Vaka",
       "Vala",
       "Vane",
       "Haga",
@@ -230,7 +227,9 @@
       "Honiara",
       "Iroa",
       "Kakalo",
-      "Kolo",
+      "Kolo"
+    ],
+    "uncommon": [
       "Leua",
       "Lio",
       "Maea",
@@ -255,9 +254,7 @@
       "Tasi",
       "Tavake",
       "Tia",
-      "Tui"
-    ],
-    "mid": [
+      "Tui",
       "Uru",
       "Vana",
       "Vavaya",
@@ -297,23 +294,31 @@
       "Sikori",
       "Tavuli"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

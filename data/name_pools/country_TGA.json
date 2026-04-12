@@ -3,13 +3,14 @@
   "country_code": "TGA",
   "country_name": "Tonga",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Sione",
       "Tevita",
-      "Paula",
       "Viliami",
       "Samiuela",
-      "Pita",
+      "Pita"
+    ],
+    "very_common": [
       "Siosiua",
       "Moses",
       "Anitelu",
@@ -19,13 +20,13 @@
       "Sitiveni",
       "Taniela",
       "Uaine",
-      "Kalafi",
+      "Kalafi"
+    ],
+    "common": [
       "Mafileo",
       "Saimone",
       "Isileli",
-      "Isikeli"
-    ],
-    "common": [
+      "Isikeli",
       "Ika",
       "Inoke",
       "Ipeni",
@@ -36,7 +37,9 @@
       "Manu",
       "Moala",
       "Palu",
-      "Taufa",
+      "Taufa"
+    ],
+    "familiar": [
       "Tupou",
       "Vea",
       "Fifita",
@@ -55,9 +58,7 @@
       "Ioane",
       "Iosefo",
       "Kelepi",
-      "Leka"
-    ],
-    "mid": [
+      "Leka",
       "Lopeti",
       "Maka",
       "Malu",
@@ -83,7 +84,9 @@
       "Kolo",
       "Lisiate",
       "Lolomanaia",
-      "Motuapuaka",
+      "Motuapuaka"
+    ],
+    "uncommon": [
       "Nili",
       "Nukuhifala",
       "Petelo",
@@ -107,53 +110,55 @@
       "Feao",
       "Filo",
       "Fonua",
-      "Fusitua"
-    ],
-    "rare": [
+      "Fusitua",
       "Hopoate",
-      "Katoa",
-      "Kelea",
-      "Lavaka",
-      "Lifuka",
-      "Moeakiola",
-      "Moheka",
-      "Naulu",
-      "Polutele",
-      "Siaosi",
+      "Noa",
       "Tali",
-      "Tau",
       "Tiueti",
-      "Tuineau",
       "Uiliami",
-      "Sonatane",
-      "Sireli",
-      "Kawika",
-      "Ira",
-      "Hiro",
-      "Tevita-Malakai",
-      "Sione-Lotu",
       "Viliami-Taufa",
+      "Siaosi",
+      "Sireli",
+      "Ira",
       "Mafileo-Tukufuka",
-      "Lopeti-Ofa",
-      "Monefa",
-      "Fusimalohi",
+      "Moeakiola",
+      "Aholelei",
+      "Mateaki",
+      "Sonatane",
+      "Katoa",
+      "Tuineau",
       "Koloamatangi",
       "Fakahau",
+      "Fusimalohi",
+      "Tau",
+      "Monefa",
+      "Hiro",
       "Tuipulotu",
-      "Aholelei",
-      "Vaipulu",
+      "Kawika",
+      "Moheka",
       "Malakai",
-      "Noa",
-      "Mateaki"
-    ]
+      "Vaipulu",
+      "Polutele",
+      "Tevita-Malakai",
+      "Kelea",
+      "Lavaka",
+      "Sione-Lotu",
+      "Naulu",
+      "Lopeti-Ofa",
+      "Lifuka"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Latu",
       "Fifita",
       "Finau",
       "Tupou",
-      "Mafi",
+      "Mafi"
+    ],
+    "very_common": [
       "Wang",
       "Lin",
       "Fonua",
@@ -163,7 +168,9 @@
       "Manu",
       "Taufa",
       "Vea",
-      "Huang",
+      "Huang"
+    ],
+    "common": [
       "Taumoepeau",
       "Guo",
       "Palu",
@@ -178,7 +185,9 @@
       "Fekitoa",
       "Pulu",
       "Lavaka",
-      "Fotu",
+      "Fotu"
+    ],
+    "familiar": [
       "Mataele",
       "Tuifua",
       "Taione",
@@ -188,9 +197,7 @@
       "Koloamatangi",
       "Aholelei",
       "Fusimalohi",
-      "Moeaki"
-    ],
-    "common": [
+      "Moeaki",
       "Motuapuaka",
       "Nukuhifala",
       "Tuineau",
@@ -225,7 +232,9 @@
       "Tau",
       "Tiueti",
       "Tuione",
-      "Ulukalala",
+      "Ulukalala"
+    ],
+    "uncommon": [
       "Viliami",
       "Sione",
       "Siosiua",
@@ -250,9 +259,7 @@
       "Penisimani",
       "Saia",
       "Sefa",
-      "Sefita"
-    ],
-    "mid": [
+      "Sefita",
       "Sikalu",
       "Silivenusi",
       "Sione-Havili",
@@ -292,23 +299,31 @@
       "Kaho",
       "Halatau"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

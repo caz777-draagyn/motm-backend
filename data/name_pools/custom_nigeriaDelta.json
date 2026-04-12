@@ -3,12 +3,14 @@
   "country_code": "NGA",
   "country_name": "Nigeria South-South (Delta)",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Tamuno",
       "Tari",
       "Tariemi",
       "Tariere",
-      "Preye",
+      "Preye"
+    ],
+    "very_common": [
       "Piriye",
       "Ebi",
       "Ebiere",
@@ -18,14 +20,14 @@
       "Wariboko",
       "Owei",
       "Kuro",
-      "Aminikpo",
+      "Aminikpo"
+    ],
+    "common": [
       "Yeibo",
       "Amas",
       "Boma",
       "Tamunobelema",
-      "Tamunotonye"
-    ],
-    "common": [
+      "Tamunotonye",
       "Tamunosiki",
       "Tamunopriye",
       "Tamunobiebari",
@@ -35,7 +37,9 @@
       "Biebi",
       "Efemena",
       "Efe",
-      "Ejiro",
+      "Ejiro"
+    ],
+    "familiar": [
       "Ejovi",
       "Ejiroghene",
       "Oghenekaro",
@@ -55,9 +59,7 @@
       "Osaze",
       "Osagie",
       "Osamudiamen",
-      "Osarobo"
-    ],
-    "mid": [
+      "Osarobo",
       "Osaretin",
       "Osahon",
       "Osemwegie",
@@ -65,14 +67,10 @@
       "Etim",
       "Aniefiok",
       "Aniekan",
-      "Ekong",
-      "Bassey",
-      "Effiong",
       "Essien",
       "Okon",
       "Udoh",
       "Asuquo",
-      "Ekpenyong",
       "Nsikak",
       "Mfon",
       "Iniobong",
@@ -82,7 +80,9 @@
       "Emem",
       "Idorenyin",
       "Imaobong",
-      "Barine",
+      "Barine"
+    ],
+    "uncommon": [
       "Dappa",
       "Jaja",
       "Abiye",
@@ -91,83 +91,75 @@
       "Uduak",
       "Nsa",
       "Ntufam",
-      "Inyang",
-      "Archibong",
       "Abasiama",
       "Akpobome",
       "Akpojaro",
       "Ebo",
-      "Oronsaye",
-      "Omoruyi",
-      "Omoregie",
-      "Osarodion",
-      "Peterside",
-      "Briggs",
-      "Georgewill",
       "Atekpe",
       "Bari",
       "Bebia",
-      "Bekinwari"
-    ],
-    "rare": [
+      "Bekinwari",
+      "Uduakobong",
+      "Ogaga",
       "Biriye",
-      "Bomaebi",
       "Dumebi",
       "Ebikeme",
-      "Ebiowei",
-      "Egbe",
-      "Eghosa",
-      "Eghwrudjakpo",
-      "Ete",
-      "Ewoma",
-      "Ibori",
-      "Ikpomwosa",
-      "Ivie",
-      "Keme",
-      "Obaro",
-      "Ogaga",
-      "Ogheneovo",
-      "Ogheneruno",
-      "Oghogho",
-      "Okoroete",
-      "Omamuli",
-      "Onomeh",
-      "Onoriobo",
-      "Opubo",
-      "Osahonamwen",
-      "Osazee",
-      "Osedebamen",
-      "Osere",
-      "Osereme",
-      "Otobo",
       "Perekebina",
       "Perebo",
-      "Pereotubo",
-      "Tamunomiete",
-      "Tamunonengiye",
-      "Tamunoteghe",
-      "Tare",
       "Tarela",
-      "Uduakobong",
-      "Ufuoma",
-      "Urhie",
-      "Warikeme",
+      "Egbe",
+      "Ete",
+      "Obaro",
+      "Osahonamwen",
+      "Omamuli",
+      "Osere",
+      "Osazee",
       "Yeghe",
-      "Anietie",
+      "Urhie",
+      "Opubo",
+      "Bomaebi",
+      "Tare",
+      "Ewoma",
+      "Otobo",
+      "Onomeh",
+      "Tamunonengiye",
       "Idara",
-      "Boma George",
-      "Anwanabasi",
+      "Tamunoteghe",
+      "Keme",
+      "Tamunomiete",
+      "Ikpomwosa",
+      "Osereme",
       "Efiok",
-      "Ekpe"
-    ]
+      "Eghwrudjakpo",
+      "Osedebamen",
+      "Boma George",
+      "Ivie",
+      "Ogheneruno",
+      "Anietie",
+      "Ebiowei",
+      "Oghogho",
+      "Onoriobo",
+      "Anwanabasi",
+      "Pereotubo",
+      "Ogheneovo",
+      "Ufuoma",
+      "Eghosa",
+      "Ekpe",
+      "Okoroete",
+      "Warikeme"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Tamuno",
       "Tari",
       "Preye",
       "Tonye",
-      "Wariboko",
+      "Wariboko"
+    ],
+    "very_common": [
       "Owei",
       "Boma",
       "Tamunobelema",
@@ -177,7 +169,9 @@
       "Tamunobiebari",
       "Tamunosimi",
       "Tamunokuro",
-      "Tariemi",
+      "Tariemi"
+    ],
+    "common": [
       "Tariere",
       "Ibiwari",
       "Yeibo",
@@ -192,7 +186,9 @@
       "Duke",
       "Peterside",
       "Pepple",
-      "Jumbo",
+      "Jumbo"
+    ],
+    "familiar": [
       "Biriye",
       "Ogbonda",
       "Abiye",
@@ -202,9 +198,7 @@
       "Tariah",
       "Ibifiri",
       "Biebi",
-      "Okowa"
-    ],
-    "common": [
+      "Okowa",
       "Okoro",
       "Efe",
       "Efemena",
@@ -239,7 +233,9 @@
       "Akhigbe",
       "Idehen",
       "Igbinedion",
-      "Ogie",
+      "Ogie"
+    ],
+    "uncommon": [
       "Okojie",
       "Omoigui",
       "Omorogbe",
@@ -264,9 +260,7 @@
       "Archibong",
       "Inyang",
       "Abam",
-      "Abazie"
-    ],
-    "mid": [
+      "Abazie",
       "Abiye-Briggs",
       "Akpene",
       "Asinobor",
@@ -323,23 +317,31 @@
       "Yeghe",
       "Pereotubo"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.08,
   "compound_surname_prob": 0.04,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

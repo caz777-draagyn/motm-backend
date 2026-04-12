@@ -3,12 +3,14 @@
   "country_code": "SAM",
   "country_name": "Samoa",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "John",
       "Peter",
       "David",
       "Michael",
-      "Richard",
+      "Richard"
+    ],
+    "very_common": [
       "Joseph",
       "James",
       "William",
@@ -18,14 +20,14 @@
       "Ioane",
       "Tavita",
       "Paulo",
-      "Iosefa",
+      "Iosefa"
+    ],
+    "common": [
       "Iakopo",
       "Filipe",
       "Sione",
       "Luka",
-      "Mikaele"
-    ],
-    "common": [
+      "Mikaele",
       "Pita",
       "Toma",
       "Toleafoa",
@@ -35,7 +37,9 @@
       "Lilo",
       "Mika",
       "Sami",
-      "Ieremia",
+      "Ieremia"
+    ],
+    "familiar": [
       "Tanielu",
       "Esekia",
       "Ioelu",
@@ -55,9 +59,7 @@
       "Dominic",
       "Edward",
       "Elijah",
-      "Ethan"
-    ],
-    "mid": [
+      "Ethan",
       "Felix",
       "Francis",
       "Gabriel",
@@ -82,7 +84,9 @@
       "Kevin",
       "Lachlan",
       "Lawrence",
-      "Leo",
+      "Leo"
+    ],
+    "uncommon": [
       "Levi",
       "Louis",
       "Lucas",
@@ -105,57 +109,51 @@
       "Samuel",
       "Sebastian",
       "Silas",
-      "Sina",
       "Solomona",
-      "Stephen"
-    ],
-    "rare": [
-      "Theo",
-      "Tobias",
-      "Tomasi",
-      "Tony",
+      "Stephen",
       "Victor",
-      "Vincent",
-      "Wesley",
-      "Amosa",
-      "Anesi",
-      "Apelu",
-      "Etuati",
-      "Fetu",
-      "Ilaisaane",
-      "Isireli",
-      "Lefau",
-      "Matafeo",
-      "Savea",
-      "Sireli",
-      "Sonatane",
-      "Ulugia",
-      "Uaine",
-      "Ualesi",
-      "Vaosa",
-      "Aiono",
       "Alesana",
-      "Lemalu",
-      "Leota",
+      "Isireli",
+      "Wesley",
+      "Ualesi",
       "Papalii",
-      "Tuala",
-      "Fruean",
+      "Anesi",
+      "Fetu",
+      "Etuati",
+      "Theo",
+      "Tomasi",
+      "Vincent",
+      "Sonatane",
+      "Matafeo",
+      "Aiono",
+      "Lemalu",
+      "Apelu",
+      "Vaosa",
+      "Savea",
+      "Leota",
+      "Amosa",
       "Keil",
-      "Retzlaff",
-      "Schuster",
-      "Meredith",
-      "Betham",
-      "Mariner",
-      "Vaai"
-    ]
+      "Lefau",
+      "Tobias",
+      "Tony",
+      "Ulugia",
+      "Ilaisaane",
+      "Uaine",
+      "Sireli",
+      "Tuala"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Meredith",
       "Keil",
       "Westerlund",
       "Ott",
-      "Betham",
+      "Betham"
+    ],
+    "very_common": [
       "Fruean",
       "Williams",
       "Vaai",
@@ -165,7 +163,9 @@
       "Tuala",
       "Mariner",
       "Retzlaff",
-      "Craig",
+      "Craig"
+    ],
+    "common": [
       "Ah Liki",
       "Rasmussen",
       "Purcell",
@@ -180,7 +180,9 @@
       "Laban",
       "Kenison",
       "Young",
-      "Schwenke",
+      "Schwenke"
+    ],
+    "familiar": [
       "Stowers",
       "Afoa",
       "Aiono",
@@ -190,9 +192,7 @@
       "Faamausili",
       "Fatialofa",
       "Fuamatu",
-      "Laulala"
-    ],
-    "common": [
+      "Laulala",
       "Lealamanua",
       "Leuluai",
       "Maivia",
@@ -227,7 +227,9 @@
       "Tupua",
       "Fiaui",
       "Sioeli",
-      "Tafuna",
+      "Tafuna"
+    ],
+    "uncommon": [
       "Leota",
       "Papalii",
       "Tupou",
@@ -252,9 +254,7 @@
       "Anesi",
       "Aumua",
       "Faasalele",
-      "Faavae"
-    ],
-    "mid": [
+      "Faavae",
       "Faleomavaega",
       "Faumuina",
       "Folau",
@@ -290,23 +290,31 @@
       "Vaovasamanaia",
       "Vui-Samoa"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

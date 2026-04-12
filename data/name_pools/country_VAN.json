@@ -3,12 +3,14 @@
   "country_code": "VAN",
   "country_name": "Vanuatu",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "John",
       "David",
       "Robert",
       "Peter",
-      "Andrew",
+      "Andrew"
+    ],
+    "very_common": [
       "Michael",
       "George",
       "James",
@@ -18,14 +20,14 @@
       "Willie",
       "Joseph",
       "Stephen",
-      "Simon",
+      "Simon"
+    ],
+    "common": [
       "Walter",
       "Daniel",
       "Jack",
       "Tony",
-      "Christopher"
-    ],
-    "common": [
+      "Christopher",
       "Thomas",
       "Philip",
       "Albert",
@@ -35,7 +37,9 @@
       "Jonathan",
       "Joshua",
       "Nicholas",
-      "Anthony",
+      "Anthony"
+    ],
+    "familiar": [
       "Brian",
       "Donald",
       "Edward",
@@ -55,11 +59,8 @@
       "Charlot",
       "Iolu",
       "Ishmael",
-      "Jotham"
-    ],
-    "mid": [
+      "Jotham",
       "Kalkot",
-      "Moana",
       "Nikenike",
       "Obed",
       "Pakoa",
@@ -75,14 +76,15 @@
       "Charles",
       "Chris",
       "Clement",
-      "Davidson",
       "Dany",
       "Edgar",
       "Elijah",
       "Emmanuel",
       "Eric",
       "Ezekiel",
-      "Felix",
+      "Felix"
+    ],
+    "uncommon": [
       "Frank",
       "Gabriel",
       "Gideon",
@@ -107,58 +109,49 @@
       "Matthew",
       "Micah",
       "Nathan",
-      "Noah"
-    ],
-    "rare": [
-      "Oliver",
-      "Oscar",
-      "Ricky",
-      "Ruben",
-      "Sam",
-      "Samson",
-      "Saul",
-      "Scott",
-      "Silas",
-      "Solomon",
-      "Terry",
-      "Theo",
-      "Titus",
-      "Toby",
-      "Tommy",
-      "Travis",
+      "Noah",
       "Valentine",
-      "Warren",
-      "Wesley",
-      "Wilson",
-      "Abel",
-      "Adrian",
-      "Alick",
-      "Amos",
       "Bani",
-      "Bule",
-      "Carcasses",
-      "Garae",
+      "Adrian",
+      "Abel",
+      "Toby",
       "Jimmy",
-      "Kalpokas",
+      "Samson",
+      "Silas",
+      "Bule",
+      "Solomon",
+      "Wesley",
+      "Titus",
+      "Scott",
+      "Terry",
+      "Garae",
+      "Wilson",
+      "Tommy",
+      "Saul",
+      "Sam",
+      "Amos",
+      "Theo",
+      "Oscar",
+      "Oliver",
+      "Ruben",
       "Kalo",
-      "Kalsakau",
-      "Kaltak",
-      "Kilman",
-      "Lini",
-      "Lonsdale",
-      "Napuat",
-      "Natapei",
-      "Natuman",
-      "Regenvanu"
-    ]
+      "Alick",
+      "Ricky",
+      "Travis",
+      "Warren"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Tari",
       "Garae",
       "John",
       "Bule",
-      "Aru",
+      "Aru"
+    ],
+    "very_common": [
       "David",
       "Jimmy",
       "Tabi",
@@ -168,7 +161,9 @@
       "Obed",
       "Jack",
       "Boe",
-      "Toa",
+      "Toa"
+    ],
+    "common": [
       "Kalsakau",
       "Robert",
       "Kilman",
@@ -183,7 +178,9 @@
       "Matai",
       "Molu",
       "Vohor",
-      "Willie",
+      "Willie"
+    ],
+    "familiar": [
       "Tako",
       "Pakoa",
       "Sato",
@@ -193,9 +190,7 @@
       "Rovok",
       "Melsisi",
       "Molsis",
-      "Varua"
-    ],
-    "common": [
+      "Varua",
       "Worwor",
       "Waiwai",
       "Wawo",
@@ -230,7 +225,9 @@
       "Gabriel",
       "Gideon",
       "Glen",
-      "Harris",
+      "Harris"
+    ],
+    "uncommon": [
       "Hosea",
       "Iolu",
       "Isaac",
@@ -255,9 +252,7 @@
       "Matthew",
       "Micah",
       "Moses",
-      "Nathan"
-    ],
-    "mid": [
+      "Nathan",
       "Nikenike",
       "Noah",
       "Oliver",
@@ -297,23 +292,31 @@
       "Napu",
       "Obedson"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

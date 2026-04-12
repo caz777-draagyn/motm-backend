@@ -3,12 +3,14 @@
   "country_code": "NGA",
   "country_name": "Nigeria Igbo",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Chukwuemeka",
       "Emeka",
       "Ifeanyi",
       "Uchenna",
-      "Obinna",
+      "Obinna"
+    ],
+    "very_common": [
       "Obiora",
       "Ikenna",
       "Chukwudi",
@@ -18,15 +20,14 @@
       "Chibuike",
       "Chidera",
       "Chidiebere",
-      "Chigozie",
+      "Chigozie"
+    ],
+    "common": [
       "Chijioke",
       "Chika",
       "Chikamso",
       "Chima",
-      "Chinaza"
-    ],
-    "common": [
-      "Chinelo",
+      "Chinaza",
       "Chinua",
       "Chisom",
       "Ebuka",
@@ -35,7 +36,9 @@
       "Ikechukwu",
       "Kelechi",
       "Kenechukwu",
-      "Lotanna",
+      "Lotanna"
+    ],
+    "familiar": [
       "Nnaemeka",
       "Nnamdi",
       "Nonso",
@@ -55,9 +58,7 @@
       "Chukwunonso",
       "Chukwuebuka",
       "Ezedinma",
-      "Kanayo"
-    ],
-    "mid": [
+      "Kanayo",
       "Kamsi",
       "Maduabuchi",
       "Nkem",
@@ -65,7 +66,6 @@
       "Nwankwo",
       "Nwora",
       "Obialor",
-      "Ofodile",
       "Olisa",
       "Oluchukwu",
       "Onwubiko",
@@ -78,106 +78,69 @@
       "Uchechukwu",
       "Udochi",
       "Ugo",
-      "Umeh",
       "Uzor",
       "Zikora",
       "Azubike",
-      "Anayo",
+      "Anayo"
+    ],
+    "uncommon": [
       "Amaechi",
-      "Anulika",
       "Ifechukwu",
       "Ihekuna",
       "Nnabuife",
-      "Nnaji",
-      "Nnamani",
-      "Nwodo",
-      "Obioma",
       "Ozoemena",
       "Tabansi",
       "Udemezue",
       "Uzochukwu",
-      "Amadi",
-      "Anichebe",
-      "Agu",
-      "Madueke",
-      "Nwadike",
-      "Onu",
-      "Okafor",
-      "Okeke",
-      "Okoli",
-      "Okonkwo",
-      "Okoro",
-      "Okoye"
-    ],
-    "rare": [
-      "Amarachi",
-      "Amauche",
-      "Chidalu",
-      "Chidimma",
-      "Chiemeka",
-      "Chiemerie",
-      "Chikadibia",
-      "Chikere",
-      "Chinenye",
-      "Chinyere",
-      "Daberechi",
-      "Ezeani",
-      "Ezeh",
-      "Ezinwanne",
-      "Ifechukwuma",
-      "Ifesinachi",
-      "Ikemefuna",
-      "Kamsiyochukwu",
-      "Kelechukwu",
-      "Kosiso",
       "Maduakolam",
-      "Ndukwe",
-      "Nmesoma",
-      "Nwanneka",
-      "Nwogu",
-      "Nworaeze",
-      "Obumneme",
-      "Obumselu",
+      "Kamsiyochukwu",
+      "Chiemeka",
+      "Chibuzor",
+      "Ifechukwuma",
       "Odochukwu",
-      "Ofoma",
-      "Oluebube",
-      "Onwuegbuzie",
-      "Onyekachukwu",
-      "Onyekwerechi",
-      "Onyinye",
       "Oziomachukwu",
-      "Somkene",
       "Tochi",
       "Ugoamadi",
-      "Ugoji",
-      "Ukachukwu",
-      "Uzodinma",
-      "Chibuzor",
       "Chigozirim",
+      "Ikemefuna",
+      "Somkene",
+      "Obumselu",
+      "Ukachukwu",
+      "Nworaeze",
+      "Obumneme",
+      "Chikere",
+      "Chikadibia",
       "Ihedinma",
-      "Mmesoma",
-      "Nwankwoala",
-      "Onuigbo",
-      "Onyishi",
-      "Ubahakwe",
-      "Anulikaeze",
-      "Chisomaga",
-      "Ezinwoke",
-      "Ugochinyere",
-      "Ugodinma",
-      "Mmachukwu",
+      "Ifesinachi",
+      "Uzodinma",
+      "Kelechukwu",
+      "Kosiso",
+      "Onyekwerechi",
+      "Ofoma",
+      "Oluebube",
+      "Onyekachukwu",
+      "Ugoji",
+      "Ayanwu",
       "Onwuzurike",
+      "Ezinwoke",
+      "Chisomaga",
+      "Ugodinma",
+      "Anulikaeze",
       "Zubike",
-      "Ayanwu"
-    ]
+      "Mmachukwu"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Achebe",
       "Achike",
       "Acholonu",
       "Aneke",
-      "Anozie",
+      "Anozie"
+    ],
+    "very_common": [
       "Anyadike",
       "Anyanwu",
       "Anyiam",
@@ -187,9 +150,10 @@
       "Chibueze",
       "Chibuike",
       "Chilaka",
-      "Chukwu",
+      "Chukwu"
+    ],
+    "common": [
       "Chukwuka",
-      "Eke",
       "Ekwueme",
       "Esimone",
       "Eze",
@@ -202,7 +166,9 @@
       "Iwu",
       "Madu",
       "Mba",
-      "Mbachu",
+      "Mbachu"
+    ],
+    "familiar": [
       "Mbadiwe",
       "Mbonu",
       "Mmadike",
@@ -212,9 +178,7 @@
       "Nnaemeka",
       "Nnaji",
       "Nnamani",
-      "Nnebedum"
-    ],
-    "common": [
+      "Nnebedum",
       "Nwankwo",
       "Nwoke",
       "Nwosu",
@@ -249,7 +213,9 @@
       "Ozoemena",
       "Uba",
       "Ubaka",
-      "Ubah",
+      "Ubah"
+    ],
+    "uncommon": [
       "Uche",
       "Ude",
       "Udeh",
@@ -274,9 +240,7 @@
       "Unachukwu",
       "Nwankpa",
       "Achunike",
-      "Adibe"
-    ],
-    "mid": [
+      "Adibe",
       "Aguocha",
       "Akubuilo",
       "Amalu",
@@ -290,7 +254,6 @@
       "Chikwelu",
       "Chinwuba",
       "Eboh",
-      "Ede",
       "Emeagwali",
       "Emenike",
       "Emenalo",
@@ -341,23 +304,31 @@
       "Nwanolue",
       "Onyemauche"
     ],
-    "rare": []
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.08,
   "compound_surname_prob": 0.04,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

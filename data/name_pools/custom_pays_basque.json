@@ -3,12 +3,14 @@
   "country_code": "ESP",
   "country_name": "Pays Basque",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Aimar",
       "Aitor",
       "Ander",
       "Asier",
-      "Gorka",
+      "Gorka"
+    ],
+    "very_common": [
       "Ibai",
       "Iker",
       "Imanol",
@@ -18,14 +20,14 @@
       "Markel",
       "Mikel",
       "Oier",
-      "Oihan",
+      "Oihan"
+    ],
+    "common": [
       "Unai",
       "Xabier",
       "Aiur",
       "Amets",
-      "Andoni"
-    ],
-    "common": [
+      "Andoni",
       "Aritz",
       "Beñat",
       "Danel",
@@ -35,7 +37,9 @@
       "Igor",
       "Izei",
       "Joseba",
-      "Josu",
+      "Josu"
+    ],
+    "familiar": [
       "Kepa",
       "Koldo",
       "Luken",
@@ -55,9 +59,7 @@
       "Ekaitz",
       "Ekhi",
       "Eki",
-      "Enaitz"
-    ],
-    "mid": [
+      "Enaitz",
       "Endika",
       "Erlantz",
       "Fermin",
@@ -82,7 +84,9 @@
       "Erramun",
       "Estebe",
       "Frantzisko",
-      "Gurutz",
+      "Gurutz"
+    ],
+    "uncommon": [
       "Izar",
       "Jakes",
       "Kemen",
@@ -107,35 +111,36 @@
       "Arrats",
       "Bakar",
       "Balendin",
-      "Bikendi"
-    ],
-    "rare": [
-      "Edur",
-      "Eguzki",
-      "Eztebe",
-      "Fermintxo",
-      "Ganix",
-      "Garaile",
-      "Goizeder",
-      "Igon",
-      "Izotz",
-      "Juantxo",
-      "Matxin",
-      "Mintxo",
+      "Bikendi",
       "Petri",
-      "Ximun",
+      "Igon",
+      "Eguzki",
+      "Garaile",
+      "Fermintxo",
+      "Eztebe",
+      "Izotz",
+      "Ganix",
       "Zeru",
-      "Zuzen"
-    ]
+      "Zuzen",
+      "Matxin",
+      "Juantxo",
+      "Edur",
+      "Mintxo",
+      "Ximun"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Bilbao",
       "Diez",
       "Aguirre",
       "Zabala",
-      "Uriarte",
-      "Larrañaga",
+      "Uriarte"
+    ],
+    "very_common": [
+      "LarraÃ±aga",
       "Garmendia",
       "Santamaria",
       "Alberdi",
@@ -144,7 +149,9 @@
       "Arana",
       "Mendizabal",
       "Etxeberria",
-      "Etxebarria",
+      "Etxebarria"
+    ],
+    "common": [
       "Echevarria",
       "Echeverria",
       "Aramburu",
@@ -159,7 +166,9 @@
       "Landa",
       "Elorza",
       "Sainz",
-      "Goikoetxea",
+      "Goikoetxea"
+    ],
+    "familiar": [
       "Arrizabalaga",
       "Arregui",
       "Odriozola",
@@ -169,10 +178,7 @@
       "Garay",
       "Saenz",
       "Zubizarreta",
-      "Zabaleta"
-    ],
-    "common": [
-      "Campo",
+      "Zabaleta",
       "Garate",
       "Ochoa",
       "Goicoechea",
@@ -206,7 +212,9 @@
       "Esnaola",
       "Unanue",
       "Elorriaga",
-      "Olano",
+      "Olano"
+    ],
+    "uncommon": [
       "Arnaiz",
       "Uribe",
       "Lizarralde",
@@ -231,15 +239,12 @@
       "Arruabarrena",
       "Goitia",
       "Azpiazu",
-      "Eguia"
-    ],
-    "mid": [
+      "Eguia",
       "Astigarraga",
       "Barrena",
       "Bengoetxea",
       "Uria",
       "Arteaga",
-      "Osa",
       "Arregi",
       "Jauregi",
       "Zorrilla",
@@ -265,14 +270,12 @@
       "Larrazabal",
       "Lazcano",
       "Allende",
-      "San Sebastian",
       "Antolin",
       "Mujika",
       "Zubia",
       "Galarza",
       "Dorronsoro",
       "Bengoechea",
-      "San-Sebastian",
       "Lizaso",
       "Irizar",
       "Arriaga",
@@ -333,9 +336,7 @@
       "Abasolo",
       "Arratibel",
       "Unzueta",
-      "Gorostiza"
-    ],
-    "rare": [
+      "Gorostiza",
       "Irazabal",
       "Bastida",
       "Esnal",
@@ -385,7 +386,9 @@
       "Olea",
       "Armentia",
       "Ugartemendia",
-      "Lizarraga",
+      "Lizarraga"
+    ],
+    "rare": [
       "Iribar",
       "Epelde",
       "Alday",
@@ -442,14 +445,12 @@
       "Landeta",
       "Apaolaza",
       "Alegria",
-      "Castrillo",
       "Urrestarazu",
       "Barrutia",
       "Garin",
       "Aldazabal",
       "Yarza",
       "Iruretagoyena",
-      "Vitoria",
       "Inchausti",
       "Ormaechea",
       "Pagola",
@@ -458,23 +459,31 @@
       "Basabe",
       "Gorostidi",
       "Illarramendi"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
-  "surname_connector": "-"
+  "surname_connector": "-",
+  "rarity_profile": "mixed"
 }

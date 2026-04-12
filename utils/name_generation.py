@@ -15,6 +15,7 @@ from .name_data import (
     HERITAGE_CONFIG,
     HERITAGE_NAME_POOLS,
     NAME_POOLS_BY_ID,
+    NAME_POOL_TIER_KEYS,
     POOL_ID_TO_COUNTRY_CODE,
     compound_surname_prob_for_pool,
     middle_name_prob_for_pool,
@@ -150,7 +151,7 @@ def sample_distinct_from_pool(
         cand = sample_name_from_pool(name_pool, tier_probs)
         if (cand or "").strip() and not _names_equivalent(cand, avoid):
             return cand
-    for tier in ("very_common", "common", "mid", "rare"):
+    for tier in NAME_POOL_TIER_KEYS:
         for n in name_pool.get(tier, []):
             if (n or "").strip() and not _names_equivalent(n, avoid):
                 return n
@@ -192,7 +193,31 @@ def pool_has_names(pool_id: str, name_type: str) -> bool:
     pool = get_name_pool(pool_id, name_type)
     if not pool:
         return False
-    return any(len(pool.get(t, [])) > 0 for t in ("very_common", "common", "mid", "rare"))
+    return any(len(pool.get(t, [])) > 0 for t in NAME_POOL_TIER_KEYS)
+
+
+# US custom givens-only pools: empty `surnames` in JSON; sampling uses country_USA surnames at runtime.
+US_CUSTOM_POOLS_EMPTY_SURNAME = frozenset(
+    {"custom_us_hispanic", "custom_us_modern", "custom_african_american"}
+)
+_US_SURNAME_FALLBACK_POOL_ID = "country_USA"
+
+
+def effective_surname_pool_for_sampling(named_pool_id: str) -> Tuple[str, Optional[Dict[str, List[str]]]]:
+    """
+    Return (pool_id_for_tier_probs, tiered_surname_dict) for RNG.
+
+    Custom US ethnicity pools keep no surname strings on disk; tier_probs / compound / connector
+    still come from that pool_id via country_code_for_tier_probs and *_for_pool helpers.
+    """
+    pool = get_name_pool(named_pool_id, "surnames")
+    if pool and pool_has_names(named_pool_id, "surnames"):
+        return named_pool_id, pool
+    if named_pool_id in US_CUSTOM_POOLS_EMPTY_SURNAME:
+        fb = get_name_pool(_US_SURNAME_FALLBACK_POOL_ID, "surnames")
+        if fb and pool_has_names(_US_SURNAME_FALLBACK_POOL_ID, "surnames"):
+            return _US_SURNAME_FALLBACK_POOL_ID, fb
+    return named_pool_id, pool
 
 
 def _pool_id_is_registered(pool_id: str) -> bool:
@@ -203,12 +228,16 @@ def _pool_id_is_registered(pool_id: str) -> bool:
 
 
 def _local_pool_entry_is_usable(pool_id: str) -> bool:
-    """Local core entry must be loadable and have non-empty given + surname tiers."""
+    """Local core entry must be loadable and have non-empty given names (and surnames or US fallback)."""
     if not _pool_id_is_registered(pool_id):
         return False
-    return pool_has_names(pool_id, "given_names_male") and pool_has_names(
-        pool_id, "surnames"
-    )
+    if not pool_has_names(pool_id, "given_names_male"):
+        return False
+    if pool_has_names(pool_id, "surnames"):
+        return True
+    if pool_id in US_CUSTOM_POOLS_EMPTY_SURNAME:
+        return pool_has_names(_US_SURNAME_FALLBACK_POOL_ID, "surnames")
+    return False
 
 
 def pool_id_to_country_code(pool_id: str) -> Optional[str]:
@@ -493,19 +522,18 @@ def generate_name(
                 name_pool_debug["heritage_origin_pool_id"] = str(origin_pool_id)
         
         given_pool = get_name_pool(given_pid, "given_names_male")
-        surname_pool = get_name_pool(surname_pid, "surnames")
-        # Fill missing slots without discarding a valid mixed-structure pool: the old
-        # "if either missing, reload BOTH from local only" broke LH/HL when local was
-        # empty but heritage had data (e.g. given_pool_id=ATG, surname_pool_id=country_TTO).
         if not given_pool:
             given_pool = get_name_pool(local_pool_id, "given_names_male")
-        if not surname_pool:
-            surname_pool = get_name_pool(local_pool_id, "surnames")
         if not given_pool:
             given_pool = get_name_pool(eff_heritage_pid, "given_names_male")
-        if not surname_pool:
-            surname_pool = get_name_pool(eff_heritage_pid, "surnames")
-        if not given_pool or not surname_pool:
+
+        surname_sample_id, surname_pool = effective_surname_pool_for_sampling(surname_pid)
+        if not surname_pool or not pool_has_names(surname_sample_id, "surnames"):
+            surname_sample_id, surname_pool = effective_surname_pool_for_sampling(local_pool_id)
+        if not surname_pool or not pool_has_names(surname_sample_id, "surnames"):
+            surname_sample_id, surname_pool = effective_surname_pool_for_sampling(eff_heritage_pid)
+
+        if not given_pool or not surname_pool or not pool_has_names(surname_sample_id, "surnames"):
             name = PlayerName(
                 given_first="NoFirstName",
                 surname_parts=["NoLastName"],
@@ -515,9 +543,12 @@ def generate_name(
                 used_names.add(full_name)
                 return name
             continue
-        
+
+        if name_pool_debug is not None and surname_sample_id != surname_pid:
+            name_pool_debug["surname_sampled_from_pool_id"] = surname_sample_id
+
         g_cc = country_code_for_tier_probs(given_pid, nationality)
-        s_cc = country_code_for_tier_probs(surname_pid, nationality)
+        s_cc = country_code_for_tier_probs(surname_sample_id, nationality)
         given_tier_probs = COUNTRY_TIER_PROBS.get(g_cc, {}).get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
         surname_tier_probs = COUNTRY_TIER_PROBS.get(s_cc, {}).get("surname", DEFAULT_SURNAME_TIER_PROBS)
         
@@ -535,12 +566,8 @@ def generate_name(
 
         # Compound surname: probability from the *surname* pool JSON only
         compound_prob = compound_surname_prob_for_pool(surname_pid, nationality)
-        compound_tier_probs = {
-            "very_common": 0.10,
-            "common": 0.50,
-            "mid": 0.35,
-            "rare": 0.05,
-        }
+        # Second compound part: same tier weights as primary surname draw (temporary uniform / profile).
+        compound_tier_probs = dict(surname_tier_probs)
         if random.random() < compound_prob:
             surname_second = sample_name_from_pool(surname_pool, compound_tier_probs)
             if not (surname_second or "").strip():

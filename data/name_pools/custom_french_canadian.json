@@ -4,28 +4,36 @@
   "country_name": "Canada (French Canadian)",
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
   "surname_connector": "-",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Jean",
       "Marc",
       "Luc",
       "Pierre",
-      "Michel",
+      "Michel"
+    ],
+    "very_common": [
       "Andre",
       "Francois",
       "Louis",
@@ -35,14 +43,14 @@
       "Alexandre",
       "Samuel",
       "Gabriel",
-      "Charles",
+      "Charles"
+    ],
+    "common": [
       "Antoine",
       "Philippe",
       "David",
       "Julien",
-      "Simon"
-    ],
-    "common": [
+      "Simon",
       "Maxime",
       "Vincent",
       "Etienne",
@@ -52,7 +60,9 @@
       "Martin",
       "Dominic",
       "Patrick",
-      "Eric",
+      "Eric"
+    ],
+    "familiar": [
       "Daniel",
       "Pascal",
       "Benoit",
@@ -72,9 +82,7 @@
       "Jean-Sebastien",
       "Jean-Christophe",
       "Jean-Michel",
-      "Jean-Pierre"
-    ],
-    "mid": [
+      "Jean-Pierre",
       "Jean-Marc",
       "Jean-Claude",
       "Jean-Guy",
@@ -99,7 +107,9 @@
       "Tommy",
       "Tom",
       "Thomas",
-      "Nathan",
+      "Nathan"
+    ],
+    "uncommon": [
       "Jonathan",
       "Francis",
       "Denis",
@@ -124,45 +134,46 @@
       "Carl",
       "Mario",
       "Joel",
-      "Frederic"
-    ],
-    "rare": [
-      "Alec",
-      "Loic",
-      "Ludovic",
-      "Raphael",
-      "Noah",
+      "Frederic",
+      "Baptiste",
       "Liam",
       "Elliot",
-      "Mikael",
+      "Flavien",
       "Tristan",
-      "Cedrick",
-      "Jeremie",
-      "Baptiste",
-      "Adrien",
-      "Leon",
-      "Arnaud",
-      "Manuel",
-      "Damien",
-      "Matis",
-      "Corentin",
-      "Laurier",
-      "Aurelien",
       "Emmanuel",
-      "Natan",
+      "Alec",
+      "Laurier",
+      "Noah",
       "Theo",
+      "Corentin",
+      "Jeremie",
+      "Aurelien",
+      "Leon",
       "Victor",
+      "Manuel",
+      "Mikael",
+      "Loic",
+      "Natan",
+      "Raphael",
+      "Adrien",
+      "Ludovic",
+      "Matis",
       "Aubin",
-      "Flavien"
-    ]
+      "Arnaud",
+      "Cedrick",
+      "Damien"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Tremblay",
       "Gagnon",
       "Roy",
-      "Cote",
-      "Bouchard",
+      "Bouchard"
+    ],
+    "very_common": [
       "Gauthier",
       "Morin",
       "Lavoie",
@@ -172,14 +183,14 @@
       "Pelletier",
       "Belanger",
       "Levesque",
-      "Bergeron",
+      "Bergeron"
+    ],
+    "common": [
       "Leblanc",
       "Paquette",
       "Girard",
       "Simard",
-      "Boucher"
-    ],
-    "common": [
+      "Boucher",
       "Caron",
       "Beaulieu",
       "Cloutier",
@@ -189,7 +200,9 @@
       "Lambert",
       "Lapointe",
       "Cyr",
-      "Pellerin",
+      "Pellerin"
+    ],
+    "familiar": [
       "Couture",
       "St-Pierre",
       "Rousseau",
@@ -198,7 +211,6 @@
       "Marquis",
       "Demers",
       "Blanchette",
-      "Parent",
       "Landry",
       "Allard",
       "Boivin",
@@ -209,11 +221,8 @@
       "Lemieux",
       "Richard",
       "Gingras",
-      "Desjardins"
-    ],
-    "mid": [
+      "Desjardins",
       "Arsenault",
-      "Brunet",
       "Lafleur",
       "Lefebvre",
       "Laforest",
@@ -236,7 +245,9 @@
       "Choquette",
       "Daigle",
       "Desrosiers",
-      "Dion",
+      "Dion"
+    ],
+    "uncommon": [
       "Dionne",
       "Drouin",
       "Ducharme",
@@ -261,9 +272,7 @@
       "Lapierre",
       "Laroche",
       "Latour",
-      "Leduc"
-    ],
-    "rare": [
+      "Leduc",
       "Lemelin",
       "Loiselle",
       "Mailhot",
@@ -272,7 +281,6 @@
       "Migneault",
       "Moreau",
       "Normandin",
-      "Page",
       "Perreault",
       "Pineault",
       "Plante",
@@ -317,7 +325,6 @@
       "Berube",
       "Bilodeau",
       "Bisson",
-      "Blackburn",
       "Blouin",
       "Bonneau",
       "Bordeleau",
@@ -365,11 +372,9 @@
       "Delage",
       "Delisle",
       "Denault",
-      "Denis",
       "Desautels",
       "Desbiens",
       "Deschenes",
-      "Deschamps",
       "Desforges",
       "Deslisle",
       "Desmarais",
@@ -401,7 +406,6 @@
       "Geoffrion",
       "Gervais",
       "Giguere",
-      "Gilbert",
       "Godin",
       "Goulet",
       "Gravel",
@@ -413,7 +417,9 @@
       "Labbe",
       "Labonte",
       "Labrecque",
-      "Labrie",
+      "Labrie"
+    ],
+    "rare": [
       "Lacasse",
       "Lacombe",
       "Lacourse",
@@ -441,7 +447,6 @@
       "Levasseur",
       "Litalien",
       "Longpre",
-      "Lord",
       "Maheu",
       "Marcotte",
       "Marcil",
@@ -478,7 +483,6 @@
       "Robichaud",
       "Rochon",
       "Rondeau",
-      "Ross",
       "Ruest",
       "Sabourin",
       "Samson",
@@ -547,7 +551,6 @@
       "Falardeau",
       "Ferland",
       "Fleury",
-      "Forget",
       "Fortier",
       "Frenette",
       "Galarneau",
@@ -607,8 +610,9 @@
       "Thivierge",
       "Trempe",
       "Valiquette",
-      "Vigneault",
-      "Warren"
-    ]
-  }
+      "Vigneault"
+    ],
+    "very_rare": []
+  },
+  "rarity_profile": "mixed"
 }

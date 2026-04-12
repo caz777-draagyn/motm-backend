@@ -2,12 +2,14 @@
   "country_code": "MDA",
   "country_name": "Moldova",
   "given_names_male": {
-    "very_common": [
+    "top": [
       "Andrei",
       "David",
       "Ion",
       "Matei",
-      "Igor",
+      "Igor"
+    ],
+    "very_common": [
       "Bogdan",
       "Sergiu",
       "Victor",
@@ -17,14 +19,14 @@
       "Mihai",
       "Aleksandr",
       "Daniel",
-      "Vlad",
+      "Vlad"
+    ],
+    "common": [
       "Dumitru",
       "Denis",
       "Ștefan",
       "Radu",
-      "Adrian"
-    ],
-    "common": [
+      "Adrian",
       "Vasile",
       "Nicolai",
       "Vladimir",
@@ -34,7 +36,9 @@
       "Nicolae",
       "Roman",
       "Emanuel",
-      "Sergei",
+      "Sergei"
+    ],
+    "familiar": [
       "Petru",
       "Pavel",
       "Cristian",
@@ -53,10 +57,7 @@
       "Serghei",
       "Ruslan",
       "Iurie",
-      "Rusu",
-      "Eugeniu"
-    ],
-    "mid": [
+      "Eugeniu",
       "Dorin",
       "Alexander",
       "Gheorghe",
@@ -69,7 +70,6 @@
       "Viorel",
       "Marcel",
       "Artur",
-      "Andrew",
       "Stas",
       "Paul",
       "Mihail",
@@ -81,8 +81,9 @@
       "Aleksei",
       "Stefan",
       "Nikita",
-      "Nicu",
-      "John",
+      "Nicu"
+    ],
+    "uncommon": [
       "Vitalii",
       "Viktor",
       "Sergey",
@@ -91,72 +92,57 @@
       "Grigore",
       "Gabriel",
       "Egor",
-      "Cretu",
       "Anatol",
       "Nikolai",
       "Vladislav",
-      "Ryan",
-      "Nick",
-      "Moraru",
-      "Michael",
-      "Lungu",
       "Dinu",
-      "Balan",
       "Anton",
       "Anatolii",
       "Mikhail",
       "Il'ia",
-      "Vasilii"
-    ],
-    "rare": [
-      "Peter",
-      "Octavian",
-      "Mircea",
-      "Mike",
-      "Marin",
-      "Konstantin",
-      "Jack",
-      "Istrati",
-      "Gutu",
+      "Vasilii",
+      "Viacheslav",
+      "Cristi",
+      "Yuri",
+      "Ionel",
+      "Catalin",
       "Eduard",
-      "Andy",
+      "Konstantin",
+      "Mircea",
+      "Gennadii",
+      "Ghenadie",
+      "Marin",
+      "Octavian",
+      "Boris",
+      "Andrey",
       "Anatolie",
       "Stanislav",
-      "Misha",
-      "Ghenadie",
-      "Catalin",
-      "Boris",
-      "Gennadii",
-      "Viacheslav",
-      "Zhang",
-      "Yuri",
       "Serge",
-      "Popa",
-      "Mark",
-      "Ionel",
-      "George",
-      "Eugene",
-      "Cristi",
-      "Andrey"
-    ]
+      "Misha"
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "surnames": {
-    "very_common": [
+    "top": [
       "Rusu",
       "Ciobanu",
       "Balan",
       "Cojocaru",
-      "Ursu",
+      "Ursu"
+    ],
+    "very_common": [
       "Munteanu",
       "Sirbu",
       "Cebotari",
       "Popa",
-      "Lee",
       "Ceban",
       "Lungu",
       "Radu",
       "Ion",
-      "Alexandru",
+      "Alexandru"
+    ],
+    "common": [
       "Spînu",
       "Popescu",
       "Ivanov",
@@ -165,14 +151,15 @@
       "Rotaru",
       "Rosca",
       "Moraru",
-      "Cristina",
       "Turcanu",
       "Victoria",
       "Victor",
       "Railean",
       "Prodan",
       "Paladi",
-      "Nicolae",
+      "Nicolae"
+    ],
+    "familiar": [
       "Mihai",
       "Golban",
       "Elena",
@@ -181,12 +168,8 @@
       "Turcan",
       "Tataru",
       "Stratan",
-      "Rotari"
-    ],
-    "common": [
-      "Natalia",
+      "Rotari",
       "Lupu",
-      "Irina",
       "Gheorghe",
       "Furtuna",
       "Florea",
@@ -221,7 +204,9 @@
       "Raileanu",
       "Mocanu",
       "Mariana",
-      "Mardari",
+      "Mardari"
+    ],
+    "uncommon": [
       "Marcoci",
       "Madan",
       "Josan",
@@ -243,9 +228,7 @@
       "Wong",
       "Vlad",
       "Veaceslav",
-      "Vadim"
-    ],
-    "mid": [
+      "Vadim",
       "Surdu",
       "Stegarescu",
       "Spinei",
@@ -265,7 +248,6 @@
       "Melnic",
       "Maxim",
       "Marian",
-      "Maria",
       "Luchian",
       "Lisnic",
       "Lazari",
@@ -273,7 +255,6 @@
       "Griu",
       "Filat",
       "Dumitru",
-      "Diana",
       "Denis",
       "Danu",
       "Croitor",
@@ -295,7 +276,6 @@
       "Malai",
       "Volkova",
       "Zaharia",
-      "Wolf",
       "Wilson",
       "Warren",
       "Volontir",
@@ -311,7 +291,6 @@
       "Tofan",
       "Timotin",
       "Tian",
-      "Tatiana",
       "Suruceanu",
       "Sturza",
       "Stratulat",
@@ -345,9 +324,7 @@
       "Miron",
       "Mihalachi",
       "Matei",
-      "Manole"
-    ],
-    "rare": [
+      "Manole",
       "Luca",
       "Lozovanu",
       "Leon",
@@ -399,10 +376,10 @@
       "Bors",
       "Bolocan",
       "Bodrug",
-      "Black",
       "Bargan",
-      "Baciu",
-      "Baby",
+      "Baciu"
+    ],
+    "rare": [
       "Artiom",
       "Arnaut",
       "Arama",
@@ -415,24 +392,32 @@
       "Alex",
       "Adriana",
       "Ababii"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "very_common": 0.55,
-      "common": 0.3,
-      "mid": 0.13,
-      "rare": 0.02
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     },
     "surname": {
-      "very_common": 0.45,
-      "common": 0.35,
-      "mid": 0.17,
-      "rare": 0.03
+      "top": 0.14285714285714285,
+      "very_common": 0.14285714285714285,
+      "common": 0.14285714285714285,
+      "familiar": 0.14285714285714285,
+      "uncommon": 0.14285714285714285,
+      "rare": 0.14285714285714285,
+      "very_rare": 0.14285714285714285
     }
   },
   "middle_name_prob": 0.15,
   "compound_surname_prob": 0.05,
   "surname_connector": "-",
-  "pool_id": "country_MDA"
+  "pool_id": "country_MDA",
+  "rarity_profile": "mixed"
 }

@@ -1,0 +1,4020 @@
+{
+  "files": [
+    {
+      "path": "data\\name_pools\\country_AFG.json",
+      "pool_id": "country_AFG",
+      "given_removed": 0,
+      "surname_removed": 66,
+      "reasons": {
+        "female_given_surname_leak": 66
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Rosa",
+          "Cristina",
+          "Paula",
+          "Sophia",
+          "Shelby",
+          "Mia",
+          "Linda"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ALB.json",
+      "pool_id": "country_ALB",
+      "given_removed": 0,
+      "surname_removed": 5,
+      "reasons": {
+        "female_given_surname_leak": 4,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Disha",
+          "Linda",
+          "Alia",
+          "Hana"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ALG.json",
+      "pool_id": "country_ALG",
+      "given_removed": 0,
+      "surname_removed": 65,
+      "reasons": {
+        "female_given_surname_leak": 64,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Bella",
+          "Amira",
+          "Sarah",
+          "Farah",
+          "Maya",
+          "Rosa",
+          "Rania",
+          "Fatima"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ANG.json",
+      "pool_id": "country_ANG",
+      "given_removed": 0,
+      "surname_removed": 47,
+      "reasons": {
+        "female_given_surname_leak": 47
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Vanessa",
+          "Svetlana",
+          "Sita",
+          "Paula",
+          "Nicole",
+          "Camila",
+          "Sofia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ARG.json",
+      "pool_id": "country_ARG",
+      "given_removed": 3,
+      "surname_removed": 113,
+      "reasons": {
+        "placeholder": 3,
+        "female_given": 2,
+        "female_given_surname_leak": 111
+      },
+      "samples": {
+        "placeholder": [
+          "Todo",
+          "Todo",
+          "Name"
+        ],
+        "female_given": [
+          "Joan",
+          "Mio"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Rosa",
+          "Abigail",
+          "Rocio",
+          "Alba",
+          "Sofia",
+          "Nicole",
+          "Elizabeth"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ARM.json",
+      "pool_id": "country_ARM",
+      "given_removed": 1,
+      "surname_removed": 10,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 10
+      },
+      "samples": {
+        "female_given": [
+          "Karen"
+        ],
+        "female_given_surname_leak": [
+          "Ruby",
+          "Paige",
+          "Nana",
+          "Maya",
+          "Mariam",
+          "Evelyn",
+          "Dolores",
+          "Bella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_AUS.json",
+      "pool_id": "country_AUS",
+      "given_removed": 0,
+      "surname_removed": 94,
+      "reasons": {
+        "female_given_surname_leak": 91,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Jane",
+          "Harper",
+          "Ashley",
+          "Hannah",
+          "Louise",
+          "Brooke",
+          "Allison",
+          "Kendall"
+        ],
+        "placeholder": [
+          "Male",
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_AUT.json",
+      "pool_id": "country_AUT",
+      "given_removed": 0,
+      "surname_removed": 32,
+      "reasons": {
+        "female_given_surname_leak": 32
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Anna",
+          "Sophie",
+          "Tina",
+          "Nicole",
+          "Hana",
+          "Christina",
+          "Christine",
+          "Michelle"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_AZE.json",
+      "pool_id": "country_AZE",
+      "given_removed": 0,
+      "surname_removed": 13,
+      "reasons": {
+        "female_given_surname_leak": 13
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Iman",
+          "Lisa",
+          "Rosa",
+          "Irina",
+          "Harper",
+          "Hannah",
+          "Farah",
+          "Evelyn"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BAH.json",
+      "pool_id": "country_BAH",
+      "given_removed": 0,
+      "surname_removed": 36,
+      "reasons": {
+        "female_given_surname_leak": 35,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nicole",
+          "Michelle",
+          "Lisa",
+          "Laura",
+          "Paige",
+          "Christina",
+          "Ashley",
+          "Alba"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BAN.json",
+      "pool_id": "country_BAN",
+      "given_removed": 0,
+      "surname_removed": 112,
+      "reasons": {
+        "female_given_surname_leak": 110,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Mia",
+          "Huda",
+          "Noor",
+          "Yasmin",
+          "Riya",
+          "Priya",
+          "Salma",
+          "Farah"
+        ],
+        "placeholder": [
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BEN.json",
+      "pool_id": "country_BEN",
+      "given_removed": 0,
+      "surname_removed": 31,
+      "reasons": {
+        "female_given_surname_leak": 31
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nicole",
+          "Harper",
+          "Hanan",
+          "Emma",
+          "Carmen",
+          "Willow",
+          "Vanessa",
+          "Tatiana"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BER.json",
+      "pool_id": "country_BER",
+      "given_removed": 2,
+      "surname_removed": 46,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 44,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Bailey",
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Louise",
+          "Ashley",
+          "Nicole",
+          "Rebecca",
+          "Michelle",
+          "Kendall",
+          "Jane"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BFA.json",
+      "pool_id": "country_BFA",
+      "given_removed": 0,
+      "surname_removed": 59,
+      "reasons": {
+        "female_given_surname_leak": 59
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nana",
+          "Sandra",
+          "Harper",
+          "Christine",
+          "Carla",
+          "Sita",
+          "Rachel",
+          "Paula"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BHR.json",
+      "pool_id": "country_BHR",
+      "given_removed": 0,
+      "surname_removed": 18,
+      "reasons": {
+        "female_given_surname_leak": 18
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Farah",
+          "Zainab",
+          "Lily",
+          "Fatima",
+          "Zoe",
+          "Zahra",
+          "Yasmeen"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BIH.json",
+      "pool_id": "country_BIH",
+      "given_removed": 0,
+      "surname_removed": 5,
+      "reasons": {
+        "female_given_surname_leak": 5
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nicole",
+          "Michelle",
+          "Linda",
+          "Bella",
+          "Elizabeth"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BLR.json",
+      "skipped": true,
+      "pool_id": "country_BLR"
+    },
+    {
+      "path": "data\\name_pools\\country_BLZ.json",
+      "pool_id": "country_BLZ",
+      "given_removed": 0,
+      "surname_removed": 27,
+      "reasons": {
+        "female_given_surname_leak": 26,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Vera",
+          "Nicole",
+          "Ashley",
+          "Denise",
+          "Cristina",
+          "Brooke",
+          "Barbara",
+          "Alba"
+        ],
+        "placeholder": [
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BOL.json",
+      "pool_id": "country_BOL",
+      "given_removed": 0,
+      "surname_removed": 13,
+      "reasons": {
+        "female_given_surname_leak": 13
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Vera",
+          "Laura",
+          "Pamela",
+          "Harper",
+          "Alba",
+          "Camila",
+          "Bella",
+          "Sarah"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BRA.json",
+      "pool_id": "country_BRA",
+      "given_removed": 5,
+      "surname_removed": 128,
+      "reasons": {
+        "female_given": 4,
+        "placeholder": 2,
+        "female_given_surname_leak": 127
+      },
+      "samples": {
+        "female_given": [
+          "Addison",
+          "Allison",
+          "Joan",
+          "Madison"
+        ],
+        "placeholder": [
+          "Todo",
+          "Name"
+        ],
+        "female_given_surname_leak": [
+          "Rosa",
+          "Cristina",
+          "Caroline",
+          "Paula",
+          "Beatriz",
+          "Carla",
+          "Linda",
+          "Camila"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_BUL.json",
+      "pool_id": "country_BUL",
+      "given_removed": 1,
+      "surname_removed": 9,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 9
+      },
+      "samples": {
+        "female_given": [
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Sofia",
+          "Nicole",
+          "Michelle",
+          "Kendall",
+          "Ashley",
+          "Allison",
+          "Ruby"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CAM.json",
+      "pool_id": "country_CAM",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "not_latin_plausible": 1
+      },
+      "samples": {
+        "not_latin_plausible": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CAN.json",
+      "pool_id": "country_CAN",
+      "given_removed": 21,
+      "surname_removed": 203,
+      "reasons": {
+        "female_given": 21,
+        "female_given_surname_leak": 200,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given": [
+          "Kelly",
+          "Ashley",
+          "Lauren",
+          "Elizabeth",
+          "Mary",
+          "Marie",
+          "Carol",
+          "Barbara"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Dawn",
+          "Nicole",
+          "Jane",
+          "Ashley",
+          "Kendall",
+          "Michelle",
+          "Hannah"
+        ],
+        "placeholder": [
+          "Male",
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CGO.json",
+      "pool_id": "country_CGO",
+      "given_removed": 0,
+      "surname_removed": 29,
+      "reasons": {
+        "female_given_surname_leak": 29
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sita",
+          "Rosa",
+          "Michelle",
+          "Jessica",
+          "Monica",
+          "Maya",
+          "Amanda",
+          "Vanessa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CHI.json",
+      "pool_id": "country_CHI",
+      "given_removed": 2,
+      "surname_removed": 63,
+      "reasons": {
+        "female_given": 1,
+        "placeholder": 2,
+        "female_given_surname_leak": 62
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "placeholder": [
+          "Todo",
+          "Todo"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Valentina",
+          "Nicole",
+          "Camila",
+          "Elizabeth",
+          "Sofia",
+          "Scarlett",
+          "Michelle"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CHN.json",
+      "pool_id": "country_CHN",
+      "given_removed": 0,
+      "surname_removed": 113,
+      "reasons": {
+        "female_given_surname_leak": 110,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Jane",
+          "Harper",
+          "Crystal",
+          "Olivia",
+          "Nana",
+          "Sophia",
+          "Louise",
+          "Helen"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CIV.json",
+      "pool_id": "country_CIV",
+      "given_removed": 0,
+      "surname_removed": 76,
+      "reasons": {
+        "female_given_surname_leak": 76
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Mariam",
+          "Audrey",
+          "Sarah",
+          "Deborah",
+          "Stephanie",
+          "Sita",
+          "Nancy",
+          "Florence"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CMR.json",
+      "pool_id": "country_CMR",
+      "given_removed": 0,
+      "surname_removed": 123,
+      "reasons": {
+        "female_given_surname_leak": 122,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nana",
+          "Audrey",
+          "Michelle",
+          "Louise",
+          "Nicole",
+          "Bella",
+          "Jane",
+          "Vanessa"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_COD.json",
+      "pool_id": "country_COD",
+      "given_removed": 0,
+      "surname_removed": 54,
+      "reasons": {
+        "female_given_surname_leak": 54
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Sarah",
+          "Sandra",
+          "Nicole",
+          "Michelle",
+          "Betty",
+          "Vanessa",
+          "Stella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_COL.json",
+      "pool_id": "country_COL",
+      "given_removed": 1,
+      "surname_removed": 76,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 74,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Maya",
+          "Alba",
+          "Tatiana",
+          "Vanessa",
+          "Valentina",
+          "Sofia",
+          "Patricia"
+        ],
+        "placeholder": [
+          "Todo",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CPV.json",
+      "pool_id": "country_CPV",
+      "given_removed": 0,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given_surname_leak": 44
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Caroline",
+          "Carla",
+          "Vera",
+          "Natalia",
+          "Lauren",
+          "Julia",
+          "Harper"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CRC.json",
+      "pool_id": "country_CRC",
+      "given_removed": 1,
+      "surname_removed": 69,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 69
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Nicole",
+          "Vera",
+          "Rosa",
+          "Pamela",
+          "Kendall",
+          "Ashley",
+          "Shelby",
+          "Jane"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CRO.json",
+      "pool_id": "country_CRO",
+      "given_removed": 0,
+      "surname_removed": 3,
+      "reasons": {
+        "female_given_surname_leak": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Anna",
+          "Mia",
+          "Marta"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CUB.json",
+      "pool_id": "country_CUB",
+      "given_removed": 1,
+      "surname_removed": 47,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 47
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Camila",
+          "Teresa",
+          "Rosa",
+          "Jane",
+          "Amanda",
+          "Rachel",
+          "Pilar"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_CYP.json",
+      "skipped": true,
+      "pool_id": "country_CYP"
+    },
+    {
+      "path": "data\\name_pools\\country_CZE.json",
+      "pool_id": "country_CZE",
+      "given_removed": 0,
+      "surname_removed": 14,
+      "reasons": {
+        "female_given_surname_leak": 13,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Anna",
+          "Hana",
+          "Monika",
+          "Crystal",
+          "Willow",
+          "Vera",
+          "Sophie"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_DEN.json",
+      "pool_id": "country_DEN",
+      "given_removed": 0,
+      "surname_removed": 11,
+      "reasons": {
+        "female_given_surname_leak": 11
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Louise",
+          "Sofia",
+          "Christine",
+          "Olivia",
+          "Jane",
+          "Harper",
+          "Michelle",
+          "Isabella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_DOM.json",
+      "pool_id": "country_DOM",
+      "given_removed": 1,
+      "surname_removed": 83,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 83
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Mercedes",
+          "Rosa",
+          "Vera",
+          "Angeles",
+          "Alba",
+          "Paula",
+          "Michelle",
+          "Nicole"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ECU.json",
+      "pool_id": "country_ECU",
+      "given_removed": 2,
+      "surname_removed": 54,
+      "reasons": {
+        "female_given": 1,
+        "placeholder": 1,
+        "female_given_surname_leak": 54
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "placeholder": [
+          "Todo"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Elizabeth",
+          "Michelle",
+          "Maya",
+          "Katherine",
+          "Bella",
+          "Vanessa",
+          "Nicole"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_EGY.json",
+      "pool_id": "country_EGY",
+      "given_removed": 0,
+      "surname_removed": 80,
+      "reasons": {
+        "female_given_surname_leak": 79,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Zahra",
+          "Hana",
+          "Salma",
+          "Farah",
+          "Nana",
+          "Amira",
+          "Disha"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ENG.json",
+      "pool_id": "country_ENG",
+      "given_removed": 2,
+      "surname_removed": 157,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 154,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given": [
+          "Ashley",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Allison",
+          "Kendall",
+          "Ashley",
+          "Hannah",
+          "Brooke",
+          "Addison",
+          "Nicole"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ESP.json",
+      "pool_id": "country_ESP",
+      "given_removed": 1,
+      "surname_removed": 146,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 143,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Alba",
+          "Rosa",
+          "Maya",
+          "Angeles",
+          "Julia",
+          "Marina",
+          "Bella"
+        ],
+        "placeholder": [
+          "Todo",
+          "Male",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_EST.json",
+      "pool_id": "country_EST",
+      "given_removed": 0,
+      "surname_removed": 2,
+      "reasons": {
+        "female_given_surname_leak": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Lauren",
+          "Elizabeth"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ETH.json",
+      "pool_id": "country_ETH",
+      "given_removed": 0,
+      "surname_removed": 19,
+      "reasons": {
+        "female_given_surname_leak": 19
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Mariam",
+          "Mio",
+          "Yasmin",
+          "Teresa",
+          "Stella",
+          "Rosa",
+          "Patricia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_FIN.json",
+      "pool_id": "country_FIN",
+      "given_removed": 0,
+      "surname_removed": 13,
+      "reasons": {
+        "female_given_surname_leak": 13
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Vera",
+          "Rosa",
+          "Mia",
+          "Louise",
+          "Sofia",
+          "Sarah",
+          "Rita",
+          "Olivia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_FRA.json",
+      "pool_id": "country_FRA",
+      "given_removed": 1,
+      "surname_removed": 187,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 184,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Stephanie",
+          "Sarah",
+          "Catherine",
+          "Isabelle",
+          "Sophie",
+          "Julie",
+          "Laura",
+          "Christine"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_FRO.json",
+      "skipped": true,
+      "pool_id": "country_FRO"
+    },
+    {
+      "path": "data\\name_pools\\country_GEO.json",
+      "pool_id": "country_GEO",
+      "given_removed": 0,
+      "surname_removed": 72,
+      "reasons": {
+        "female_given_surname_leak": 72
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nicole",
+          "Harper",
+          "Michelle",
+          "Elizabeth",
+          "Allison",
+          "Denise",
+          "Ashley",
+          "Jane"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_GER.json",
+      "pool_id": "country_GER",
+      "given_removed": 0,
+      "surname_removed": 157,
+      "reasons": {
+        "female_given_surname_leak": 155,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sophie",
+          "Anna",
+          "Sarah",
+          "Jane",
+          "Bella",
+          "Tina",
+          "Lina",
+          "Lisa"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_GHA.json",
+      "pool_id": "country_GHA",
+      "given_removed": 0,
+      "surname_removed": 119,
+      "reasons": {
+        "female_given_surname_leak": 117,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nana",
+          "Emma",
+          "Addison",
+          "Bella",
+          "Abigail",
+          "Ashley",
+          "Sandra",
+          "Elizabeth"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_GRE.json",
+      "pool_id": "country_GRE",
+      "given_removed": 0,
+      "surname_removed": 16,
+      "reasons": {
+        "female_given_surname_leak": 16
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Anna",
+          "Christina",
+          "Zoe",
+          "Sofia",
+          "Vera",
+          "Serena",
+          "Nicole",
+          "Natalia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_GUA.json",
+      "pool_id": "country_GUA",
+      "given_removed": 1,
+      "surname_removed": 76,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 74,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Linda",
+          "Vera",
+          "Nicole",
+          "Rosa",
+          "Pamela",
+          "Melissa",
+          "Bella",
+          "Clara"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_GUI.json",
+      "pool_id": "country_GUI",
+      "given_removed": 0,
+      "surname_removed": 22,
+      "reasons": {
+        "female_given_surname_leak": 22
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sarah",
+          "Mariam",
+          "Bella",
+          "Stella",
+          "Fatima",
+          "Rita",
+          "Patricia",
+          "Noura"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_HAI.json",
+      "pool_id": "country_HAI",
+      "given_removed": 0,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given_surname_leak": 43,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Stephanie",
+          "Vanessa",
+          "Ashley",
+          "Sophie",
+          "Shelby",
+          "Nana",
+          "Jessica",
+          "Doris"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_HKG.json",
+      "pool_id": "country_HKG",
+      "given_removed": 1,
+      "surname_removed": 78,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 77,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Zoe",
+          "Jane",
+          "Nicole",
+          "Elizabeth",
+          "Yui",
+          "Lucy",
+          "Karen"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_HON.json",
+      "pool_id": "country_HON",
+      "given_removed": 1,
+      "surname_removed": 53,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 51,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Rosa",
+          "Vanessa",
+          "Nicole",
+          "Barbara",
+          "Abigail",
+          "Sofia",
+          "Raquel",
+          "Michelle"
+        ],
+        "placeholder": [
+          "Todo",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_HUN.json",
+      "pool_id": "country_HUN",
+      "given_removed": 0,
+      "surname_removed": 34,
+      "reasons": {
+        "female_given_surname_leak": 34
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Barbara",
+          "Petra",
+          "Anna",
+          "Gabriella",
+          "Laura",
+          "Rita",
+          "Bella",
+          "Patricia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_IRL.json",
+      "pool_id": "country_IRL",
+      "given_removed": 0,
+      "surname_removed": 54,
+      "reasons": {
+        "female_given_surname_leak": 54
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Harper",
+          "Jane",
+          "Louise",
+          "Elizabeth",
+          "Sarah",
+          "Allison",
+          "Hannah",
+          "Doris"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_IRN.json",
+      "pool_id": "country_IRN",
+      "given_removed": 0,
+      "surname_removed": 55,
+      "reasons": {
+        "female_given_surname_leak": 55
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Zahra",
+          "Noor",
+          "Iman",
+          "Harper",
+          "Shelby",
+          "Rosa",
+          "Nadia",
+          "Mercedes"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_IRQ.json",
+      "pool_id": "country_IRQ",
+      "given_removed": 0,
+      "surname_removed": 47,
+      "reasons": {
+        "female_given_surname_leak": 46,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Fatima",
+          "Sarah",
+          "Rania",
+          "Nana",
+          "Zainab",
+          "Shelby",
+          "Hana"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ISL.json",
+      "pool_id": "country_ISL",
+      "given_removed": 0,
+      "surname_removed": 5,
+      "reasons": {
+        "female_given_surname_leak": 5
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Karen",
+          "Anna",
+          "Lisa",
+          "Greta",
+          "Elisa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ISR.json",
+      "pool_id": "country_ISR",
+      "given_removed": 0,
+      "surname_removed": 42,
+      "reasons": {
+        "female_given_surname_leak": 41,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sharon",
+          "Rachel",
+          "Noor",
+          "Farah",
+          "Sofia",
+          "Monica",
+          "Maya",
+          "Leah"
+        ],
+        "placeholder": [
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ITA.json",
+      "pool_id": "country_ITA",
+      "given_removed": 1,
+      "surname_removed": 125,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 123,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Stella",
+          "Rosa",
+          "Diana",
+          "Chiara",
+          "Martina",
+          "Bella",
+          "Serena",
+          "Alba"
+        ],
+        "placeholder": [
+          "Male",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_JAM.json",
+      "pool_id": "country_JAM",
+      "given_removed": 2,
+      "surname_removed": 138,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 136,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Louise",
+          "Jane",
+          "Ashley",
+          "Nicole",
+          "Brooke",
+          "Scarlett",
+          "Lauren"
+        ],
+        "placeholder": [
+          "Male",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_JOR.json",
+      "pool_id": "country_JOR",
+      "given_removed": 0,
+      "surname_removed": 21,
+      "reasons": {
+        "female_given_surname_leak": 21
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Farah",
+          "Alia",
+          "Amira",
+          "Salma",
+          "Zahra",
+          "Rosa",
+          "Petra"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_JPN.json",
+      "pool_id": "country_JPN",
+      "given_removed": 4,
+      "surname_removed": 126,
+      "reasons": {
+        "jpn_female_leaning": 3,
+        "female_given": 1,
+        "female_given_surname_leak": 123,
+        "placeholder": 3
+      },
+      "samples": {
+        "jpn_female_leaning": [
+          "Hinata",
+          "Aoi",
+          "Rin"
+        ],
+        "female_given": [
+          "Mio"
+        ],
+        "female_given_surname_leak": [
+          "Sakura",
+          "Yuki",
+          "Misaki",
+          "Ashley",
+          "Rosa",
+          "Mio",
+          "Nicole",
+          "Harper"
+        ],
+        "placeholder": [
+          "Todo",
+          "Anonymous",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_KAZ.json",
+      "pool_id": "country_KAZ",
+      "given_removed": 0,
+      "surname_removed": 34,
+      "reasons": {
+        "female_given_surname_leak": 34
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nicole",
+          "Mia",
+          "Iman",
+          "Sandra",
+          "Ruby",
+          "Lisa",
+          "Karin",
+          "Vera"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_KEN.json",
+      "pool_id": "country_KEN",
+      "given_removed": 1,
+      "surname_removed": 138,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 136,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Farah",
+          "Noor",
+          "Sharon",
+          "Martha",
+          "Wanda",
+          "Brenda",
+          "Sarah",
+          "Lisa"
+        ],
+        "placeholder": [
+          "Male",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_KOR.json",
+      "pool_id": "country_KOR",
+      "given_removed": 0,
+      "surname_removed": 111,
+      "reasons": {
+        "female_given_surname_leak": 108,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Hana",
+          "Nana",
+          "Jane",
+          "Ashley",
+          "Yuki",
+          "Nicole",
+          "Michelle",
+          "Lisa"
+        ],
+        "placeholder": [
+          "Name",
+          "Todo",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_KOS.json",
+      "skipped": true,
+      "pool_id": "country_KOS"
+    },
+    {
+      "path": "data\\name_pools\\country_KSA.json",
+      "pool_id": "country_KSA",
+      "given_removed": 0,
+      "surname_removed": 80,
+      "reasons": {
+        "female_given_surname_leak": 78,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Sarah",
+          "Farah",
+          "Mia",
+          "Fatima",
+          "Linda",
+          "Bella",
+          "Zainab"
+        ],
+        "placeholder": [
+          "Anonymous",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_KUW.json",
+      "pool_id": "country_KUW",
+      "given_removed": 0,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given_surname_leak": 44
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Mia",
+          "Fatima",
+          "Farah",
+          "Sarah",
+          "Mariam",
+          "Salma",
+          "Nana"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LBN.json",
+      "pool_id": "country_LBN",
+      "given_removed": 0,
+      "surname_removed": 38,
+      "reasons": {
+        "female_given_surname_leak": 38
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Sarah",
+          "Nana",
+          "Zahra",
+          "Alia",
+          "Rita",
+          "Fatima",
+          "Yasmin"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LBR.json",
+      "pool_id": "country_LBR",
+      "given_removed": 1,
+      "surname_removed": 80,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 78,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Nicole",
+          "Harper",
+          "Elizabeth",
+          "Michelle",
+          "Paige",
+          "Ashley",
+          "Ruby",
+          "Hazel"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LBY.json",
+      "pool_id": "country_LBY",
+      "given_removed": 0,
+      "surname_removed": 20,
+      "reasons": {
+        "female_given_surname_leak": 20
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Sofia",
+          "Nana",
+          "Aisha",
+          "Souad",
+          "Serena",
+          "Salma",
+          "Ruby"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LTU.json",
+      "pool_id": "country_LTU",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Paula"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LUX.json",
+      "pool_id": "country_LUX",
+      "given_removed": 0,
+      "surname_removed": 20,
+      "reasons": {
+        "female_given_surname_leak": 20
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Stella",
+          "Diana",
+          "Alba",
+          "Francesca",
+          "Bella",
+          "Sandra",
+          "Rosa",
+          "Chiara"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_LVA.json",
+      "pool_id": "country_LVA",
+      "given_removed": 0,
+      "surname_removed": 8,
+      "reasons": {
+        "female_given_surname_leak": 8
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Anna",
+          "Paula",
+          "Linda",
+          "Marta",
+          "Laura",
+          "Vera",
+          "Diana",
+          "Amanda"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MAD.json",
+      "pool_id": "country_MAD",
+      "given_removed": 0,
+      "surname_removed": 43,
+      "reasons": {
+        "female_given_surname_leak": 41,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Emily",
+          "Stella",
+          "Noor",
+          "Maha",
+          "Leah",
+          "Jane",
+          "Emma",
+          "Sydney"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MAR.json",
+      "pool_id": "country_MAR",
+      "given_removed": 0,
+      "surname_removed": 62,
+      "reasons": {
+        "female_given_surname_leak": 61,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Bella",
+          "Salma",
+          "Khadija",
+          "Nana",
+          "Nadia",
+          "Fatima",
+          "Iman"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MDA.json",
+      "pool_id": "country_MDA",
+      "given_removed": 0,
+      "surname_removed": 5,
+      "reasons": {
+        "female_given_surname_leak": 5
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Cristina",
+          "Natalia",
+          "Irina",
+          "Diana",
+          "Tatiana"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MEX.json",
+      "pool_id": "country_MEX",
+      "given_removed": 5,
+      "surname_removed": 189,
+      "reasons": {
+        "female_given": 5,
+        "female_given_surname_leak": 185,
+        "placeholder": 4
+      },
+      "samples": {
+        "female_given": [
+          "Karen",
+          "Mary",
+          "Julia",
+          "Ashley",
+          "Zoe"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Angeles",
+          "Maya",
+          "Alba",
+          "Michelle",
+          "Abigail",
+          "Rosa",
+          "Sofia"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Todo",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MKD.json",
+      "pool_id": "country_MKD",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Donna"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MLI.json",
+      "pool_id": "country_MLI",
+      "given_removed": 0,
+      "surname_removed": 11,
+      "reasons": {
+        "female_given_surname_leak": 10,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Mariam",
+          "Paula",
+          "Mio",
+          "Linda",
+          "Julie",
+          "Harper",
+          "Elizabeth",
+          "Caroline"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MLT.json",
+      "pool_id": "country_MLT",
+      "given_removed": 0,
+      "surname_removed": 2,
+      "reasons": {
+        "female_given_surname_leak": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Zahra",
+          "Barbara"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MMR.json",
+      "pool_id": "country_MMR",
+      "given_removed": 0,
+      "surname_removed": 50,
+      "reasons": {
+        "female_given_surname_leak": 49,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Yuki",
+          "Zoe",
+          "Nicole",
+          "Lily",
+          "Stella",
+          "Olivia",
+          "Julia",
+          "Hana"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MOZ.json",
+      "pool_id": "country_MOZ",
+      "given_removed": 0,
+      "surname_removed": 25,
+      "reasons": {
+        "female_given_surname_leak": 25
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Shelby",
+          "Rosa",
+          "Patricia",
+          "Laura",
+          "Olga",
+          "Noor",
+          "Hana",
+          "Fatima"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_MRI.json",
+      "pool_id": "country_MRI",
+      "given_removed": 1,
+      "surname_removed": 187,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 184,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Stephanie",
+          "Sarah",
+          "Catherine",
+          "Isabelle",
+          "Sophie",
+          "Julie",
+          "Laura",
+          "Christine"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NCA.json",
+      "pool_id": "country_NCA",
+      "given_removed": 1,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 44
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Maya",
+          "Alba",
+          "Vanessa",
+          "Sofia",
+          "Tatiana",
+          "Shelby",
+          "Rosa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NCL.json",
+      "skipped": true,
+      "pool_id": "country_NCL"
+    },
+    {
+      "path": "data\\name_pools\\country_NED.json",
+      "pool_id": "country_NED",
+      "given_removed": 0,
+      "surname_removed": 99,
+      "reasons": {
+        "female_given_surname_leak": 98,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Martina",
+          "Anna",
+          "Louise",
+          "Noor",
+          "Rosa",
+          "Jane",
+          "Naomi",
+          "Lina"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NEP.json",
+      "pool_id": "country_NEP",
+      "given_removed": 0,
+      "surname_removed": 38,
+      "reasons": {
+        "female_given_surname_leak": 36,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Maya",
+          "Noor",
+          "Nicole",
+          "Rosa",
+          "Rebecca",
+          "Radha",
+          "Priya",
+          "Jane"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NIR.json",
+      "pool_id": "country_NIR",
+      "given_removed": 2,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given": [
+          "Ashley",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Harper"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NOR.json",
+      "pool_id": "country_NOR",
+      "given_removed": 0,
+      "surname_removed": 23,
+      "reasons": {
+        "female_given_surname_leak": 23
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Christine",
+          "Michelle",
+          "Noor",
+          "Sophie",
+          "Caroline",
+          "Vera",
+          "Irene",
+          "Farah"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_NZL.json",
+      "pool_id": "country_NZL",
+      "given_removed": 0,
+      "surname_removed": 94,
+      "reasons": {
+        "female_given_surname_leak": 91,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Jane",
+          "Harper",
+          "Ashley",
+          "Hannah",
+          "Louise",
+          "Brooke",
+          "Allison",
+          "Kendall"
+        ],
+        "placeholder": [
+          "Male",
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_OMA.json",
+      "pool_id": "country_OMA",
+      "given_removed": 0,
+      "surname_removed": 23,
+      "reasons": {
+        "female_given_surname_leak": 23
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Aisha",
+          "Shelby",
+          "Angela",
+          "Zainab",
+          "Rosa",
+          "Paula",
+          "Mia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_PAN.json",
+      "pool_id": "country_PAN",
+      "given_removed": 1,
+      "surname_removed": 66,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 65,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Michelle",
+          "Nicole",
+          "Vera",
+          "Raquel",
+          "Alba",
+          "Tatiana",
+          "Stephanie",
+          "Sofia"
+        ],
+        "placeholder": [
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_PAR.json",
+      "pool_id": "country_PAR",
+      "given_removed": 1,
+      "surname_removed": 20,
+      "reasons": {
+        "placeholder": 1,
+        "female_given_surname_leak": 20
+      },
+      "samples": {
+        "placeholder": [
+          "Todo"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Beatriz",
+          "Rosa",
+          "Elizabeth",
+          "Raquel",
+          "Diana",
+          "Shelby",
+          "Vanessa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_PER.json",
+      "pool_id": "country_PER",
+      "given_removed": 2,
+      "surname_removed": 81,
+      "reasons": {
+        "female_given": 1,
+        "placeholder": 1,
+        "female_given_surname_leak": 81
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "placeholder": [
+          "Todo"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Angeles",
+          "Laura",
+          "Elizabeth",
+          "Katherine",
+          "Nicole",
+          "Vanessa",
+          "Melissa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_PLE.json",
+      "pool_id": "country_PLE",
+      "given_removed": 0,
+      "surname_removed": 22,
+      "reasons": {
+        "female_given_surname_leak": 22
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Salma",
+          "Shelby",
+          "Sarah",
+          "Nana",
+          "Aisha",
+          "Yasmeen",
+          "Violet",
+          "Sydney"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_PNG.json",
+      "pool_id": "country_PNG",
+      "given_removed": 1,
+      "surname_removed": 40,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 40
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Nicole",
+          "Angeles",
+          "Jane",
+          "Yuki",
+          "Michelle",
+          "Louise",
+          "Gloria",
+          "Dawn"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_POL.json",
+      "pool_id": "country_POL",
+      "given_removed": 5,
+      "surname_removed": 28,
+      "reasons": {
+        "female_given": 4,
+        "english_junk_word": 1,
+        "female_given_surname_leak": 28
+      },
+      "samples": {
+        "female_given": [
+          "Sandra",
+          "Diana",
+          "Vanessa",
+          "Karen"
+        ],
+        "english_junk_word": [
+          "To"
+        ],
+        "female_given_surname_leak": [
+          "Anna",
+          "Rosa",
+          "Julia",
+          "Natalia",
+          "Marta",
+          "Monika",
+          "Laura",
+          "Sandra"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_POR.json",
+      "pool_id": "country_POR",
+      "given_removed": 0,
+      "surname_removed": 22,
+      "reasons": {
+        "female_given_surname_leak": 22
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Raquel",
+          "Sofia",
+          "Marta",
+          "Paula",
+          "Rita",
+          "Cristina",
+          "Barbara"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_QAT.json",
+      "pool_id": "country_QAT",
+      "given_removed": 0,
+      "surname_removed": 35,
+      "reasons": {
+        "female_given_surname_leak": 33,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Fatima",
+          "Farah",
+          "Ashley",
+          "Salma",
+          "Nancy",
+          "Mia",
+          "Mariam"
+        ],
+        "placeholder": [
+          "Todo",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ROU.json",
+      "pool_id": "country_ROU",
+      "given_removed": 0,
+      "surname_removed": 59,
+      "reasons": {
+        "female_given_surname_leak": 59
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Cristina",
+          "Diana",
+          "Laura",
+          "Alexa",
+          "Irina",
+          "Marina",
+          "Beatrice",
+          "Valentina"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_RSA.json",
+      "pool_id": "country_RSA",
+      "given_removed": 0,
+      "surname_removed": 170,
+      "reasons": {
+        "female_given_surname_leak": 167,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Jane",
+          "Linda",
+          "Ashley",
+          "Allison",
+          "Harper",
+          "Mia",
+          "Nicole",
+          "Lisa"
+        ],
+        "placeholder": [
+          "Male",
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_RUS.json",
+      "pool_id": "country_RUS",
+      "given_removed": 1,
+      "surname_removed": 48,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 46,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Karen"
+        ],
+        "female_given_surname_leak": [
+          "Olga",
+          "Anna",
+          "Anastasia",
+          "Lisa",
+          "Julia",
+          "Daria",
+          "Natalia",
+          "Jane"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_RWA.json",
+      "pool_id": "country_RWA",
+      "given_removed": 0,
+      "surname_removed": 47,
+      "reasons": {
+        "female_given_surname_leak": 47
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Vanessa",
+          "Rachel",
+          "Ines",
+          "Emma",
+          "Deborah",
+          "Sandra",
+          "Nicole",
+          "Nana"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SAM.json",
+      "skipped": true,
+      "pool_id": "country_SAM"
+    },
+    {
+      "path": "data\\name_pools\\country_SCO.json",
+      "pool_id": "country_SCO",
+      "given_removed": 2,
+      "surname_removed": 6,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 6
+      },
+      "samples": {
+        "female_given": [
+          "Ashley",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Hannah",
+          "Harper",
+          "Allison",
+          "Addison",
+          "Florence",
+          "Kendall"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SEN.json",
+      "pool_id": "country_SEN",
+      "given_removed": 0,
+      "surname_removed": 46,
+      "reasons": {
+        "female_given_surname_leak": 45,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Fatima",
+          "Khadija",
+          "Anna",
+          "Zahra",
+          "Stephanie",
+          "Sophie",
+          "Salma",
+          "Nancy"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SLV.json",
+      "pool_id": "country_SLV",
+      "given_removed": 1,
+      "surname_removed": 48,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 46,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Rosa",
+          "Michelle",
+          "Vanessa",
+          "Beatriz",
+          "Melissa",
+          "Bella",
+          "Abigail",
+          "Vera"
+        ],
+        "placeholder": [
+          "Todo",
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SOL.json",
+      "skipped": true,
+      "pool_id": "country_SOL"
+    },
+    {
+      "path": "data\\name_pools\\country_SOM.json",
+      "pool_id": "country_SOM",
+      "given_removed": 0,
+      "surname_removed": 24,
+      "reasons": {
+        "female_given_surname_leak": 24
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Noor",
+          "Iman",
+          "Diana",
+          "Bella",
+          "Francesca",
+          "Yasmin",
+          "Stella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SRB.json",
+      "pool_id": "country_SRB",
+      "given_removed": 0,
+      "surname_removed": 4,
+      "reasons": {
+        "female_given_surname_leak": 4
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Maya",
+          "Anna",
+          "Vera",
+          "Marina"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SUD.json",
+      "pool_id": "country_SUD",
+      "given_removed": 0,
+      "surname_removed": 26,
+      "reasons": {
+        "female_given_surname_leak": 25,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Farah",
+          "Shelby",
+          "Nana",
+          "Vanessa",
+          "Teresa",
+          "Sophia",
+          "Nadia"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SUR.json",
+      "skipped": true,
+      "pool_id": "country_SUR"
+    },
+    {
+      "path": "data\\name_pools\\country_SVK.json",
+      "pool_id": "country_SVK",
+      "given_removed": 0,
+      "surname_removed": 7,
+      "reasons": {
+        "female_given_surname_leak": 7
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Bella",
+          "Petra",
+          "Mia",
+          "Jane",
+          "Sarah",
+          "Rosa",
+          "Anna"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SVN.json",
+      "pool_id": "country_SVN",
+      "given_removed": 0,
+      "surname_removed": 5,
+      "reasons": {
+        "female_given_surname_leak": 5
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Nicole",
+          "Michelle",
+          "Elizabeth",
+          "Bella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SWE.json",
+      "pool_id": "country_SWE",
+      "given_removed": 0,
+      "surname_removed": 16,
+      "reasons": {
+        "female_given_surname_leak": 16
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Hannah",
+          "Silvia",
+          "Rosa",
+          "Noor",
+          "Kendall",
+          "Sophia",
+          "Sofia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_SYR.json",
+      "pool_id": "country_SYR",
+      "given_removed": 0,
+      "surname_removed": 49,
+      "reasons": {
+        "female_given_surname_leak": 48,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Farah",
+          "Noor",
+          "Zahra",
+          "Alia",
+          "Sandra",
+          "Lina",
+          "Vera",
+          "Sarah"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TAN.json",
+      "pool_id": "country_TAN",
+      "given_removed": 0,
+      "surname_removed": 43,
+      "reasons": {
+        "female_given_surname_leak": 41,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Emily",
+          "Stella",
+          "Noor",
+          "Maha",
+          "Leah",
+          "Jane",
+          "Emma",
+          "Sydney"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TGA.json",
+      "pool_id": "country_TGA",
+      "given_removed": 1,
+      "surname_removed": 0,
+      "reasons": {
+        "female_given": 1
+      },
+      "samples": {
+        "female_given": [
+          "Paula"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_THA.json",
+      "pool_id": "country_THA",
+      "given_removed": 1,
+      "surname_removed": 81,
+      "reasons": {
+        "english_junk_word": 1,
+        "female_given_surname_leak": 80,
+        "placeholder": 1
+      },
+      "samples": {
+        "english_junk_word": [
+          "Note"
+        ],
+        "female_given_surname_leak": [
+          "Nana",
+          "Jane",
+          "Hana",
+          "Bella",
+          "Yui",
+          "Harper",
+          "Maya",
+          "Nadia"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TJK.json",
+      "pool_id": "country_TJK",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TPE.json",
+      "pool_id": "country_TPE",
+      "given_removed": 1,
+      "surname_removed": 52,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 52
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Chloe",
+          "Lisa",
+          "Emily",
+          "Yui",
+          "Olivia",
+          "Michelle",
+          "Lydia",
+          "Jennifer"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TTO.json",
+      "pool_id": "country_TTO",
+      "given_removed": 0,
+      "surname_removed": 29,
+      "reasons": {
+        "female_given_surname_leak": 29
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sydney",
+          "Harper",
+          "Vera",
+          "Jasmine",
+          "Violet",
+          "Stephanie",
+          "Savannah",
+          "Rita"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TUN.json",
+      "pool_id": "country_TUN",
+      "given_removed": 0,
+      "surname_removed": 29,
+      "reasons": {
+        "female_given_surname_leak": 29
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Bella",
+          "Farah",
+          "Amira",
+          "Salma",
+          "Maha",
+          "Rania",
+          "Ines",
+          "Sarah"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_TUR.json",
+      "pool_id": "country_TUR",
+      "given_removed": 0,
+      "surname_removed": 111,
+      "reasons": {
+        "female_given_surname_leak": 110,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Shelby",
+          "Maya",
+          "Vera",
+          "Susan",
+          "Rosa",
+          "Mia",
+          "Bella",
+          "Yasmin"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_UAE.json",
+      "pool_id": "country_UAE",
+      "given_removed": 0,
+      "surname_removed": 102,
+      "reasons": {
+        "female_given_surname_leak": 100,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Farah",
+          "Fatima",
+          "Jane",
+          "Hannah",
+          "Zahra",
+          "Harper",
+          "Michelle"
+        ],
+        "placeholder": [
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_UGA.json",
+      "pool_id": "country_UGA",
+      "given_removed": 1,
+      "surname_removed": 114,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 113,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Emma",
+          "Gloria",
+          "Sarah",
+          "Martha",
+          "Brenda",
+          "Elizabeth",
+          "Sharon",
+          "Diana"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_UKR.json",
+      "pool_id": "country_UKR",
+      "given_removed": 1,
+      "surname_removed": 14,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 14
+      },
+      "samples": {
+        "female_given": [
+          "Karen"
+        ],
+        "female_given_surname_leak": [
+          "Anna",
+          "Olga",
+          "Julia",
+          "Helen",
+          "Diana",
+          "Ashley",
+          "Yulia",
+          "Olivia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_URU.json",
+      "pool_id": "country_URU",
+      "given_removed": 2,
+      "surname_removed": 16,
+      "reasons": {
+        "placeholder": 1,
+        "female_given": 1,
+        "female_given_surname_leak": 16
+      },
+      "samples": {
+        "placeholder": [
+          "Todo"
+        ],
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Rosa",
+          "Alba",
+          "Natalia",
+          "Maya",
+          "Clara",
+          "Diana",
+          "Paula"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_USA.json",
+      "pool_id": "country_USA",
+      "given_removed": 2,
+      "surname_removed": 226,
+      "reasons": {
+        "female_given": 1,
+        "english_junk_word": 1,
+        "female_given_surname_leak": 222,
+        "placeholder": 4
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "english_junk_word": [
+          "Lane"
+        ],
+        "female_given_surname_leak": [
+          "Nicole",
+          "Harper",
+          "Michelle",
+          "Ashley",
+          "Jane",
+          "Paige",
+          "Dawn",
+          "Brooke"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous",
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_UZB.json",
+      "pool_id": "country_UZB",
+      "given_removed": 0,
+      "surname_removed": 2,
+      "reasons": {
+        "female_given_surname_leak": 1,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Nana"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_VAN.json",
+      "skipped": true,
+      "pool_id": "country_VAN"
+    },
+    {
+      "path": "data\\name_pools\\country_VEN.json",
+      "pool_id": "country_VEN",
+      "given_removed": 2,
+      "surname_removed": 91,
+      "reasons": {
+        "female_given": 1,
+        "placeholder": 2,
+        "female_given_surname_leak": 90
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "placeholder": [
+          "Todo",
+          "Todo"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Valentina",
+          "Vanessa",
+          "Sofia",
+          "Cristina",
+          "Rosa",
+          "Patricia",
+          "Bella"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_VIE.json",
+      "pool_id": "country_VIE",
+      "given_removed": 0,
+      "surname_removed": 78,
+      "reasons": {
+        "female_given_surname_leak": 77,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Hana",
+          "Ruby",
+          "Yuki",
+          "Shelby",
+          "Amy",
+          "Zoe",
+          "Misaki",
+          "Mia"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_VIN.json",
+      "pool_id": "country_VIN",
+      "given_removed": 2,
+      "surname_removed": 57,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 56,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Joan",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Charlotte",
+          "Nicole",
+          "Harper",
+          "Michelle",
+          "Paige",
+          "Ashley",
+          "Jane",
+          "Kendall"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_WAL.json",
+      "pool_id": "country_WAL",
+      "given_removed": 2,
+      "surname_removed": 7,
+      "reasons": {
+        "female_given": 2,
+        "female_given_surname_leak": 7
+      },
+      "samples": {
+        "female_given": [
+          "Ashley",
+          "Bailey"
+        ],
+        "female_given_surname_leak": [
+          "Harper",
+          "Allison",
+          "Kendall",
+          "Ashley",
+          "Hannah",
+          "Brooke",
+          "Addison"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ZAM.json",
+      "pool_id": "country_ZAM",
+      "given_removed": 1,
+      "surname_removed": 64,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 63,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Sydney",
+          "Nicole",
+          "Jane",
+          "Harper",
+          "Genesis",
+          "Elizabeth",
+          "Willow",
+          "Violet"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\country_ZIM.json",
+      "pool_id": "country_ZIM",
+      "given_removed": 0,
+      "surname_removed": 57,
+      "reasons": {
+        "female_given_surname_leak": 55,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Vera",
+          "Jane",
+          "Michelle",
+          "Nicole",
+          "Mia",
+          "Leah",
+          "Hazel",
+          "Caroline"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_afghanistan_dari.json",
+      "pool_id": "custom_afghanistan_dari",
+      "given_removed": 0,
+      "surname_removed": 66,
+      "reasons": {
+        "female_given_surname_leak": 66
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor",
+          "Rosa",
+          "Cristina",
+          "Paula",
+          "Sophia",
+          "Shelby",
+          "Mia",
+          "Linda"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_african_american.json",
+      "pool_id": "custom_african_american",
+      "given_removed": 1,
+      "surname_removed": 0,
+      "reasons": {
+        "female_given": 1
+      },
+      "samples": {
+        "female_given": [
+          "Kendall"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_belgium_dutch.json",
+      "pool_id": "custom_belgium_dutch",
+      "given_removed": 0,
+      "surname_removed": 100,
+      "reasons": {
+        "female_given_surname_leak": 99,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sarah",
+          "Sophie",
+          "Laura",
+          "Stephanie",
+          "Patricia",
+          "Caroline",
+          "Isabelle",
+          "Catherine"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_belgium_french.json",
+      "pool_id": "custom_belgium_french",
+      "given_removed": 0,
+      "surname_removed": 100,
+      "reasons": {
+        "female_given_surname_leak": 99,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Sarah",
+          "Sophie",
+          "Laura",
+          "Stephanie",
+          "Patricia",
+          "Caroline",
+          "Isabelle",
+          "Catherine"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_catalan.json",
+      "pool_id": "custom_catalan",
+      "given_removed": 3,
+      "surname_removed": 6,
+      "reasons": {
+        "female_given": 1,
+        "female_token_in_compound": 2,
+        "female_given_surname_leak": 6
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_token_in_compound": [
+          "Josep Maria",
+          "Joan Pau"
+        ],
+        "female_given_surname_leak": [
+          "Vera",
+          "Alba",
+          "Rosa",
+          "Julia",
+          "Jane",
+          "Maya"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_dutch_caribbean.json",
+      "pool_id": "custom_dutch_caribbean",
+      "given_removed": 0,
+      "surname_removed": 99,
+      "reasons": {
+        "female_given_surname_leak": 98,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Martina",
+          "Anna",
+          "Louise",
+          "Noor",
+          "Rosa",
+          "Jane",
+          "Naomi",
+          "Lina"
+        ],
+        "placeholder": [
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_fiji_indian.json",
+      "pool_id": "custom_fiji_indian",
+      "given_removed": 1,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given": [
+          "Noor"
+        ],
+        "female_given_surname_leak": [
+          "Noor"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_fiji_indigenous.json",
+      "skipped": true,
+      "pool_id": "custom_fiji_indigenous"
+    },
+    {
+      "path": "data\\name_pools\\custom_french_canadian.json",
+      "skipped": true,
+      "pool_id": "custom_french_canadian"
+    },
+    {
+      "path": "data\\name_pools\\custom_french_caribbean.json",
+      "pool_id": "custom_french_caribbean",
+      "given_removed": 0,
+      "surname_removed": 187,
+      "reasons": {
+        "female_given_surname_leak": 184,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Stephanie",
+          "Sarah",
+          "Catherine",
+          "Isabelle",
+          "Sophie",
+          "Julie",
+          "Laura",
+          "Christine"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_gibraltar.json",
+      "skipped": true,
+      "pool_id": "custom_gibraltar"
+    },
+    {
+      "path": "data\\name_pools\\custom_india_bengali.json",
+      "pool_id": "custom_india_bengali",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Mia"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_india_gangetic.json",
+      "skipped": true,
+      "pool_id": "custom_india_gangetic"
+    },
+    {
+      "path": "data\\name_pools\\custom_india_punjabi.json",
+      "skipped": true,
+      "pool_id": "custom_india_punjabi"
+    },
+    {
+      "path": "data\\name_pools\\custom_indonesia_javanese.json",
+      "pool_id": "custom_indonesia_javanese",
+      "given_removed": 1,
+      "surname_removed": 206,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 202,
+        "placeholder": 4
+      },
+      "samples": {
+        "female_given": [
+          "Riko"
+        ],
+        "female_given_surname_leak": [
+          "Amelia",
+          "Natalia",
+          "Amanda",
+          "Monica",
+          "Diana",
+          "Zahra",
+          "Huda",
+          "Olivia"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous",
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_indonesia_other.json",
+      "pool_id": "custom_indonesia_other",
+      "given_removed": 0,
+      "surname_removed": 206,
+      "reasons": {
+        "female_given_surname_leak": 202,
+        "placeholder": 4
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Amelia",
+          "Natalia",
+          "Amanda",
+          "Monica",
+          "Diana",
+          "Zahra",
+          "Huda",
+          "Olivia"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous",
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_indonesia_sumatran.json",
+      "pool_id": "custom_indonesia_sumatran",
+      "given_removed": 0,
+      "surname_removed": 206,
+      "reasons": {
+        "female_given_surname_leak": 202,
+        "placeholder": 4
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Amelia",
+          "Natalia",
+          "Amanda",
+          "Monica",
+          "Diana",
+          "Zahra",
+          "Huda",
+          "Olivia"
+        ],
+        "placeholder": [
+          "Name",
+          "Male",
+          "Anonymous",
+          "Todo"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_kannada.json",
+      "skipped": true,
+      "pool_id": "custom_kannada"
+    },
+    {
+      "path": "data\\name_pools\\custom_malaylam.json",
+      "skipped": true,
+      "pool_id": "custom_malaylam"
+    },
+    {
+      "path": "data\\name_pools\\custom_malaysia_chinese.json",
+      "pool_id": "custom_malaysia_chinese",
+      "given_removed": 1,
+      "surname_removed": 0,
+      "reasons": {
+        "female_token_in_compound": 1
+      },
+      "samples": {
+        "female_token_in_compound": [
+          "Kian Ann"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_malaysia_malay.json",
+      "pool_id": "custom_malaysia_malay",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_melanesia.json",
+      "pool_id": "custom_melanesia",
+      "given_removed": 1,
+      "surname_removed": 40,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 40
+      },
+      "samples": {
+        "female_given": [
+          "Paula"
+        ],
+        "female_given_surname_leak": [
+          "Nicole",
+          "Angeles",
+          "Jane",
+          "Yuki",
+          "Michelle",
+          "Louise",
+          "Gloria",
+          "Dawn"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_myanmar.json",
+      "pool_id": "custom_myanmar",
+      "given_removed": 0,
+      "surname_removed": 50,
+      "reasons": {
+        "female_given_surname_leak": 49,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Yuki",
+          "Zoe",
+          "Nicole",
+          "Lily",
+          "Stella",
+          "Olivia",
+          "Julia",
+          "Hana"
+        ],
+        "placeholder": [
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_new_zealand_m_ori.json",
+      "pool_id": "custom_new_zealand_m_ori",
+      "given_removed": 0,
+      "surname_removed": 94,
+      "reasons": {
+        "female_given_surname_leak": 91,
+        "placeholder": 3
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Jane",
+          "Harper",
+          "Ashley",
+          "Hannah",
+          "Louise",
+          "Brooke",
+          "Allison",
+          "Kendall"
+        ],
+        "placeholder": [
+          "Male",
+          "Name",
+          "Anonymous"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaDelta.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaDelta"
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaFulani.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaFulani"
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaHausa.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaHausa"
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaIgbo.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaIgbo"
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaMiddleBelt.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaMiddleBelt"
+    },
+    {
+      "path": "data\\name_pools\\custom_nigeriaYoruba.json",
+      "skipped": true,
+      "pool_id": "custom_nigeriaYoruba"
+    },
+    {
+      "path": "data\\name_pools\\custom_pakistan_pashtun.json",
+      "pool_id": "custom_pakistan_pashtun",
+      "given_removed": 1,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given": [
+          "Noor"
+        ],
+        "female_given_surname_leak": [
+          "Swati"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_pakistan_punjabi.json",
+      "skipped": true,
+      "pool_id": "custom_pakistan_punjabi"
+    },
+    {
+      "path": "data\\name_pools\\custom_pakistan_sindhi.json",
+      "pool_id": "custom_pakistan_sindhi",
+      "given_removed": 3,
+      "surname_removed": 0,
+      "reasons": {
+        "female_given": 1,
+        "female_token_in_compound": 2
+      },
+      "samples": {
+        "female_given": [
+          "Noor"
+        ],
+        "female_token_in_compound": [
+          "Noor Muhammad",
+          "Noor Ahmed"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_pays_basque.json",
+      "skipped": true,
+      "pool_id": "custom_pays_basque"
+    },
+    {
+      "path": "data\\name_pools\\custom_philippines_tagalog.json",
+      "pool_id": "custom_philippines_tagalog",
+      "given_removed": 1,
+      "surname_removed": 186,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 184,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Jane",
+          "Angeles",
+          "Nicole",
+          "Louise",
+          "Angela",
+          "Alba",
+          "Dawn",
+          "Michelle"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_philippines_visayan.json",
+      "pool_id": "custom_philippines_visayan",
+      "given_removed": 1,
+      "surname_removed": 186,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 184,
+        "placeholder": 2
+      },
+      "samples": {
+        "female_given": [
+          "Joan"
+        ],
+        "female_given_surname_leak": [
+          "Jane",
+          "Angeles",
+          "Nicole",
+          "Louise",
+          "Angela",
+          "Alba",
+          "Dawn",
+          "Michelle"
+        ],
+        "placeholder": [
+          "Name",
+          "Male"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_polynesia.json",
+      "skipped": true,
+      "pool_id": "custom_polynesia"
+    },
+    {
+      "path": "data\\name_pools\\custom_puerto_rico.json",
+      "pool_id": "custom_puerto_rico",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_singapore_chinese.json",
+      "pool_id": "custom_singapore_chinese",
+      "given_removed": 1,
+      "surname_removed": 0,
+      "reasons": {
+        "female_token_in_compound": 1
+      },
+      "samples": {
+        "female_token_in_compound": [
+          "Kian Ann"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_singapore_malay.json",
+      "pool_id": "custom_singapore_malay",
+      "given_removed": 0,
+      "surname_removed": 1,
+      "reasons": {
+        "female_given_surname_leak": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Noor"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_sri_lanka_sinhala.json",
+      "skipped": true,
+      "pool_id": "custom_sri_lanka_sinhala"
+    },
+    {
+      "path": "data\\name_pools\\custom_suriname_hindustani.json",
+      "skipped": true,
+      "pool_id": "custom_suriname_hindustani"
+    },
+    {
+      "path": "data\\name_pools\\custom_swiss_french.json",
+      "pool_id": "custom_swiss_french",
+      "given_removed": 0,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given_surname_leak": 43,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Nicole",
+          "Jane",
+          "Harper",
+          "Cristina",
+          "Vera",
+          "Laura",
+          "Caroline"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_swiss_german.json",
+      "pool_id": "custom_swiss_german",
+      "given_removed": 1,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given": 1,
+        "female_given_surname_leak": 43,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given": [
+          "Mio"
+        ],
+        "female_given_surname_leak": [
+          "Rosa",
+          "Nicole",
+          "Jane",
+          "Harper",
+          "Cristina",
+          "Vera",
+          "Laura",
+          "Caroline"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_swiss_italian.json",
+      "pool_id": "custom_swiss_italian",
+      "given_removed": 0,
+      "surname_removed": 44,
+      "reasons": {
+        "female_given_surname_leak": 43,
+        "placeholder": 1
+      },
+      "samples": {
+        "female_given_surname_leak": [
+          "Rosa",
+          "Nicole",
+          "Jane",
+          "Harper",
+          "Cristina",
+          "Vera",
+          "Laura",
+          "Caroline"
+        ],
+        "placeholder": [
+          "Name"
+        ]
+      }
+    },
+    {
+      "path": "data\\name_pools\\custom_tamil.json",
+      "skipped": true,
+      "pool_id": "custom_tamil"
+    },
+    {
+      "path": "data\\name_pools\\custom_telugu.json",
+      "skipped": true,
+      "pool_id": "custom_telugu"
+    },
+    {
+      "path": "data\\name_pools\\custom_us_hispanic.json",
+      "skipped": true,
+      "pool_id": "custom_us_hispanic"
+    },
+    {
+      "path": "data\\name_pools\\custom_us_modern.json",
+      "pool_id": "custom_us_modern",
+      "given_removed": 1,
+      "surname_removed": 0,
+      "reasons": {
+        "english_junk_word": 1
+      },
+      "samples": {
+        "english_junk_word": [
+          "Lane"
+        ]
+      }
+    }
+  ],
+  "totals": {
+    "files_changed": 161,
+    "given_removed": 113,
+    "surname_removed": 9264
+  }
+}

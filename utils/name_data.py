@@ -4,8 +4,10 @@ Name data structures for realistic player name generation.
 Loads country-specific name pools (tiered) from data/name_pools/ (country_*.json,
 custom_*.json). Optional per-pool fields `middle_name_prob`, `compound_surname_prob`, and
 `surname_connector` in each JSON drive name_generation (not the heritage composition split).
-Custom pools may set `surname_inherit_pool_id` (e.g. country_USA) instead of duplicating
-`surnames`; resolved after all pools load.
+Custom pools may set `surname_inherit_pool_id` (e.g. country_XXX) instead of duplicating
+`surnames`; resolved after all pools load. The US ethnicity pools (`custom_us_hispanic`,
+`custom_us_modern`, `custom_african_american`) use empty `surnames` tiers in JSON and rely on
+runtime sampling from `country_USA` (see `effective_surname_pool_for_sampling` in name_generation).
 
 Heritage, federation, and optional JSON mirrors come from
 data/heritage_composition/FullHeritageAndNamingComposition.txt at import
@@ -28,7 +30,7 @@ import copy
 import json
 import re
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 _BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,32 +39,110 @@ _COMPOSITION_DIR = _BASE_DIR / "data" / "heritage_composition"
 _LOCAL_CORE_FILE = _COMPOSITION_DIR / "local_core_naming_pools.json"
 _LEGACY_POOL_FILENAME = re.compile(r"^[A-Z]{3}\.json$")
 
-# ── Defaults ──────────────────────────────────────────────────────────────────
-DEFAULT_GIVEN_NAME_TIER_PROBS = {
-    "very_common": 0.55,
-    "common": 0.30,
-    "mid": 0.13,
-    "rare": 0.02
-}
+# ── Name pool tiers (master CSV rank bands; see scripts/import_master_name_pools.py) ──
+NAME_POOL_TIER_KEYS: Tuple[str, ...] = (
+    "top",
+    "very_common",
+    "common",
+    "familiar",
+    "uncommon",
+    "rare",
+    "very_rare",
+)
 
-DEFAULT_SURNAME_TIER_PROBS = {
-    "very_common": 0.45,
-    "common": 0.35,
-    "mid": 0.17,
-    "rare": 0.03
-}
+# Temporary uniform sampling until per-pool `rarity_profile` resolves to weights.
+_UNIFORM = 1.0 / len(NAME_POOL_TIER_KEYS)
+DEFAULT_GIVEN_NAME_TIER_PROBS: Dict[str, float] = {k: _UNIFORM for k in NAME_POOL_TIER_KEYS}
+DEFAULT_SURNAME_TIER_PROBS: Dict[str, float] = {k: _UNIFORM for k in NAME_POOL_TIER_KEYS}
 
-# Compound surname tier bias (for surname2)
-# 70% common/common, 25% common/mid, 5% mid/mid, ~0-2% rare involvement
-COMPOUND_SURNAME_TIER_BIAS = {
-    ("common", "common"): 0.70,
-    ("common", "mid"): 0.25,
-    ("mid", "mid"): 0.05,
-    ("very_common", "common"): 0.00,
-    ("common", "rare"): 0.00,
-    ("mid", "rare"): 0.00,
-    ("rare", "rare"): 0.00
-}
+# Legacy 4-tier keys (pre–7-tier pools); flattened then re-bucketed by list position on load.
+_LEGACY_TIER_ORDER = ("very_common", "common", "mid", "rare")
+
+
+def tier_key_for_pool_seq(seq: int) -> str:
+    """Map 1-based rank (pool_seq) to tier key."""
+    if seq <= 0:
+        return "very_rare"
+    if seq <= 5:
+        return "top"
+    if seq <= 15:
+        return "very_common"
+    if seq <= 30:
+        return "common"
+    if seq <= 75:
+        return "familiar"
+    if seq <= 250:
+        return "uncommon"
+    if seq <= 1000:
+        return "rare"
+    return "very_rare"
+
+
+def _normalize_tiered_block(block: Any) -> Dict[str, List[str]]:
+    """Ensure all NAME_POOL_TIER_KEYS exist. Legacy 4-tier dicts are re-bucketed by global rank order."""
+    if not isinstance(block, dict):
+        return {k: [] for k in NAME_POOL_TIER_KEYS}
+    keys_present = set(block.keys())
+    has_all_seven = all(k in keys_present for k in NAME_POOL_TIER_KEYS)
+    if has_all_seven:
+        out: Dict[str, List[str]] = {k: [] for k in NAME_POOL_TIER_KEYS}
+        for k in NAME_POOL_TIER_KEYS:
+            for x in block.get(k) or []:
+                if isinstance(x, str) and x.strip():
+                    out[k].append(x.strip())
+        return out
+    # Legacy or mixed: flatten old order, dedupe, assign tier by 1-based index
+    flat: List[str] = []
+    seen: Set[str] = set()
+    for k in _LEGACY_TIER_ORDER:
+        for x in block.get(k) or []:
+            if not isinstance(x, str):
+                continue
+            n = x.strip()
+            if not n:
+                continue
+            cf = n.casefold()
+            if cf in seen:
+                continue
+            seen.add(cf)
+            flat.append(n)
+    out = {k: [] for k in NAME_POOL_TIER_KEYS}
+    for i, name in enumerate(flat, start=1):
+        out[tier_key_for_pool_seq(i)].append(name)
+    return out
+
+
+def _normalize_tier_probs(data: dict) -> Optional[Dict[str, Dict[str, float]]]:
+    """
+    Return tier_probs dict with given/surname each summing to 1 over NAME_POOL_TIER_KEYS.
+    If missing or wrong shape, use uniform defaults.
+    """
+    raw = data.get("tier_probs")
+    if not isinstance(raw, dict):
+        return None
+    out: Dict[str, Dict[str, float]] = {}
+    for branch in ("given", "surname"):
+        p = raw.get(branch)
+        if not isinstance(p, dict):
+            out[branch] = dict(DEFAULT_GIVEN_NAME_TIER_PROBS if branch == "given" else DEFAULT_SURNAME_TIER_PROBS)
+            continue
+        if set(p.keys()) == set(NAME_POOL_TIER_KEYS):
+            s = sum(float(p[k]) for k in NAME_POOL_TIER_KEYS)
+            if s > 0:
+                out[branch] = {k: float(p[k]) / s for k in NAME_POOL_TIER_KEYS}
+            else:
+                out[branch] = dict(
+                    DEFAULT_GIVEN_NAME_TIER_PROBS if branch == "given" else DEFAULT_SURNAME_TIER_PROBS
+                )
+        else:
+            out[branch] = dict(
+                DEFAULT_GIVEN_NAME_TIER_PROBS if branch == "given" else DEFAULT_SURNAME_TIER_PROBS
+            )
+    return out
+
+
+# Deprecated: old pair-based compound bias (7-tier compound uses simplified roll in name_generation).
+COMPOUND_SURNAME_TIER_BIAS: Dict[Tuple[str, str], float] = {}
 
 # ── Load name pools from JSON ─────────────────────────────────────────────────
 # Primary key: FIFA-style country code (e.g. ENG). Also indexed by pool_id in NAME_POOLS_BY_ID.
@@ -177,8 +257,8 @@ def _ingest_surname_inherit_pool(data: dict) -> None:
         )
         return
     tiered = {
-        "given_names_male": data["given_names_male"],
-        "surnames": copy.deepcopy(ref["surnames"]),
+        "given_names_male": _normalize_tiered_block(data.get("given_names_male")),
+        "surnames": _normalize_tiered_block(copy.deepcopy(ref.get("surnames"))),
     }
     is_custom = pool_id.startswith("custom_")
     _register_tiered_pool(pool_id, code, tiered, is_custom)
@@ -198,14 +278,16 @@ def _ingest_name_pool_file(json_file: Path, data: dict) -> None:
         return
     if "given_names_male" in data and "surnames" in data:
         tiered = {
-            "given_names_male": data["given_names_male"],
-            "surnames": data["surnames"],
+            "given_names_male": _normalize_tiered_block(data.get("given_names_male")),
+            "surnames": _normalize_tiered_block(data.get("surnames")),
         }
         _register_tiered_pool(pool_id, code, tiered, is_custom)
         _register_pool_optional_fields(pool_id, data)
-    # Optional: tier probabilities
+    # Optional: tier probabilities (7-tier; normalized for country pools)
     if "tier_probs" in data and not is_custom:
-        COUNTRY_TIER_PROBS[code] = data["tier_probs"]
+        tp = _normalize_tier_probs(data)
+        if tp is not None:
+            COUNTRY_TIER_PROBS[code] = tp
 
 
 def _load_name_pools():
