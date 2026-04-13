@@ -4,22 +4,22 @@
   "country_name": "United States (Hispanic / Chicano)",
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.09,
+      "very_common": 0.13,
+      "common": 0.14,
+      "familiar": 0.19,
+      "uncommon": 0.18,
+      "rare": 0.26999999999999996,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,
@@ -60,9 +60,7 @@
       "Cesar",
       "Oscar",
       "Alberto",
-      "Armando"
-    ],
-    "familiar": [
+      "Armando",
       "Pedro",
       "Gabriel",
       "Emilio",
@@ -71,7 +69,9 @@
       "Arturo",
       "Salvador",
       "Ramon",
-      "Julio",
+      "Julio"
+    ],
+    "familiar": [
       "Marco",
       "Martin",
       "Enrique",
@@ -230,9 +230,7 @@
       "Moreno",
       "Herrera",
       "Fernandez",
-      "Ramos"
-    ],
-    "familiar": [
+      "Ramos",
       "Medina",
       "Chavez",
       "Mendez",
@@ -241,7 +239,9 @@
       "Guzman",
       "Vargas",
       "Salazar",
-      "Rojas",
+      "Rojas"
+    ],
+    "familiar": [
       "Ortega",
       "Juarez",
       "Muñoz",
@@ -453,10 +453,10 @@
       "Barragan",
       "Hurtado",
       "Granados",
-      "Felix"
+      "Felix",
+      "Hidalgo"
     ],
     "rare": [
-      "Hidalgo",
       "Gamez",
       "Betancourt",
       "Barron",
@@ -1094,7 +1094,7 @@
       "Rodas",
       "Mauricio",
       "Mariana",
-      "García M",
+      "García",
       "Bracho",
       "Barranco",
       "Sanabria",
@@ -1108,9 +1108,7 @@
       "Soler",
       "Siller",
       "Osornio",
-      "Izaguirre"
-    ],
-    "very_rare": [
+      "Izaguirre",
       "Colmenares",
       "Bejarano",
       "Villagran",
@@ -1208,7 +1206,9 @@
       "Tavera",
       "Secas",
       "Raya",
-      "Pascual",
+      "Pascual"
+    ],
+    "very_rare": [
       "Palacio",
       "Orihuela",
       "Menendez",

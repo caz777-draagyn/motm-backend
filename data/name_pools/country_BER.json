@@ -36,9 +36,7 @@
       "Samuel",
       "Jack",
       "Elijah",
-      "Ben"
-    ],
-    "familiar": [
+      "Ben",
       "Isaiah",
       "Steve",
       "Mason",
@@ -47,7 +45,9 @@
       "Jacob",
       "Caleb",
       "Nick",
-      "Dylan",
+      "Dylan"
+    ],
+    "familiar": [
       "Matthew",
       "Christian",
       "Adam",
@@ -477,9 +477,7 @@
       "Roberts",
       "Hayward",
       "Minors",
-      "Ming"
-    ],
-    "familiar": [
+      "Ming",
       "Hollis",
       "Douglas",
       "Raynor",
@@ -488,7 +486,9 @@
       "Pearman",
       "Daniels",
       "Francis",
-      "Thompson",
+      "Thompson"
+    ],
+    "familiar": [
       "Burrows",
       "Brangman",
       "Lambert",
@@ -524,10 +524,10 @@
       "Rawlins",
       "Woolridge",
       "Talbot",
-      "Ingham",
-      "Pitcher"
+      "Ingham"
     ],
     "uncommon": [
+      "Pitcher",
       "Edwards",
       "Eve",
       "Burchall",
@@ -668,7 +668,6 @@
       "Virgil",
       "Black",
       "Boyles",
-      "de Silva",
       "Fraser",
       "Gomes",
       "Greene",
@@ -677,6 +676,7 @@
       "Santucci",
       "Washington",
       "Webb",
+      "de Silva",
       "Carlington",
       "Cross",
       "Dawson",
@@ -701,12 +701,12 @@
       "Godfrey",
       "Henderson",
       "Looby",
-      "Rabain",
-      "Rance",
-      "Saltus",
-      "Spence"
+      "Rabain"
     ],
     "rare": [
+      "Rance",
+      "Saltus",
+      "Spence",
       "Amaral",
       "Arnold",
       "Brooks",
@@ -928,7 +928,6 @@
       "Dale",
       "Daniel",
       "Dasilva",
-      "de Frias",
       "Desousa",
       "Fowle",
       "Goodchild",
@@ -963,6 +962,7 @@
       "Wadson",
       "Wakefield",
       "Wood",
+      "de Frias",
       "Anthony",
       "Attride-Stirling",
       "Barbosa",
@@ -1433,22 +1433,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

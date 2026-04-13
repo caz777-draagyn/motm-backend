@@ -216,6 +216,10 @@ def _composition_label_to_pool_id() -> Dict[str, str]:
         "nigeriahausa": "custom_nigeriaHausa",
         "nigeriamiddlebelt": "custom_nigeriaMiddleBelt",
         "nigeriafulani": "custom_nigeriaFulani",
+        # Plain labels in TSV naming-pool column (pool JSON may also set country_name)
+        "philippines": "custom_philippines",
+        "swiss": "custom_swiss",
+        "switzerland": "custom_swiss",
         # US / Canada custom pools
         "frenchcanadian": "custom_french_canadian",
         "usmodern": "custom_us_modern",

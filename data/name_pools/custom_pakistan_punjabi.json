@@ -37,9 +37,7 @@
       "Hussain",
       "Kashif",
       "Khalid",
-      "Mudassar"
-    ],
-    "familiar": [
+      "Mudassar",
       "Muneeb",
       "Noman",
       "Rizwan",
@@ -48,7 +46,9 @@
       "Shahbaz",
       "Shoaib",
       "Umar",
-      "Waqas",
+      "Waqas"
+    ],
+    "familiar": [
       "Yasir",
       "Yousaf",
       "Zeeshan",
@@ -296,9 +296,7 @@
       "Sandhu",
       "Brar",
       "Dhillon",
-      "Saini"
-    ],
-    "familiar": [
+      "Saini",
       "Pannu",
       "Sangha",
       "Maan",
@@ -307,7 +305,9 @@
       "Minhas",
       "Bhinder",
       "Kamboh",
-      "Boparai",
+      "Boparai"
+    ],
+    "familiar": [
       "Mahar",
       "Mughal",
       "Mirza",
@@ -341,11 +341,11 @@
       "Khurana",
       "Khanna",
       "Anand",
-      "Bhatia"
+      "Bhatia",
+      "Sethi",
+      "Grewal"
     ],
     "uncommon": [
-      "Sethi",
-      "Grewal",
       "Pawar",
       "Riar",
       "Sahota",
@@ -417,22 +417,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

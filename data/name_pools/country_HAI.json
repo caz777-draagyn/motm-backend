@@ -36,9 +36,7 @@
       "Peterson",
       "Michael",
       "Reginald",
-      "Adriel"
-    ],
-    "familiar": [
+      "Adriel",
       "Alex",
       "Jonathan",
       "Ryan",
@@ -47,7 +45,9 @@
       "Frantz",
       "Jason",
       "Josue",
-      "Benjamin",
+      "Benjamin"
+    ],
+    "familiar": [
       "Gregory",
       "Steeve",
       "Dylan",
@@ -259,10 +259,10 @@
       "Destin",
       "Vincent",
       "Roi",
-      "Boss"
+      "Boss",
+      "Yung"
     ],
     "rare": [
-      "Yung",
       "Luc",
       "Marc-Andre",
       "Sean",
@@ -380,10 +380,10 @@
       "Pierre",
       "Jean",
       "Francois",
-      "Michel"
+      "Michel",
+      "Etienne"
     ],
     "very_common": [
-      "Etienne",
       "Augustin",
       "Moïse",
       "Guillaume",
@@ -391,11 +391,11 @@
       "Toussaint",
       "Noel",
       "Antoine",
-      "Guerrier"
+      "Guerrier",
+      "Georges",
+      "Desir"
     ],
     "common": [
-      "Georges",
-      "Desir",
       "Celestin",
       "Auguste",
       "André",
@@ -404,9 +404,7 @@
       "Germain",
       "Laguerre",
       "Jules",
-      "Le Sage"
-    ],
-    "familiar": [
+      "Le Sage",
       "Delva",
       "Sanon",
       "Jean-Baptiste",
@@ -421,7 +419,9 @@
       "Elie",
       "Dessalines",
       "Bazile",
-      "Theodore",
+      "Theodore"
+    ],
+    "familiar": [
       "Rene",
       "Rémy",
       "Raymond",
@@ -434,9 +434,7 @@
       "Felix",
       "Desrosiers",
       "Calixte",
-      "Cadet"
-    ],
-    "uncommon": [
+      "Cadet",
       "Benoit",
       "Belizaire",
       "Pierre-Louis",
@@ -459,7 +457,9 @@
       "Mesidor",
       "Lindor",
       "Jeune",
-      "Gustave",
+      "Gustave"
+    ],
+    "uncommon": [
       "Fils-Aime",
       "Fils",
       "Ferdinand",
@@ -526,9 +526,7 @@
       "Lambert",
       "Lamartiniere",
       "Lafortune",
-      "Lafontant"
-    ],
-    "rare": [
+      "Lafontant",
       "Joassaint",
       "Ismael",
       "Hilaire",
@@ -636,7 +634,9 @@
       "Desmornes",
       "Derosier",
       "Demosthene",
-      "Delice",
+      "Delice"
+    ],
+    "rare": [
       "Dejean",
       "Darbouze",
       "Compere",
@@ -913,9 +913,7 @@
       "Anglade",
       "Andou",
       "Amilcar",
-      "Aime"
-    ],
-    "very_rare": [
+      "Aime",
       "Achille",
       "Abeille",
       "Zidor",
@@ -1050,26 +1048,27 @@
       "Daudier",
       "Cherenfant",
       "Berlus"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

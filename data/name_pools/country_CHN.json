@@ -36,9 +36,7 @@
       "Fan",
       "Wu",
       "Guo",
-      "Zheng"
-    ],
-    "familiar": [
+      "Zheng",
       "Xiang",
       "Zhou",
       "Zhao",
@@ -47,7 +45,9 @@
       "Huang",
       "Hu",
       "Tian",
-      "Jin",
+      "Jin"
+    ],
+    "familiar": [
       "Dan",
       "Jiang",
       "Song",
@@ -75,9 +75,7 @@
       "Yue",
       "Lang",
       "Rong",
-      "Ning"
-    ],
-    "uncommon": [
+      "Ning",
       "Kun",
       "Zhen",
       "Chang",
@@ -85,7 +83,9 @@
       "Shen",
       "Tang",
       "Sheng",
-      "Bowen",
+      "Bowen"
+    ],
+    "uncommon": [
       "Shuo",
       "Guan",
       "Yiming",
@@ -249,9 +249,7 @@
       "Ziyu",
       "Yefeng",
       "Zhelun",
-      "Dawei"
-    ],
-    "rare": [
+      "Dawei",
       "Kaisheng",
       "Qifeng",
       "Yuhao",
@@ -262,7 +260,9 @@
       "Huimin",
       "Sai",
       "Yuanming",
-      "Zhaoming",
+      "Zhaoming"
+    ],
+    "rare": [
       "You",
       "Jianping",
       "Chengmin",
@@ -399,9 +399,7 @@
       "Wei",
       "Shen",
       "Song",
-      "Yan"
-    ],
-    "familiar": [
+      "Yan",
       "Luo",
       "Cheng",
       "Han",
@@ -410,7 +408,9 @@
       "Lau",
       "Liang",
       "Feng",
-      "Peng",
+      "Peng"
+    ],
+    "familiar": [
       "Xie",
       "Chang",
       "Yao",
@@ -589,9 +589,7 @@
       "Zhuo",
       "Sui",
       "May",
-      "Che"
-    ],
-    "rare": [
+      "Che",
       "Tsao",
       "Sue",
       "Rose",
@@ -625,7 +623,9 @@
       "Leon",
       "Joy",
       "Hang",
-      "Zong",
+      "Zong"
+    ],
+    "rare": [
       "West",
       "Tree",
       "Snow",
@@ -772,9 +772,7 @@
       "Efe",
       "Dunn",
       "Dom",
-      "Dent"
-    ],
-    "very_rare": [
+      "Dent",
       "Dada",
       "Chui",
       "Chio",
@@ -1377,7 +1375,9 @@
       "Tip",
       "Tino",
       "Tile",
-      "Thun",
+      "Thun"
+    ],
+    "very_rare": [
       "This",
       "Thio",
       "Thi",
@@ -2649,22 +2649,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.17,
+      "very_common": 0.21,
+      "common": 0.18,
+      "familiar": 0.19,
+      "uncommon": 0.1,
+      "rare": 0.1,
+      "very_rare": 0.05
     }
   },
   "middle_name_prob": 0.15,

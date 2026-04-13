@@ -37,9 +37,7 @@
       "Biebi",
       "Efemena",
       "Efe",
-      "Ejiro"
-    ],
-    "familiar": [
+      "Ejiro",
       "Ejovi",
       "Ejiroghene",
       "Oghenekaro",
@@ -48,7 +46,9 @@
       "Oghenetega",
       "Oghenetekevwe",
       "Oghenebrume",
-      "Oghenevwede",
+      "Oghenevwede"
+    ],
+    "familiar": [
       "Erharuyi",
       "Igho",
       "Ighorodje",
@@ -80,13 +80,13 @@
       "Emem",
       "Idorenyin",
       "Imaobong",
-      "Barine"
-    ],
-    "uncommon": [
+      "Barine",
       "Dappa",
       "Jaja",
       "Abiye",
-      "Perekeme",
+      "Perekeme"
+    ],
+    "uncommon": [
       "Opuene",
       "Uduak",
       "Nsa",
@@ -186,9 +186,7 @@
       "Duke",
       "Peterside",
       "Pepple",
-      "Jumbo"
-    ],
-    "familiar": [
+      "Jumbo",
       "Biriye",
       "Ogbonda",
       "Abiye",
@@ -197,7 +195,9 @@
       "Amachree",
       "Tariah",
       "Ibifiri",
-      "Biebi",
+      "Biebi"
+    ],
+    "familiar": [
       "Okowa",
       "Okoro",
       "Efe",
@@ -322,22 +322,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

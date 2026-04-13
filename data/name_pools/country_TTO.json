@@ -36,9 +36,7 @@
       "Samuel",
       "Anthony",
       "Zion",
-      "Caleb"
-    ],
-    "familiar": [
+      "Caleb",
       "Nigel",
       "Dylan",
       "Justin",
@@ -47,7 +45,9 @@
       "Manuel",
       "Christian",
       "Kyle",
-      "Mason",
+      "Mason"
+    ],
+    "familiar": [
       "Richard",
       "Jacob",
       "Jonathan",
@@ -266,24 +266,24 @@
   "surnames": {
     "top": [
       "Joseph",
-      "Williams"
-    ],
-    "very_common": [
+      "Williams",
       "Charles",
       "Thomas",
-      "Rampersad",
+      "Rampersad"
+    ],
+    "very_common": [
       "John",
       "James",
       "Lewis",
       "Alexander",
+      "Mohammed",
       "Hosein",
-      "Mohammed"
-    ],
-    "common": [
       "Ali",
       "Persad",
-      "George",
       "Maharaj",
+      "George"
+    ],
+    "common": [
       "Edwards",
       "Phillip",
       "Ramkissoon",
@@ -296,9 +296,7 @@
       "Samuel",
       "Samaroo",
       "Mitchell",
-      "Ramnarine"
-    ],
-    "familiar": [
+      "Ramnarine",
       "Henry",
       "Daniel",
       "Paul",
@@ -309,7 +307,9 @@
       "Wilson",
       "Peters",
       "Boodoo",
-      "Ramroop",
+      "Ramroop"
+    ],
+    "familiar": [
       "Seepersad",
       "Garcia",
       "Maraj",
@@ -343,11 +343,11 @@
       "David",
       "Stewart",
       "Martin",
-      "Ragbir"
+      "Ragbir",
+      "Davis",
+      "Benjamin"
     ],
     "uncommon": [
-      "Davis",
-      "Benjamin",
       "Simon",
       "Deonarine",
       "Bernard",
@@ -512,9 +512,7 @@
       "Roach",
       "Rambaran",
       "Kalloo",
-      "O'Brien"
-    ],
-    "rare": [
+      "O'Brien",
       "St Louis",
       "Greene",
       "Pereira",
@@ -524,7 +522,9 @@
       "Nandlal",
       "Jagroop",
       "Shah",
-      "Greenidge",
+      "Greenidge"
+    ],
+    "rare": [
       "Ragoonath",
       "Greaves",
       "Ramesar",
@@ -1061,22 +1061,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

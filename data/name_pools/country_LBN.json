@@ -36,9 +36,7 @@
       "Samer",
       "Nicolas",
       "Rami",
-      "Michel"
-    ],
-    "familiar": [
+      "Michel",
       "Antoine",
       "Hasan",
       "Hadi",
@@ -47,7 +45,9 @@
       "Ziad",
       "Walid",
       "Tony",
-      "Anthony",
+      "Anthony"
+    ],
+    "familiar": [
       "Abbas",
       "Sami",
       "Rabih",
@@ -80,12 +80,12 @@
       "Sam",
       "Wassim",
       "Kassem",
-      "Jamal"
-    ],
-    "uncommon": [
+      "Jamal",
       "Fady",
       "Salim",
-      "Kamal",
+      "Kamal"
+    ],
+    "uncommon": [
       "Hani",
       "Rawad",
       "Johnny",
@@ -256,13 +256,13 @@
       "Kamel",
       "Rodrigue",
       "Ben",
-      "Carl"
-    ],
-    "rare": [
+      "Carl",
       "Saeed",
       "Dan",
       "Christophe",
-      "Ramez",
+      "Ramez"
+    ],
+    "rare": [
       "Selim",
       "Mhd",
       "Steven",
@@ -441,10 +441,10 @@
       "El Din",
       "El Khoury",
       "Khalil",
-      "Saad"
+      "Saad",
+      "El Hajj"
     ],
     "very_common": [
-      "El Hajj",
       "Ali",
       "Ibrahim",
       "El Masry",
@@ -453,10 +453,10 @@
       "Hamoud",
       "Saleh",
       "Ahmed",
-      "Suleiman"
+      "Suleiman",
+      "Mousa"
     ],
     "common": [
-      "Mousa",
       "Younis",
       "Yousef",
       "Karam",
@@ -469,9 +469,7 @@
       "Deeb",
       "Hussein",
       "Ayoub",
-      "Saliba"
-    ],
-    "familiar": [
+      "Saliba",
       "Hanna",
       "Shaheen",
       "Dahir",
@@ -482,7 +480,9 @@
       "Ismail",
       "Jaber",
       "Hamdan",
-      "Assaf",
+      "Assaf"
+    ],
+    "familiar": [
       "Yassin",
       "Hashem",
       "Abbas",
@@ -516,11 +516,11 @@
       "Saab",
       "Zidan",
       "Ghanim",
-      "Hegazy"
+      "Hegazy",
+      "Nemeh",
+      "Al Khatib"
     ],
     "uncommon": [
-      "Nemeh",
-      "Al Khatib",
       "Kanaan",
       "Nassar",
       "El Halaby",
@@ -690,14 +690,14 @@
       "Badran",
       "Sherif",
       "Ziadeh",
-      "Al Samad"
-    ],
-    "rare": [
+      "Al Samad",
       "Azzam",
       "Al Mohammed",
       "Al-Kurdi",
       "Rajaily",
-      "Al Rayes",
+      "Al Rayes"
+    ],
+    "rare": [
       "Makki",
       "Hammadi",
       "Mezher",
@@ -1325,22 +1325,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

@@ -36,9 +36,7 @@
       "Dinesh",
       "Niraj",
       "Ganesh",
-      "Yubraj"
-    ],
-    "familiar": [
+      "Yubraj",
       "Bishal",
       "Anmol",
       "Arjun",
@@ -47,7 +45,9 @@
       "Alok",
       "Bikash",
       "Manish",
-      "Kiran",
+      "Kiran"
+    ],
+    "familiar": [
       "Kamal",
       "Samir",
       "Sushil",
@@ -781,9 +781,7 @@
       "Basnet",
       "Aryal",
       "Sapkota",
-      "Maharjan"
-    ],
-    "familiar": [
+      "Maharjan",
       "Magar",
       "Lama",
       "Joshi",
@@ -792,7 +790,9 @@
       "Giri",
       "Regmi",
       "Pokharel",
-      "Koirala",
+      "Koirala"
+    ],
+    "familiar": [
       "Lamichhane",
       "Parajuli",
       "Baral",
@@ -826,11 +826,11 @@
       "Oli",
       "Chapagain",
       "Pathak",
-      "Lamsal"
+      "Lamsal",
+      "Raut",
+      "Bhatt"
     ],
     "uncommon": [
-      "Raut",
-      "Bhatt",
       "Ojha",
       "Chand",
       "Rimal",
@@ -978,9 +978,7 @@
       "Satyal",
       "Poon",
       "Dotel",
-      "Bishwokarma"
-    ],
-    "rare": [
+      "Bishwokarma",
       "Bhattrai",
       "Timilsena",
       "Tamu",
@@ -1007,7 +1005,9 @@
       "Shree",
       "Rokka",
       "Narayan",
-      "Kamat",
+      "Kamat"
+    ],
+    "rare": [
       "Kadel",
       "Dixit",
       "Dewan",
@@ -1201,9 +1201,7 @@
       "Sanjay",
       "Sakya",
       "Saini",
-      "Purja"
-    ],
-    "very_rare": [
+      "Purja",
       "Panth",
       "Neaupane",
       "Munankarmi",
@@ -1243,26 +1241,27 @@
       "Aamir",
       "Wakar",
       "Silpakar"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.2,
+      "rare": 0.3,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

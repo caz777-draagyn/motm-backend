@@ -37,9 +37,7 @@
       "Vikas",
       "Saurabh",
       "Sumit",
-      "Aman"
-    ],
-    "familiar": [
+      "Aman",
       "Manoj",
       "Prashant",
       "Mohit",
@@ -48,7 +46,9 @@
       "Nikhil",
       "Shivam",
       "Dinesh",
-      "Mukesh",
+      "Mukesh"
+    ],
+    "familiar": [
       "Pradeep",
       "Nitin",
       "Mohd",
@@ -341,9 +341,7 @@
       "Roy",
       "Shukla",
       "Joshi",
-      "Chaudhary"
-    ],
-    "familiar": [
+      "Chaudhary",
       "Maharaj",
       "Rampersad",
       "Srivastava",
@@ -359,12 +357,12 @@
       "Pal",
       "Rai",
       "Sinha",
-      "Garg",
+      "Garg"
+    ],
+    "familiar": [
       "Bhardwaj",
       "Jaiswal",
-      "Hosein"
-    ],
-    "uncommon": [
+      "Hosein",
       "Ramkissoon",
       "Peters",
       "Persad",
@@ -397,7 +395,9 @@
       "Gautam",
       "Dutta",
       "Desai",
-      "Dwivedi",
+      "Dwivedi"
+    ],
+    "uncommon": [
       "Kulkarni",
       "Biswas",
       "Solanki",
@@ -425,22 +425,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

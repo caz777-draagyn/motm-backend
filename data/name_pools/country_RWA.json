@@ -6,10 +6,10 @@
       "Emmanuel",
       "Jean",
       "Ishimwe",
-      "Patrick"
+      "Patrick",
+      "Eric"
     ],
     "very_common": [
-      "Eric",
       "Bryan",
       "David",
       "Junior",
@@ -17,11 +17,11 @@
       "Olivier",
       "Noah",
       "Nathan",
-      "Innocent"
+      "Innocent",
+      "Christian",
+      "Samuel"
     ],
     "common": [
-      "Christian",
-      "Samuel",
       "Kevin",
       "Claude",
       "Jordan",
@@ -32,9 +32,7 @@
       "Ngabo",
       "Fabrice",
       "Thierry",
-      "Cedric"
-    ],
-    "familiar": [
+      "Cedric",
       "Robert",
       "Sibomana",
       "Richard",
@@ -47,7 +45,9 @@
       "Hirwa",
       "Charles",
       "John",
-      "Frank",
+      "Frank"
+    ],
+    "familiar": [
       "Pacifique",
       "Martin",
       "Justin",
@@ -71,9 +71,7 @@
       "Placide",
       "Paul",
       "Jean-Paul",
-      "Isaac"
-    ],
-    "uncommon": [
+      "Isaac",
       "Francois",
       "Egide",
       "Albert",
@@ -85,7 +83,9 @@
       "Faustin",
       "Eddy",
       "Alex",
-      "Jean-Luc",
+      "Jean-Luc"
+    ],
+    "uncommon": [
       "Jacques",
       "Irakoze",
       "Emile",
@@ -263,10 +263,10 @@
       "Shema",
       "Ingabire",
       "Nkurunziza",
-      "Umuhoza"
+      "Umuhoza",
+      "Uwera"
     ],
     "common": [
-      "Uwera",
       "Tuyisenge",
       "Hakizimana",
       "Uwase",
@@ -278,9 +278,7 @@
       "Mutabazi",
       "Muhire",
       "Manzi",
-      "Nkusi"
-    ],
-    "familiar": [
+      "Nkusi",
       "Niyonzima",
       "Niyigena",
       "Ndayisenga",
@@ -292,7 +290,9 @@
       "Karangwa",
       "Sibomana",
       "Nizeyimana",
-      "Niyonkuru",
+      "Niyonkuru"
+    ],
+    "familiar": [
       "Munyaneza",
       "Mugabe",
       "Mucyo",
@@ -320,9 +320,7 @@
       "Hirwa",
       "Havugimana",
       "Emmy",
-      "Dushimimana"
-    ],
-    "uncommon": [
+      "Dushimimana",
       "Dusabimana",
       "Bugingo",
       "Uwizeye",
@@ -330,7 +328,9 @@
       "Nzeyimana",
       "Ntakirutimana",
       "Niyibizi",
-      "Ngenzi",
+      "Ngenzi"
+    ],
+    "uncommon": [
       "Ngabonziza",
       "Mutoni",
       "Mugiraneza",
@@ -373,7 +373,7 @@
       "Habinshuti",
       "Gisele",
       "Dushime",
-      "DÃ©sirÃ©",
+      "Désiré",
       "Butera",
       "Uwitonze",
       "Uwimbabazi",
@@ -458,9 +458,7 @@
       "Bizimungu",
       "Bimenyimana",
       "Bayingana",
-      "Batamuliza"
-    ],
-    "rare": [
+      "Batamuliza",
       "Uwiragiye",
       "Uwiduhaye",
       "Uwanyirigira",
@@ -507,7 +505,9 @@
       "Gasore",
       "Gakuru",
       "Dusenge",
-      "Cyubahiro",
+      "Cyubahiro"
+    ],
+    "rare": [
       "Bisengimana",
       "Beza",
       "Bahati",
@@ -699,9 +699,7 @@
       "Rubibi",
       "Rubayiza",
       "Rehema",
-      "Ramadhan"
-    ],
-    "very_rare": [
+      "Ramadhan",
       "Omari",
       "Omara",
       "Nzisabira",
@@ -887,26 +885,27 @@
       "Faida",
       "Djiro",
       "Coulibaly"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

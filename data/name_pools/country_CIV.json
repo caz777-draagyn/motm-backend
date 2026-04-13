@@ -5,23 +5,23 @@
     "top": [
       "Mohamed",
       "Ahmed",
-      "Franck"
+      "Franck",
+      "Ismael",
+      "Moussa"
     ],
     "very_common": [
-      "Ismael",
-      "Moussa",
       "Abdoulaye",
       "Ibrahim",
       "Kouassi",
       "Amadou",
       "Junior",
-      "Emmanuel"
-    ],
-    "common": [
+      "Emmanuel",
       "Bryan",
       "Daniel",
       "Mamadou",
-      "David",
+      "David"
+    ],
+    "common": [
       "Koffi",
       "Samuel",
       "Stéphane",
@@ -30,9 +30,7 @@
       "Serge",
       "Noah",
       "Yves",
-      "Nathan"
-    ],
-    "familiar": [
+      "Nathan",
       "Yann",
       "Armel",
       "Kouakou",
@@ -47,7 +45,9 @@
       "Hamza",
       "Cisse",
       "Khalil",
-      "Hamed",
+      "Hamed"
+    ],
+    "familiar": [
       "Yao",
       "Joel",
       "Jean",
@@ -77,15 +77,15 @@
       "Michel",
       "Patrick",
       "Ulrich",
-      "Chris"
-    ],
-    "uncommon": [
+      "Chris",
       "Paul",
       "Bah",
       "Axel",
       "Ibrahima",
       "Alain",
-      "Daouda",
+      "Daouda"
+    ],
+    "uncommon": [
       "Issouf",
       "Isaac",
       "Michael",
@@ -254,15 +254,15 @@
       "Jean-François",
       "Leon",
       "Morel",
-      "Karl"
-    ],
-    "rare": [
+      "Karl",
       "Blaise",
       "Achille",
       "Anthony",
       "Will",
       "Pacome",
-      "Wilson",
+      "Wilson"
+    ],
+    "rare": [
       "Salomon",
       "Jojo",
       "Ble",
@@ -461,9 +461,7 @@
       "Diarrassouba",
       "Dosso",
       "N'Goran",
-      "Sangare"
-    ],
-    "familiar": [
+      "Sangare",
       "Soumahoro",
       "Bakayoko",
       "Aka",
@@ -472,7 +470,9 @@
       "Kra",
       "Kambou",
       "Diabate",
-      "Dah",
+      "Dah"
+    ],
+    "familiar": [
       "Tuo",
       "Kamagate",
       "Camara",
@@ -671,9 +671,7 @@
       "Kei",
       "Kamate",
       "Ouedraogo",
-      "Bosson"
-    ],
-    "rare": [
+      "Bosson",
       "Kossia",
       "Beda",
       "Essoh",
@@ -687,7 +685,9 @@
       "Samassi",
       "Kadio",
       "Nemlin",
-      "Troh",
+      "Troh"
+    ],
+    "rare": [
       "Diane",
       "Zan",
       "Kamenan",
@@ -1330,22 +1330,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

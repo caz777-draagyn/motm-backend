@@ -37,9 +37,7 @@
       "Bharat",
       "Bhupendra",
       "Bilal",
-      "Chand"
-    ],
-    "familiar": [
+      "Chand",
       "Chandra",
       "Danish",
       "Daya",
@@ -48,7 +46,9 @@
       "Devan",
       "Dharam",
       "Dinesh",
-      "Farhan",
+      "Farhan"
+    ],
+    "familiar": [
       "Farid",
       "Fazil",
       "Gopal",
@@ -83,10 +83,10 @@
       "Munna",
       "Naresh",
       "Narayan",
-      "Naveen"
+      "Naveen",
+      "Nazeer"
     ],
     "uncommon": [
-      "Nazeer",
       "Nilesh",
       "Nirmal",
       "Nizam",
@@ -283,9 +283,7 @@
       "Anand",
       "Arjun",
       "Arya",
-      "Ashraf"
-    ],
-    "familiar": [
+      "Ashraf",
       "Azad",
       "Bachan",
       "Badal",
@@ -294,7 +292,9 @@
       "Balgobin",
       "Bali",
       "Bansal",
-      "Bashir",
+      "Bashir"
+    ],
+    "familiar": [
       "Basu",
       "Bax",
       "Bedi",
@@ -510,22 +510,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.17,
+      "very_common": 0.21,
+      "common": 0.18,
+      "familiar": 0.19,
+      "uncommon": 0.25,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.12,

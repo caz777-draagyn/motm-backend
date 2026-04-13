@@ -34,9 +34,7 @@
       "Omar",
       "Alioune",
       "Malick",
-      "Elhadji"
-    ],
-    "familiar": [
+      "Elhadji",
       "Saliou",
       "Daouda",
       "Fallou",
@@ -47,7 +45,9 @@
       "Ousseynou",
       "Mansour",
       "Samba",
-      "Baye",
+      "Baye"
+    ],
+    "familiar": [
       "Mouhamadou",
       "Serigne",
       "Bassirou",
@@ -73,9 +73,7 @@
       "Khalil",
       "Sidy",
       "Doudou",
-      "Seydina"
-    ],
-    "uncommon": [
+      "Seydina",
       "Alioune-Badara",
       "Jules",
       "Ahmadou",
@@ -85,7 +83,9 @@
       "Ameth",
       "Khalifa",
       "Ndiaga",
-      "Momar",
+      "Momar"
+    ],
+    "uncommon": [
       "King",
       "Abdoul",
       "Bachir",
@@ -244,9 +244,7 @@
       "Souley",
       "Sam",
       "Mademba",
-      "Wade"
-    ],
-    "rare": [
+      "Wade",
       "Jean-Pierre",
       "Abibou",
       "Mouctar",
@@ -262,7 +260,9 @@
       "Saidou",
       "Cheikh-Ahmadou-Bamba",
       "Khaly",
-      "Diabel",
+      "Diabel"
+    ],
+    "rare": [
       "Mamady",
       "Tonton",
       "Khalifa-Ababacar",
@@ -398,9 +398,7 @@
       "Ngom",
       "Ndao",
       "Barry",
-      "Balde"
-    ],
-    "familiar": [
+      "Balde",
       "Diaw",
       "Samb",
       "Tall",
@@ -409,7 +407,9 @@
       "Kebe",
       "Ndour",
       "Diakhaté",
-      "Seye",
+      "Seye"
+    ],
+    "familiar": [
       "Dramé",
       "Traoré",
       "Mbacke",
@@ -444,10 +444,10 @@
       "Thiaw",
       "Soumare",
       "Samba",
-      "Cheikh"
+      "Cheikh",
+      "Tine"
     ],
     "uncommon": [
-      "Tine",
       "Kanté",
       "Moustapha",
       "Abdoulaye",
@@ -606,9 +606,7 @@
       "Sar",
       "Sady",
       "Sabaly",
-      "Rassúl"
-    ],
-    "rare": [
+      "Rassúl",
       "Mouhamadou",
       "Maimouna",
       "Lam",
@@ -624,7 +622,9 @@
       "Deh",
       "Danfakha",
       "Coumba",
-      "Agne",
+      "Agne"
+    ],
+    "rare": [
       "Thior",
       "Sougou",
       "Souane",
@@ -1004,9 +1004,7 @@
       "Bayo",
       "Bathie",
       "Bassirou",
-      "Bassa"
-    ],
-    "very_rare": [
+      "Bassa",
       "Baro",
       "Barkham",
       "Barka",
@@ -1345,26 +1343,27 @@
       "Abdillahi",
       "Abdi",
       "Abaga"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

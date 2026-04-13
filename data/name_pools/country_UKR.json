@@ -36,9 +36,7 @@
       "Lev",
       "Nazar",
       "Anton",
-      "Yaroslav"
-    ],
-    "familiar": [
+      "Yaroslav",
       "Viktor",
       "Maksymilian",
       "Alex",
@@ -47,7 +45,9 @@
       "Illia",
       "Iurii",
       "Vladyslav",
-      "Nikolai",
+      "Nikolai"
+    ],
+    "familiar": [
       "Denis",
       "Zahar",
       "Vitalii",
@@ -77,15 +77,15 @@
       "Sergii",
       "Iegor",
       "Andriy",
-      "Volodymyr"
-    ],
-    "uncommon": [
+      "Volodymyr",
       "Iaroslav",
       "Viacheslav",
       "Alexey",
       "Danil",
       "Eugene",
-      "Yuriy",
+      "Yuriy"
+    ],
+    "uncommon": [
       "Leonid",
       "Boris",
       "Pasha",
@@ -250,9 +250,7 @@
       "Gabriel",
       "Roland",
       "Ion",
-      "Sava"
-    ],
-    "rare": [
+      "Sava",
       "Stan",
       "Oliver",
       "Teodor",
@@ -262,7 +260,9 @@
       "Stefan",
       "Olek",
       "Georgi",
-      "Tarik",
+      "Tarik"
+    ],
+    "rare": [
       "Iakub",
       "Genadii",
       "Tomas",
@@ -331,9 +331,7 @@
       "Boyko",
       "Nikitin",
       "Kozlov",
-      "Klimenko"
-    ],
-    "familiar": [
+      "Klimenko",
       "Rudenko",
       "Pavlenko",
       "Mikhailov",
@@ -343,7 +341,9 @@
       "Shevchuk",
       "Egorov",
       "Grigor'ev",
-      "Iakovlev",
+      "Iakovlev"
+    ],
+    "familiar": [
       "Sidorenko",
       "Romanov",
       "Pavlov",
@@ -375,13 +375,13 @@
       "Aleksandrov",
       "Lysenko",
       "Bondar",
-      "Romanenko"
-    ],
-    "uncommon": [
+      "Romanenko",
       "Lebedev",
       "Polishchuk",
       "Kiselev",
-      "Litvin",
+      "Litvin"
+    ],
+    "uncommon": [
       "Vovk",
       "Solovev",
       "Mironov",
@@ -517,9 +517,7 @@
       "Tikhonov",
       "Timoshchuk",
       "Semeniuk",
-      "Osipov"
-    ],
-    "rare": [
+      "Osipov",
       "Mel'nichuk",
       "Kulikov",
       "Gritsenko",
@@ -556,7 +554,9 @@
       "Kirilenko",
       "Ivashchenko",
       "Ermolenko",
-      "Glushchenko",
+      "Glushchenko"
+    ],
+    "rare": [
       "Vladimirov",
       "Ivanenko",
       "Antonenko",
@@ -887,9 +887,7 @@
       "Boychuk",
       "Ianchuk",
       "Iakimchuk",
-      "Shashkov"
-    ],
-    "very_rare": [
+      "Shashkov",
       "Cherepanov",
       "Khristenko",
       "Khar'kov",
@@ -1308,7 +1306,9 @@
       "Odintsov",
       "Ovcharov",
       "Nefedov",
-      "Nikolaichuk",
+      "Nikolaichuk"
+    ],
+    "very_rare": [
       "Moskaliuk",
       "Mosiichuk",
       "Mis'ko",
@@ -2446,22 +2446,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.15,

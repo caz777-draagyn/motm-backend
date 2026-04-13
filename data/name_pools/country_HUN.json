@@ -5,11 +5,11 @@
     "top": [
       "Bence",
       "Péter",
-      "Máté"
+      "Máté",
+      "Levente",
+      "Gábor"
     ],
     "very_common": [
-      "Levente",
-      "Gábor",
       "Dominik",
       "Tamás",
       "Noel",
@@ -17,11 +17,11 @@
       "Dániel",
       "László",
       "Marcell",
-      "Balázs"
+      "Balázs",
+      "Ádám",
+      "Attila"
     ],
     "common": [
-      "Ádám",
-      "Attila",
       "Botond",
       "Milán",
       "Dávid",
@@ -33,9 +33,7 @@
       "András",
       "Martin",
       "Zsombor",
-      "Sándor"
-    ],
-    "familiar": [
+      "Sándor",
       "Bendegúz",
       "Gergely",
       "Nimród",
@@ -47,7 +45,9 @@
       "Gergő",
       "Tibor",
       "Patrik",
-      "Krisztián",
+      "Krisztián"
+    ],
+    "familiar": [
       "Norbert",
       "Róbert",
       "Marton",
@@ -71,9 +71,7 @@
       "Fülöp",
       "Béla",
       "Alex",
-      "Hamza"
-    ],
-    "uncommon": [
+      "Hamza",
       "Illés",
       "Fábián",
       "Mátyás",
@@ -85,7 +83,9 @@
       "Barnabás",
       "Árpád",
       "Thomas",
-      "Dénes",
+      "Dénes"
+    ],
+    "uncommon": [
       "Sebestyén",
       "Amine",
       "Szilárd",
@@ -243,9 +243,7 @@
       "Bozó",
       "Andreas",
       "Denis",
-      "Lévi"
-    ],
-    "rare": [
+      "Lévi",
       "Cristian",
       "Marik",
       "Philip",
@@ -262,7 +260,9 @@
       "Mirkó",
       "Andrei",
       "Kamran",
-      "Amar",
+      "Amar"
+    ],
+    "rare": [
       "Jozef",
       "Toma",
       "Marc",
@@ -279,24 +279,22 @@
       "Nagy",
       "Kovács",
       "Szabó",
-      "Tóth"
+      "Tóth",
+      "Horváth"
     ],
     "very_common": [
-      "Horváth",
       "Varga",
-      "Kiss"
-    ],
-    "common": [
+      "Kiss",
       "Molnár",
       "Sándor",
       "Németh",
       "Balogh",
-      "Farkas"
-    ],
-    "familiar": [
+      "Farkas",
       "Juhász",
       "Papp",
-      "Bálint",
+      "Bálint"
+    ],
+    "common": [
       "Takács",
       "Mészáros",
       "Szűcs",
@@ -306,9 +304,7 @@
       "Pintér",
       "Oláh",
       "Rácz",
-      "Gál"
-    ],
-    "uncommon": [
+      "Gál",
       "Fodor",
       "Akos",
       "Hegedűs",
@@ -322,7 +318,9 @@
       "Sipos",
       "Király",
       "Fanni",
-      "Kis",
+      "Kis"
+    ],
+    "familiar": [
       "Boros",
       "Somogyi",
       "Lakatos",
@@ -358,7 +356,9 @@
       "Novák",
       "Bakos",
       "Veres",
-      "Végh",
+      "Végh"
+    ],
+    "uncommon": [
       "Szegedi",
       "Héderváry",
       "Erdei",
@@ -407,9 +407,7 @@
       "Pető",
       "Alami",
       "Kósa",
-      "Ferencz"
-    ],
-    "rare": [
+      "Ferencz",
       "Szalay",
       "Seres",
       "Erdős",
@@ -535,7 +533,9 @@
       "Marosi",
       "Marci",
       "Madarász",
-      "Lippai",
+      "Lippai"
+    ],
+    "rare": [
       "Kondor",
       "Keresztes",
       "Idrissi",
@@ -958,9 +958,7 @@
       "Zsiga",
       "Zentai",
       "Zádori",
-      "Wittmann"
-    ],
-    "very_rare": [
+      "Wittmann",
       "Völgyi",
       "Vitális",
       "Vasas",
@@ -1287,7 +1285,9 @@
       "Cselenyi",
       "Csehi",
       "Csatári",
-      "Csata",
+      "Csata"
+    ],
+    "very_rare": [
       "Csarnai",
       "Csáder",
       "Burján",
@@ -1635,22 +1635,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

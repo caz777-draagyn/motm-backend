@@ -36,9 +36,7 @@
       "Sayed",
       "Amin",
       "Nasir",
-      "Rohullah"
-    ],
-    "familiar": [
+      "Rohullah",
       "Ayaan",
       "Mirwais",
       "Zubair",
@@ -48,7 +46,9 @@
       "Arsalan",
       "Zahid",
       "Jawad",
-      "Farid",
+      "Farid"
+    ],
+    "familiar": [
       "Fahim",
       "Najibullah",
       "Ismail",
@@ -82,11 +82,11 @@
       "Najib",
       "Azizullah",
       "Rahim",
-      "Ezatullah"
+      "Ezatullah",
+      "Samim",
+      "Esmatullah"
     ],
     "uncommon": [
-      "Samim",
-      "Esmatullah",
       "Waheed",
       "Shoaib",
       "Khalil",
@@ -259,11 +259,11 @@
       "Nooragha",
       "Sefatullah",
       "Mohammad-Reza",
-      "Masih"
+      "Masih",
+      "Hamayoon",
+      "Faridoon"
     ],
     "rare": [
-      "Hamayoon",
-      "Faridoon",
       "Samad",
       "Khalilullah",
       "Majid",
@@ -354,22 +354,22 @@
       "Khan",
       "Safi",
       "Ahmad",
-      "Ahmadzai"
+      "Ahmadzai",
+      "Ahmadi"
     ],
     "very_common": [
-      "Ahmadi",
       "Azizi",
       "Mohammadi",
       "Noori",
       "Rahimi",
       "Amiri",
-      "Ullah"
-    ],
-    "common": [
+      "Ullah",
       "Karimi",
       "Zadran",
       "Stanikzai",
-      "Nazari",
+      "Nazari"
+    ],
+    "common": [
       "Shinwari",
       "Sadat",
       "Habibi",
@@ -377,9 +377,7 @@
       "Rahmani",
       "Hakimi",
       "Kakar",
-      "Sultani"
-    ],
-    "familiar": [
+      "Sultani",
       "Niazi",
       "Haidari",
       "Amin",
@@ -395,7 +393,9 @@
       "Arman",
       "Hussaini",
       "Azimi",
-      "Sediqi",
+      "Sediqi"
+    ],
+    "familiar": [
       "Mangal",
       "Hamidi",
       "Shirzad",
@@ -411,9 +411,7 @@
       "Adil",
       "Naseri",
       "Hemat",
-      "Hashimi"
-    ],
-    "uncommon": [
+      "Hashimi",
       "Fernandes",
       "Ashna",
       "Sahak",
@@ -433,7 +431,9 @@
       "Atal",
       "Arian",
       "Wali",
-      "Mansoor",
+      "Mansoor"
+    ],
+    "uncommon": [
       "Joya",
       "Zaheer",
       "Mayar",
@@ -535,9 +535,7 @@
       "Sharif",
       "Shahab",
       "Seddiqi",
-      "Sadeqi"
-    ],
-    "rare": [
+      "Sadeqi",
       "Sabir",
       "Raihan",
       "Quraishi",
@@ -610,7 +608,9 @@
       "Darman",
       "Bawar",
       "Baheer",
-      "Amir",
+      "Amir"
+    ],
+    "rare": [
       "Akhtar",
       "Akbar",
       "Aimaq",
@@ -1077,9 +1077,7 @@
       "Saighani",
       "Sahebi",
       "Sadozai",
-      "Saba"
-    ],
-    "very_rare": [
+      "Saba",
       "Rizvi",
       "Riaz",
       "Rezayi",
@@ -1362,7 +1360,9 @@
       "Tahmas",
       "Taher",
       "Syed",
-      "Stanakzai",
+      "Stanakzai"
+    ],
+    "very_rare": [
       "Somi",
       "Sohrabi",
       "Sobhani",
@@ -1783,7 +1783,7 @@
       "Yaghubi",
       "Wszeborowski",
       "Warasi",
-      "WÃ¤lti",
+      "Wälti",
       "Walizadeh",
       "Wajdi",
       "Voudouri",
@@ -2278,7 +2278,7 @@
       "Grandi",
       "Gouhari",
       "Goszczynski",
-      "GÃ³rski",
+      "Górski",
       "Glinski",
       "Giunti",
       "Girati",
@@ -2301,7 +2301,7 @@
       "Geroni",
       "Gerici",
       "Gebicki",
-      "GawÅowski",
+      "Gawłowski",
       "Gawhari",
       "Gautschi",
       "Ganzarolli",
@@ -2407,7 +2407,7 @@
       "Chamani",
       "Ceriani",
       "Celoni",
-      "Ãelebi",
+      "Çelebi",
       "Cecchi",
       "Cecchetti",
       "Cavalli",
@@ -2551,22 +2551,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.08,

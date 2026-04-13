@@ -37,9 +37,7 @@
       "Peceli",
       "Vereniki",
       "Asaeli",
-      "Jale"
-    ],
-    "familiar": [
+      "Jale",
       "Kitione",
       "Pita",
       "Nacanieli",
@@ -48,7 +46,9 @@
       "Samuela",
       "Tomasi",
       "Emosi",
-      "Netani",
+      "Netani"
+    ],
+    "familiar": [
       "Ropate",
       "Mikaele",
       "Suliasi",
@@ -83,10 +83,10 @@
       "Radradra",
       "Nacewa",
       "Nadolo",
-      "Vunibaka"
+      "Vunibaka",
+      "Matanavou"
     ],
     "uncommon": [
-      "Matanavou",
       "Ravouvou",
       "Matanisiga",
       "Tagicakibau",
@@ -234,10 +234,10 @@
       "Volavola",
       "Rokoduguni",
       "Botia",
-      "Nasilasila"
+      "Nasilasila",
+      "Tawake"
     ],
     "common": [
-      "Tawake",
       "Tagicakibau",
       "Vunibaka",
       "Derenalagi",
@@ -251,9 +251,7 @@
       "Nabose",
       "Ravouvou",
       "Duguivalu",
-      "Nacagilevu"
-    ],
-    "familiar": [
+      "Nacagilevu",
       "Wainiqolo",
       "Naividi",
       "Rasolo",
@@ -263,7 +261,9 @@
       "Naitasiri",
       "Lalabalavu",
       "Namatakula",
-      "Nasoqeqe",
+      "Nasoqeqe"
+    ],
+    "familiar": [
       "Mataele",
       "Tawakekoro",
       "Vatubua",
@@ -298,10 +298,10 @@
       "Raikuna",
       "Nabou",
       "Nabalavu",
-      "Nabuli"
+      "Nabuli",
+      "Nabukadogo"
     ],
     "uncommon": [
-      "Nabukadogo",
       "Rokotuibau",
       "Vosanibola",
       "Nawai",
@@ -388,22 +388,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.12,

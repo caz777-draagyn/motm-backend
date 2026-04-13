@@ -36,9 +36,7 @@
       "Jason",
       "Rayane",
       "Andre",
-      "Nassim"
-    ],
-    "familiar": [
+      "Nassim",
       "Richard",
       "Bilal",
       "Craig",
@@ -47,7 +45,9 @@
       "Amine",
       "Mike",
       "Rayan",
-      "Alex",
+      "Alex"
+    ],
+    "familiar": [
       "Sofiane",
       "Kevin",
       "Nadir",
@@ -82,10 +82,10 @@
       "Ian",
       "George",
       "Patrick",
-      "Joe"
+      "Joe",
+      "Jan"
     ],
     "uncommon": [
-      "Jan",
       "Steve",
       "Jack",
       "Gary",
@@ -259,10 +259,10 @@
       "Julian",
       "Max",
       "Will",
-      "Jabulani"
+      "Jabulani",
+      "Gert"
     ],
     "rare": [
-      "Gert",
       "Thami",
       "Harry",
       "Timothy",
@@ -548,16 +548,14 @@
     "very_rare": []
   },
   "surnames": {
-    "top": [],
-    "very_common": [],
-    "common": [],
-    "familiar": [],
-    "uncommon": [],
-    "rare": [
+    "top": [
+      "Dlamini",
       "Nicholson",
       "Mcdonald",
       "Kennedy",
-      "De Jong",
+      "De Jong"
+    ],
+    "very_common": [
       "De Sousa",
       "Mackenzie",
       "Harding",
@@ -567,7 +565,9 @@
       "Bishop",
       "Wells",
       "Turnbull",
-      "Powell",
+      "Powell"
+    ],
+    "common": [
       "Moolla",
       "Macdonald",
       "Leigh",
@@ -591,7 +591,9 @@
       "Lazarus",
       "Lawson",
       "Kerr",
-      "Cunningham",
+      "Cunningham"
+    ],
+    "familiar": [
       "Blose",
       "Allan",
       "Woods",
@@ -627,7 +629,9 @@
       "Mckenna",
       "Kilian",
       "Forster",
-      "Watkins",
+      "Watkins"
+    ],
+    "uncommon": [
       "Tembo",
       "Stanley",
       "Redelinghuys",
@@ -764,9 +768,7 @@
       "Van Der Spuy",
       "Tayob",
       "Pooe",
-      "Niemand"
-    ],
-    "very_rare": [
+      "Niemand",
       "Mcleod",
       "Masters",
       "Marks",
@@ -804,7 +806,9 @@
       "Drummond",
       "Dicks",
       "De Oliveira",
-      "Daya",
+      "Daya"
+    ],
+    "rare": [
       "Chirwa",
       "Bronkhorst",
       "Boucher",
@@ -1554,7 +1558,9 @@
       "Lutchman",
       "Louwrens",
       "Livingstone",
-      "Limbada",
+      "Limbada"
+    ],
+    "very_rare": [
       "Leso",
       "Landsberg",
       "Lacey",
@@ -3054,7 +3060,7 @@
       "Van Belzen",
       "Du Pont",
       "De Zwart",
-      "De SÃ¡",
+      "De Sá",
       "De Ruijter",
       "De Robillard",
       "De Reuver",
@@ -3063,7 +3069,7 @@
       "De Nooijer",
       "De Moor",
       "De Melo",
-      "De MagalhÃ£es",
+      "De Magalhães",
       "De Lima",
       "De Hoop",
       "De Haast",
@@ -3866,7 +3872,7 @@
       "De Pundert",
       "De Prince",
       "De Priester",
-      "De PrieÃ«lle",
+      "De Prieëlle",
       "De Poorter",
       "De Pontes",
       "De Pinto",
@@ -3976,11 +3982,11 @@
       "De Charmoy",
       "De Carlo",
       "De Canio",
-      "De CaluwÃ©",
+      "De Caluwé",
       "De Busser",
       "De Burgh",
       "De Buck",
-      "De BruÃ¯ne",
+      "De Bruïne",
       "De Brouwer",
       "De Broize",
       "De Brito",
@@ -4010,22 +4016,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.2,
+      "rare": 0.3,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.15,

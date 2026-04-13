@@ -37,9 +37,7 @@
       "Michel",
       "Daan",
       "Steven",
-      "Elias"
-    ],
-    "familiar": [
+      "Elias",
       "Alex",
       "Adam",
       "Johan",
@@ -48,7 +46,9 @@
       "Julian",
       "Wim",
       "Emiel",
-      "Tim",
+      "Tim"
+    ],
+    "familiar": [
       "Alexander",
       "Pieter",
       "Nathan",
@@ -285,27 +285,25 @@
     "top": [
       "Peeters",
       "Janssens",
-      "Maes"
+      "Maes",
+      "Jacobs",
+      "Willems"
     ],
     "very_common": [
-      "Jacobs",
-      "Willems",
       "Mertens",
       "Leroy",
       "Claes",
       "Vermeulen",
       "Wouters",
-      "Goossens"
-    ],
-    "common": [
+      "Goossens",
       "Lambert",
       "De Smet",
       "Pauwels",
-      "Desmet",
-      "Aerts",
-      "Van Damme"
+      "Desmet"
     ],
-    "familiar": [
+    "common": [
+      "Aerts",
+      "Van Damme",
       "Hermans",
       "Stevens",
       "Michiels",
@@ -327,11 +325,11 @@
       "Hendrickx",
       "Olivier",
       "Wauters",
-      "Van De Velde",
-      "Lucas",
-      "Lemmens"
+      "Van De Velde"
     ],
-    "uncommon": [
+    "familiar": [
+      "Lucas",
+      "Lemmens",
       "Peters",
       "Baert",
       "Pieters",
@@ -365,7 +363,9 @@
       "Verhoeven",
       "Heylen",
       "Geerts",
-      "Thys",
+      "Thys"
+    ],
+    "uncommon": [
       "Lambrecht",
       "Van Hecke",
       "De Groote",
@@ -424,9 +424,7 @@
       "Swinnen",
       "Nijs",
       "De Wit",
-      "De Keyser"
-    ],
-    "rare": [
+      "De Keyser",
       "De Bock",
       "Van Daele",
       "Van Acker",
@@ -542,7 +540,9 @@
       "Huysmans",
       "Engels",
       "Devillé",
-      "De Mey",
+      "De Mey"
+    ],
+    "rare": [
       "De Jonghe",
       "Colpaert",
       "Callewaert",
@@ -825,9 +825,7 @@
       "Van Gils",
       "Van Eeckhout",
       "Van Dijck",
-      "Van De Ven"
-    ],
-    "very_rare": [
+      "Van De Ven",
       "Ryckaert",
       "Horemans",
       "Dockx",
@@ -1294,7 +1292,9 @@
       "Pletinckx",
       "Phil",
       "Peremans",
-      "Pat",
+      "Pat"
+    ],
+    "very_rare": [
       "Palmans",
       "Naeyaert",
       "Nackaerts",
@@ -1511,22 +1511,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

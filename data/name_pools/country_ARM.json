@@ -35,9 +35,7 @@
       "Suren",
       "Edgar",
       "Sergey",
-      "Robert"
-    ],
-    "familiar": [
+      "Robert",
       "Hovhannes",
       "Eduard",
       "Grigor",
@@ -47,7 +45,9 @@
       "Sargis",
       "Artak",
       "Sebastian",
-      "Gagik",
+      "Gagik"
+    ],
+    "familiar": [
       "Ara",
       "Albert",
       "Artem",
@@ -73,9 +73,7 @@
       "Ararat",
       "Pavel",
       "Hamlet",
-      "Alen"
-    ],
-    "uncommon": [
+      "Alen",
       "Vahram",
       "Rafayel",
       "Rafael",
@@ -85,7 +83,9 @@
       "Harout",
       "Armin",
       "Vigen",
-      "Stepan",
+      "Stepan"
+    ],
+    "uncommon": [
       "Sevak",
       "Sergio",
       "Saro",
@@ -172,9 +172,7 @@
       "Arakelyan",
       "Gasparyan",
       "Avagyan",
-      "Abrahamyan"
-    ],
-    "familiar": [
+      "Abrahamyan",
       "Torosyan",
       "Movsisyan",
       "Mkhitaryan",
@@ -183,7 +181,9 @@
       "Ayvazyan",
       "Adamyan",
       "Baghdasaryan",
-      "Yeghiazaryan",
+      "Yeghiazaryan"
+    ],
+    "familiar": [
       "Nazaryan",
       "Melikyan",
       "Kirakosyan",
@@ -212,16 +212,16 @@
       "Aslanyan",
       "Yesayan",
       "Nikoghosyan",
-      "Hovakimyan"
-    ],
-    "uncommon": [
+      "Hovakimyan",
       "Ananyan",
       "Smbatyan",
       "Nersisyan",
       "Melkonyan",
       "Hakobian",
       "Danielyan",
-      "Alaverdyan",
+      "Alaverdyan"
+    ],
+    "uncommon": [
       "Tonoyan",
       "Papoyan",
       "Papikyan",
@@ -341,9 +341,7 @@
       "Bagdasaryan",
       "Avakian",
       "Arsenyan",
-      "Martirosian"
-    ],
-    "rare": [
+      "Martirosian",
       "Arutiunian",
       "Arzumanian",
       "Akopian",
@@ -398,7 +396,9 @@
       "Atayan",
       "Arakelian",
       "Apresyan",
-      "Alexanyan",
+      "Alexanyan"
+    ],
+    "rare": [
       "Aivazian",
       "Shushanian",
       "Khalafian",
@@ -583,9 +583,7 @@
       "Yeghyan",
       "Yazichyan",
       "Yazdjian",
-      "Yaghubyan"
-    ],
-    "very_rare": [
+      "Yaghubyan",
       "Virabian",
       "Verdiyan",
       "Veranyan",
@@ -901,26 +899,27 @@
       "Abgarian",
       "Abelyan",
       "Abajyan"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

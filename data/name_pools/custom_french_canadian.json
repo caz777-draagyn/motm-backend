@@ -4,22 +4,22 @@
   "country_name": "Canada (French Canadian)",
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.09,
+      "very_common": 0.13,
+      "common": 0.14,
+      "familiar": 0.19,
+      "uncommon": 0.44999999999999996,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,
@@ -60,9 +60,7 @@
       "Martin",
       "Dominic",
       "Patrick",
-      "Eric"
-    ],
-    "familiar": [
+      "Eric",
       "Daniel",
       "Pascal",
       "Benoit",
@@ -71,7 +69,9 @@
       "Hugo",
       "Felix",
       "Xavier",
-      "Laurent",
+      "Laurent"
+    ],
+    "familiar": [
       "Remi",
       "Emile",
       "Noel",
@@ -171,10 +171,10 @@
       "Tremblay",
       "Gagnon",
       "Roy",
-      "Bouchard"
+      "Bouchard",
+      "Gauthier"
     ],
     "very_common": [
-      "Gauthier",
       "Morin",
       "Lavoie",
       "Fortin",
@@ -183,10 +183,10 @@
       "Pelletier",
       "Belanger",
       "Levesque",
-      "Bergeron"
+      "Bergeron",
+      "Leblanc"
     ],
     "common": [
-      "Leblanc",
       "Paquette",
       "Girard",
       "Simard",
@@ -200,9 +200,7 @@
       "Lambert",
       "Lapointe",
       "Cyr",
-      "Pellerin"
-    ],
-    "familiar": [
+      "Pellerin",
       "Couture",
       "St-Pierre",
       "Rousseau",
@@ -212,7 +210,9 @@
       "Demers",
       "Blanchette",
       "Landry",
-      "Allard",
+      "Allard"
+    ],
+    "familiar": [
       "Boivin",
       "Renaud",
       "Bourgeois",
@@ -245,12 +245,12 @@
       "Choquette",
       "Daigle",
       "Desrosiers",
-      "Dion"
-    ],
-    "uncommon": [
+      "Dion",
       "Dionne",
       "Drouin",
-      "Ducharme",
+      "Ducharme"
+    ],
+    "uncommon": [
       "Dufour",
       "Dumont",
       "Dupont",
@@ -417,9 +417,7 @@
       "Labbe",
       "Labonte",
       "Labrecque",
-      "Labrie"
-    ],
-    "rare": [
+      "Labrie",
       "Lacasse",
       "Lacombe",
       "Lacourse",
@@ -427,7 +425,9 @@
       "Lafond",
       "Lafreniere",
       "Lajoie",
-      "Lamarche",
+      "Lamarche"
+    ],
+    "rare": [
       "Lamirande",
       "Lamontagne",
       "Lamy",

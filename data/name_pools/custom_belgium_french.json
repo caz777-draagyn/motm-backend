@@ -37,9 +37,7 @@
       "Alexandre",
       "Paul",
       "Antoine",
-      "Ethan"
-    ],
-    "familiar": [
+      "Ethan",
       "Eric",
       "Sacha",
       "Laurent",
@@ -48,7 +46,9 @@
       "Milan",
       "Elias",
       "Guillaume",
-      "Maxime",
+      "Maxime"
+    ],
+    "familiar": [
       "Victor",
       "Sébastien",
       "Baptiste",
@@ -260,10 +260,10 @@
       "Ronald",
       "Angelo",
       "Gabriele",
-      "Stanislas"
+      "Stanislas",
+      "Leonardo"
     ],
     "rare": [
-      "Leonardo",
       "Gary",
       "Lilian",
       "Marcus",
@@ -355,52 +355,50 @@
   "surnames": {
     "top": [
       "Dupont",
-      "Dubois"
-    ],
-    "very_common": [
+      "Dubois",
       "Jacobs",
       "Leroy",
       "Michel"
     ],
-    "common": [
+    "very_common": [
       "Lambert",
       "Laurent",
       "Lefebvre",
       "Petit",
       "François",
-      "Dumont"
-    ],
-    "familiar": [
+      "Dumont",
       "Rousseau",
       "Moreau",
       "Stevens",
-      "Lefèvre",
+      "Lefèvre"
+    ],
+    "common": [
       "Durand",
       "Nicolas",
       "Denis",
-      "ClÃ©ment",
+      "Clément",
       "Bertrand",
       "Lemaire",
       "Duval",
-      "GÃ©rard",
+      "Gérard",
       "Olivier",
       "Mercier",
       "Mathieu",
       "Renard",
       "Philippe",
-      "Fontaine"
-    ],
-    "uncommon": [
+      "Fontaine",
       "Legrand",
       "Chevalier",
-      "AndrÃ©",
+      "André",
       "Marchal",
       "Lejeune",
       "Lacroix",
       "Jean",
       "Gauthier",
       "Garnier",
-      "Noël",
+      "Noël"
+    ],
+    "familiar": [
       "Bonnet",
       "Meunier",
       "Leclercq",
@@ -436,22 +434,22 @@
       "Herman",
       "Bruno",
       "Barbier",
-      "Lebrun",
+      "Lebrun"
+    ],
+    "uncommon": [
       "Roussel",
       "Guérin",
       "Gautier",
       "Dujardin",
       "Mortier",
       "Leroux",
-      "GrÃ©goire",
+      "Grégoire",
       "Gilbert",
       "Georges",
       "Dupuis",
       "Carlier",
       "Pascal",
-      "Parmentier"
-    ],
-    "rare": [
+      "Parmentier",
       "Carpentier",
       "Léonard",
       "Lenoir",
@@ -477,7 +475,7 @@
       "Goffin",
       "Cuvelier",
       "Boyer",
-      "StÃ©phane",
+      "Stéphane",
       "Germain",
       "Gaillard",
       "Dumas",
@@ -497,7 +495,7 @@
       "Maillard",
       "Picard",
       "Lecocq",
-      "JÃ©rÃ´me",
+      "Jérôme",
       "Dumoulin",
       "Devaux",
       "Courtois",
@@ -539,7 +537,7 @@
       "Michaux",
       "Laroche",
       "Lallemand",
-      "HervÃ©",
+      "Hervé",
       "Francis",
       "Dupuy",
       "Arnould",
@@ -608,14 +606,14 @@
       "Fauconnier",
       "Du Bois",
       "Delacroix",
-      "Cartier"
-    ],
-    "very_rare": [
+      "Cartier",
       "Tavernier",
       "Sylvain",
       "Remacle",
       "Potier",
-      "Marquet",
+      "Marquet"
+    ],
+    "rare": [
       "Levesque",
       "Le Gall",
       "Gosselin",
@@ -930,7 +928,7 @@
       "Gosset",
       "Gobin",
       "Gasnier",
-      "GaÃ«tan",
+      "Gaëtan",
       "Froger",
       "Forget",
       "Forestier",
@@ -980,7 +978,7 @@
       "Mariette",
       "Marceau",
       "Manuel",
-      "JÃ©rÃ©mie",
+      "Jérémie",
       "Huard",
       "Howard",
       "Granier",
@@ -1176,7 +1174,7 @@
       "Marvin",
       "Lucien",
       "Jean-Louis",
-      "GÃ©rald",
+      "Gérald",
       "Enzo",
       "Elie",
       "Teddy",
@@ -1212,26 +1210,27 @@
       "Claudio",
       "Amaury",
       "Alessandro"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

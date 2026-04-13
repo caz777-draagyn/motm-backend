@@ -36,9 +36,7 @@
       "Mauro",
       "Fabio",
       "Domingos",
-      "Marcio"
-    ],
-    "familiar": [
+      "Marcio",
       "Jorge",
       "Alexandre",
       "Rui",
@@ -47,7 +45,9 @@
       "Osvaldo",
       "Leonardo",
       "Anderson",
-      "Francisco",
+      "Francisco"
+    ],
+    "familiar": [
       "Marcos",
       "Victor",
       "Sérgio",
@@ -82,10 +82,10 @@
       "Rodrigo",
       "John",
       "Joel",
-      "Julio"
+      "Julio",
+      "Josemar"
     ],
     "uncommon": [
-      "Josemar",
       "Walter",
       "Nuno",
       "Leonel",
@@ -259,10 +259,10 @@
       "Estêvão",
       "Don",
       "Edivaldo",
-      "Erivaldo"
+      "Erivaldo",
+      "Elizandro"
     ],
     "rare": [
-      "Elizandro",
       "Tomas",
       "Tonny",
       "Costa",
@@ -373,26 +373,26 @@
   },
   "surnames": {
     "top": [
-      "Manuel",
       "Silva",
-      "Domingos",
+      "Manuel",
       "Santos",
-      "Antonio",
-      "Francisco",
-      "Da Silva",
-      "Fernandes"
+      "Domingos",
+      "Francisco"
     ],
     "very_common": [
+      "Antonio",
+      "Fernandes",
+      "Da Silva",
       "Pedro",
       "Gomes",
       "Costa",
       "Lopes",
       "Paulo",
       "Oliveira",
-      "Gonçalves",
-      "Rodrigues"
+      "Gonçalves"
     ],
     "common": [
+      "Rodrigues",
       "Ferreira",
       "Mendes",
       "Miguel",
@@ -406,9 +406,7 @@
       "Martins",
       "Dias",
       "Cardoso",
-      "Alexandre"
-    ],
-    "familiar": [
+      "Alexandre",
       "Correia",
       "Soares",
       "Lima",
@@ -417,7 +415,9 @@
       "Sousa",
       "De Oliveira",
       "Da Costa",
-      "Nunes",
+      "Nunes"
+    ],
+    "familiar": [
       "Cruz",
       "Bernardo",
       "Jorge",
@@ -452,10 +452,10 @@
       "Baptista",
       "Luis",
       "Machado",
-      "Campos"
+      "Campos",
+      "Rocha"
     ],
     "uncommon": [
-      "Rocha",
       "Miranda",
       "Bento",
       "Nascimento",
@@ -591,9 +591,7 @@
       "Semedo",
       "Rojas",
       "Rangel",
-      "Quintas"
-    ],
-    "rare": [
+      "Quintas",
       "Pakas",
       "Pacheco",
       "Nóbrega",
@@ -632,7 +630,9 @@
       "Melo",
       "Martinho",
       "Marcelo",
-      "Macedo",
+      "Macedo"
+    ],
+    "rare": [
       "Macaia",
       "Leal",
       "Kiala",
@@ -1051,9 +1051,7 @@
       "Kanza",
       "Kanda",
       "Kalala",
-      "Kaita"
-    ],
-    "very_rare": [
+      "Kaita",
       "Juliano",
       "Jordão",
       "Jonasse",
@@ -1230,26 +1228,27 @@
       "Samaniego",
       "Rueda",
       "Bhullar"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

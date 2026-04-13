@@ -37,9 +37,7 @@
       "Soon Huat",
       "Soon Kiat",
       "Teck Huat",
-      "Teck Meng"
-    ],
-    "familiar": [
+      "Teck Meng",
       "Kah Wai",
       "Kah Hoong",
       "Kah Meng",
@@ -48,7 +46,9 @@
       "Wai Leong",
       "Wai Keong",
       "Tze Yong",
-      "Tze Wei",
+      "Tze Wei"
+    ],
+    "familiar": [
       "Yong Wei",
       "Yong Sheng",
       "Yong Jun",
@@ -206,30 +206,28 @@
       "Tan",
       "Lim",
       "Wong",
-      "Ng"
+      "Ng",
+      "Chong"
     ],
     "very_common": [
-      "Chong",
       "Chan",
       "Teoh",
       "Khoo",
       "Lau",
       "Liew",
-      "Lai"
-    ],
-    "common": [
+      "Lai",
       "Low",
       "Chew",
       "Yeo",
-      "Chua",
+      "Chua"
+    ],
+    "common": [
       "Ho",
       "Toh",
       "Phua",
       "Leong",
       "Seah",
-      "Yong"
-    ],
-    "familiar": [
+      "Yong",
       "Yeoh",
       "Khor",
       "Khong",
@@ -247,7 +245,9 @@
       "Kwan",
       "Cheong",
       "Bong",
-      "Poon",
+      "Poon"
+    ],
+    "familiar": [
       "Au",
       "Yip",
       "Fong",
@@ -263,9 +263,7 @@
       "Khaw",
       "H'ng",
       "Chia",
-      "Choong"
-    ],
-    "uncommon": [
+      "Choong",
       "Chai",
       "Yuen",
       "Ling",
@@ -285,7 +283,9 @@
       "Yik",
       "Yio",
       "Cheah",
-      "Choo",
+      "Choo"
+    ],
+    "uncommon": [
       "Chow",
       "Chu",
       "Guan",
@@ -306,22 +306,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

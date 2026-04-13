@@ -36,9 +36,7 @@
       "Valentin",
       "Ben",
       "Patrick",
-      "Finn"
-    ],
-    "familiar": [
+      "Finn",
       "Matteo",
       "Philipp",
       "Emil",
@@ -47,7 +45,9 @@
       "Theo",
       "Matthias",
       "Mario",
-      "Anton",
+      "Anton"
+    ],
+    "familiar": [
       "Gerhard",
       "Samuel",
       "Johannes",
@@ -458,9 +458,7 @@
       "Eder",
       "Baumgartner",
       "Brünner",
-      "Wimmer"
-    ],
-    "familiar": [
+      "Wimmer",
       "Lehner",
       "Auer",
       "Schuster",
@@ -470,7 +468,9 @@
       "Weiss",
       "Koller",
       "Haas",
-      "Klein",
+      "Klein"
+    ],
+    "familiar": [
       "Kaiser",
       "Haider",
       "Strasser",
@@ -503,12 +503,12 @@
       "Resch",
       "Hager",
       "Rainer",
-      "Grabner"
-    ],
-    "uncommon": [
+      "Grabner",
       "Fritz",
       "Fink",
-      "Winter",
+      "Winter"
+    ],
+    "uncommon": [
       "Maurer",
       "Hoffmann",
       "Hackl",
@@ -654,9 +654,7 @@
       "Stöckl",
       "Steindl",
       "Schütz",
-      "Schuh"
-    ],
-    "rare": [
+      "Schuh",
       "Schreiner",
       "Schranz",
       "Pinter",
@@ -685,7 +683,9 @@
       "Fröhlich",
       "Freud",
       "Edlinger",
-      "Buchegger",
+      "Buchegger"
+    ],
+    "rare": [
       "Brandstetter",
       "Bischof",
       "Wurzer",
@@ -1228,9 +1228,7 @@
       "Köppl",
       "Koll",
       "Kölbl",
-      "Koeck"
-    ],
-    "very_rare": [
+      "Koeck",
       "Klampfer",
       "Kammerlander",
       "Kager",
@@ -1437,7 +1435,9 @@
       "Seper",
       "Seiser",
       "Schwendinger",
-      "Schwarzbauer",
+      "Schwarzbauer"
+    ],
+    "very_rare": [
       "Schützenhöfer",
       "Schuchter",
       "Schreder",
@@ -2641,22 +2641,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.15,

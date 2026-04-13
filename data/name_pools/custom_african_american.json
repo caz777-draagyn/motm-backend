@@ -4,22 +4,22 @@
   "country_name": "United States (African American)",
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.09,
+      "very_common": 0.13,
+      "common": 0.14,
+      "familiar": 0.19,
+      "uncommon": 0.18,
+      "rare": 0.26999999999999996,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,
@@ -60,9 +60,7 @@
       "Marquis",
       "Rashawn",
       "Shaquille",
-      "Terrell"
-    ],
-    "familiar": [
+      "Terrell",
       "Trevon",
       "Tyquan",
       "Tyree",
@@ -71,7 +69,9 @@
       "Tyrone",
       "Zaire",
       "Zyaire",
-      "Cedric",
+      "Cedric"
+    ],
+    "familiar": [
       "Darius",
       "Demetrius",
       "Donnell",
@@ -446,13 +446,13 @@
       "Taylor",
       "Anderson",
       "Jackson",
-      "Thompson"
-    ],
-    "common": [
+      "Thompson",
       "Martinez",
       "Harris",
       "Clark",
-      "Walker",
+      "Walker"
+    ],
+    "common": [
       "Hernandez",
       "Young",
       "Robinson",
@@ -460,9 +460,7 @@
       "Wright",
       "Adams",
       "Hill",
-      "Carter"
-    ],
-    "familiar": [
+      "Carter",
       "Parker",
       "Roberts",
       "Baker",
@@ -478,7 +476,9 @@
       "Turner",
       "Edwards",
       "Morris",
-      "Stewart",
+      "Stewart"
+    ],
+    "familiar": [
       "Kelly",
       "Rogers",
       "Ramirez",
@@ -503,9 +503,7 @@
       "Price",
       "West",
       "Richardson",
-      "Sullivan"
-    ],
-    "uncommon": [
+      "Sullivan",
       "Flores",
       "Long",
       "Foster",
@@ -516,7 +514,9 @@
       "Henderson",
       "Butler",
       "Stone",
-      "Kennedy",
+      "Kennedy"
+    ],
+    "uncommon": [
       "Fisher",
       "Barnes",
       "Myers",
@@ -660,9 +660,7 @@
       "Benson",
       "Pearson",
       "Sims",
-      "Fowler"
-    ],
-    "rare": [
+      "Fowler",
       "Renee",
       "Howell",
       "Munoz",
@@ -693,7 +691,9 @@
       "Gallagher",
       "Wolfe",
       "Garrett",
-      "Chambers",
+      "Chambers"
+    ],
+    "rare": [
       "Becker",
       "Brewer",
       "Moss",
@@ -1211,9 +1211,7 @@
       "Cleveland",
       "Lyon",
       "Gibbons",
-      "Maloney"
-    ],
-    "very_rare": [
+      "Maloney",
       "Ewing",
       "Sutherland",
       "Hyde",
@@ -1445,7 +1443,9 @@
       "Dunham",
       "Woodruff",
       "Mcginnis",
-      "Corbin",
+      "Corbin"
+    ],
+    "very_rare": [
       "Grady",
       "Rees",
       "Presley",

@@ -18,10 +18,10 @@
       "Seydou",
       "Ismael",
       "Souleymane",
-      "Alpha"
+      "Alpha",
+      "Aliou"
     ],
     "common": [
-      "Aliou",
       "Youssouf",
       "Sekou",
       "Issa",
@@ -33,9 +33,7 @@
       "Daniel",
       "Daouda",
       "David",
-      "Aboubacar"
-    ],
-    "familiar": [
+      "Aboubacar",
       "Samuel",
       "Junior",
       "Keita",
@@ -47,7 +45,9 @@
       "Dramane",
       "Alassane",
       "Sidibe",
-      "Cheick-Oumar",
+      "Cheick-Oumar"
+    ],
+    "familiar": [
       "Idrissa",
       "Alou",
       "Yaya",
@@ -75,9 +75,7 @@
       "Abdou",
       "Malick",
       "Gaoussou",
-      "Bréhima"
-    ],
-    "uncommon": [
+      "Bréhima",
       "Siaka",
       "Moustapha",
       "Zoumana",
@@ -85,7 +83,9 @@
       "Issiaka",
       "Boureima",
       "Moctar",
-      "Mamoutou",
+      "Mamoutou"
+    ],
+    "uncommon": [
       "Mamoudou",
       "Mahamane",
       "Balla",
@@ -249,9 +249,7 @@
       "Amos",
       "Diaby",
       "Adriano",
-      "Boukary"
-    ],
-    "rare": [
+      "Boukary",
       "Alpha-Oumar",
       "Charles",
       "Andrew",
@@ -260,6 +258,7 @@
       "Alioune",
       "Attaher"
     ],
+    "rare": [],
     "very_rare": []
   },
   "surnames": {
@@ -272,34 +271,32 @@
     ],
     "very_common": [
       "Diallo",
-      "KonÃ©",
+      "Koné",
       "Toure",
-      "DembÃ©lÃ©",
-      "CissÃ©",
+      "Dembélé",
+      "Cissé",
       "Sidibe",
       "Diakite",
       "Camara",
-      "SangarÃ©",
+      "Sangaré",
       "Sanogo"
     ],
     "common": [
       "Sissoko",
-      "KonatÃ©",
+      "Konaté",
       "Bah",
       "Doumbia",
       "Guindo",
       "Dicko",
       "Sylla",
       "Samake",
-      "BerthÃ©",
+      "Berthé",
       "Sow",
       "Doucoure",
       "Sacko",
       "Mohamed",
       "Bagayoko",
-      "KantÃ©"
-    ],
-    "familiar": [
+      "Kanté",
       "Diawara",
       "Fofana",
       "Diabate",
@@ -308,7 +305,9 @@
       "Moussa",
       "Tounkara",
       "Kané",
-      "Bathily",
+      "Bathily"
+    ],
+    "familiar": [
       "Ouattara",
       "Koita",
       "Togola",
@@ -343,10 +342,10 @@
       "Youssouf",
       "Dramane",
       "Bouare",
-      "Thiam"
+      "Thiam",
+      "Tamboura"
     ],
     "uncommon": [
-      "Tamboura",
       "Dabo",
       "Sogodogo",
       "Kebe",
@@ -481,9 +480,7 @@
       "Bourama",
       "Boubou",
       "Boire",
-      "Batista"
-    ],
-    "rare": [
+      "Batista",
       "Yaya",
       "Yattabare",
       "Yaro",
@@ -523,7 +520,9 @@
       "Diabira",
       "Danioko",
       "Daff",
-      "Coulibal",
+      "Coulibal"
+    ],
+    "rare": [
       "Barros",
       "Barou",
       "Baradji",
@@ -731,9 +730,7 @@
       "O'kane",
       "Nzamba",
       "Nshimyumuremyi",
-      "Noubani"
-    ],
-    "very_rare": [
+      "Noubani",
       "Nian",
       "Ndjim",
       "Narcisse",
@@ -981,26 +978,27 @@
       "Abasse",
       "Abass",
       "Abacar"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

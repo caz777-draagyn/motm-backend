@@ -36,9 +36,7 @@
       "Vadim",
       "Daniyar",
       "Kirill",
-      "Asylkhan"
-    ],
-    "familiar": [
+      "Asylkhan",
       "Timur",
       "Arman",
       "Sergey",
@@ -47,7 +45,9 @@
       "Aldiyar",
       "Ilja",
       "Madi",
-      "Azamat",
+      "Azamat"
+    ],
+    "familiar": [
       "Erkebulan",
       "Sanzhar",
       "Alex",
@@ -81,11 +81,11 @@
       "Talgat",
       "Michael",
       "John",
-      "Erbol"
+      "Erbol",
+      "Anuar",
+      "Alibek"
     ],
     "uncommon": [
-      "Anuar",
-      "Alibek",
       "Yevgeniy",
       "Eldar",
       "Aslan",
@@ -244,31 +244,29 @@
       "Kenes",
       "Omarov",
       "Sultanov",
-      "Barat"
+      "Barat",
+      "Akhmetov"
     ],
     "very_common": [
-      "Akhmetov",
       "Umarov",
       "Belgibaev",
       "Kemelov",
       "Bolatbek",
       "Ivanov",
-      "Kambarov"
-    ],
-    "common": [
+      "Kambarov",
       "Boyko",
       "Smagulov",
       "Aliev",
-      "Ospanov",
+      "Ospanov"
+    ],
+    "common": [
       "Serikov",
       "Tsoy",
       "Suleymenov",
       "Karimov",
       "Ibragimov",
       "Bondarenko",
-      "Eleusiz"
-    ],
-    "familiar": [
+      "Eleusiz",
       "Kaliev",
       "Nigmashev",
       "Shevchenko",
@@ -285,7 +283,9 @@
       "Iskakov",
       "Musin",
       "Mamedov",
-      "Abdullaev",
+      "Abdullaev"
+    ],
+    "familiar": [
       "Musaev",
       "Nurdulla",
       "Amangeldi",
@@ -298,9 +298,7 @@
       "Zhumagaliev",
       "Amangeldy",
       "Bisenov",
-      "Galiev"
-    ],
-    "uncommon": [
+      "Galiev",
       "Sadykov",
       "Sauytbay",
       "Sharipov",
@@ -323,7 +321,9 @@
       "Bekenov",
       "Parasyukov",
       "Kuanyshev",
-      "Aubakirov",
+      "Aubakirov"
+    ],
+    "uncommon": [
       "Rakhmetov",
       "Khan",
       "Zhaikbaev",
@@ -423,9 +423,7 @@
       "Miroshnichenko",
       "Kaldybaev",
       "Lesbek",
-      "Ismagulov"
-    ],
-    "rare": [
+      "Ismagulov",
       "Kenesov",
       "Babenko",
       "Akhmedov",
@@ -500,7 +498,9 @@
       "Dmitrienko",
       "Zhaxylyk",
       "Kabiev",
-      "Talgatov",
+      "Talgatov"
+    ],
+    "rare": [
       "Mukhtarov",
       "Badulin",
       "Imangaliev",
@@ -954,22 +954,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

@@ -34,9 +34,7 @@
       "Aldi",
       "Arie",
       "Erwin",
-      "Faisal"
-    ],
-    "familiar": [
+      "Faisal",
       "Hadi",
       "Mohamed",
       "Mohammad",
@@ -48,7 +46,9 @@
       "Adly",
       "Adrian",
       "Adryan",
-      "Afif",
+      "Afif"
+    ],
+    "familiar": [
       "Agan",
       "Akhmad",
       "Aldino",
@@ -76,9 +76,7 @@
       "Arip",
       "Arjuna",
       "Armand",
-      "Arry"
-    ],
-    "uncommon": [
+      "Arry",
       "Arvin",
       "Ary",
       "Ashari",
@@ -86,7 +84,9 @@
       "Ato",
       "Awal",
       "Ayi",
-      "Azhar",
+      "Azhar"
+    ],
+    "uncommon": [
       "Azhari",
       "Azizi",
       "Azman",
@@ -252,9 +252,7 @@
       "Murat",
       "Mikael",
       "Mohammed",
-      "Rakhmat"
-    ],
-    "rare": [
+      "Rakhmat",
       "Nasir",
       "Naufal",
       "Osama",
@@ -263,7 +261,9 @@
       "Muhammed",
       "Mustaqim",
       "Pay",
-      "Nazrul",
+      "Nazrul"
+    ],
+    "rare": [
       "Muhaimin",
       "Ramadhani",
       "Noel",
@@ -347,29 +347,26 @@
     "very_rare": []
   },
   "surnames": {
-    "top": [],
-    "very_common": [
-      "Wijaya"
-    ],
-    "common": [
+    "top": [
+      "Wijaya",
       "Rahman",
       "Akbar",
-      "Fauzi"
+      "Fauzi",
+      "Siregar"
     ],
-    "familiar": [
-      "Siregar",
+    "very_common": [
       "Syahputra",
       "Ramadhani",
       "Sinaga",
       "Yusuf",
       "Rahma",
       "Nasution",
-      "Hakim"
-    ],
-    "uncommon": [
+      "Hakim",
       "Anwar",
       "Ibrahim",
-      "Simanjuntak",
+      "Simanjuntak"
+    ],
+    "common": [
       "Lubis",
       "Ramdani",
       "Fauzan",
@@ -393,7 +390,9 @@
       "Hasibuan",
       "Haryanto",
       "Azhari",
-      "Manurung",
+      "Manurung"
+    ],
+    "familiar": [
       "Susilo",
       "Silalahi",
       "Tanjung",
@@ -415,9 +414,7 @@
       "Hutabarat",
       "Azhar",
       "Farhan",
-      "Chaniago"
-    ],
-    "rare": [
+      "Chaniago",
       "Winata",
       "Fadli",
       "Sulaiman",
@@ -431,7 +428,9 @@
       "Ashari",
       "Ardi",
       "Supriadi",
-      "Wiguna",
+      "Wiguna"
+    ],
+    "uncommon": [
       "Tampubolon",
       "Supriyadi",
       "Suryana",
@@ -562,9 +561,7 @@
       "Situmeang",
       "Sipayung",
       "Munthe",
-      "Harianja"
-    ],
-    "very_rare": [
+      "Harianja",
       "Ary",
       "Nathanael",
       "Hardi",
@@ -608,7 +605,9 @@
       "Darwin",
       "Robin",
       "Rambe",
-      "Nazar",
+      "Nazar"
+    ],
+    "rare": [
       "Suharto",
       "Novan",
       "Hani",
@@ -709,26 +708,27 @@
       "Ato",
       "Asif",
       "Andrei"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

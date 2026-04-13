@@ -36,9 +36,7 @@
       "Ikechukwu",
       "Kelechi",
       "Kenechukwu",
-      "Lotanna"
-    ],
-    "familiar": [
+      "Lotanna",
       "Nnaemeka",
       "Nnamdi",
       "Nonso",
@@ -48,7 +46,9 @@
       "Obichukwu",
       "Okechukwu",
       "Onyekachi",
-      "Onyeka",
+      "Onyeka"
+    ],
+    "familiar": [
       "Somto",
       "Somtochukwu",
       "Ugochukwu",
@@ -81,12 +81,12 @@
       "Uzor",
       "Zikora",
       "Azubike",
-      "Anayo"
-    ],
-    "uncommon": [
+      "Anayo",
       "Amaechi",
       "Ifechukwu",
-      "Ihekuna",
+      "Ihekuna"
+    ],
+    "uncommon": [
       "Nnabuife",
       "Ozoemena",
       "Tabansi",
@@ -166,9 +166,7 @@
       "Iwu",
       "Madu",
       "Mba",
-      "Mbachu"
-    ],
-    "familiar": [
+      "Mbachu",
       "Mbadiwe",
       "Mbonu",
       "Mmadike",
@@ -178,7 +176,9 @@
       "Nnaemeka",
       "Nnaji",
       "Nnamani",
-      "Nnebedum",
+      "Nnebedum"
+    ],
+    "familiar": [
       "Nwankwo",
       "Nwoke",
       "Nwosu",
@@ -213,10 +213,10 @@
       "Ozoemena",
       "Uba",
       "Ubaka",
-      "Ubah"
+      "Ubah",
+      "Uche"
     ],
     "uncommon": [
-      "Uche",
       "Ude",
       "Udeh",
       "Ugwu",
@@ -309,22 +309,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

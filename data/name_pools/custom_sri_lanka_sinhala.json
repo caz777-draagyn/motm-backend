@@ -37,9 +37,7 @@
       "Lahiru",
       "Roshan",
       "Tharanga",
-      "Thilina"
-    ],
-    "familiar": [
+      "Thilina",
       "Thushara",
       "Duminda",
       "Mahesh",
@@ -48,7 +46,9 @@
       "Dilshan",
       "Madhushanka",
       "Sasanka",
-      "Harsha",
+      "Harsha"
+    ],
+    "familiar": [
       "Janaka",
       "Kanchana",
       "Ramesh",
@@ -219,9 +219,7 @@
       "de Mel",
       "de Alwis",
       "de Saram",
-      "de Fonseka"
-    ],
-    "familiar": [
+      "de Fonseka",
       "de Zoysa",
       "de Abrew",
       "de Croos",
@@ -230,7 +228,9 @@
       "de Costa",
       "de Kretser",
       "de Soyza",
-      "de Munck",
+      "de Munck"
+    ],
+    "familiar": [
       "Abayakoon",
       "Abeygunawardena",
       "Abeykoon",
@@ -265,10 +265,10 @@
       "de Chickera",
       "de Gunawardena",
       "de Seram",
-      "Dharmasiri"
+      "Dharmasiri",
+      "Dissanayake"
     ],
     "uncommon": [
-      "Dissanayake",
       "Dodangoda",
       "Edirisinghe",
       "Ekanayake",
@@ -358,22 +358,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

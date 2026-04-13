@@ -19,10 +19,10 @@
       "David",
       "Kevin",
       "Michael",
-      "Ricky"
+      "Ricky",
+      "Ryan"
     ],
     "common": [
-      "Ryan",
       "Abdullah",
       "Mohamed",
       "Mohammad",
@@ -35,9 +35,7 @@
       "Akhmad",
       "Amin",
       "Antonius",
-      "Gede"
-    ],
-    "familiar": [
+      "Gede",
       "Gregorius",
       "Hasan",
       "Hassan",
@@ -48,7 +46,9 @@
       "Ismail",
       "Johanes",
       "Ketut",
-      "Markus",
+      "Markus"
+    ],
+    "familiar": [
       "Mohammed",
       "Muhammed",
       "Omar",
@@ -81,12 +81,12 @@
       "Charles",
       "Chris",
       "Christopher",
-      "Clark"
-    ],
-    "uncommon": [
+      "Clark",
       "Colin",
       "Connor",
-      "Craig",
+      "Craig"
+    ],
+    "uncommon": [
       "Dale",
       "Darren",
       "Dave",
@@ -222,31 +222,27 @@
       "Setiawan",
       "Saputra",
       "Kurniawan",
-      "Pratama"
+      "Pratama",
+      "Hidayat"
     ],
     "very_common": [
-      "Hidayat",
       "Putra",
       "Wijaya",
       "Gunawan",
       "Nugraha",
-      "Prasetyo"
-    ],
-    "common": [
+      "Prasetyo",
       "Irawan",
       "Firmansyah",
       "Rahman",
-      "Akbar"
+      "Akbar",
+      "Syahputra"
     ],
-    "familiar": [
-      "Syahputra",
+    "common": [
       "Tan",
       "Yusuf",
       "Rahma",
       "Nasution",
-      "Hakim"
-    ],
-    "uncommon": [
+      "Hakim",
       "Anwar",
       "Ibrahim",
       "Lesmana",
@@ -262,12 +258,12 @@
       "Aziz",
       "Situmorang",
       "Bali",
-      "Yahya"
-    ],
-    "rare": [
+      "Yahya",
       "Winata",
       "Simbolon",
-      "Andi",
+      "Andi"
+    ],
+    "familiar": [
       "Dani",
       "Amin",
       "Usman",
@@ -303,12 +299,12 @@
       "Jamil",
       "Habib",
       "Faqih",
-      "Yohanes",
+      "Yohanes"
+    ],
+    "uncommon": [
       "Majid",
       "Supit",
-      "Raja"
-    ],
-    "very_rare": [
+      "Raja",
       "Felix",
       "Wahab",
       "Manoppo",
@@ -412,26 +408,28 @@
       "Mitch",
       "Lance",
       "Bernie"
-    ]
+    ],
+    "rare": [],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

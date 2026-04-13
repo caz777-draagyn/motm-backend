@@ -36,9 +36,7 @@
       "Ragnar",
       "Logi",
       "Petur",
-      "Róbert"
-    ],
-    "familiar": [
+      "Róbert",
       "Gísli",
       "David",
       "Haukur",
@@ -47,7 +45,9 @@
       "Helgi",
       "Matthías",
       "John",
-      "Ari",
+      "Ari"
+    ],
+    "familiar": [
       "Egill",
       "Valur",
       "Sverrir",
@@ -250,18 +250,16 @@
       "Sigurdsson",
       "Kristjánsson",
       "Stefansson",
-      "Pálsson"
-    ],
-    "common": [
+      "Pálsson",
       "Björnsson",
       "árnason",
       "Gudmundsson",
-      "Halldorsson",
+      "Halldorsson"
+    ],
+    "common": [
       "Helgason",
       "Gislason",
-      "Pétursson"
-    ],
-    "familiar": [
+      "Pétursson",
       "Kristinsson",
       "Haraldsson",
       "Sveinsson",
@@ -282,15 +280,15 @@
       "Anderson",
       "ágústsson",
       "Sverrisson",
-      "Skulason",
+      "Skulason"
+    ],
+    "familiar": [
       "Hermannsson",
       "Blöndal",
       "Sævarsson",
       "Snorrason",
       "Jóhannesson",
-      "Gylfason"
-    ],
-    "uncommon": [
+      "Gylfason",
       "Benediktsson",
       "Thordarson",
       "ómarsson",
@@ -320,7 +318,9 @@
       "Bergsson",
       "Arnarson",
       "Agnarsson",
-      "Tryggvason",
+      "Tryggvason"
+    ],
+    "uncommon": [
       "Thorsteinsson",
       "Steinarsson",
       "Masson",
@@ -370,9 +370,7 @@
       "Sighvatsson",
       "Sigfússon",
       "Níelsson",
-      "Marteinsson"
-    ],
-    "rare": [
+      "Marteinsson",
       "Logason",
       "Kolbeinsson",
       "Jackson",
@@ -423,26 +421,27 @@
       "Alexandersson",
       "Albertsson"
     ],
+    "rare": [],
     "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

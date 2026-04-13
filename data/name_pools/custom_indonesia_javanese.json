@@ -19,10 +19,10 @@
       "Hendra",
       "Muhamad",
       "Muhammad",
-      "Aditya"
+      "Aditya",
+      "Ahmed"
     ],
     "common": [
-      "Ahmed",
       "Asep",
       "Dimas",
       "Eko",
@@ -35,9 +35,7 @@
       "Deni",
       "Iqbal",
       "Abdullah",
-      "Dede"
-    ],
-    "familiar": [
+      "Dede",
       "Dedi",
       "Edi",
       "Heri",
@@ -48,7 +46,9 @@
       "Mohammad",
       "Ridwan",
       "Satria",
-      "Teguh",
+      "Teguh"
+    ],
+    "familiar": [
       "Yoga",
       "Yogi",
       "Yudi",
@@ -80,13 +80,13 @@
       "Edy",
       "Endi",
       "Firmansyah",
-      "Hari"
-    ],
-    "uncommon": [
+      "Hari",
       "Hary",
       "Hasan",
       "Hassan",
-      "Hendi",
+      "Hendi"
+    ],
+    "uncommon": [
       "Hendro",
       "Husein",
       "Hussein",
@@ -256,14 +256,14 @@
       "Dik",
       "Edo",
       "Darell",
-      "Diaz"
-    ],
-    "rare": [
+      "Diaz",
       "Edwin",
       "Dony",
       "Eno",
       "Dick",
-      "Danish",
+      "Danish"
+    ],
+    "rare": [
       "Delvi",
       "Danar",
       "Enal",
@@ -759,13 +759,13 @@
       "Wijaya",
       "Gunawan",
       "Nugraha",
-      "Prasetyo"
-    ],
-    "common": [
+      "Prasetyo",
       "Wulandari",
       "Irawan",
       "Firmansyah",
-      "Aditya",
+      "Aditya"
+    ],
+    "common": [
       "Nugroho",
       "Rahman",
       "Ahmad",
@@ -774,9 +774,7 @@
       "Aulia",
       "Hermawan",
       "Chandra",
-      "Fauzi"
-    ],
-    "familiar": [
+      "Fauzi",
       "Santoso",
       "Ayu",
       "Wahyudi",
@@ -791,7 +789,9 @@
       "Darmawan",
       "Handayani",
       "Syahputra",
-      "Prasetya",
+      "Prasetya"
+    ],
+    "familiar": [
       "Ramadhani",
       "Wahyuni",
       "Kurnia",
@@ -807,9 +807,7 @@
       "Rahma",
       "Rizki",
       "Setyawan",
-      "Hakim"
-    ],
-    "uncommon": [
+      "Hakim",
       "Wicaksono",
       "Kartika",
       "Anwar",
@@ -829,7 +827,9 @@
       "Fauziah",
       "Fauzan",
       "Ananda",
-      "Hadi",
+      "Hadi"
+    ],
+    "uncommon": [
       "Salim",
       "Candra",
       "Agung",
@@ -930,9 +930,7 @@
       "Farhan",
       "Mulyani",
       "Santosa",
-      "Hanafi"
-    ],
-    "rare": [
+      "Hanafi",
       "Fadli",
       "Budi",
       "Zakaria",
@@ -1006,7 +1004,9 @@
       "Said",
       "Indrawan",
       "Ananta",
-      "Supriatna",
+      "Supriatna"
+    ],
+    "rare": [
       "Saleh",
       "Nisa",
       "Azmi",
@@ -1139,9 +1139,7 @@
       "Rahardjo",
       "Budiarto",
       "Budiarti",
-      "Sudirman"
-    ],
-    "very_rare": [
+      "Sudirman",
       "Sugiharto",
       "Rahmad",
       "Sugiarti",
@@ -1164,26 +1162,27 @@
       "Raden",
       "Toto",
       "Djoko"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.2,
+      "rare": 0.3,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

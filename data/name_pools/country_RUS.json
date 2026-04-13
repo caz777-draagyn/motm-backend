@@ -17,10 +17,10 @@
       "Aleksei",
       "Timofey",
       "Dmitrii",
-      "Matvey"
+      "Matvey",
+      "Egor"
     ],
     "common": [
-      "Egor",
       "Mark",
       "Lev",
       "Vladimir",
@@ -33,9 +33,7 @@
       "Igor",
       "Bogdan",
       "Daniil",
-      "Denis"
-    ],
-    "familiar": [
+      "Denis",
       "Stepan",
       "Pavel",
       "Anton",
@@ -44,7 +42,9 @@
       "Oleg",
       "Nikolai",
       "Sergey",
-      "Viktor",
+      "Viktor"
+    ],
+    "familiar": [
       "Ilia",
       "Alexander",
       "Iurii",
@@ -79,10 +79,10 @@
       "Fedor",
       "Georgii",
       "Eduard",
-      "Alexandr"
+      "Alexandr",
+      "Stas"
     ],
     "uncommon": [
-      "Stas",
       "Andrew",
       "Grigorii",
       "Iaroslav",
@@ -255,10 +255,10 @@
       "Wild",
       "Georgi",
       "Vit",
-      "Aleksandar"
+      "Aleksandar",
+      "Austin"
     ],
     "rare": [
-      "Austin",
       "Yung",
       "Rasim",
       "Radim",
@@ -323,9 +323,7 @@
       "Orlov",
       "Nikitin",
       "Nikolaev",
-      "Vorob'ev"
-    ],
-    "familiar": [
+      "Vorob'ev",
       "Kozlov",
       "Iakovlev",
       "Sergeevich",
@@ -334,7 +332,9 @@
       "Borisov",
       "Kiselev",
       "Egorov",
-      "Sorokin",
+      "Sorokin"
+    ],
+    "familiar": [
       "Grigor'ev",
       "Korolev",
       "Tarasov",
@@ -524,9 +524,7 @@
       "Bragin",
       "Nikonov",
       "Kapustin",
-      "Eliseev"
-    ],
-    "rare": [
+      "Eliseev",
       "Vorontsov",
       "Molchanov",
       "Skvortsov",
@@ -549,7 +547,9 @@
       "Fadeev",
       "Silin",
       "Isakov",
-      "Drozdov",
+      "Drozdov"
+    ],
+    "rare": [
       "Bobylev",
       "Akimov",
       "Sukhanov",
@@ -967,9 +967,7 @@
       "Belkin",
       "Aref'ev",
       "Androsov",
-      "Emelyanov"
-    ],
-    "very_rare": [
+      "Emelyanov",
       "Belyakov",
       "Khromov",
       "Smetanin",
@@ -1301,7 +1299,9 @@
       "Gilev",
       "Garifullin",
       "Voitovich",
-      "Vagin",
+      "Vagin"
+    ],
+    "very_rare": [
       "Boev",
       "Bakharev",
       "Barabanov",
@@ -5684,7 +5684,7 @@
       "Yurasov",
       "Yumashev",
       "Yaroshevich",
-      "YalÃ§in",
+      "Yalçin",
       "Yachmenev",
       "Xabibov",
       "Wein",
@@ -5819,7 +5819,7 @@
       "Diveev",
       "Detkin",
       "Deryagin",
-      "DemidÃ³vich",
+      "Demidóvich",
       "Dashkin",
       "Darin",
       "Cvetkov",
@@ -8048,22 +8048,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.22,
+      "very_common": 0.15,
+      "common": 0.12,
+      "familiar": 0.11,
+      "uncommon": 0.4,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.17,
+      "very_common": 0.21,
+      "common": 0.18,
+      "familiar": 0.19,
+      "uncommon": 0.1,
+      "rare": 0.1,
+      "very_rare": 0.05
     }
   },
   "middle_name_prob": 0.15,

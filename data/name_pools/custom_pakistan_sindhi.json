@@ -37,9 +37,7 @@
       "Fakir",
       "Fateh",
       "Ghulam Ali",
-      "Ghulam Haider"
-    ],
-    "familiar": [
+      "Ghulam Haider",
       "Ghulam Hussain",
       "Ghulam Mustafa",
       "Ghulam Nabi",
@@ -48,7 +46,9 @@
       "Hussain",
       "Imdad",
       "Imtiaz",
-      "Ishaq",
+      "Ishaq"
+    ],
+    "familiar": [
       "Jamal",
       "Kamal",
       "Khalid",
@@ -83,10 +83,10 @@
       "Shah",
       "Shahbaz",
       "Shahnawaz",
-      "Sikandar"
+      "Sikandar",
+      "Siraj"
     ],
     "uncommon": [
-      "Siraj",
       "Soomar",
       "Suleman",
       "Taj Muhammad",
@@ -270,9 +270,7 @@
       "Ansari",
       "Mughal",
       "Mirza",
-      "Arain"
-    ],
-    "familiar": [
+      "Arain",
       "Baloch",
       "Khanzada",
       "Pathan",
@@ -281,7 +279,9 @@
       "Nizamani",
       "Rind",
       "Sahito",
-      "Samo",
+      "Samo"
+    ],
+    "familiar": [
       "Sangi",
       "Shoro",
       "Soomra",
@@ -465,22 +465,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

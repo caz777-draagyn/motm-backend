@@ -36,9 +36,7 @@
       "Godfrey",
       "Nathan",
       "Samson",
-      "Abdallah"
-    ],
-    "familiar": [
+      "Abdallah",
       "Baba",
       "Blessing",
       "Hussein",
@@ -47,7 +45,9 @@
       "Alex",
       "Elly",
       "Said",
-      "Issa",
+      "Issa"
+    ],
+    "familiar": [
       "Charles",
       "Paul",
       "Innocent",
@@ -259,10 +259,10 @@
       "Gideon",
       "Ivan",
       "Danny",
-      "Nasri"
+      "Nasri",
+      "Bruno"
     ],
     "rare": [
-      "Bruno",
       "Kaka",
       "Mustapha",
       "Safari",
@@ -443,9 +443,7 @@
       "Razafimahatratra",
       "Randriamanantena",
       "Ramamonjisoa",
-      "Raveloson"
-    ],
-    "familiar": [
+      "Raveloson",
       "Rajaonarison",
       "Rasoarimalala",
       "Randrianarivelo",
@@ -454,7 +452,9 @@
       "Rakotobe",
       "Rakotomanana",
       "Rakotondramanana",
-      "Rakotondrasoa",
+      "Rakotondrasoa"
+    ],
+    "familiar": [
       "Rakotoarivony",
       "Rakotozafy",
       "Fanomezantsoa",
@@ -748,22 +748,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

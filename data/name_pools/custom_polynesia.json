@@ -37,9 +37,7 @@
       "Solomone",
       "Filimoni",
       "Ulaiasi",
-      "Savenaca"
-    ],
-    "familiar": [
+      "Savenaca",
       "Mikaele",
       "Ariki",
       "Maui",
@@ -48,7 +46,9 @@
       "Niko",
       "Temo",
       "Sailosi",
-      "Timoci",
+      "Timoci"
+    ],
+    "familiar": [
       "Samiuela",
       "Aisea",
       "Apisai",
@@ -286,34 +286,34 @@
   },
   "surnames": {
     "top": [
-      "Faumuina",
       "Latu",
+      "Faumuina",
       "Fifita",
       "Tuiletua",
-      "Finau",
-      "Savea",
-      "Tuivai",
-      "Tupou",
-      "Mafi",
-      "Tuala"
+      "Finau"
     ],
     "very_common": [
+      "Savea",
+      "Tupou",
+      "Tuivai",
+      "Mafi",
+      "Tuala",
       "Fonua",
       "Leota",
-      "Mauga",
       "Moala",
+      "Mauga",
+      "Havea"
+    ],
+    "common": [
       "Alo",
-      "Havea",
       "Taufa",
-      "Fale",
       "Palu",
+      "Fale",
       "Taumoepeau",
       "Vaa",
       "Vaai",
       "Fepuleai",
-      "Fuimaono"
-    ],
-    "common": [
+      "Fuimaono",
       "Tuigamala",
       "Satele",
       "Ioane",
@@ -322,11 +322,11 @@
       "Tuipulotu",
       "Nonu",
       "Petaia",
-      "Marsters",
-      "Tetuanui",
-      "Teuira"
+      "Marsters"
     ],
     "familiar": [
+      "Tetuanui",
+      "Teuira",
       "Amaru",
       "Richmond",
       "Mai",
@@ -360,7 +360,9 @@
       "Seumanu",
       "Leiataua",
       "Faalogo",
-      "Uele",
+      "Uele"
+    ],
+    "uncommon": [
       "Sopoaga",
       "Taufua",
       "Malielegaoi",
@@ -371,9 +373,7 @@
       "Sagapolutele",
       "Toala",
       "Masoe",
-      "Ngata"
-    ],
-    "uncommon": [
+      "Ngata",
       "Tamihere",
       "Harawira",
       "Henare",
@@ -537,7 +537,9 @@
       "Leiua",
       "Maka",
       "Malupo",
-      "Manu",
+      "Manu"
+    ],
+    "rare": [
       "Mataafa",
       "Matangi",
       "Moli",
@@ -548,9 +550,7 @@
       "Perenara",
       "Pisi",
       "Pohiva",
-      "Polutele"
-    ],
-    "rare": [
+      "Polutele",
       "Saili",
       "Sakaio",
       "Saumaki",
@@ -706,22 +706,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.12,

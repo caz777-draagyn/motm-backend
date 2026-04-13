@@ -18,10 +18,10 @@
       "Ibrahim",
       "Khaled",
       "Hamza",
-      "Salem"
+      "Salem",
+      "Ahmad"
     ],
     "common": [
-      "Ahmad",
       "Anas",
       "Mustafa",
       "Abdelrahman",
@@ -35,9 +35,7 @@
       "Hassan",
       "Amir",
       "Ashraf",
-      "Mazen"
-    ],
-    "familiar": [
+      "Mazen",
       "Taha",
       "Ayoub",
       "Salah",
@@ -47,7 +45,9 @@
       "Fathi",
       "Malek",
       "Tarek",
-      "Saad",
+      "Saad"
+    ],
+    "familiar": [
       "Khalifa",
       "Jamal",
       "Hatem",
@@ -79,13 +79,13 @@
       "Hussein",
       "Hossam",
       "Haitham",
-      "Bashir"
-    ],
-    "uncommon": [
+      "Bashir",
       "Abdul",
       "Abd",
       "Taher",
-      "Saif",
+      "Saif"
+    ],
+    "uncommon": [
       "Majdi",
       "Khalil",
       "Hesham",
@@ -287,9 +287,7 @@
       "Naser",
       "Mahmoud",
       "Sultan",
-      "Mansour"
-    ],
-    "familiar": [
+      "Mansour",
       "Fathi",
       "Adel",
       "Khalil",
@@ -299,7 +297,9 @@
       "Salama",
       "Madi",
       "Ismail",
-      "Hasan",
+      "Hasan"
+    ],
+    "familiar": [
       "Nasser",
       "Milad",
       "Essa",
@@ -333,11 +333,11 @@
       "Mousa",
       "Mostafa",
       "Hussein",
-      "Aljazwi"
+      "Aljazwi",
+      "Osman",
+      "Najem"
     ],
     "uncommon": [
-      "Osman",
-      "Najem",
       "Nabil",
       "Mohammad",
       "Mansor",
@@ -485,9 +485,7 @@
       "Mosa",
       "Mokhtar",
       "Meloud",
-      "Mansur"
-    ],
-    "rare": [
+      "Mansur",
       "Madani",
       "Lamin",
       "Khalaf",
@@ -514,7 +512,9 @@
       "Elalem",
       "Dakhil",
       "Bilal",
-      "Benali",
+      "Benali"
+    ],
+    "rare": [
       "Bemba",
       "Alturki",
       "Alshawish",
@@ -1043,9 +1043,7 @@
       "Wadi",
       "Usman",
       "Umar",
-      "Tuhami"
-    ],
-    "very_rare": [
+      "Tuhami",
       "Mbark",
       "Hussam",
       "Hassoun",
@@ -1222,7 +1220,7 @@
       "Alwan",
       "Alturban",
       "Altuhami",
-      "AltÃ«rkawi",
+      "Altërkawi",
       "Altera",
       "Altaweel",
       "Altalib",
@@ -1266,7 +1264,9 @@
       "Alonso",
       "Alobeidy",
       "Alnazzal",
-      "Alnaser",
+      "Alnaser"
+    ],
+    "very_rare": [
       "Alnaji",
       "Alnajem",
       "Almukhtar",
@@ -1314,7 +1314,7 @@
       "Aliyu",
       "Aliwa",
       "Alish",
-      "AliÃ§Ä±e",
+      "Aliçıe",
       "Aliakhnovich",
       "Alhwari",
       "Alhusain",
@@ -1429,22 +1429,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

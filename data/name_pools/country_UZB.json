@@ -36,9 +36,7 @@
       "Abdulaziz",
       "Sanjar",
       "Jamshid",
-      "Dilmurod"
-    ],
-    "familiar": [
+      "Dilmurod",
       "Doniyor",
       "Umid",
       "Zohid",
@@ -47,7 +45,9 @@
       "Bobur",
       "Asilbek",
       "Ravshan",
-      "Islom",
+      "Islom"
+    ],
+    "familiar": [
       "Alibek",
       "Javohir",
       "Muzaffar",
@@ -251,10 +251,10 @@
       "Karimov",
       "Yuldashev",
       "Abdullaev",
-      "Yusupov"
+      "Yusupov",
+      "Umarov"
     ],
     "very_common": [
-      "Umarov",
       "Sharipov",
       "Ergashev",
       "Rasulov",
@@ -262,11 +262,11 @@
       "Abdullayev",
       "Usmonov",
       "Rustamov",
-      "Usmanov"
+      "Usmanov",
+      "Akhmedov",
+      "Tursunov"
     ],
     "common": [
-      "Akhmedov",
-      "Tursunov",
       "Sobirov",
       "Alimov",
       "Rahimov",
@@ -279,9 +279,7 @@
       "Mahmudov",
       "Ahmedov",
       "Yunusov",
-      "Yakubov"
-    ],
-    "familiar": [
+      "Yakubov",
       "Rashidov",
       "Kasimov",
       "Akbarov",
@@ -292,7 +290,9 @@
       "Mirzayev",
       "Ismoilov",
       "Hasanov",
-      "Hakimov",
+      "Hakimov"
+    ],
+    "familiar": [
       "Gafurov",
       "Akramov",
       "Turgunov",
@@ -324,13 +324,13 @@
       "Islamov",
       "Djuraev",
       "Shukurov",
-      "Rahmonov"
-    ],
-    "uncommon": [
+      "Rahmonov",
       "Normatov",
       "Murodov",
       "Mirzo",
-      "Mansurov",
+      "Mansurov"
+    ],
+    "uncommon": [
       "Kholmatov",
       "Jabborov",
       "Isroilov",
@@ -459,8 +459,8 @@
       "Sattorov",
       "Sadiev",
       "Rakhmanov",
-      "Khan",
       "Pardaev",
+      "Khan",
       "Otajonov",
       "Niyozov",
       "Niyazov",
@@ -487,9 +487,7 @@
       "Isakov",
       "Hoshimov",
       "Hayitov",
-      "Gofurov"
-    ],
-    "rare": [
+      "Gofurov",
       "Fayziyev",
       "Djamalov",
       "Bazarov",
@@ -507,7 +505,9 @@
       "Tuichiev",
       "Raimov",
       "Radzhabov",
-      "Mukhitdinov",
+      "Mukhitdinov"
+    ],
+    "rare": [
       "Musaev",
       "Moiseev",
       "Makhsudov",
@@ -972,9 +972,7 @@
       "Kadyrbaev",
       "Ishkhanov",
       "Ishbaev",
-      "Ishanov"
-    ],
-    "very_rare": [
+      "Ishanov",
       "Isoev",
       "Ismanov",
       "Isipov",
@@ -1259,7 +1257,9 @@
       "Mubinov",
       "Mosheev",
       "Mirzaliyev",
-      "Mirzaliev",
+      "Mirzaliev"
+    ],
+    "very_rare": [
       "Mirzakarimov",
       "Mirzabekov",
       "Mirxadiev",
@@ -1433,22 +1433,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

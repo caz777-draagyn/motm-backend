@@ -36,9 +36,7 @@
       "Ilyan",
       "Khalid",
       "Ismail",
-      "Ismaïl"
-    ],
-    "familiar": [
+      "Ismaïl",
       "Bilal",
       "Younes",
       "Sofiane",
@@ -47,7 +45,9 @@
       "Reda",
       "Nizar",
       "Soufiane",
-      "Amir",
+      "Amir"
+    ],
+    "familiar": [
       "Adil",
       "Karim",
       "Achraf",
@@ -82,10 +82,10 @@
       "Salah",
       "Khalil",
       "Mostafa",
-      "Yassin"
+      "Yassin",
+      "Yahya"
     ],
     "uncommon": [
-      "Yahya",
       "Abdessamad",
       "Othman",
       "Taha",
@@ -258,11 +258,11 @@
       "Ghali",
       "Houssine",
       "Karam",
-      "Najim"
+      "Najim",
+      "Amr",
+      "Eric"
     ],
     "rare": [
-      "Amr",
-      "Eric",
       "Dave",
       "Issa",
       "James",
@@ -460,14 +460,12 @@
     "top": [
       "Alaoui",
       "Idrissi",
-      "Bennani"
+      "Bennani",
+      "Berrada",
+      "Alami"
     ],
     "very_common": [
-      "Berrada",
-      "Alami",
-      "Tazi"
-    ],
-    "common": [
+      "Tazi",
       "Rachid",
       "Lahlou",
       "Mohamed",
@@ -476,11 +474,11 @@
       "El Idrissi",
       "Filali",
       "Saidi",
-      "Hamza",
-      "Aziz",
-      "Daoudi"
+      "Hamza"
     ],
-    "familiar": [
+    "common": [
+      "Aziz",
+      "Daoudi",
       "Omar",
       "Hajji",
       "Ayoub",
@@ -502,21 +500,21 @@
       "Talbi",
       "Sabir",
       "Kadiri",
-      "Elidrissi",
+      "Elidrissi"
+    ],
+    "familiar": [
       "Benkirane",
       "Taleb",
       "Fouad",
       "Benali",
       "Abid",
       "Simo",
-      "Naji"
-    ],
-    "uncommon": [
+      "Naji",
       "Hamdaoui",
       "Benchekroun",
       "Amzil",
-      "Abdellaoui",
       "Ahmed",
+      "Abdellaoui",
       "Salah",
       "Slaoui",
       "Naciri",
@@ -540,7 +538,9 @@
       "Mabrouk",
       "Laaroussi",
       "Hassani",
-      "Fadili",
+      "Fadili"
+    ],
+    "uncommon": [
       "Dahmani",
       "Benslimane",
       "Belhaj",
@@ -631,9 +631,7 @@
       "Lachhab",
       "Hakim",
       "Haddad",
-      "Habib"
-    ],
-    "rare": [
+      "Habib",
       "Ghazi",
       "El Omari",
       "El Hassani",
@@ -717,7 +715,9 @@
       "Keita",
       "Kassimi",
       "Kasmi",
-      "Kamel",
+      "Kamel"
+    ],
+    "rare": [
       "Kabbaj",
       "Jamil",
       "Jaafari",
@@ -1213,9 +1213,7 @@
       "Chairi",
       "Boutahar",
       "Boumlik",
-      "Boukili"
-    ],
-    "very_rare": [
+      "Boukili",
       "Boukhris",
       "Bouj",
       "Bouftass",
@@ -1469,7 +1467,9 @@
       "Derkaoui",
       "Dahmane",
       "Dafali",
-      "Chibi",
+      "Chibi"
+    ],
+    "very_rare": [
       "Cherqaoui",
       "Chekroun",
       "Charkaoui",
@@ -1876,7 +1876,7 @@
       "Eljaouhari",
       "Elhilali",
       "Elhidaoui",
-      "ElhichoÃ¹",
+      "Elhichoù",
       "Elhassan",
       "Elharrak",
       "Elhariri",
@@ -3025,7 +3025,7 @@
       "Elhadouchi",
       "Elhaddada",
       "Elhachmi",
-      "ElhabtÃ®",
+      "Elhabtî",
       "Elhabib",
       "Elghazouani",
       "Elghazlani",
@@ -3132,7 +3132,7 @@
       "El Kadi",
       "El Kaddouri",
       "El Kacimi",
-      "El KaÃ¢bi",
+      "El Kaâbi",
       "El Jerrari",
       "El Jay",
       "El Jarroudi",
@@ -4284,7 +4284,7 @@
       "Elghazoui",
       "Elghazaoui",
       "Elghazali",
-      "ElghÃ z",
+      "Elghàz",
       "Elghayati",
       "Elgharbi",
       "Elgharbaoui",
@@ -4464,7 +4464,7 @@
       "Ela",
       "El-Younssi",
       "El-Sheikh",
-      "El-OuaÃ¢zizi",
+      "El-Ouaâzizi",
       "El-Omari",
       "El-Moussaoui",
       "El-Mouden",
@@ -4712,7 +4712,7 @@
       "El Kamch",
       "El Kali",
       "El Kaj",
-      "El KaÃ¯di",
+      "El Kaïdi",
       "El Kahlaoui",
       "El Kafi",
       "El Kadri",
@@ -4800,7 +4800,7 @@
       "El Hajioui",
       "El Hajibi",
       "El Hajami",
-      "El HaÃ¯goune",
+      "El Haïgoune",
       "El Hafidi",
       "El Hafi",
       "El Hafadi",
@@ -5357,22 +5357,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.15,

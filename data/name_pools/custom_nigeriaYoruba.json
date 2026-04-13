@@ -6,30 +6,28 @@
     "top": [
       "Ademola",
       "Adewale",
-      "Adekunle"
+      "Adekunle",
+      "Adedayo",
+      "Adejare"
     ],
     "very_common": [
-      "Adedayo",
-      "Adejare",
       "Adeola",
       "Adetokunbo",
       "Adetola",
       "Adetunji",
       "Adewumi",
-      "Akinwale"
-    ],
-    "common": [
+      "Akinwale",
       "Akintunde",
       "Ayodele",
       "Ayomide",
-      "Ayotunde",
+      "Ayotunde"
+    ],
+    "common": [
       "Babatunde",
       "Babajide",
       "Bolaji",
       "Dele",
-      "Dimeji"
-    ],
-    "familiar": [
+      "Dimeji",
       "Dotun",
       "Durojaiye",
       "Durotimi",
@@ -48,7 +46,9 @@
       "Olanrewaju",
       "Olatunde",
       "Oladapo",
-      "Oladele",
+      "Oladele"
+    ],
+    "familiar": [
       "Oladimeji",
       "Oladipo",
       "Olaide",
@@ -72,9 +72,7 @@
       "Taiwo",
       "Temidayo",
       "Temitope",
-      "Tobi"
-    ],
-    "uncommon": [
+      "Tobi",
       "Tolani",
       "Tope",
       "Tunde",
@@ -86,7 +84,9 @@
       "Akinfenwa",
       "Akinpelu",
       "Ayobami",
-      "Ayoola",
+      "Ayoola"
+    ],
+    "uncommon": [
       "Damola",
       "Dayo",
       "Doyin",
@@ -228,9 +228,7 @@
       "Ayeni",
       "Ayodele",
       "Ayoola",
-      "Babalola"
-    ],
-    "familiar": [
+      "Babalola",
       "Babatunde",
       "Bakare",
       "Balogun",
@@ -239,7 +237,9 @@
       "Banjoko",
       "Bolaji",
       "Daramola",
-      "Durojaiye",
+      "Durojaiye"
+    ],
+    "familiar": [
       "Durotoye",
       "Falola",
       "Fashola",
@@ -274,10 +274,10 @@
       "Oyinlola",
       "Salako",
       "Sanusi",
-      "Shonibare"
+      "Shonibare",
+      "Soyinka"
     ],
     "uncommon": [
-      "Soyinka",
       "Taiwo",
       "Tinubu",
       "Akinfenwa",
@@ -382,22 +382,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

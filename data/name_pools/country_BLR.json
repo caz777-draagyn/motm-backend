@@ -36,9 +36,7 @@
       "Ilya",
       "Alex",
       "Yaroslav",
-      "Vlad"
-    ],
-    "familiar": [
+      "Vlad",
       "Vladislav",
       "Vadim",
       "Timur",
@@ -47,7 +45,9 @@
       "Demyan",
       "Sergey",
       "Gleb",
-      "Iurii",
+      "Iurii"
+    ],
+    "familiar": [
       "Vitalii",
       "Stepan",
       "Dmitry",
@@ -82,10 +82,10 @@
       "Vasia",
       "Eduard",
       "Paul",
-      "Nick"
+      "Nick",
+      "Yury"
     ],
     "uncommon": [
-      "Yury",
       "Vitaly",
       "Victor",
       "Vitalik",
@@ -263,9 +263,7 @@
       "Nikolaev",
       "Nikitin",
       "Mel'nik",
-      "Makarevich"
-    ],
-    "familiar": [
+      "Makarevich",
       "Karpovich",
       "Petrovich",
       "Mikhailov",
@@ -274,7 +272,9 @@
       "Bogdanov",
       "Baranov",
       "Alekseev",
-      "Sergeev",
+      "Sergeev"
+    ],
+    "familiar": [
       "Pashkevich",
       "Novikov",
       "Zaitsev",
@@ -305,14 +305,14 @@
       "Iakovlev",
       "Tkachenko",
       "Tkachev",
-      "Tikhonov"
-    ],
-    "uncommon": [
+      "Tikhonov",
       "Sorokin",
       "Petrenko",
       "Panchenko",
       "Mironov",
-      "Man'ko",
+      "Man'ko"
+    ],
+    "uncommon": [
       "Koroliov",
       "Kolesnik",
       "Danilov",
@@ -470,9 +470,7 @@
       "Savel'ev",
       "Rusak",
       "Rodionov",
-      "Radevich"
-    ],
-    "rare": [
+      "Radevich",
       "Pupkin",
       "Ponomarenko",
       "Pavlenko",
@@ -487,7 +485,9 @@
       "Lisovskii",
       "Lapin",
       "Kuz'mich",
-      "Krylov",
+      "Krylov"
+    ],
+    "rare": [
       "Kravets",
       "Kostiuk",
       "Korol'",
@@ -1037,8 +1037,8 @@
       "Mikulich",
       "Meshkov",
       "Metel'skii",
-      "Medved",
       "Merts",
+      "Medved",
       "Merkulov",
       "Mel'nichuk",
       "Matsukevich",
@@ -1127,9 +1127,7 @@
       "Emel'ianov",
       "Evstigneev",
       "Evdokimov",
-      "Durov"
-    ],
-    "very_rare": [
+      "Durov",
       "Dubko",
       "Doroshko",
       "Dorokhin",
@@ -1238,7 +1236,9 @@
       "Volynets",
       "Volkau",
       "Vasilyev",
-      "Vasilyeu",
+      "Vasilyeu"
+    ],
+    "very_rare": [
       "Vasiliev",
       "Vasilevsky",
       "Ugolnik",
@@ -1343,22 +1343,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

@@ -8,7 +8,10 @@ Sources (repo-relative):
   data/name_pools/masterInput/Final_mergedSurNames.csv — tab; columns
     naming_pool,name_type,name,pool_seq
 
-Rank bands (1-based pool_seq) must match utils/name_data.tier_key_for_pool_seq — keep in sync.
+Tier assignment uses **file order**: 1-based row index within each naming_pool (given/surname
+rows only), **not** the pool_seq column. Bands match utils.name_data.tier_key_for_pool_seq:
+  top 1–5, very_common 6–15, common 16–39, familiar 40–75, uncommon 76–250,
+  rare 251–1000, very_rare 1001+.
 """
 
 from __future__ import annotations
@@ -22,39 +25,15 @@ from pathlib import Path
 from typing import Any, DefaultDict, Dict, List, Set, Tuple
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 NAME_POOLS_DIR = ROOT / "data" / "name_pools"
 MASTER_DIR = NAME_POOLS_DIR / "masterInput"
 GIVEN_CSV = MASTER_DIR / "Final_mergedGivenNames.csv"
 SURNAME_CSV = MASTER_DIR / "Final_mergedSurNames.csv"
 
-# Sync with utils/name_data.NAME_POOL_TIER_KEYS and tier_key_for_pool_seq
-NAME_POOL_TIER_KEYS: Tuple[str, ...] = (
-    "top",
-    "very_common",
-    "common",
-    "familiar",
-    "uncommon",
-    "rare",
-    "very_rare",
-)
-
-
-def tier_key_for_pool_seq(seq: int) -> str:
-    if seq <= 0:
-        return "very_rare"
-    if seq <= 5:
-        return "top"
-    if seq <= 15:
-        return "very_common"
-    if seq <= 30:
-        return "common"
-    if seq <= 75:
-        return "familiar"
-    if seq <= 250:
-        return "uncommon"
-    if seq <= 1000:
-        return "rare"
-    return "very_rare"
+from utils.name_data import NAME_POOL_TIER_KEYS, tier_key_for_pool_seq  # noqa: E402
 
 
 def _uniform_tier_probs() -> Dict[str, Dict[str, float]]:
@@ -68,11 +47,14 @@ def _empty_tiers() -> Dict[str, List[str]]:
 
 
 def assign_names_to_tiers(rows: List[Tuple[str, int]]) -> Dict[str, List[str]]:
-    """Sort by pool_seq; global dedupe by casefold; first row wins tier for each name."""
+    """``rows`` are (name, file_order_1based) per pool; sort by file order; dedupe by casefold.
+
+    Tier comes from file line index within the pool, not from pool_seq in the CSV.
+    """
     rows_sorted = sorted(rows, key=lambda x: (x[1], x[0].casefold()))
     out = _empty_tiers()
     seen_cf: Set[str] = set()
-    for name, seq in rows_sorted:
+    for name, line_rank in rows_sorted:
         n = (name or "").strip()
         if not n:
             continue
@@ -81,10 +63,10 @@ def assign_names_to_tiers(rows: List[Tuple[str, int]]) -> Dict[str, List[str]]:
             continue
         seen_cf.add(cf)
         try:
-            s = int(seq)
+            r = int(line_rank)
         except (TypeError, ValueError):
-            s = 0
-        out[tier_key_for_pool_seq(s)].append(n)
+            r = 0
+        out[tier_key_for_pool_seq(r)].append(n)
     return out
 
 
@@ -92,40 +74,45 @@ def _norm_header_key(k: str) -> str:
     return (k or "").strip().removeprefix("\ufeff").strip().lower()
 
 
-def _parse_pool_seq(v: str) -> int:
-    try:
-        return int((v or "").strip())
-    except ValueError:
-        return 0
+def _cell(v: object) -> str:
+    if v is None:
+        return ""
+    if isinstance(v, (list, tuple)):
+        return _cell(v[0]) if v else ""
+    return str(v).strip()
 
 
 def read_given_rows(path: Path) -> DefaultDict[str, List[Tuple[str, int]]]:
+    """Append (name, file_order_1based) per pool; order is CSV row order for given rows."""
     by_pool: DefaultDict[str, List[Tuple[str, int]]] = defaultdict(list)
+    pool_line: DefaultDict[str, int] = defaultdict(int)
     with open(path, newline="", encoding="utf-8", errors="replace") as f:
         r = csv.DictReader(f)
         if not r.fieldnames:
             return by_pool
-        fn = [_norm_header_key(x) for x in r.fieldnames]
         for raw in r:
-            row = {_norm_header_key(k): (v or "").strip() for k, v in raw.items()}
+            row = {_norm_header_key(k): _cell(v) for k, v in raw.items()}
             if (row.get("name_type") or "").lower() != "given":
                 continue
             pool = row.get("naming_pool") or ""
             name = row.get("name") or ""
             if not pool or not name:
                 continue
-            by_pool[pool].append((name, _parse_pool_seq(row.get("pool_seq") or "")))
+            pool_line[pool] += 1
+            by_pool[pool].append((name, pool_line[pool]))
     return by_pool
 
 
 def read_surname_rows(path: Path) -> DefaultDict[str, List[Tuple[str, int]]]:
+    """Append (name, file_order_1based) per pool; order is CSV row order for surname rows."""
     by_pool: DefaultDict[str, List[Tuple[str, int]]] = defaultdict(list)
+    pool_line: DefaultDict[str, int] = defaultdict(int)
     with open(path, newline="", encoding="utf-8", errors="replace") as f:
         r = csv.DictReader(f, delimiter="\t")
         if not r.fieldnames:
             return by_pool
         for raw in r:
-            row = {_norm_header_key(k): (v or "").strip() for k, v in raw.items()}
+            row = {_norm_header_key(k): _cell(v) for k, v in raw.items()}
             nt = (row.get("name_type") or "").lower()
             if nt not in ("last", "surname"):
                 continue
@@ -133,7 +120,8 @@ def read_surname_rows(path: Path) -> DefaultDict[str, List[Tuple[str, int]]]:
             name = row.get("name") or ""
             if not pool or not name:
                 continue
-            by_pool[pool].append((name, _parse_pool_seq(row.get("pool_seq") or "")))
+            pool_line[pool] += 1
+            by_pool[pool].append((name, pool_line[pool]))
     return by_pool
 
 
@@ -214,8 +202,10 @@ def main() -> int:
         elif has_s and inherit_only:
             skipped_surname_inherit += 1
 
-        out["tier_probs"] = _uniform_tier_probs()
-        out["rarity_profile"] = "mixed"
+        if "tier_probs" not in out:
+            out["tier_probs"] = _uniform_tier_probs()
+        if "rarity_profile" not in out:
+            out["rarity_profile"] = "mixed"
 
         g_n = sum(len(out.get("given_names_male", {}).get(t, []) or []) for t in NAME_POOL_TIER_KEYS) if isinstance(
             out.get("given_names_male"), dict

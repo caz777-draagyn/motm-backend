@@ -6,10 +6,10 @@
       "Emmanuel",
       "Jayden",
       "Kofi",
-      "Jason"
+      "Jason",
+      "Jaden"
     ],
     "very_common": [
-      "Jaden",
       "Samuel",
       "Daniel",
       "Kwame",
@@ -18,10 +18,10 @@
       "Michael",
       "Isaac",
       "Junior",
-      "Elijah"
+      "Elijah",
+      "Kojo"
     ],
     "common": [
-      "Kojo",
       "Noah",
       "Richard",
       "Nathan",
@@ -34,9 +34,7 @@
       "Joseph",
       "Jeremiah",
       "Joshua",
-      "Francis"
-    ],
-    "familiar": [
+      "Francis",
       "Nii",
       "Kweku",
       "John",
@@ -47,7 +45,9 @@
       "Kelvin",
       "Benjamin",
       "Richmond",
-      "Kwesi",
+      "Kwesi"
+    ],
+    "familiar": [
       "Ebenezer",
       "Frank",
       "Charles",
@@ -80,12 +80,12 @@
       "Albert",
       "Anthony",
       "Kingsley",
-      "Alex"
-    ],
-    "uncommon": [
+      "Alex",
       "Thomas",
       "Bismark",
-      "Peter",
+      "Peter"
+    ],
+    "uncommon": [
       "Henry",
       "Jay",
       "Justice",
@@ -257,12 +257,12 @@
       "Stanley",
       "Darko",
       "Foster",
-      "Atta"
-    ],
-    "rare": [
+      "Atta",
       "Morgan",
       "Elikem",
-      "Mac",
+      "Mac"
+    ],
+    "rare": [
       "Carl",
       "Johnny",
       "Jah",
@@ -522,12 +522,12 @@
       "Asante",
       "Adjei",
       "Kwame",
-      "Tetteh"
-    ],
-    "common": [
+      "Tetteh",
       "Opoku",
       "Frimpong",
-      "Boakye",
+      "Boakye"
+    ],
+    "common": [
       "Ofori",
       "Agyemang",
       "Asamoah",
@@ -536,9 +536,7 @@
       "Addo",
       "Oppong",
       "Sarpong",
-      "Nyarko"
-    ],
-    "familiar": [
+      "Nyarko",
       "Ibrahim",
       "Acheampong",
       "Darko",
@@ -553,7 +551,9 @@
       "Danso",
       "Amoako",
       "Agyei",
-      "Gyamfi",
+      "Gyamfi"
+    ],
+    "familiar": [
       "Donkor",
       "Aidoo",
       "Oduro",
@@ -572,9 +572,7 @@
       "Sarfo",
       "Amankwah",
       "Quansah",
-      "Poku"
-    ],
-    "uncommon": [
+      "Poku",
       "Sackey",
       "Quaye",
       "Carter",
@@ -591,7 +589,9 @@
       "Bonsu",
       "Tawiah",
       "Quarshie",
-      "Koomson",
+      "Koomson"
+    ],
+    "uncommon": [
       "Issah",
       "Boadu",
       "Anderson",
@@ -635,8 +635,8 @@
       "Ofosu",
       "Cudjoe",
       "Amissah",
-      "Koranteng",
       "Yaw",
+      "Koranteng",
       "Tagoe",
       "Iddrisu",
       "Fosu",
@@ -699,9 +699,7 @@
       "Botchway",
       "Boafo",
       "Awuku",
-      "Abbey"
-    ],
-    "rare": [
+      "Abbey",
       "Turkson",
       "Teye",
       "Jackson",
@@ -768,7 +766,9 @@
       "Aryeetey",
       "Amoateng",
       "Yankson",
-      "Quarcoo",
+      "Quarcoo"
+    ],
+    "rare": [
       "Okine",
       "Nketia",
       "Mintah",
@@ -1010,9 +1010,7 @@
       "Garba",
       "Galley",
       "Enam",
-      "Eghan"
-    ],
-    "very_rare": [
+      "Eghan",
       "Dartey",
       "Darku",
       "Braimah",
@@ -1520,7 +1518,9 @@
       "Amede",
       "Amane",
       "Akorful",
-      "Ajavon",
+      "Ajavon"
+    ],
+    "very_rare": [
       "Ahorlu",
       "Ahiekpor",
       "Ahey",
@@ -1578,22 +1578,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

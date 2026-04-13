@@ -37,9 +37,7 @@
       "Jomon",
       "Jose",
       "Joseph",
-      "Joyal"
-    ],
-    "familiar": [
+      "Joyal",
       "Jubin",
       "Kiran",
       "Krishnan",
@@ -48,7 +46,9 @@
       "Manoj",
       "Manikandan",
       "Midhun",
-      "Mohan",
+      "Mohan"
+    ],
+    "familiar": [
       "Murali",
       "Nandan",
       "Nikhil",
@@ -231,9 +231,7 @@
       "Kurian",
       "Koshy",
       "Chacko",
-      "Oommen"
-    ],
-    "familiar": [
+      "Oommen",
       "Mathai",
       "Cherian",
       "Scaria",
@@ -242,7 +240,9 @@
       "Palakkal",
       "Parambil",
       "Edathil",
-      "Kuriakose",
+      "Kuriakose"
+    ],
+    "familiar": [
       "Cheeran",
       "Moothedan",
       "Vadakkedath",
@@ -277,10 +277,10 @@
       "Alummoottil",
       "Ambadi",
       "Ambalathunkal",
-      "Appukuttan"
+      "Appukuttan",
+      "Arackal"
     ],
     "uncommon": [
-      "Arackal",
       "Asan",
       "Asari",
       "Balan",
@@ -369,22 +369,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.08,

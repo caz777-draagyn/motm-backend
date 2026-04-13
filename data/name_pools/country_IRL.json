@@ -36,9 +36,7 @@
       "Peter",
       "Patrick",
       "Oisín",
-      "Chris"
-    ],
-    "familiar": [
+      "Chris",
       "Darragh",
       "Ryan",
       "Fionn",
@@ -47,7 +45,9 @@
       "Andrew",
       "Harry",
       "Gary",
-      "Thomas",
+      "Thomas"
+    ],
+    "familiar": [
       "Eoin",
       "Ronan",
       "Martin",
@@ -82,10 +82,10 @@
       "Neil",
       "Andy",
       "Dylan",
-      "Alex"
+      "Alex",
+      "Mike"
     ],
     "uncommon": [
-      "Mike",
       "Gerard",
       "Dean",
       "Damien",
@@ -259,10 +259,10 @@
       "Steph",
       "Charles",
       "Reece",
-      "Conall"
+      "Conall",
+      "Stef"
     ],
     "rare": [
-      "Stef",
       "Neal",
       "Dion",
       "Marvin",
@@ -339,9 +339,7 @@
       "Farrell",
       "Nolan",
       "Smyth",
-      "Carroll"
-    ],
-    "familiar": [
+      "Carroll",
       "Connolly",
       "Power",
       "Hughes",
@@ -350,7 +348,9 @@
       "Fitzgerald",
       "Flynn",
       "Duffy",
-      "Donnelly",
+      "Donnelly"
+    ],
+    "familiar": [
       "Brady",
       "Kenny",
       "Sullivan",
@@ -383,12 +383,12 @@
       "Stewart",
       "Roche",
       "Mccann",
-      "Curran"
-    ],
-    "uncommon": [
+      "Curran",
       "Fox",
       "Mclaughlin",
-      "Reid",
+      "Reid"
+    ],
+    "uncommon": [
       "Butler",
       "Lyons",
       "Kearney",
@@ -524,9 +524,7 @@
       "Evans",
       "Hanna",
       "Coffey",
-      "Adams"
-    ],
-    "rare": [
+      "Adams",
       "Rice",
       "Mcmanus",
       "Mcconnell",
@@ -565,7 +563,9 @@
       "Hanley",
       "Cotter",
       "O'driscoll",
-      "Leary",
+      "Leary"
+    ],
+    "rare": [
       "Douglas",
       "O'kane",
       "Montgomery",
@@ -991,9 +991,7 @@
       "Mcgarvey",
       "Mcaleese",
       "Mc Auley",
-      "Macdonald"
-    ],
-    "very_rare": [
+      "Macdonald",
       "Lloyd",
       "Lavin",
       "Herbert",
@@ -1317,7 +1315,9 @@
       "Goode",
       "Fitzharris",
       "Feehily",
-      "Emmett",
+      "Emmett"
+    ],
+    "very_rare": [
       "Elwood",
       "Dougherty",
       "Dore",
@@ -2644,22 +2644,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.13999999999999996,
+      "very_rare": 0.06999999999999998
     }
   },
   "middle_name_prob": 0.15,

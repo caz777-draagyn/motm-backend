@@ -34,9 +34,7 @@
       "Jing-hao",
       "Yu-xuan",
       "John",
-      "Rui-en"
-    ],
-    "familiar": [
+      "Rui-en",
       "Allen",
       "Tzu-hao",
       "Jerry",
@@ -47,7 +45,9 @@
       "Hao-yu",
       "Ryan",
       "Yi-chen",
-      "Sean",
+      "Sean"
+    ],
+    "familiar": [
       "Jun-yi",
       "Sam",
       "Wei-hao",
@@ -80,12 +80,12 @@
       "Edward",
       "Wei",
       "Johnny",
-      "Scott"
-    ],
-    "uncommon": [
+      "Scott",
       "Charles",
       "Aaron",
-      "Howard",
+      "Howard"
+    ],
+    "uncommon": [
       "Roger",
       "Max",
       "Bruce",
@@ -256,13 +256,13 @@
       "Bob",
       "Warren",
       "Mac",
-      "Jie"
-    ],
-    "rare": [
+      "Jie",
       "Winston",
       "Jake",
       "Phoenix",
-      "Jess",
+      "Jess"
+    ],
+    "rare": [
       "Kimi",
       "Amos",
       "Grant",
@@ -380,9 +380,7 @@
       "Wei",
       "Hu",
       "Sun",
-      "Kao"
-    ],
-    "familiar": [
+      "Kao",
       "Chung",
       "Chuang",
       "Chan",
@@ -391,7 +389,9 @@
       "Peng",
       "Shih",
       "Chien",
-      "Yen",
+      "Yen"
+    ],
+    "familiar": [
       "Shen",
       "Chao",
       "Fang",
@@ -572,9 +572,7 @@
       "Uong",
       "Tzeng",
       "Top",
-      "Tea"
-    ],
-    "rare": [
+      "Tea",
       "Star",
       "Sim",
       "Shiau",
@@ -606,7 +604,9 @@
       "Chern",
       "Baby",
       "Zhuang",
-      "Yung",
+      "Yung"
+    ],
+    "rare": [
       "Yip",
       "Yau",
       "Xue",
@@ -687,7 +687,7 @@
       "Qiao",
       "Pong",
       "Pien",
-      "PeÃ±a",
+      "Peña",
       "Pema",
       "Ouyang",
       "One",
@@ -796,7 +796,7 @@
       "Vic",
       "Via",
       "Vela",
-      "VÄn",
+      "Văn",
       "Utan",
       "Una",
       "Ucha",
@@ -806,9 +806,7 @@
       "Tsu",
       "Tsen",
       "Tsan",
-      "Tru"
-    ],
-    "very_rare": [
+      "Tru",
       "Toss",
       "Torng",
       "Tori",
@@ -817,7 +815,7 @@
       "Todd",
       "Tjoa",
       "Tire",
-      "TinÃ«",
+      "Tinë",
       "Tiao",
       "Thom",
       "Ther",
@@ -920,13 +918,13 @@
       "Phyo",
       "Phoa",
       "Phan",
-      "Pháº¡m",
+      "Phạm",
       "Perng",
       "Penn",
       "Pega",
       "Peak",
       "Palm",
-      "Ãzan",
+      "Özan",
       "Own",
       "Ougi",
       "Ota",
@@ -997,7 +995,7 @@
       "Lind",
       "Lime",
       "Liew",
-      "LiÃªu",
+      "Liêu",
       "Lieh",
       "Lick",
       "Lib",
@@ -1014,7 +1012,7 @@
       "Lala",
       "Kyu",
       "Kwek",
-      "KulÃ©",
+      "Kulé",
       "Kujo",
       "Kui",
       "Kuck",
@@ -1067,7 +1065,7 @@
       "Jaa",
       "Iwen",
       "Ives",
-      "InÃ©s",
+      "Inés",
       "Ilao",
       "Iii",
       "Igwe",
@@ -1229,7 +1227,7 @@
       "Beau",
       "Bean",
       "Beam",
-      "BayÃ©",
+      "Bayé",
       "Bau",
       "Barr",
       "Bark",
@@ -1272,26 +1270,27 @@
       "Adur",
       "Aben",
       "Abdi"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

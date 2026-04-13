@@ -36,9 +36,7 @@
       "Elijah",
       "Fernando",
       "Mason",
-      "Mike"
-    ],
-    "familiar": [
+      "Mike",
       "Christian",
       "Samuel",
       "Diego",
@@ -47,7 +45,9 @@
       "Kevin",
       "Antonio",
       "Jaden",
-      "Miguel",
+      "Miguel"
+    ],
+    "familiar": [
       "Prince",
       "Mark",
       "Jordan",
@@ -82,10 +82,10 @@
       "Jonathan",
       "Javi",
       "Tony",
-      "Tim"
+      "Tim",
+      "Pedro"
     ],
     "uncommon": [
-      "Pedro",
       "José-Luis",
       "Miguel-Angel",
       "Marcos",
@@ -259,10 +259,10 @@
       "Fred",
       "Aidan",
       "Marvin",
-      "Chase"
+      "Chase",
+      "Greg"
     ],
     "rare": [
-      "Greg",
       "Mariano",
       "Jimmy",
       "Jose-Angel",
@@ -325,9 +325,7 @@
       "Torres",
       "Serrano",
       "Ruiz",
-      "Castillo"
-    ],
-    "familiar": [
+      "Castillo",
       "Young",
       "Ortiz",
       "Davis",
@@ -336,7 +334,9 @@
       "Redondo",
       "Anderson",
       "Jackson",
-      "Harris",
+      "Harris"
+    ],
+    "familiar": [
       "Green",
       "Vázquez",
       "Marín",
@@ -370,11 +370,11 @@
       "Myers",
       "Morales",
       "Moore",
-      "Lorente"
+      "Lorente",
+      "Gillett",
+      "Galan"
     ],
     "uncommon": [
-      "Gillett",
-      "Galan",
       "Escobar",
       "Castellanos",
       "Cano",
@@ -537,9 +537,7 @@
       "Murray",
       "Mendoza",
       "Mckenzie",
-      "Mayoral"
-    ],
-    "rare": [
+      "Mayoral",
       "Matus",
       "Martins",
       "Manzano",
@@ -551,7 +549,9 @@
       "Lucas",
       "Lozano",
       "Leal",
-      "Lara",
+      "Lara"
+    ],
+    "rare": [
       "Klein",
       "Keller",
       "Jaramillo",
@@ -1175,9 +1175,7 @@
       "Baeza",
       "Baez",
       "Bacon",
-      "Ayers"
-    ],
-    "very_rare": [
+      "Ayers",
       "Austin",
       "Atkinson",
       "Asperilla",
@@ -1303,7 +1301,9 @@
       "Vaughan",
       "Vassar",
       "Varona",
-      "Vara",
+      "Vara"
+    ],
+    "very_rare": [
       "Vanegas",
       "Van Houtte",
       "Vallejo",
@@ -2017,22 +2017,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

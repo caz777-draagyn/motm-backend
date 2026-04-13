@@ -36,9 +36,7 @@
       "Atsushi",
       "Kaito",
       "Hiroki",
-      "Makoto"
-    ],
-    "familiar": [
+      "Makoto",
       "Taiga",
       "Takuya",
       "Haru",
@@ -47,7 +45,9 @@
       "Koji",
       "Asahi",
       "Masahiro",
-      "Toma",
+      "Toma"
+    ],
+    "familiar": [
       "Takahiro",
       "Rio",
       "Naoki",
@@ -82,10 +82,10 @@
       "Kohei",
       "Kentaro",
       "Hideki",
-      "Tom"
+      "Tom",
+      "Kevin"
     ],
     "uncommon": [
-      "Kevin",
       "Akihiro",
       "Tomohiro",
       "Masashi",
@@ -259,10 +259,10 @@
       "Ichiro",
       "Shigeru",
       "Yukio",
-      "Tetsuro"
+      "Tetsuro",
+      "Teppei"
     ],
     "rare": [
-      "Teppei",
       "Kazunori",
       "Alexander",
       "Tak",
@@ -524,9 +524,7 @@
       "Maeda",
       "Ikeda",
       "Honda",
-      "Murakami"
-    ],
-    "familiar": [
+      "Murakami",
       "Okada",
       "Ogawa",
       "Yamashita",
@@ -537,7 +535,9 @@
       "Hasegawa",
       "Kondo",
       "Goto",
-      "Fujita",
+      "Fujita"
+    ],
+    "familiar": [
       "Sakamoto",
       "Kim",
       "Aoki",
@@ -569,13 +569,13 @@
       "Kaneko",
       "Harada",
       "Morita",
-      "Tamura"
-    ],
-    "uncommon": [
+      "Tamura",
       "Takada",
       "Takagi",
       "Matsui",
-      "Hamada",
+      "Hamada"
+    ],
+    "uncommon": [
       "Ozawa",
       "Miyamoto",
       "Kojima",
@@ -723,9 +723,7 @@
       "Moriyama",
       "Moriya",
       "Miyoshi",
-      "Kawano"
-    ],
-    "rare": [
+      "Kawano",
       "Higuchi",
       "Hayakawa",
       "Fujioka",
@@ -752,7 +750,9 @@
       "Tominaga",
       "Ogasawara",
       "Nohara",
-      "Naka",
+      "Naka"
+    ],
+    "rare": [
       "Nagano",
       "Matsushita",
       "Iwai",
@@ -1161,9 +1161,7 @@
       "Hirakawa",
       "Hatano",
       "Hatanaka",
-      "Haraguchi"
-    ],
-    "very_rare": [
+      "Haraguchi",
       "Hada",
       "Asami",
       "Aramaki",
@@ -1504,7 +1502,9 @@
       "Takahama",
       "Tachi",
       "Sunahara",
-      "Sunada",
+      "Sunada"
+    ],
+    "very_rare": [
       "Shoda",
       "Shiomi",
       "Shibasaki",
@@ -1990,22 +1990,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.17,
+      "very_common": 0.21,
+      "common": 0.18,
+      "familiar": 0.19,
+      "uncommon": 0.1,
+      "rare": 0.15,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

@@ -37,9 +37,7 @@
       "Victor",
       "Vincent",
       "Harry",
-      "Henry"
-    ],
-    "familiar": [
+      "Henry",
       "Jack",
       "Jonathan",
       "Joshua",
@@ -48,7 +46,9 @@
       "Matthew",
       "Nicholas",
       "Oliver",
-      "Patrick",
+      "Patrick"
+    ],
+    "familiar": [
       "Philip",
       "Roger",
       "Steven",
@@ -180,9 +180,7 @@
       "Ramofafia",
       "Kile",
       "Tanangada",
-      "Rini"
-    ],
-    "familiar": [
+      "Rini",
       "Rore",
       "Sanga",
       "Soaki",
@@ -191,7 +189,9 @@
       "Talifilu",
       "Tara",
       "Taro",
-      "Tome",
+      "Tome"
+    ],
+    "familiar": [
       "Vaka",
       "Vala",
       "Vane",
@@ -299,22 +299,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

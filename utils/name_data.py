@@ -60,14 +60,18 @@ _LEGACY_TIER_ORDER = ("very_common", "common", "mid", "rare")
 
 
 def tier_key_for_pool_seq(seq: int) -> str:
-    """Map 1-based rank (pool_seq) to tier key."""
+    """Map 1-based rank position to tier key (same bands as master CSV file-order import).
+
+    Bands: top 1–5, very_common 6–15, common 16–39, familiar 40–75, uncommon 76–250,
+    rare 251–1000, very_rare 1001+. ``seq`` is row order within a pool, not a CSV column.
+    """
     if seq <= 0:
         return "very_rare"
     if seq <= 5:
         return "top"
     if seq <= 15:
         return "very_common"
-    if seq <= 30:
+    if seq <= 39:
         return "common"
     if seq <= 75:
         return "familiar"
@@ -151,6 +155,41 @@ NAME_POOLS_BY_ID: Dict[str, Dict] = {}
 # pool_id (country_* / custom_*) -> FIFA code from JSON (tier probs / connectors)
 POOL_ID_TO_COUNTRY_CODE: Dict[str, str] = {}
 COUNTRY_TIER_PROBS: Dict[str, Dict[str, Dict[str, float]]] = {}
+# pool_id -> {"given": {...7 tiers...}, "surname": {...}} (normalized); includes custom_*.
+POOL_TIER_PROBS: Dict[str, Dict[str, Dict[str, float]]] = {}
+
+
+def tier_probs_for_pool(pool_id: str, country_code: str, branch: str) -> Dict[str, float]:
+    """Resolve normalized 7-tier probs: prefer ``POOL_TIER_PROBS[pool_id]``, else FIFA code, else uniform."""
+    b = "surname" if (branch or "").strip().lower() == "surname" else "given"
+    default = DEFAULT_GIVEN_NAME_TIER_PROBS if b == "given" else DEFAULT_SURNAME_TIER_PROBS
+    pt = POOL_TIER_PROBS.get(pool_id)
+    if isinstance(pt, dict):
+        row = pt.get(b)
+        if isinstance(row, dict) and set(row.keys()) == set(NAME_POOL_TIER_KEYS):
+            s = sum(float(row[k]) for k in NAME_POOL_TIER_KEYS)
+            if s > 0:
+                return {k: float(row[k]) / s for k in NAME_POOL_TIER_KEYS}
+    cc = (country_code or "").strip()
+    row = COUNTRY_TIER_PROBS.get(cc, {}).get(b)
+    if isinstance(row, dict) and set(row.keys()) == set(NAME_POOL_TIER_KEYS):
+        s = sum(float(row[k]) for k in NAME_POOL_TIER_KEYS)
+        if s > 0:
+            return {k: float(row[k]) / s for k in NAME_POOL_TIER_KEYS}
+    return dict(default)
+
+
+def _register_pool_tier_probs(pool_id: str, country_code: str, data: dict, is_custom: bool) -> None:
+    if "tier_probs" not in data:
+        return
+    tp = _normalize_tier_probs(data)
+    if tp is None:
+        return
+    POOL_TIER_PROBS[pool_id] = tp
+    if not is_custom:
+        COUNTRY_TIER_PROBS[str(country_code)] = tp
+
+
 MIDDLE_NAME_PROBS: Dict[str, float] = {"default": 0.15}
 COMPOUND_SURNAME_PROBS: Dict[str, float] = {"default": 0.05}
 SURNAME_CONNECTORS: Dict[str, str] = {"default": "-"}
@@ -184,6 +223,16 @@ _LOCAL_CORE_POOL_ID_ALIASES: Dict[str, str] = {
     # Indian Singapore names: no standalone country_SIN pool (use regional Indian pool)
     "custom_singapore_indian": "custom_india_gangetic",
     "country_GLP": "country_FRA",
+    # Intentionally no country_*.json on disk for these — use active custom / proxy pools
+    "country_USA": "custom_us_modern",
+    "country_CAN": "custom_french_canadian",
+    "country_AUS": "country_ENG",  # no AUS pool on disk; anglophone proxy
+    # Merged regional pools (single JSON replaces tagalog/visayan / language splits)
+    "custom_philippines_tagalog": "custom_philippines",
+    "custom_philippines_visayan": "custom_philippines",
+    "custom_swiss_german": "custom_swiss",
+    "custom_swiss_french": "custom_swiss",
+    "custom_swiss_italian": "custom_swiss",
 }
 
 
@@ -263,6 +312,7 @@ def _ingest_surname_inherit_pool(data: dict) -> None:
     is_custom = pool_id.startswith("custom_")
     _register_tiered_pool(pool_id, code, tiered, is_custom)
     _register_pool_optional_fields(pool_id, data)
+    _register_pool_tier_probs(pool_id, str(code), data, is_custom)
 
 
 def _ingest_name_pool_file(json_file: Path, data: dict) -> None:
@@ -283,17 +333,15 @@ def _ingest_name_pool_file(json_file: Path, data: dict) -> None:
         }
         _register_tiered_pool(pool_id, code, tiered, is_custom)
         _register_pool_optional_fields(pool_id, data)
-    # Optional: tier probabilities (7-tier; normalized for country pools)
-    if "tier_probs" in data and not is_custom:
-        tp = _normalize_tier_probs(data)
-        if tp is not None:
-            COUNTRY_TIER_PROBS[code] = tp
+        _register_pool_tier_probs(pool_id, str(code), data, is_custom)
 
 
 def _load_name_pools():
     """Load name pools: country_*.json, custom_*.json, legacy <CCC>.json."""
     if not _NAME_POOLS_DIR.exists():
         return
+
+    POOL_TIER_PROBS.clear()
 
     seen: set[Path] = set()
     globs: List[Path] = []

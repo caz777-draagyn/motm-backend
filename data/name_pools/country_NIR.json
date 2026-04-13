@@ -37,9 +37,7 @@
       "Chris",
       "Mark",
       "John",
-      "Tom"
-    ],
-    "familiar": [
+      "Tom",
       "Andrew",
       "Michael",
       "Ben",
@@ -48,7 +46,9 @@
       "Richard",
       "Adam",
       "Daniel",
-      "Matt",
+      "Matt"
+    ],
+    "familiar": [
       "Reece",
       "Andy",
       "Simon",
@@ -536,9 +536,7 @@
       "Boyd",
       "Scott",
       "Armstrong",
-      "Reid"
-    ],
-    "familiar": [
+      "Reid",
       "Kennedy",
       "Anderson",
       "Burns",
@@ -547,7 +545,9 @@
       "Kerr",
       "McKee",
       "Patterson",
-      "Maguire",
+      "Maguire"
+    ],
+    "familiar": [
       "Magee",
       "Allen",
       "Millar",
@@ -759,10 +759,10 @@
       "Ferris",
       "Gamble",
       "Hagan",
-      "Connor"
+      "Connor",
+      "Butler"
     ],
     "rare": [
-      "Butler",
       "McDaid",
       "Edwards",
       "Harkin",
@@ -1500,22 +1500,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.09,
+      "very_common": 0.13,
+      "common": 0.14,
+      "familiar": 0.19,
+      "uncommon": 0.18,
+      "rare": 0.26999999999999996,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

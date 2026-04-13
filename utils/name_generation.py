@@ -11,7 +11,6 @@ from dataclasses import dataclass
 
 from .name_data import (
     COUNTRY_NAME_POOLS,
-    COUNTRY_TIER_PROBS,
     HERITAGE_CONFIG,
     HERITAGE_NAME_POOLS,
     NAME_POOLS_BY_ID,
@@ -20,9 +19,11 @@ from .name_data import (
     compound_surname_prob_for_pool,
     middle_name_prob_for_pool,
     surname_connector_for_pool,
+    tier_probs_for_pool,
     DEFAULT_GIVEN_NAME_TIER_PROBS,
     DEFAULT_SURNAME_TIER_PROBS,
 )
+from .tier_prob_profiles import merge_zero_prob_tiers
 
 
 @dataclass
@@ -107,8 +108,27 @@ def roll_tier(tier_probs: Dict[str, float]) -> str:
         Selected tier name
     """
     tiers = list(tier_probs.keys())
-    weights = [tier_probs[t] for t in tiers]
+    weights = [max(0.0, float(tier_probs.get(t, 0.0))) for t in tiers]
+    s = sum(weights)
+    if s <= 1e-15:
+        return tiers[0] if tiers else NAME_POOL_TIER_KEYS[0]
     return random.choices(tiers, weights=weights, k=1)[0]
+
+
+def roll_tier_with_nonempty(
+    tier_probs: Dict[str, float],
+    nonempty_tiers: List[str],
+) -> str:
+    """Prefer tiers that have names when all weights are zero."""
+    tiers = list(tier_probs.keys())
+    weights = [max(0.0, float(tier_probs.get(t, 0.0))) for t in tiers]
+    s = sum(weights)
+    if s > 1e-15:
+        return random.choices(tiers, weights=weights, k=1)[0]
+    pool = [t for t in tiers if t in nonempty_tiers]
+    if pool:
+        return random.choice(pool)
+    return tiers[0] if tiers else NAME_POOL_TIER_KEYS[0]
 
 
 def sample_name_from_pool(
@@ -125,9 +145,11 @@ def sample_name_from_pool(
     Returns:
         Random name sampled from the pool
     """
-    tier = roll_tier(tier_probs)
-    tier_list = name_pool.get(tier, [])
-    return sample_from_tier(tier_list, tier_probs)
+    eff_pool, eff_probs = merge_zero_prob_tiers(name_pool, tier_probs)
+    nonempty = [k for k in NAME_POOL_TIER_KEYS if eff_pool.get(k)]
+    tier = roll_tier_with_nonempty(eff_probs, nonempty)
+    tier_list = eff_pool.get(tier, [])
+    return sample_from_tier(tier_list, eff_probs)
 
 
 def _names_equivalent(a: str, b: str) -> bool:
@@ -247,7 +269,7 @@ def pool_id_to_country_code(pool_id: str) -> Optional[str]:
 
 
 def country_code_for_tier_probs(pool_id: str, nationality: str) -> str:
-    """FIFA code used for COUNTRY_TIER_PROBS lookup for this pool_id."""
+    """FIFA-style code for ``tier_probs_for_pool`` fallback when pool JSON has no ``tier_probs``."""
     cc = POOL_ID_TO_COUNTRY_CODE.get(pool_id)
     if cc:
         return cc
@@ -549,8 +571,8 @@ def generate_name(
 
         g_cc = country_code_for_tier_probs(given_pid, nationality)
         s_cc = country_code_for_tier_probs(surname_sample_id, nationality)
-        given_tier_probs = COUNTRY_TIER_PROBS.get(g_cc, {}).get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
-        surname_tier_probs = COUNTRY_TIER_PROBS.get(s_cc, {}).get("surname", DEFAULT_SURNAME_TIER_PROBS)
+        given_tier_probs = tier_probs_for_pool(given_pid, g_cc, "given")
+        surname_tier_probs = tier_probs_for_pool(surname_sample_id, s_cc, "surname")
         
         # Sample given name
         given_first = sample_name_from_pool(given_pool, given_tier_probs)
@@ -585,9 +607,7 @@ def generate_name(
         middle_name = None
         middle_prob = middle_name_prob_for_pool(given_pid, nationality)
         if random.random() < middle_prob and given_pool:
-            middle_tier_probs = COUNTRY_TIER_PROBS.get(g_cc, {}).get(
-                "given", DEFAULT_GIVEN_NAME_TIER_PROBS
-            )
+            middle_tier_probs = tier_probs_for_pool(given_pid, g_cc, "given")
             middle_name = sample_name_from_pool(given_pool, middle_tier_probs)
             if middle_name and _names_equivalent(middle_name, given_first):
                 middle_name = sample_distinct_from_pool(

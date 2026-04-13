@@ -6,22 +6,22 @@
       "Mohamed",
       "Ibrahima",
       "Mamadou",
-      "Abdoulaye"
+      "Abdoulaye",
+      "Ousmane"
     ],
     "very_common": [
-      "Ousmane",
       "Alpha",
       "Amadou",
       "Moussa",
       "Ibrahima Sory",
       "Aboubacar",
       "Seydou",
-      "Ismael"
-    ],
-    "common": [
+      "Ismael",
       "Boubacar",
       "Souleymane",
-      "Oumar",
+      "Oumar"
+    ],
+    "common": [
       "Mohamed Lamine",
       "Sekou",
       "Aliou",
@@ -32,9 +32,7 @@
       "Ibrahima-Sory",
       "David",
       "Alpha-Oumar",
-      "Karamo"
-    ],
-    "familiar": [
+      "Karamo",
       "Mamoudou",
       "Ibrahima Kalil",
       "Ibrahim",
@@ -47,7 +45,9 @@
       "Mohamed-Lamine",
       "Lamine",
       "Alseny",
-      "Mamadou-Aliou",
+      "Mamadou-Aliou"
+    ],
+    "familiar": [
       "Mouctar",
       "Sow",
       "Saliou",
@@ -72,9 +72,7 @@
       "Ahmed",
       "Abdourahamane",
       "Mahmoud",
-      "Bouba"
-    ],
-    "uncommon": [
+      "Bouba",
       "Abdoul-Karim",
       "Mamadou-Dian",
       "Ansoumane",
@@ -85,7 +83,9 @@
       "Lansana",
       "John",
       "Hamidou",
-      "Thierno-Amadou",
+      "Thierno-Amadou"
+    ],
+    "uncommon": [
       "Sadou",
       "Yaya",
       "Mohammed",
@@ -247,9 +247,7 @@
       "Tamba",
       "Gilbert",
       "Steven",
-      "Sankoumba"
-    ],
-    "rare": [
+      "Sankoumba",
       "Umar",
       "Soufiane",
       "Eric",
@@ -262,7 +260,9 @@
       "Billo",
       "Almamy",
       "Bienvenu",
-      "Elie",
+      "Elie"
+    ],
+    "rare": [
       "Sadjo",
       "Kémo",
       "Amine",
@@ -333,9 +333,7 @@
       "Jalloh",
       "Kante",
       "Sacko",
-      "Konaté"
-    ],
-    "familiar": [
+      "Konaté",
       "Diane",
       "Mamadou",
       "Kouyaté",
@@ -344,7 +342,9 @@
       "Chérif",
       "Oumar",
       "Aboubacar",
-      "Koulibaly",
+      "Koulibaly"
+    ],
+    "familiar": [
       "Ibrahim",
       "Berete",
       "Sekou",
@@ -379,10 +379,10 @@
       "Kone",
       "Kolie",
       "Kamano",
-      "Jallow"
+      "Jallow",
+      "Dore"
     ],
     "uncommon": [
-      "Dore",
       "Mory",
       "Mansare",
       "Ismael",
@@ -502,9 +502,7 @@
       "Sagnane",
       "Pivi",
       "Pathe",
-      "Oumou"
-    ],
-    "rare": [
+      "Oumou",
       "Moro",
       "Momo",
       "Mohammed",
@@ -559,7 +557,9 @@
       "Niane",
       "Mohammad",
       "Melo",
-      "Mayo",
+      "Mayo"
+    ],
+    "rare": [
       "Mariko",
       "Mansaray",
       "Mansa",
@@ -656,9 +656,7 @@
       "Sackho",
       "Saccoh",
       "Rubio",
-      "Roubane"
-    ],
-    "very_rare": [
+      "Roubane",
       "Ramadane",
       "Nyama",
       "Moumouni",
@@ -698,26 +696,27 @@
       "Djiba",
       "Djabate",
       "Diouba"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

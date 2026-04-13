@@ -37,9 +37,7 @@
       "Noah",
       "Samuel",
       "James",
-      "Nathan"
-    ],
-    "familiar": [
+      "Nathan",
       "Francois",
       "Emmanuel",
       "Michel",
@@ -48,7 +46,9 @@
       "Kevin",
       "Jason",
       "Liam",
-      "Aiden",
+      "Aiden"
+    ],
+    "familiar": [
       "Michael",
       "Nicholas",
       "Joel",
@@ -78,15 +78,15 @@
       "Jonathan",
       "Jerome",
       "Ryan",
-      "Jean-Baptiste"
-    ],
-    "uncommon": [
+      "Jean-Baptiste",
       "Nino",
       "Clement",
       "Prince",
       "Baptiste",
       "Frantz",
-      "Mathieu",
+      "Mathieu"
+    ],
+    "uncommon": [
       "Josue",
       "Mathis",
       "Arnaud",
@@ -255,15 +255,15 @@
       "Remy",
       "Robin",
       "Toussaint",
-      "Gael"
-    ],
-    "rare": [
+      "Gael",
       "Jean-Marc",
       "Gaetan",
       "Eugene",
       "Tristan",
       "Rene",
-      "Frantzy",
+      "Frantzy"
+    ],
+    "rare": [
       "Jean-Francois",
       "Erwan",
       "Michelet",
@@ -304,30 +304,28 @@
       "Dubois",
       "Laurent",
       "Michel",
-      "Durand"
+      "Durand",
+      "Nicolas"
     ],
     "very_common": [
-      "Nicolas",
       "Petit",
       "Dupont",
       "Leroy",
       "Moreau",
       "Philippe",
-      "Francois"
-    ],
-    "common": [
+      "Francois",
       "Rousseau",
       "Lefebvre",
       "Smith",
-      "Roux",
+      "Roux"
+    ],
+    "common": [
       "Olivier",
       "Mathieu",
       "Lambert",
       "Bertrand",
       "Fournier",
-      "Morel"
-    ],
-    "familiar": [
+      "Morel",
       "Mercier",
       "Clement",
       "Gauthier",
@@ -345,7 +343,9 @@
       "Morin",
       "Arnaud",
       "Guerin",
-      "Robin",
+      "Robin"
+    ],
+    "familiar": [
       "Chevalier",
       "Fontaine",
       "Denis",
@@ -360,9 +360,7 @@
       "Pascal",
       "Masson",
       "Lemaire",
-      "Vidal"
-    ],
-    "uncommon": [
+      "Vidal",
       "Dumont",
       "Stephane",
       "Boyer",
@@ -383,7 +381,9 @@
       "Berger",
       "Gaillard",
       "Barbier",
-      "Riviere",
+      "Riviere"
+    ],
+    "uncommon": [
       "Picard",
       "Deschamps",
       "Renaud",
@@ -483,9 +483,7 @@
       "Gregoire",
       "Michaud",
       "Florian",
-      "Poulain"
-    ],
-    "rare": [
+      "Poulain",
       "Leveque",
       "Barre",
       "Tanguy",
@@ -560,7 +558,9 @@
       "Labbe",
       "Jourdan",
       "Devaux",
-      "Carlier",
+      "Carlier"
+    ],
+    "rare": [
       "Ludovic",
       "Voisin",
       "Guibert",
@@ -985,9 +985,7 @@
       "Jarry",
       "Galland",
       "Froment",
-      "Duprat"
-    ],
-    "very_rare": [
+      "Duprat",
       "Desbois",
       "Delcourt",
       "Couderc",
@@ -1312,7 +1310,9 @@
       "Laugier",
       "Lamoureux",
       "Lafargue",
-      "Jimmy",
+      "Jimmy"
+    ],
+    "very_rare": [
       "Hemery",
       "Esteve",
       "Drouin",
@@ -1711,22 +1711,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.07,
+      "very_common": 0.09,
+      "common": 0.09,
+      "familiar": 0.15,
+      "uncommon": 0.6,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.12,

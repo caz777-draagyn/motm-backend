@@ -330,15 +330,13 @@ def create_player_data(
             name_structure = name_pool_debug.get("name_structure", "LL")
         else:
             # Simple 50/50 mix for testing when heritage group not configured
+            from utils.name_data import tier_probs_for_pool
             from utils.name_generation import (
                 get_name_pool,
                 resolve_local_pool_id,
                 sample_name_from_pool,
                 name_structure_code,
                 effective_surname_pool_for_sampling,
-                COUNTRY_TIER_PROBS,
-                DEFAULT_GIVEN_NAME_TIER_PROBS,
-                DEFAULT_SURNAME_TIER_PROBS,
             )
             
             _lpid = resolve_local_pool_id(nationality)
@@ -366,9 +364,10 @@ def create_player_data(
                 _hpid if surname_country == origin_country else _lpid
             )
             
-            country_tier_probs = COUNTRY_TIER_PROBS.get(given_country, {})
-            given_tier_probs = country_tier_probs.get("given", DEFAULT_GIVEN_NAME_TIER_PROBS)
-            surname_tier_probs = COUNTRY_TIER_PROBS.get(surname_country, {}).get("surname", DEFAULT_SURNAME_TIER_PROBS)
+            given_pid_dbg = str(_hpid if given_country == origin_country else _lpid)
+            surname_pid_dbg = str(_hpid if surname_country == origin_country else _lpid)
+            given_tier_probs = tier_probs_for_pool(given_pid_dbg, given_country, "given")
+            surname_tier_probs = tier_probs_for_pool(surname_pid_dbg, surname_country, "surname")
             
             given_first = (
                 sample_name_from_pool(given_pool, given_tier_probs)

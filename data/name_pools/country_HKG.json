@@ -36,9 +36,7 @@
       "Matthew",
       "Sam",
       "Benjamin",
-      "Tony"
-    ],
-    "familiar": [
+      "Tony",
       "Oscar",
       "Alan",
       "Isaac",
@@ -47,7 +45,9 @@
       "Adam",
       "Ben",
       "Simon",
-      "Charles",
+      "Charles"
+    ],
+    "familiar": [
       "William",
       "Nathaniel",
       "Julian",
@@ -417,9 +417,7 @@
       "Tam",
       "Ma",
       "Tse",
-      "Law"
-    ],
-    "familiar": [
+      "Law",
       "Chiu",
       "Yip",
       "Hui",
@@ -428,7 +426,9 @@
       "Yuen",
       "Wan",
       "Lin",
-      "Kwan",
+      "Kwan"
+    ],
+    "familiar": [
       "Huang",
       "Yang",
       "Kong",
@@ -461,12 +461,12 @@
       "Ching",
       "Shum",
       "Zhu",
-      "Wei"
-    ],
-    "uncommon": [
+      "Wei",
       "Shen",
       "Ling",
-      "Kan",
+      "Kan"
+    ],
+    "uncommon": [
       "Liang",
       "Zhou",
       "Woo",
@@ -603,9 +603,7 @@
       "Ying",
       "Yam",
       "Watkins",
-      "Tiu"
-    ],
-    "rare": [
+      "Tiu",
       "Thomson",
       "Stewart",
       "Soeng",
@@ -643,7 +641,9 @@
       "Hang",
       "Hammond",
       "Gray",
-      "Gor",
+      "Gor"
+    ],
+    "rare": [
       "Fletcher",
       "Fisher",
       "Ellis",
@@ -1138,34 +1138,33 @@
       "Van Den Berg",
       "Valdez",
       "Ulrich",
-      "Tyagi"
-    ],
-    "very_rare": [
+      "Tyagi",
       "Scholle",
       "Schoefer",
       "Nandwani",
       "Daswani",
       "Chopra"
-    ]
+    ],
+    "very_rare": []
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.11,
+      "very_common": 0.12,
+      "common": 0.12,
+      "familiar": 0.15,
+      "uncommon": 0.5,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.12999999999999998,
+      "very_common": 0.16999999999999998,
+      "common": 0.15999999999999998,
+      "familiar": 0.18999999999999995,
+      "uncommon": 0.13999999999999996,
+      "rare": 0.20999999999999994,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,

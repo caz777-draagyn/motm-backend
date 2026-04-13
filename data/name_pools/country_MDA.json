@@ -36,9 +36,7 @@
       "Nicolae",
       "Roman",
       "Emanuel",
-      "Sergei"
-    ],
-    "familiar": [
+      "Sergei",
       "Petru",
       "Pavel",
       "Cristian",
@@ -47,7 +45,9 @@
       "Ilie",
       "Vadim",
       "Iulian",
-      "Dan",
+      "Dan"
+    ],
+    "familiar": [
       "Darius",
       "Evgenii",
       "Valentin",
@@ -81,11 +81,11 @@
       "Aleksei",
       "Stefan",
       "Nikita",
-      "Nicu"
+      "Nicu",
+      "Vitalii",
+      "Viktor"
     ],
     "uncommon": [
-      "Vitalii",
-      "Viktor",
       "Sergey",
       "Sandu",
       "Leonid",
@@ -140,10 +140,10 @@
       "Lungu",
       "Radu",
       "Ion",
-      "Alexandru"
+      "Alexandru",
+      "Spînu"
     ],
     "common": [
-      "Spînu",
       "Popescu",
       "Ivanov",
       "Vasile",
@@ -157,9 +157,7 @@
       "Railean",
       "Prodan",
       "Paladi",
-      "Nicolae"
-    ],
-    "familiar": [
+      "Nicolae",
       "Mihai",
       "Golban",
       "Elena",
@@ -169,7 +167,9 @@
       "Tataru",
       "Stratan",
       "Rotari",
-      "Lupu",
+      "Lupu"
+    ],
+    "familiar": [
       "Gheorghe",
       "Furtuna",
       "Florea",
@@ -204,10 +204,10 @@
       "Raileanu",
       "Mocanu",
       "Mariana",
-      "Mardari"
+      "Mardari",
+      "Marcoci"
     ],
     "uncommon": [
-      "Marcoci",
       "Madan",
       "Josan",
       "Gutu",
@@ -377,14 +377,14 @@
       "Bolocan",
       "Bodrug",
       "Bargan",
-      "Baciu"
-    ],
-    "rare": [
+      "Baciu",
       "Artiom",
       "Arnaut",
       "Arama",
       "Apostol",
-      "Anghel",
+      "Anghel"
+    ],
+    "rare": [
       "Andrian",
       "Andreev",
       "Ali",
@@ -397,22 +397,22 @@
   },
   "tier_probs": {
     "given": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.1,
+      "very_common": 0.15,
+      "common": 0.2,
+      "familiar": 0.55,
+      "uncommon": 0.0,
+      "rare": 0.0,
+      "very_rare": 0.0
     },
     "surname": {
-      "top": 0.14285714285714285,
-      "very_common": 0.14285714285714285,
-      "common": 0.14285714285714285,
-      "familiar": 0.14285714285714285,
-      "uncommon": 0.14285714285714285,
-      "rare": 0.14285714285714285,
-      "very_rare": 0.14285714285714285
+      "top": 0.13,
+      "very_common": 0.17,
+      "common": 0.16,
+      "familiar": 0.19,
+      "uncommon": 0.35,
+      "rare": 0.0,
+      "very_rare": 0.0
     }
   },
   "middle_name_prob": 0.15,
