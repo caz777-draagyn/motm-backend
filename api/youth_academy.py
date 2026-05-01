@@ -12,7 +12,8 @@ from functools import lru_cache
 from sqlalchemy.orm import Session
 
 from database import SessionLocal, engine
-from models import Club, YouthProspect, YouthAcademyPlayer, Player
+from types import SimpleNamespace
+from models import Club, YouthProspect, YouthAcademyPlayer, Player, Contract, Season
 from utils.youth_academy import (
     generate_weekly_prospects,
     calculate_attribute_ranges,
@@ -22,40 +23,18 @@ from utils.youth_academy import (
     resolve_profile_pic_folder_for_display,
 )
 from utils.name_generation import select_heritage_group
-from utils.player_development import get_program_catalog, compile_growth_schedule, train_one_season_with_growth
+from utils.player_development import (
+    compile_growth_schedule,
+    list_training_program_names,
+    train_one_season_with_growth,
+    OUTFIELD_PROGRAMS,
+    GK_PROGRAMS,
+    INDIVIDUAL_PROGRAM_NAME,
+)
 from match_engine.constants import GOALKEEPER_ATTRS, OUTFIELD_ATTRS
 
 
 router = APIRouter(prefix="/api/youth-academy", tags=["youth-academy"])
-
-# ============ IN-MEMORY STORAGE (for when database is not available) ============
-
-class InMemoryStorage:
-    """In-memory storage for youth academy data when database is not available."""
-    def __init__(self):
-        self.prospects: Dict[str, Dict] = {}
-        self.academy_players: Dict[str, Dict] = {}
-        self.test_club_id: Optional[UUID] = None
-        self.test_game_mode_id: Optional[UUID] = None
-        self.capacity: int = 10  # Default capacity
-    
-    def clear(self):
-        """Clear all stored data."""
-        self.prospects.clear()
-        self.academy_players.clear()
-        self.test_club_id = None
-        self.test_game_mode_id = None
-
-# Global in-memory storage instance
-_in_memory_storage = InMemoryStorage()
-
-def get_or_create_test_club_in_memory() -> tuple:
-    """Get or create test club and game mode IDs for in-memory mode."""
-    if _in_memory_storage.test_club_id is None:
-        _in_memory_storage.test_club_id = uuid4()
-    if _in_memory_storage.test_game_mode_id is None:
-        _in_memory_storage.test_game_mode_id = uuid4()
-    return _in_memory_storage.test_club_id, _in_memory_storage.test_game_mode_id
 
 # ============ IN-MEMORY STORAGE (for when database is not available) ============
 
@@ -81,6 +60,15 @@ class InMemoryStorage:
 
 # Global in-memory storage instance
 _in_memory_storage = InMemoryStorage()
+
+
+def get_or_create_test_club_in_memory() -> tuple:
+    """Get or create test club and game mode IDs for in-memory mode."""
+    if _in_memory_storage.test_club_id is None:
+        _in_memory_storage.test_club_id = uuid4()
+    if _in_memory_storage.test_game_mode_id is None:
+        _in_memory_storage.test_game_mode_id = uuid4()
+    return _in_memory_storage.test_club_id, _in_memory_storage.test_game_mode_id
 
 
 def get_or_create_test_club(db: Session) -> tuple:
@@ -231,6 +219,38 @@ def get_db():
         db.close()
 
 
+def _season_id_for_academy_player(
+    db: Session, game_mode_id: UUID, prospect_season_id: Optional[UUID]
+) -> UUID:
+    """
+    youth_academy_players.season_id is NOT NULL in the schema; youth_prospects.season_id is optional.
+    Use the prospect's season when set and valid; otherwise any season for this game mode, or create one.
+    """
+    if prospect_season_id is not None:
+        row = db.query(Season).filter(Season.id == prospect_season_id).first()
+        if row is not None:
+            return prospect_season_id
+    existing = (
+        db.query(Season)
+        .filter(Season.game_mode_id == game_mode_id)
+        .order_by(Season.season_number.desc())
+        .first()
+    )
+    if existing is not None:
+        return existing.id
+    sid = uuid4()
+    db.add(
+        Season(
+            id=sid,
+            game_mode_id=game_mode_id,
+            season_number=1,
+            is_active=True,
+        )
+    )
+    db.flush()
+    return sid
+
+
 # ============ REQUEST/RESPONSE MODELS ============
 
 class ProspectResponse(BaseModel):
@@ -284,7 +304,6 @@ class UpdateAcademyPlayerRequest(BaseModel):
     position: Optional[str] = None
     position_traits: Optional[List[str]] = None
     gainable_traits: Optional[List[str]] = None
-    training_program: Optional[str] = None
 
 
 class CapacityResponse(BaseModel):
@@ -303,19 +322,22 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
     try:
         # In-memory mode
         if db is None:
+            # When club_id is omitted, list all clubs' prospects (workbench: avoids mismatch
+            # when prospects were generated with explicit club_id != test club id).
             if not club_id:
-                club_uuid, _ = get_or_create_test_club_in_memory()
+                prospects_list = [
+                    p for p in _in_memory_storage.prospects.values()
+                    if p.get("status") == "available"
+                ]
             else:
                 try:
                     club_uuid = UUID(club_id)
                 except ValueError:
                     raise HTTPException(status_code=400, detail="Invalid club_id format")
-            
-            # Get prospects from in-memory storage
-            prospects_list = [
-                p for p in _in_memory_storage.prospects.values()
-                if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "available"
-            ]
+                prospects_list = [
+                    p for p in _in_memory_storage.prospects.values()
+                    if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "available"
+                ]
             
             results = []
             for p in prospects_list:
@@ -361,26 +383,22 @@ async def get_prospects(club_id: Optional[str] = None, db: Optional[Session] = D
         # Database mode
         if not club_id:
             try:
-                club, _ = get_or_create_test_club(db)
-                db.commit()
-                club_uuid = club.id
+                prospects = db.query(YouthProspect).filter(YouthProspect.status == "available").all()
             except Exception as e:
                 db.rollback()
-                raise HTTPException(status_code=500, detail=f"Error creating test data: {str(e)}")
+                raise HTTPException(status_code=500, detail=f"Error listing prospects: {str(e)}")
         else:
             try:
                 club_uuid = UUID(club_id)
             except ValueError:
                 raise HTTPException(status_code=400, detail="Invalid club_id format")
-        
-        club = db.query(Club).filter(Club.id == club_uuid).first()
-        if not club:
-            raise HTTPException(status_code=404, detail="Club not found")
-        
-        prospects = db.query(YouthProspect).filter(
-            YouthProspect.club_id == club_uuid,
-            YouthProspect.status == "available"
-        ).all()
+            club = db.query(Club).filter(Club.id == club_uuid).first()
+            if not club:
+                raise HTTPException(status_code=404, detail="Club not found")
+            prospects = db.query(YouthProspect).filter(
+                YouthProspect.club_id == club_uuid,
+                YouthProspect.status == "available"
+            ).all()
         
         results = []
         for p in prospects:
@@ -553,12 +571,16 @@ async def promote_prospect(prospect_id: str, db: Optional[Session] = Depends(get
         
         # Calculate initial ranges (week 0) - these will be asymmetric
         initial_ranges = calculate_attribute_ranges(player_data["attributes"], 0)
+
+        season_id_resolved = _season_id_for_academy_player(
+            db, prospect.game_mode_id, prospect.season_id
+        )
         
         academy_player = YouthAcademyPlayer(
             club_id=prospect.club_id,
             prospect_id=prospect.id,
             game_mode_id=prospect.game_mode_id,
-            season_id=prospect.season_id,
+            season_id=season_id_resolved,
             week_joined=prospect.week_number,
             weeks_in_academy=0,
             weeks_to_promotion=weeks_to_promotion,
@@ -668,6 +690,38 @@ async def reject_all_prospects(db: Optional[Session] = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
 
 
+@router.post("/players/clear-all")
+async def clear_all_academy_players(db: Optional[Session] = Depends(get_db)):
+    """
+    Remove every youth academy player record (active, promoted, released).
+
+    Workbench: same idea as rejecting all prospects — resets academy roster and promoted
+    in-memory cards. Database mode deletes all rows in ``youth_academy_players`` (main-team
+    ``Player`` rows created on promotion are not deleted).
+    """
+    try:
+        if db is None:
+            cleared = len(_in_memory_storage.academy_players)
+            _in_memory_storage.academy_players.clear()
+            return {
+                "message": "All academy / promoted workbench players cleared",
+                "cleared_count": cleared,
+            }
+
+        cleared = db.query(YouthAcademyPlayer).delete(synchronize_session=False)
+        db.commit()
+        return {
+            "message": "All youth academy player records deleted",
+            "cleared_count": cleared,
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        if db:
+            db.rollback()
+        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+
+
 @router.get("/players", response_model=List[AcademyPlayerResponse])
 @router.get("/players/{club_id}", response_model=List[AcademyPlayerResponse])
 async def get_academy_players(club_id: Optional[str] = None, db: Optional[Session] = Depends(get_db)):
@@ -676,18 +730,19 @@ async def get_academy_players(club_id: Optional[str] = None, db: Optional[Sessio
         # In-memory mode
         if db is None:
             if not club_id:
-                club_uuid, _ = get_or_create_test_club_in_memory()
+                academy_players_list = [
+                    p for p in _in_memory_storage.academy_players.values()
+                    if p.get("status") == "active"
+                ]
             else:
                 try:
                     club_uuid = UUID(club_id)
                 except ValueError:
                     raise HTTPException(status_code=400, detail="Invalid club_id format")
-            
-            # Get academy players from in-memory storage
-            academy_players_list = [
-                p for p in _in_memory_storage.academy_players.values()
-                if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "active"
-            ]
+                academy_players_list = [
+                    p for p in _in_memory_storage.academy_players.values()
+                    if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "active"
+                ]
             
             results = []
             for p in academy_players_list:
@@ -728,23 +783,21 @@ async def get_academy_players(club_id: Optional[str] = None, db: Optional[Sessio
         
         # Database mode
         if not club_id:
-            club, _ = get_or_create_test_club(db)
-            db.commit()
-            club_uuid = club.id
+            academy_players = db.query(YouthAcademyPlayer).filter(
+                YouthAcademyPlayer.status == "active"
+            ).all()
         else:
             try:
                 club_uuid = UUID(club_id)
             except ValueError:
                 raise HTTPException(status_code=400, detail="Invalid club_id format")
-        
-        club = db.query(Club).filter(Club.id == club_uuid).first()
-        if not club:
-            raise HTTPException(status_code=404, detail="Club not found")
-        
-        academy_players = db.query(YouthAcademyPlayer).filter(
-            YouthAcademyPlayer.club_id == club_uuid,
-            YouthAcademyPlayer.status == "active"
-        ).all()
+            club = db.query(Club).filter(Club.id == club_uuid).first()
+            if not club:
+                raise HTTPException(status_code=404, detail="Club not found")
+            academy_players = db.query(YouthAcademyPlayer).filter(
+                YouthAcademyPlayer.club_id == club_uuid,
+                YouthAcademyPlayer.status == "active"
+            ).all()
         
         results = []
         for p in academy_players:
@@ -792,13 +845,30 @@ async def get_academy_players(club_id: Optional[str] = None, db: Optional[Sessio
 async def update_academy_player(
     academy_player_id: str,
     request: UpdateAcademyPlayerRequest,
-    db: Session = Depends(get_db)
+    db: Optional[Session] = Depends(get_db),
 ):
     """Update academy player (position, traits, training program)."""
     try:
         player_uuid = UUID(academy_player_id)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid academy_player_id format")
+
+    if db is None:
+        ap = _in_memory_storage.academy_players.get(academy_player_id)
+        if not ap:
+            raise HTTPException(status_code=404, detail="Academy player not found")
+        if ap.get("status") != "active":
+            raise HTTPException(
+                status_code=400,
+                detail=f"Academy player is not active (status: {ap.get('status')})",
+            )
+        if request.position is not None:
+            ap["position"] = request.position
+        if request.position_traits is not None:
+            ap["position_traits"] = request.position_traits
+        if request.gainable_traits is not None:
+            ap["gainable_traits"] = request.gainable_traits
+        return {"message": "Academy player updated"}
     
     academy_player = db.query(YouthAcademyPlayer).filter(
         YouthAcademyPlayer.id == player_uuid
@@ -820,28 +890,30 @@ async def update_academy_player(
     if request.gainable_traits is not None:
         academy_player.gainable_traits = request.gainable_traits
     
-    if request.training_program is not None:
-        # Validate training program
-        program_catalog = get_program_catalog(academy_player.is_goalkeeper)
-        if request.training_program not in program_catalog:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Invalid training program: {request.training_program}. Available: {list(program_catalog.keys())}"
-            )
-        academy_player.training_program = request.training_program
-    
     db.commit()
     
     return {"message": "Academy player updated"}
 
 
 @router.post("/players/{academy_player_id}/release")
-async def release_academy_player(academy_player_id: str, db: Session = Depends(get_db)):
+async def release_academy_player(academy_player_id: str, db: Optional[Session] = Depends(get_db)):
     """Release an academy player."""
     try:
         player_uuid = UUID(academy_player_id)
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid academy_player_id format")
+
+    if db is None:
+        ap = _in_memory_storage.academy_players.get(academy_player_id)
+        if not ap:
+            raise HTTPException(status_code=404, detail="Academy player not found")
+        if ap.get("status") != "active":
+            raise HTTPException(
+                status_code=400,
+                detail=f"Academy player is not active (status: {ap.get('status')})",
+            )
+        ap["status"] = "released"
+        return {"message": "Academy player released"}
     
     academy_player = db.query(YouthAcademyPlayer).filter(
         YouthAcademyPlayer.id == player_uuid
@@ -1656,6 +1728,221 @@ async def progress_week(club_id: Optional[str] = None, db: Optional[Session] = D
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
 
 
+class SquadPlayerBrief(BaseModel):
+    """Minimal squad row for workbench clones (same ids as promoted-players / Player ids)."""
+    id: str
+    name: str
+    is_goalkeeper: bool
+
+
+def _workbench_sim_player_from_memory(academy_dict: dict, label: Optional[str]) -> SimpleNamespace:
+    """Clone a promoted in-memory academy dict for independent long-term simulation."""
+    nm = academy_dict.get("name", "Player")
+    suffix = (label or "").strip() or "clone"
+    return SimpleNamespace(
+        id=uuid4(),
+        potential=academy_dict.get("actual_potential", 2000),
+        birth_dev_pct=academy_dict.get("birth_dev_pct", 0.15),
+        base_training_pct=academy_dict.get("base_training_pct", 0.40),
+        growth_training_pct=academy_dict.get("growth_training_pct", 0.45),
+        growth_shape=academy_dict.get("growth_shape", 2.0),
+        growth_peak_age=academy_dict.get("growth_peak_age", 22.0),
+        growth_width=academy_dict.get("growth_width", 4.0),
+        attributes=(academy_dict.get("actual_attributes") or {}).copy(),
+        actual_age_months=16 * 12 + 1,
+        training_age_weeks=1,
+        is_goalkeeper=academy_dict.get("is_goalkeeper", False),
+        name=f"{nm} ({suffix})",
+        nationality=academy_dict.get("nationality", "ENG"),
+        profile_pic=academy_dict.get("profile_pic"),
+        profile_pic_folder=academy_dict.get("profile_pic_folder"),
+    )
+
+
+def _workbench_sim_player_from_db(
+    player: Player, academy_player: Optional[YouthAcademyPlayer], label: Optional[str]
+) -> SimpleNamespace:
+    nm = player.name
+    suffix = (label or "").strip() or "clone"
+    return SimpleNamespace(
+        id=uuid4(),
+        potential=player.potential,
+        birth_dev_pct=player.birth_dev_pct,
+        base_training_pct=player.base_training_pct,
+        growth_training_pct=player.growth_training_pct,
+        growth_shape=player.growth_shape,
+        growth_peak_age=player.growth_peak_age,
+        growth_width=player.growth_width,
+        attributes=(player.attributes or {}).copy(),
+        actual_age_months=16 * 12 + 1,
+        training_age_weeks=1,
+        is_goalkeeper=player.is_goalkeeper,
+        name=f"{nm} ({suffix})",
+        nationality=player.nationality,
+        profile_pic=academy_player.profile_pic if academy_player else None,
+        profile_pic_folder=None,
+    )
+
+
+def _validate_training_program_selection(
+    name: Optional[str],
+    is_goalkeeper: bool,
+    *,
+    individual_attr: Optional[str] = None,
+) -> None:
+    if name is None:
+        return
+    allowed = list_training_program_names(is_goalkeeper)
+    if name not in allowed:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid training program for {'goalkeeper' if is_goalkeeper else 'outfield'}: {name}. Allowed: {allowed}",
+        )
+    if not is_goalkeeper and name == "Individual":
+        attr = (individual_attr or "").strip()
+        if attr not in OUTFIELD_ATTRS:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Individual programme requires a valid outfield attribute. Got: {individual_attr}. Allowed: {OUTFIELD_ATTRS}",
+            )
+
+
+@router.get("/training-program-options")
+async def get_training_program_options(is_goalkeeper: bool = False):
+    """
+    Valid primary/secondary/general programme names for workbench.
+
+    Returns both raw names and a richer label list (for test UI).
+    """
+
+    programs = list_training_program_names(is_goalkeeper)
+
+    # Optional: richer labels for the workbench UI (testing convenience)
+    programs_detailed = []
+    if is_goalkeeper:
+        for name in programs:
+            programs_detailed.append({"name": name, "label": name})
+    else:
+        category_prefix = {
+            # Defensive
+            "Marking Focus": "def",
+            "Tackling Focus": "def",
+            "Defensive Dueling": "def",
+            "Wide Defending": "def",
+            # Offensive
+            "Finishing Focus": "off",
+            "Heading Focus": "off",
+            "Crossing Focus": "off",
+            "Wide Delivery": "off",
+            # Transitional / general midfield play
+            "Passing Focus": "trans",
+            "Chance Creation": "trans",
+            "Progression": "trans",
+            "Engine": "trans",
+            "Explosive Movement": "trans",
+            "Physical Presence": "trans",
+            # Balanced / fallback
+            "Balanced": "trans",
+            INDIVIDUAL_PROGRAM_NAME: "trans",
+        }
+
+        def _primary_skills_label(raw_weights: Dict[str, float]) -> str:
+            # With filler=5, "primary" means strictly above filler baseline
+            primary = [(k, float(v)) for k, v in raw_weights.items() if float(v) > 5.0]
+            primary.sort(key=lambda kv: (-kv[1], kv[0]))
+            return ", ".join(f"{k}({int(v) if v.is_integer() else v})" for k, v in primary)
+
+        for name in programs:
+            if name == INDIVIDUAL_PROGRAM_NAME:
+                label = f"{category_prefix.get(name, 'trans')} {name} — pick skill (100), others 5"
+            elif name in OUTFIELD_PROGRAMS:
+                prim = _primary_skills_label(OUTFIELD_PROGRAMS[name])
+                prefix = category_prefix.get(name, "trans")
+                label = f"{prefix} {name} — {prim}" if prim else f"{prefix} {name}"
+            else:
+                # Shouldn't happen, but keep list stable
+                label = name
+            programs_detailed.append({"name": name, "label": label})
+
+        # Sort for workbench usability: off → def → trans, then label
+        order_rank = {"off": 0, "def": 1, "trans": 2}
+        def _rank(item: Dict[str, str]) -> tuple:
+            pref = (item.get("label") or "").split(" ")[0].strip()
+            return (order_rank.get(pref, 9), item.get("label") or item.get("name") or "")
+        programs_detailed.sort(key=_rank)
+
+    return {"programs": programs, "programs_detailed": programs_detailed}
+
+
+@router.get("/squad-players", response_model=List[SquadPlayerBrief])
+@router.get("/squad-players/{club_id}", response_model=List[SquadPlayerBrief])
+async def get_squad_players_for_workbench(club_id: Optional[str] = None, db: Optional[Session] = Depends(get_db)):
+    """Players eligible to clone for training simulation: contracted to club and/or promoted from academy."""
+    try:
+        if db is None:
+            if not club_id:
+                promoted = [
+                    p
+                    for p in _in_memory_storage.academy_players.values()
+                    if p.get("status") == "promoted"
+                ]
+            else:
+                try:
+                    club_uuid = UUID(club_id)
+                except ValueError:
+                    raise HTTPException(status_code=400, detail="Invalid club_id format")
+                promoted = [
+                    p
+                    for p in _in_memory_storage.academy_players.values()
+                    if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "promoted"
+                ]
+            return [
+                SquadPlayerBrief(id=p["id"], name=p.get("name") or "Player", is_goalkeeper=p.get("is_goalkeeper", False))
+                for p in promoted
+            ]
+
+        if not club_id:
+            all_ids = {
+                a.promoted_to_player_id
+                for a in db.query(YouthAcademyPlayer).filter(
+                    YouthAcademyPlayer.status == "promoted",
+                    YouthAcademyPlayer.promoted_to_player_id.isnot(None),
+                ).all()
+            }
+        else:
+            try:
+                club_uuid = UUID(club_id)
+            except ValueError:
+                raise HTTPException(status_code=400, detail="Invalid club_id format")
+
+            club = db.query(Club).filter(Club.id == club_uuid).first()
+            if not club:
+                raise HTTPException(status_code=404, detail="Club not found")
+
+            contract_ids = {c.player_id for c in db.query(Contract).filter(Contract.club_id == club_uuid).all()}
+            promoted_ids = {
+                a.promoted_to_player_id
+                for a in db.query(YouthAcademyPlayer).filter(
+                    YouthAcademyPlayer.club_id == club_uuid,
+                    YouthAcademyPlayer.status == "promoted",
+                    YouthAcademyPlayer.promoted_to_player_id.isnot(None),
+                ).all()
+            }
+            all_ids = contract_ids | promoted_ids
+        if not all_ids:
+            return []
+
+        rows = db.query(Player).filter(Player.id.in_(all_ids)).all()
+        return [
+            SquadPlayerBrief(id=str(p.id), name=p.name, is_goalkeeper=p.is_goalkeeper)
+            for p in rows
+        ]
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
+
+
 class PromotedPlayerResponse(BaseModel):
     """Response for a promoted player (from academy to main team)."""
     id: str
@@ -1685,18 +1972,21 @@ async def get_promoted_players(club_id: Optional[str] = None, db: Optional[Sessi
         # In-memory mode
         if db is None:
             if not club_id:
-                club_uuid, _ = get_or_create_test_club_in_memory()
+                promoted_players_list = [
+                    p
+                    for p in _in_memory_storage.academy_players.values()
+                    if p.get("status") == "promoted"
+                ]
             else:
                 try:
                     club_uuid = UUID(club_id)
                 except ValueError:
                     raise HTTPException(status_code=400, detail="Invalid club_id format")
-            
-            # Get promoted academy players from in-memory storage
-            promoted_players_list = [
-                p for p in _in_memory_storage.academy_players.values()
-                if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "promoted"
-            ]
+                promoted_players_list = [
+                    p
+                    for p in _in_memory_storage.academy_players.values()
+                    if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "promoted"
+                ]
             
             results = []
             for p in promoted_players_list:
@@ -1732,24 +2022,21 @@ async def get_promoted_players(club_id: Optional[str] = None, db: Optional[Sessi
         
         # Database mode
         if not club_id:
-            club, _ = get_or_create_test_club(db)
-            db.commit()
-            club_uuid = club.id
+            promoted_academy_players = db.query(YouthAcademyPlayer).filter(
+                YouthAcademyPlayer.status == "promoted"
+            ).all()
         else:
             try:
                 club_uuid = UUID(club_id)
             except ValueError:
                 raise HTTPException(status_code=400, detail="Invalid club_id format")
-        
-        club = db.query(Club).filter(Club.id == club_uuid).first()
-        if not club:
-            raise HTTPException(status_code=404, detail="Club not found")
-        
-        # Get promoted academy players
-        promoted_academy_players = db.query(YouthAcademyPlayer).filter(
-            YouthAcademyPlayer.club_id == club_uuid,
-            YouthAcademyPlayer.status == "promoted"
-        ).all()
+            club = db.query(Club).filter(Club.id == club_uuid).first()
+            if not club:
+                raise HTTPException(status_code=404, detail="Club not found")
+            promoted_academy_players = db.query(YouthAcademyPlayer).filter(
+                YouthAcademyPlayer.club_id == club_uuid,
+                YouthAcademyPlayer.status == "promoted"
+            ).all()
         
         # Get corresponding Player records
         promoted_players = []
@@ -1793,16 +2080,38 @@ async def get_promoted_players(club_id: Optional[str] = None, db: Optional[Sessi
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
 
 
+class TrainingScenario(BaseModel):
+    """One workbench run: clone a squad player and apply these programme shares for every simulated year."""
+    source_player_id: str = Field(
+        ...,
+        description="ID from /squad-players (in-memory: promoted academy id; database: Player UUID)",
+    )
+    label: Optional[str] = Field(default=None, max_length=80)
+    primary_program: Optional[str] = "Balanced"
+    primary_individual_attr: Optional[str] = None
+    primary_share: float = Field(default=0.4, ge=0, le=1)
+    secondary_program: Optional[str] = "Balanced"
+    secondary_individual_attr: Optional[str] = None
+    secondary_share: float = Field(default=0.2, ge=0, le=1)
+    general_share: float = Field(default=0.4, ge=0, le=1)
+
+
 class TrainPromotedPlayersRequest(BaseModel):
     """Request to train promoted players for development."""
     club_id: Optional[str] = None
     training_facilities: int = Field(default=10, ge=0, le=10)
     primary_program: Optional[str] = "Balanced"
+    primary_individual_attr: Optional[str] = None
     primary_share: float = Field(default=0.4, ge=0, le=1)
     secondary_program: Optional[str] = "Balanced"
+    secondary_individual_attr: Optional[str] = None
     secondary_share: float = Field(default=0.2, ge=0, le=1)
     general_share: float = Field(default=0.4, ge=0, le=1)
-    years_to_simulate: int = Field(default=1, ge=1, le=20, description="Number of years to train (from 16y1)")
+    years_to_simulate: int = Field(default=15, ge=1, le=20, description="Number of years to train (from 16y1)")
+    scenarios: Optional[List[TrainingScenario]] = Field(
+        default=None,
+        description="Per-clone programmes; when non-empty, ignores global programme fields and trains only these clones.",
+    )
 
 
 class TrainPromotedPlayersResponse(BaseModel):
@@ -1814,13 +2123,15 @@ class TrainPromotedPlayersResponse(BaseModel):
 @router.post("/train-promoted-players", response_model=TrainPromotedPlayersResponse)
 async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optional[Session] = Depends(get_db)):
     """
-    Train promoted players from 16y1 for specified number of years.
-    Returns yearly snapshots of player attributes and development points.
+    Train from 16y1 for N years. Either pass `scenarios` (clone squad players with per-row programmes)
+    or omit scenarios to train all promoted players with the global primary/secondary/general fields.
     """
     try:
-        # Get promoted players
+        program_overrides: Optional[Dict[str, Dict[str, Any]]] = None
+        players: List[Any] = []
+
+        # --- Resolve club ---
         if db is None:
-            # In-memory mode
             if not request.club_id:
                 club_uuid, _ = get_or_create_test_club_in_memory()
             else:
@@ -1828,17 +2139,110 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     club_uuid = UUID(request.club_id)
                 except ValueError:
                     raise HTTPException(status_code=400, detail="Invalid club_id format")
-            
+        else:
+            if not request.club_id:
+                club, _ = get_or_create_test_club(db)
+                db.commit()
+                club_uuid = club.id
+            else:
+                try:
+                    club_uuid = UUID(request.club_id)
+                except ValueError:
+                    raise HTTPException(status_code=400, detail="Invalid club_id format")
+            club = db.query(Club).filter(Club.id == club_uuid).first()
+            if not club:
+                raise HTTPException(status_code=404, detail="Club not found")
+
+        # --- Scenarios: one independent clone + programme mix per row ---
+        if request.scenarios:
+            program_overrides = {}
+            for sc in request.scenarios:
+                if db is None:
+                    ap = _in_memory_storage.academy_players.get(sc.source_player_id)
+                    if (
+                        not ap
+                        or ap.get("status") != "promoted"
+                        or str(ap.get("club_id")) != str(club_uuid)
+                    ):
+                        raise HTTPException(
+                            status_code=404,
+                            detail=f"Squad player not found or not promoted for this club: {sc.source_player_id}",
+                        )
+                    igk = ap.get("is_goalkeeper", False)
+                    _validate_training_program_selection(
+                        sc.primary_program,
+                        igk,
+                        individual_attr=sc.primary_individual_attr,
+                    )
+                    _validate_training_program_selection(
+                        sc.secondary_program,
+                        igk,
+                        individual_attr=sc.secondary_individual_attr,
+                    )
+                    sim = _workbench_sim_player_from_memory(ap, sc.label)
+                    players.append(sim)
+                else:
+                    try:
+                        pid = UUID(sc.source_player_id)
+                    except ValueError:
+                        raise HTTPException(status_code=400, detail="Invalid source_player_id UUID")
+                    player_row = db.query(Player).filter(Player.id == pid).first()
+                    if not player_row:
+                        raise HTTPException(status_code=404, detail=f"Player not found: {sc.source_player_id}")
+                    in_contract = (
+                        db.query(Contract)
+                        .filter(Contract.club_id == club_uuid, Contract.player_id == pid)
+                        .first()
+                    )
+                    ap_row = (
+                        db.query(YouthAcademyPlayer)
+                        .filter(
+                            YouthAcademyPlayer.club_id == club_uuid,
+                            YouthAcademyPlayer.promoted_to_player_id == pid,
+                        )
+                        .first()
+                    )
+                    if not in_contract and not ap_row:
+                        raise HTTPException(
+                            status_code=400,
+                            detail="Player is not in this club's squad (no contract or academy promotion).",
+                        )
+                    igk = player_row.is_goalkeeper
+                    _validate_training_program_selection(
+                        sc.primary_program,
+                        igk,
+                        individual_attr=sc.primary_individual_attr,
+                    )
+                    _validate_training_program_selection(
+                        sc.secondary_program,
+                        igk,
+                        individual_attr=sc.secondary_individual_attr,
+                    )
+                    sim = _workbench_sim_player_from_db(player_row, ap_row, sc.label)
+                    players.append(sim)
+
+                sid = str(players[-1].id)
+                program_overrides[sid] = {
+                    "primary_program": sc.primary_program,
+                    "primary_share": sc.primary_share,
+                    "primary_individual_attr": sc.primary_individual_attr,
+                    "secondary_program": sc.secondary_program,
+                    "secondary_share": sc.secondary_share,
+                    "secondary_individual_attr": sc.secondary_individual_attr,
+                    "general_share": sc.general_share,
+                }
+
+        # --- Legacy: all promoted players, single global programme ---
+        elif db is None:
             promoted_players_list = [
-                p for p in _in_memory_storage.academy_players.values()
+                p
+                for p in _in_memory_storage.academy_players.values()
                 if str(p.get("club_id")) == str(club_uuid) and p.get("status") == "promoted"
             ]
-            
             if not promoted_players_list:
                 raise HTTPException(status_code=404, detail="No promoted players found")
-            
-            # Convert to SimplePlayer format
-            class SimplePlayer:
+
+            class SimplePlayerMem:
                 def __init__(self, data):
                     self.id = uuid4()
                     self.potential = data.get("actual_potential", 2000)
@@ -1849,7 +2253,6 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.growth_peak_age = data.get("growth_peak_age", 22.0)
                     self.growth_width = data.get("growth_width", 4.0)
                     self.attributes = data.get("actual_attributes", {}).copy()
-                    # Ensure they start at 16y1 (193 months, 1 training week)
                     self.actual_age_months = 16 * 12 + 1
                     self.training_age_weeks = 1
                     self.is_goalkeeper = data.get("is_goalkeeper", False)
@@ -1857,35 +2260,21 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.nationality = data.get("nationality", "ENG")
                     self.profile_pic = data.get("profile_pic")
                     self.profile_pic_folder = data.get("profile_pic_folder")
-            
-            players = [SimplePlayer(p) for p in promoted_players_list]
+
+            players = [SimplePlayerMem(p) for p in promoted_players_list]
         else:
-            # Database mode
-            if not request.club_id:
-                club, _ = get_or_create_test_club(db)
-                db.commit()
-                club_uuid = club.id
-            else:
-                try:
-                    club_uuid = UUID(request.club_id)
-                except ValueError:
-                    raise HTTPException(status_code=400, detail="Invalid club_id format")
-            
-            club = db.query(Club).filter(Club.id == club_uuid).first()
-            if not club:
-                raise HTTPException(status_code=404, detail="Club not found")
-            
-            # Get promoted academy players
-            promoted_academy_players = db.query(YouthAcademyPlayer).filter(
-                YouthAcademyPlayer.club_id == club_uuid,
-                YouthAcademyPlayer.status == "promoted"
-            ).all()
-            
+            promoted_academy_players = (
+                db.query(YouthAcademyPlayer)
+                .filter(
+                    YouthAcademyPlayer.club_id == club_uuid,
+                    YouthAcademyPlayer.status == "promoted",
+                )
+                .all()
+            )
             if not promoted_academy_players:
                 raise HTTPException(status_code=404, detail="No promoted players found")
-            
-            # Get corresponding Player records
-            class SimplePlayer:
+
+            class SimplePlayerDb:
                 def __init__(self, academy_player, player):
                     self.id = player.id
                     self.potential = player.potential
@@ -1896,7 +2285,6 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.growth_peak_age = player.growth_peak_age
                     self.growth_width = player.growth_width
                     self.attributes = (player.attributes or {}).copy()
-                    # Ensure they start at 16y1 (193 months, 1 training week)
                     self.actual_age_months = 16 * 12 + 1
                     self.training_age_weeks = 1
                     self.is_goalkeeper = player.is_goalkeeper
@@ -1904,17 +2292,26 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                     self.nationality = player.nationality
                     self.profile_pic = academy_player.profile_pic
                     self.profile_pic_folder = None
-            
+
             players = []
             for academy_player in promoted_academy_players:
                 if academy_player.promoted_to_player_id:
                     player = db.query(Player).filter(Player.id == academy_player.promoted_to_player_id).first()
                     if player:
-                        players.append(SimplePlayer(academy_player, player))
-            
+                        players.append(SimplePlayerDb(academy_player, player))
             if not players:
                 raise HTTPException(status_code=404, detail="No promoted player records found")
-        
+
+        # Global programme validation for mixed squads (only needed for Individual).
+        # Workbench scenarios validate per-row; this guards the legacy global fields.
+        if (request.primary_program == "Individual" or request.secondary_program == "Individual") and any(
+            getattr(p, "is_goalkeeper", False) for p in players
+        ):
+            raise HTTPException(
+                status_code=400,
+                detail="Individual programme is outfield-only; squad includes a goalkeeper.",
+            )
+
         # Pre-compute growth schedules
         growth_caches = {}
         train_carries = {}
@@ -1959,6 +2356,7 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
             
             snapshot["players"].append({
                 "name": player.name,
+                "nationality": player_nationality,
                 "age_months": player.actual_age_months,
                 "training_weeks": player.training_age_weeks,
                 "attributes": player.attributes.copy(),
@@ -1999,12 +2397,15 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                 training_facilities_level=request.training_facilities,
                 primary_program=request.primary_program,
                 primary_share=request.primary_share,
+                primary_individual_attr=request.primary_individual_attr,
                 secondary_program=request.secondary_program,
                 secondary_share=request.secondary_share,
+                secondary_individual_attr=request.secondary_individual_attr,
                 general_share=request.general_share,
                 season_weeks=10,
                 total_weeks=160,
-                DP_PER_ATTR_POINT=10.0
+                DP_PER_ATTR_POINT=10.0,
+                program_overrides=program_overrides,
             )
             
             # Calculate current year
@@ -2038,6 +2439,7 @@ async def train_promoted_players(request: TrainPromotedPlayersRequest, db: Optio
                 
                 snapshot["players"].append({
                     "name": player.name,
+                    "nationality": player_nationality,
                     "age_months": player.actual_age_months,
                     "training_weeks": player.training_age_weeks,
                     "attributes": player.attributes.copy(),

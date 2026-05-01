@@ -6,9 +6,11 @@ from dotenv import load_dotenv
 # Load .env locally (Railway ignores this)
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+# Strip so empty/whitespace in .env still means "no database" (local workbench in-memory mode).
+_raw_db_url = os.getenv("DATABASE_URL")
+DATABASE_URL = (_raw_db_url.strip() if _raw_db_url else None) or None
 
-# Allow database to be optional for match engine testing
+# Allow database to be optional for match engine testing / localhost without Postgres
 if not DATABASE_URL:
     DATABASE_URL = None
 

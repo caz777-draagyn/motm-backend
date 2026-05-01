@@ -465,6 +465,7 @@
             <h2>2. Youth Academy Players</h2>
             <div class="controls">
                 <button onclick="loadAcademyPlayers()">Refresh Academy Players</button>
+                <button class="btn-danger" onclick="clearAllAcademyPlayers()">Clear All Academy Players</button>
                 <button class="btn-success" onclick="progressWeek()">Progress All Players by 1 Week</button>
             </div>
             
@@ -473,60 +474,62 @@
             </div>
         </div>
         
-        <!-- Section 3: Promoted Players -->
+        <!-- Section 3: Promoted squad + training simulation (clones) -->
         <div class="section">
-            <h2>3. Promoted Players (Fully Revealed)</h2>
+            <h2>3. Squad &amp; long-term training simulation</h2>
+            <p style="font-size: 13px; color: #555; margin-bottom: 12px;">
+                Promoted players appear below. Use <strong>Refresh squad</strong> to load IDs for cloning.
+                Add one or more <em>clones</em> of the same player with different primary/secondary programmes, then run the simulation (each clone is an independent 16y1&rarr;31y run).
+            </p>
             <div class="controls">
-                <button onclick="loadPromotedPlayers()">Refresh Promoted Players</button>
-                <button class="btn-success" onclick="trainPromotedPlayers()">Train All Promoted Players for 14 Years</button>
+                <button onclick="loadPromotedPlayers()">Refresh promoted cards</button>
+                <button onclick="loadWorkbenchSquad()">Refresh squad (for cloning)</button>
             </div>
-            <div class="controls" style="margin-top: 10px;">
-                <label>Training Facilities:</label>
+            <div class="controls" style="margin-top: 10px; flex-wrap: wrap; align-items: flex-end;">
+                <label>Training facilities (0–10):</label>
                 <input type="number" id="trainingFacilities" value="10" min="0" max="10" style="width: 80px;">
-                
-                <label>Primary Program:</label>
-                <select id="primaryProgram">
-                    <option value="Balanced" selected>Balanced</option>
-                    <option value="Finishing">Finishing</option>
-                    <option value="Playmaking">Playmaking</option>
-                    <option value="Defending">Defending</option>
-                    <option value="Pace & Power">Pace & Power</option>
-                    <option value="Aerial">Aerial</option>
-                    <option value="Crossing & Wide">Crossing & Wide</option>
-                    <option value="Shot-Stopping">Shot-Stopping</option>
-                    <option value="Sweeper Keeper">Sweeper Keeper</option>
-                    <option value="Aerial/High Claims">Aerial/High Claims</option>
+                <label>Years to simulate:</label>
+                <input type="number" id="simYears" value="15" min="1" max="20" style="width: 64px;">
+                <label>Squad player:</label>
+                <select id="cloneSourcePlayer" style="min-width: 220px;">
+                    <option value="">— Load squad first —</option>
                 </select>
-                
-                <label>Secondary Program:</label>
-                <select id="secondaryProgram">
-                    <option value="Balanced" selected>Balanced</option>
-                    <option value="Finishing">Finishing</option>
-                    <option value="Playmaking">Playmaking</option>
-                    <option value="Defending">Defending</option>
-                    <option value="Pace & Power">Pace & Power</option>
-                    <option value="Aerial">Aerial</option>
-                    <option value="Crossing & Wide">Crossing & Wide</option>
-                    <option value="Shot-Stopping">Shot-Stopping</option>
-                    <option value="Sweeper Keeper">Sweeper Keeper</option>
-                    <option value="Aerial/High Claims">Aerial/High Claims</option>
-                </select>
-                
-                <label>General Program:</label>
-                <select id="generalProgram">
-                    <option value="Balanced" selected>Balanced</option>
-                    <option value="Finishing">Finishing</option>
-                    <option value="Playmaking">Playmaking</option>
-                    <option value="Defending">Defending</option>
-                    <option value="Pace & Power">Pace & Power</option>
-                    <option value="Aerial">Aerial</option>
-                    <option value="Crossing & Wide">Crossing & Wide</option>
-                    <option value="Shot-Stopping">Shot-Stopping</option>
-                    <option value="Sweeper Keeper">Sweeper Keeper</option>
-                    <option value="Aerial/High Claims">Aerial/High Claims</option>
-                </select>
+                <label>Label (optional):</label>
+                <input type="text" id="cloneLabel" placeholder="e.g. Finishing path" style="width: 140px;">
+                <label>Primary:</label>
+                <select id="scenarioPrimary" style="min-width: 160px;"></select>
+                <label id="scenarioPrimaryAttrLabel" style="display:none;">Individual skill:</label>
+                <select id="scenarioPrimaryAttr" style="min-width: 150px; display:none;"></select>
+                <label>Secondary:</label>
+                <select id="scenarioSecondary" style="min-width: 160px;"></select>
+                <label id="scenarioSecondaryAttrLabel" style="display:none;">Individual skill:</label>
+                <select id="scenarioSecondaryAttr" style="min-width: 150px; display:none;"></select>
+                <label>Primary share:</label>
+                <input type="number" id="scenarioPrimaryShare" value="0.4" min="0" max="1" step="0.05" style="width: 56px;">
+                <label>Secondary share:</label>
+                <input type="number" id="scenarioSecondaryShare" value="0.2" min="0" max="1" step="0.05" style="width: 56px;">
+                <label>General:</label>
+                <input type="number" id="scenarioGeneralShare" value="0.4" min="0" max="1" step="0.05" style="width: 56px;">
+                <button type="button" onclick="addWorkbenchScenario()">Add clone to list</button>
             </div>
-            <div id="academyContainer">
+            <div id="scenarioQueueWrap" style="margin: 12px 0; display: none;">
+                <strong>Queued simulations</strong>
+                <table id="scenarioQueueTable" style="width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px;">
+                    <thead><tr>
+                        <th style="text-align:left;border-bottom:1px solid #ccc;">Source</th>
+                        <th style="text-align:left;border-bottom:1px solid #ccc;">Label</th>
+                        <th style="text-align:left;border-bottom:1px solid #ccc;">Programmes</th>
+                        <th style="text-align:left;border-bottom:1px solid #ccc;">Shares</th>
+                        <th style="border-bottom:1px solid #ccc;"></th>
+                    </tr></thead>
+                    <tbody id="scenarioQueueBody"></tbody>
+                </table>
+            </div>
+            <div class="controls">
+                <button class="btn-success" onclick="runWorkbenchTrainingSimulation()">Run simulation for queued clones</button>
+                <span id="scenarioHint" style="font-size: 12px; color: #666;">Add at least one clone, or leave the list empty to train <strong>all</strong> promoted players with the fallback mix (Balanced / Balanced, 0.4 / 0.2 / 0.4).</span>
+            </div>
+            <div id="promotedPlayersContainer">
                 <div class="academy-grid" id="promotedPlayersGrid"></div>
             </div>
         </div>
@@ -560,11 +563,13 @@
         
         // Position options (from match_engine constants)
         const POSITIONS = ["GK", "DL", "DC", "DR", "DML", "DMC", "DMR", "ML", "MC", "MR", "OML", "OMC", "OMR", "FC"];
+        const OUTFIELD_ATTRS = [
+            "Finishing","Tackling","Marking","Heading","Passing","Crossing","Ball Control",
+            "Positioning","Vision","Composure","Work Rate","Strength","Stamina","Acceleration","Agility","Jump Reach"
+        ];
         
-        // Training programs (from player_development)
-        const TRAINING_PROGRAMS_OUTFIELD = ["Balanced", "Finishing", "Playmaking", "Defending", "Pace & Power", "Aerial", "Crossing & Wide"];
-        const TRAINING_PROGRAMS_GK = ["Balanced", "Shot-Stopping", "Sweeper Keeper", "Aerial/High Claims"];
-        
+        let workbenchScenarios = [];
+
         // Position traits
         const POSITION_TRAITS = ["Natural Winger", "Deep-Lying Playmaker", "Box-to-Box", "Ball-Playing Defender", "Poacher", "Target Forward", "Wing Back", "Sweeper Keeper"];
         
@@ -786,13 +791,12 @@
         }
         
         async function loadProspects() {
-            const clubId = document.getElementById('clubId').value.trim() || currentClubId || null;
-            const url = clubId ? `/api/youth-academy/prospects/${clubId}` : '/api/youth-academy/prospects';
+            // Always list all available prospects (scoped /prospects/{club_id} returns 404 if club id is wrong/stale).
+            const url = '/api/youth-academy/prospects';
             
             try {
                 const response = await yaFetch(url);
                 if (!response.ok) {
-                    if (response.status === 404) return; // No prospects yet
                     const detail = await readErrorDetail(response);
                     throw new Error(detail || 'Failed to load prospects');
                 }
@@ -906,6 +910,30 @@
             }
         }
         
+        async function clearAllAcademyPlayers() {
+            if (!confirm('Remove ALL academy players (including promoted-to-squad entries in this workbench)? This cannot be undone.')) {
+                return;
+            }
+            try {
+                const response = await yaFetch('/api/youth-academy/players/clear-all', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                if (!response.ok) {
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to clear academy players');
+                }
+                const data = await response.json();
+                alert(`Cleared ${data.cleared_count} player record(s).`);
+                await loadAcademyPlayers();
+                await loadPromotedPlayers();
+                await loadWorkbenchSquad();
+                await checkCapacity();
+            } catch (error) {
+                showError(error.message);
+            }
+        }
+
         async function rejectAllProspects() {
             if (!confirm('Are you sure you want to reject ALL available prospects? This action cannot be undone.')) {
                 return;
@@ -950,13 +978,12 @@
         }
         
         async function loadAcademyPlayers() {
-            const clubId = document.getElementById('clubId').value.trim() || currentClubId || null;
-            const url = clubId ? `/api/youth-academy/players/${clubId}` : '/api/youth-academy/players';
+            // Always list all active academy players (wrong club id in the form caused /players/{id} → 404 and silent empty UI).
+            const url = '/api/youth-academy/players';
             
             try {
                 const response = await yaFetch(url);
                 if (!response.ok) {
-                    if (response.status === 404) return;
                     const detail = await readErrorDetail(response);
                     throw new Error(detail || 'Failed to load academy players');
                 }
@@ -1028,11 +1055,6 @@
                     window.previousAttributeRanges[player.id] = player.attribute_ranges;
                 }
                 
-                const trainingPrograms = player.is_goalkeeper ? TRAINING_PROGRAMS_GK : TRAINING_PROGRAMS_OUTFIELD;
-                const programOptions = trainingPrograms.map(p => 
-                    `<option value="${p}" ${player.training_program === p ? 'selected' : ''}>${p}</option>`
-                ).join('');
-                
                 const positionOptions = POSITIONS.map(p => 
                     `<option value="${p}" ${player.position === p ? 'selected' : ''}>${p}</option>`
                 ).join('');
@@ -1075,12 +1097,6 @@
                             ${positionOptions}
                         </select>
                         
-                        <label>Training Program:</label>
-                        <select id="training_${player.id}" onchange="updateAcademyPlayer('${player.id}')">
-                            <option value="">None</option>
-                            ${programOptions}
-                        </select>
-                        
                         <div class="player-actions">
                             <button class="btn-success" onclick="promoteAcademyPlayer('${player.id}')">Promote Now</button>
                             <button class="btn-danger" onclick="releaseAcademyPlayer('${player.id}')">Release</button>
@@ -1094,15 +1110,13 @@
         
         async function updateAcademyPlayer(playerId) {
             const position = document.getElementById(`position_${playerId}`).value || null;
-            const trainingProgram = document.getElementById(`training_${playerId}`).value || null;
             
             try {
                 const response = await yaFetch(`/api/youth-academy/players/${playerId}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        position: position,
-                        training_program: trainingProgram
+                        position: position
                     })
                 });
                 
@@ -1137,8 +1151,7 @@
         }
         
         async function loadPromotedPlayers() {
-            const clubId = document.getElementById('clubId').value.trim() || currentClubId || null;
-            const url = clubId ? `/api/youth-academy/promoted-players/${clubId}` : '/api/youth-academy/promoted-players';
+            const url = '/api/youth-academy/promoted-players';
             
             try {
                 const response = await yaFetch(url);
@@ -1149,6 +1162,7 @@
                 
                 const players = await response.json();
                 displayPromotedPlayers(players);
+                await loadWorkbenchSquad();
             } catch (error) {
                 showError(error.message);
             }
@@ -1229,38 +1243,237 @@
             });
         }
         
-        async function trainPromotedPlayers() {
+        async function loadTrainingProgramSelects(isGk) {
+            try {
+                const r = await yaFetch(
+                    '/api/youth-academy/training-program-options?is_goalkeeper=' + (isGk ? 'true' : 'false')
+                );
+                if (!r.ok) return;
+                const data = await r.json();
+                const detailed = Array.isArray(data.programs_detailed) ? data.programs_detailed : null;
+                const programs = data.programs || [];
+                const orderRank = { off: 0, def: 1, trans: 2 };
+                const detailedSorted = detailed
+                    ? detailed
+                          .slice()
+                          .sort((a, b) => {
+                              const ap = String(a.label || '').split(/\s+/)[0];
+                              const bp = String(b.label || '').split(/\s+/)[0];
+                              const ar = orderRank.hasOwnProperty(ap) ? orderRank[ap] : 9;
+                              const br = orderRank.hasOwnProperty(bp) ? orderRank[bp] : 9;
+                              if (ar !== br) return ar - br;
+                              return String(a.label || a.name || '').localeCompare(String(b.label || b.name || ''));
+                          })
+                    : null;
+                ['scenarioPrimary', 'scenarioSecondary'].forEach((id) => {
+                    const s = document.getElementById(id);
+                    if (!s) return;
+                    const prev = s.value;
+                    s.innerHTML = '';
+                    ((detailedSorted || detailed) || programs).forEach((p) => {
+                        const o = document.createElement('option');
+                        o.value = detailed ? p.name : p;
+                        o.textContent = detailed ? p.label : p;
+                        s.appendChild(o);
+                    });
+                    if (programs.indexOf(prev) >= 0) s.value = prev;
+                });
+
+                // Populate individual-skill sub-selects (outfield only)
+                const primAttr = document.getElementById('scenarioPrimaryAttr');
+                const secAttr = document.getElementById('scenarioSecondaryAttr');
+                [primAttr, secAttr].forEach((s) => {
+                    if (!s) return;
+                    const prev = s.value;
+                    s.innerHTML = '';
+                    OUTFIELD_ATTRS.forEach((a) => {
+                        const o = document.createElement('option');
+                        o.value = a;
+                        o.textContent = a;
+                        s.appendChild(o);
+                    });
+                    if (OUTFIELD_ATTRS.indexOf(prev) >= 0) s.value = prev;
+                });
+
+                function syncIndividualVisibility() {
+                    const primProg = document.getElementById('scenarioPrimary')?.value;
+                    const secProg = document.getElementById('scenarioSecondary')?.value;
+                    const showPrim = !isGk && primProg === 'Individual';
+                    const showSec = !isGk && secProg === 'Individual';
+
+                    const pL = document.getElementById('scenarioPrimaryAttrLabel');
+                    const pS = document.getElementById('scenarioPrimaryAttr');
+                    const sL = document.getElementById('scenarioSecondaryAttrLabel');
+                    const sS = document.getElementById('scenarioSecondaryAttr');
+
+                    if (pL) pL.style.display = showPrim ? '' : 'none';
+                    if (pS) pS.style.display = showPrim ? '' : 'none';
+                    if (sL) sL.style.display = showSec ? '' : 'none';
+                    if (sS) sS.style.display = showSec ? '' : 'none';
+                }
+
+                const sp = document.getElementById('scenarioPrimary');
+                const ss = document.getElementById('scenarioSecondary');
+                if (sp) sp.onchange = syncIndividualVisibility;
+                if (ss) ss.onchange = syncIndividualVisibility;
+                syncIndividualVisibility();
+            } catch (e) {
+                console.warn(e);
+            }
+        }
+
+        async function loadWorkbenchSquad() {
+            const url = '/api/youth-academy/squad-players';
+            try {
+                const response = await yaFetch(url);
+                if (!response.ok) {
+                    const detail = await readErrorDetail(response);
+                    throw new Error(detail || 'Failed to load squad');
+                }
+                const squad = await response.json();
+                const sel = document.getElementById('cloneSourcePlayer');
+                sel.innerHTML = '<option value="">— Select player —</option>';
+                squad.forEach((p) => {
+                    const o = document.createElement('option');
+                    o.value = p.id;
+                    o.textContent = p.name + (p.is_goalkeeper ? ' (GK)' : '');
+                    o.dataset.gk = p.is_goalkeeper ? '1' : '0';
+                    sel.appendChild(o);
+                });
+                sel.onchange = function () {
+                    const opt = sel.options[sel.selectedIndex];
+                    const igk = opt && opt.dataset.gk === '1';
+                    loadTrainingProgramSelects(igk);
+                };
+                if (squad.length > 0) {
+                    sel.selectedIndex = 1;
+                    sel.onchange();
+                } else {
+                    await loadTrainingProgramSelects(false);
+                }
+            } catch (error) {
+                showError(error.message);
+            }
+        }
+
+        function addWorkbenchScenario() {
+            const sel = document.getElementById('cloneSourcePlayer');
+            const sid = sel.value;
+            if (!sid) {
+                showError('Select a squad player first (use Refresh squad).');
+                return;
+            }
+            const label = document.getElementById('cloneLabel').value.trim() || null;
+            const row = {
+                source_player_id: sid,
+                label: label,
+                primary_program: document.getElementById('scenarioPrimary').value,
+                secondary_program: document.getElementById('scenarioSecondary').value,
+                primary_individual_attr:
+                    document.getElementById('scenarioPrimary').value === 'Individual'
+                        ? document.getElementById('scenarioPrimaryAttr').value
+                        : null,
+                secondary_individual_attr:
+                    document.getElementById('scenarioSecondary').value === 'Individual'
+                        ? document.getElementById('scenarioSecondaryAttr').value
+                        : null,
+                primary_share: parseFloat(document.getElementById('scenarioPrimaryShare').value) || 0.4,
+                secondary_share: parseFloat(document.getElementById('scenarioSecondaryShare').value) || 0.2,
+                general_share: parseFloat(document.getElementById('scenarioGeneralShare').value) || 0.4
+            };
+            const opt = sel.options[sel.selectedIndex];
+            row._sourceName = opt ? opt.textContent : sid;
+            workbenchScenarios.push(row);
+            renderScenarioQueue();
+        }
+
+        function removeWorkbenchScenario(index) {
+            workbenchScenarios.splice(index, 1);
+            renderScenarioQueue();
+        }
+
+        function renderScenarioQueue() {
+            const wrap = document.getElementById('scenarioQueueWrap');
+            const tbody = document.getElementById('scenarioQueueBody');
+            if (!wrap || !tbody) return;
+            if (workbenchScenarios.length === 0) {
+                wrap.style.display = 'none';
+                tbody.innerHTML = '';
+                return;
+            }
+            wrap.style.display = 'block';
+            tbody.innerHTML = workbenchScenarios
+                .map(
+                    (s, i) =>
+                        '<tr>' +
+                        '<td>' +
+                        (s._sourceName || s.source_player_id) +
+                        '</td>' +
+                        '<td>' +
+                        (s.label || '—') +
+                        '</td>' +
+                        '<td>' +
+                        s.primary_program +
+                        (s.primary_program === 'Individual' && s.primary_individual_attr ? ` (${s.primary_individual_attr})` : '') +
+                        ' / ' +
+                        s.secondary_program +
+                        (s.secondary_program === 'Individual' && s.secondary_individual_attr ? ` (${s.secondary_individual_attr})` : '') +
+                        '</td>' +
+                        '<td>' +
+                        s.primary_share +
+                        ' / ' +
+                        s.secondary_share +
+                        ' / ' +
+                        s.general_share +
+                        '</td>' +
+                        '<td><button type="button" class="btn-danger" onclick="removeWorkbenchScenario(' +
+                        i +
+                        ')">Remove</button></td>' +
+                        '</tr>'
+                )
+                .join('');
+        }
+
+        async function runWorkbenchTrainingSimulation() {
             const clubId = document.getElementById('clubId').value.trim() || currentClubId || null;
-            const trainingFacilities = parseInt(document.getElementById('trainingFacilities').value);
-            const primaryProgram = document.getElementById('primaryProgram').value;
-            const secondaryProgram = document.getElementById('secondaryProgram').value;
-            const generalShare = 0.4; // Default general share
-            
+            const trainingFacilities = parseInt(document.getElementById('trainingFacilities').value, 10);
+            const yearsToSimulate = parseInt(document.getElementById('simYears').value, 10);
+            const payload = {
+                club_id: clubId,
+                training_facilities: trainingFacilities,
+                years_to_simulate: yearsToSimulate
+            };
+            if (workbenchScenarios.length > 0) {
+                payload.scenarios = workbenchScenarios.map((s) => ({
+                    source_player_id: s.source_player_id,
+                    label: s.label,
+                    primary_program: s.primary_program,
+                    primary_individual_attr: s.primary_individual_attr,
+                    primary_share: s.primary_share,
+                    secondary_program: s.secondary_program,
+                    secondary_individual_attr: s.secondary_individual_attr,
+                    secondary_share: s.secondary_share,
+                    general_share: s.general_share
+                }));
+            } else {
+                payload.primary_program = 'Balanced';
+                payload.secondary_program = 'Balanced';
+                payload.primary_share = 0.4;
+                payload.secondary_share = 0.2;
+                payload.general_share = 0.4;
+            }
             try {
                 const response = await yaFetch('/api/youth-academy/train-promoted-players', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        club_id: clubId,
-                        training_facilities: trainingFacilities,
-                        primary_program: primaryProgram,
-                        primary_share: 0.4,
-                        secondary_program: secondaryProgram,
-                        secondary_share: 0.2,
-                        general_share: generalShare,
-                        years_to_simulate: 14
-                    })
+                    body: JSON.stringify(payload)
                 });
-                
                 if (!response.ok) {
                     const detail = await readErrorDetail(response);
-                    throw new Error(detail || 'Failed to train promoted players');
+                    throw new Error(detail || 'Failed to run training simulation');
                 }
-                
                 const data = await response.json();
                 displayDevelopmentResults(data);
-                
-                // Scroll to section 4
                 document.getElementById('section4').scrollIntoView({ behavior: 'smooth' });
             } catch (error) {
                 showError(error.message);
@@ -1480,6 +1693,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             loadRandomLogo();
             loadNationalities();
+            loadTrainingProgramSelects(false);
         });
     </script>
 </body>

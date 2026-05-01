@@ -87,22 +87,31 @@ def rnd_name(
     return generate_name_string(nationality, used_names=used_names, name_pool_debug=name_pool_debug)
 
 
-def sample_potential(youth_facilities: int, is_goalkeeper: bool) -> int:
+def sample_potential(
+    youth_facilities: int,
+    is_goalkeeper: bool,
+    *,
+    alpha_base: float = 2.0,
+    beta_base: float = 2.5,
+    beta_facility_scale: float = 20.0,
+    tail_gamma: float = 1.0,
+) -> int:
     """
     Skewed potential distribution: high values rare.
     Youth facilities directly influence Beta distribution parameters.
     GK potential scaled down.
     """
-    # Base Beta parameters
-    alpha_base = 2.0   # Controls skew towards high end
-    beta_base = 2.5    # Controls skew towards low end
-
     # Youth facility influence — better facilities reduce beta (less skew to low)
-    alpha = alpha_base
-    beta = beta_base + (10 - youth_facilities) / 20.0
+    alpha = float(alpha_base)
+    beta = float(beta_base) + (10 - youth_facilities) / float(beta_facility_scale)
 
     # Sample from adjusted Beta distribution
-    raw_score = np.random.beta(alpha, beta)
+    raw_score = float(np.random.beta(alpha, beta))
+
+    # Optional post-transform to tweak the extreme tail (gamma > 1 makes top end rarer)
+    if tail_gamma and float(tail_gamma) != 1.0:
+        g = max(0.01, float(tail_gamma))
+        raw_score = raw_score ** g
 
     # Scale for GK vs outfield
     max_points = 3000 if not is_goalkeeper else int(3000 * len(GOALKEEPER_ATTRS) / len(OUTFIELD_ATTRS))
@@ -198,7 +207,11 @@ def create_player_data(
     is_goalkeeper: bool = False,
     youth_player: bool = False,
     nationality: Optional[str] = None,
-    heritage_options: Optional[List[str]] = None
+    heritage_options: Optional[List[str]] = None,
+    potential_alpha_base: float = 2.0,
+    potential_beta_base: float = 2.5,
+    potential_beta_facility_scale: float = 20.0,
+    potential_tail_gamma: float = 1.0,
 ) -> Dict:
     """
     Create player data dictionary with all generation parameters.
@@ -217,7 +230,14 @@ def create_player_data(
     training_age_weeks = max(0, actual_age_months - baseline_16m)
 
     # Potential
-    potential = sample_potential(youth_facilities, is_goalkeeper)
+    potential = sample_potential(
+        youth_facilities,
+        is_goalkeeper,
+        alpha_base=potential_alpha_base,
+        beta_base=potential_beta_base,
+        beta_facility_scale=potential_beta_facility_scale,
+        tail_gamma=potential_tail_gamma,
+    )
 
     # Dev splits
     birth_dev_pct = round(random.uniform(0.20, 0.40), 2)

@@ -18,6 +18,11 @@ class GeneratePlayersRequest(BaseModel):
     youth_facilities: int = Field(default=5, ge=0, le=10)
     num_players: int = Field(default=100, ge=1, le=10000)
     is_goalkeeper: bool = False
+    # Optional overrides for potential sampling (workbench-only knobs; defaults match code)
+    potential_alpha_base: Optional[float] = Field(default=None, gt=0)
+    potential_beta_base: Optional[float] = Field(default=None, gt=0)
+    potential_beta_facility_scale: Optional[float] = Field(default=None, gt=0)
+    potential_tail_gamma: Optional[float] = Field(default=None, gt=0)
 
 
 class GeneratePlayersResponse(BaseModel):
@@ -41,6 +46,11 @@ class DevelopPlayersRequest(BaseModel):
     min_potential: int = Field(default=200, ge=200, le=3000)
     max_potential: int = Field(default=3000, ge=200, le=3000)
     use_potential_range: bool = Field(default=False, description="If True, generate potential uniformly within range instead of using youth facilities")
+    # Optional overrides for potential sampling (only used when use_potential_range=False)
+    potential_alpha_base: Optional[float] = Field(default=None, gt=0)
+    potential_beta_base: Optional[float] = Field(default=None, gt=0)
+    potential_beta_facility_scale: Optional[float] = Field(default=None, gt=0)
+    potential_tail_gamma: Optional[float] = Field(default=None, gt=0)
 
 
 class DevelopPlayersResponse(BaseModel):
@@ -75,7 +85,13 @@ async def generate_players(request: GeneratePlayersRequest):
             club_id=str(uuid.uuid4()),
             youth_facilities=request.youth_facilities,
             is_goalkeeper=request.is_goalkeeper,
-            youth_player=False
+            youth_player=False,
+            potential_alpha_base=(request.potential_alpha_base if request.potential_alpha_base is not None else 2.0),
+            potential_beta_base=(request.potential_beta_base if request.potential_beta_base is not None else 2.5),
+            potential_beta_facility_scale=(
+                request.potential_beta_facility_scale if request.potential_beta_facility_scale is not None else 20.0
+            ),
+            potential_tail_gamma=(request.potential_tail_gamma if request.potential_tail_gamma is not None else 1.0),
         )
         players.append(player_data)
     
@@ -170,7 +186,13 @@ async def develop_players(request: DevelopPlayersRequest):
                 club_id=str(uuid.uuid4()),
                 youth_facilities=request.youth_facilities,  # Still used for other generation aspects
                 is_goalkeeper=request.is_goalkeeper,
-                youth_player=False
+                youth_player=False,
+                potential_alpha_base=(request.potential_alpha_base if request.potential_alpha_base is not None else 2.0),
+                potential_beta_base=(request.potential_beta_base if request.potential_beta_base is not None else 2.5),
+                potential_beta_facility_scale=(
+                    request.potential_beta_facility_scale if request.potential_beta_facility_scale is not None else 20.0
+                ),
+                potential_tail_gamma=(request.potential_tail_gamma if request.potential_tail_gamma is not None else 1.0),
             )
             # Override potential with the directly generated value
             player_data["potential"] = potential
@@ -198,7 +220,13 @@ async def develop_players(request: DevelopPlayersRequest):
                 club_id=str(uuid.uuid4()),
                 youth_facilities=request.youth_facilities,
                 is_goalkeeper=request.is_goalkeeper,
-                youth_player=False
+                youth_player=False,
+                potential_alpha_base=(request.potential_alpha_base if request.potential_alpha_base is not None else 2.0),
+                potential_beta_base=(request.potential_beta_base if request.potential_beta_base is not None else 2.5),
+                potential_beta_facility_scale=(
+                    request.potential_beta_facility_scale if request.potential_beta_facility_scale is not None else 20.0
+                ),
+                potential_tail_gamma=(request.potential_tail_gamma if request.potential_tail_gamma is not None else 1.0),
             )
         # Filter by potential
         if request.min_potential <= player_data["potential"] <= request.max_potential:

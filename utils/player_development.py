@@ -5,37 +5,167 @@ Based on the PlayerGenAndTraining notebook.
 
 import random
 import math
-from typing import Dict, Optional, List, Tuple
+from typing import Any, Dict, Optional, List, Tuple
 from match_engine.constants import OUTFIELD_ATTRS, GOALKEEPER_ATTRS
 
-# Training program definitions - these use match_engine constants for attribute names
+
+def _make_outfield_program(weights: Dict[str, float], *, filler: float = 0.0) -> Dict[str, float]:
+    """
+    Build a complete outfield programme vector over all attributes.
+
+    By default, unspecified attributes are 0.0. For named programmes we often
+    provide a small non-zero filler to avoid over-concentrating training on only
+    4–5 attributes.
+    """
+    d = {a: float(filler) for a in OUTFIELD_ATTRS}
+    for k, v in weights.items():
+        if k not in d:
+            raise ValueError(f"Unknown outfield attribute in training program: {k}")
+        d[k] = float(v)
+    return d
+
+
+# Training program definitions — percentage weights per programme (sparse attrs are 0). Outfield only.
 OUTFIELD_PROGRAMS: Dict[str, Dict[str, float]] = {
     "Balanced": {a: 1.0 for a in OUTFIELD_ATTRS},
-    "Finishing": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Finishing": 4.0
-    },
-    "Playmaking": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Passing": 3.0, "Vision": 3.0, "Ball Control": 2.0, "Composure": 1.5
-    },
-    "Defending": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Tackling": 3.0, "Marking": 3.0, "Positioning": 2.0, "Strength": 1.5
-    },
-    "Pace & Power": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Acceleration": 3.0, "Agility": 2.0, "Stamina": 2.0, "Strength": 2.0
-    },
-    "Aerial": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Heading": 3.0, "Jump Reach": 3.0, "Strength": 1.5, "Positioning": 1.5
-    },
-    "Crossing & Wide": {
-        **{a: 0.3 for a in OUTFIELD_ATTRS},
-        "Crossing": 3.0, "Acceleration": 2.0, "Ball Control": 1.5, "Vision": 1.5
-    },
+    "Marking Focus": _make_outfield_program(
+        {"Tackling": 15, "Marking": 30, "Composure": 15, "Positioning": 25, "Work Rate": 15},
+        filler=5.0,
+    ),
+    "Tackling Focus": _make_outfield_program(
+        {"Acceleration": 15, "Strength": 20, "Tackling": 30, "Marking": 20, "Work Rate": 15},
+        filler=5.0,
+    ),
+    "Defensive Dueling": _make_outfield_program(
+        {"Jump Reach": 15, "Strength": 25, "Heading": 15, "Tackling": 25, "Marking": 20},
+        filler=5.0,
+    ),
+    "Wide Defending": _make_outfield_program(
+        {"Acceleration": 30, "Agility": 20, "Stamina": 15, "Tackling": 25, "Marking": 10},
+        filler=5.0,
+    ),
+    "Passing Focus": _make_outfield_program(
+        {
+            "Ball Control": 25,
+            "Passing": 30,
+            "Composure": 15,
+            "Positioning": 10,
+            "Vision": 20,
+        },
+        filler=5.0,
+    ),
+    "Crossing Focus": _make_outfield_program(
+        {
+            "Acceleration": 15,
+            "Ball Control": 20,
+            "Crossing": 30,
+            "Passing": 20,
+            "Vision": 15,
+        },
+        filler=5.0,
+    ),
+    "Engine": _make_outfield_program(
+        {"Agility": 15, "Stamina": 20, "Strength": 30, "Positioning": 10, "Work Rate": 25},
+        filler=5.0,
+    ),
+    "Finishing Focus": _make_outfield_program(
+        {
+            "Acceleration": 10,
+            "Ball Control": 15,
+            "Finishing": 30,
+            "Composure": 25,
+            "Positioning": 20,
+        },
+        filler=5.0,
+    ),
+    "Heading Focus": _make_outfield_program(
+        {"Stamina": 25, "Strength": 20, "Heading": 30, "Composure": 10, "Positioning": 15},
+        filler=5.0,
+    ),
+    "Chance Creation": _make_outfield_program(
+        {
+            "Agility": 15,
+            "Ball Control": 20,
+            "Passing": 25,
+            "Composure": 15,
+            "Vision": 25,
+        },
+        filler=5.0,
+    ),
+    "Progression": _make_outfield_program(
+        {
+            "Ball Control": 25,
+            "Finishing": 15,
+            "Passing": 25,
+            "Composure": 15,
+            "Vision": 20,
+        },
+        filler=5.0,
+    ),
+    "Explosive Movement": _make_outfield_program(
+        {"Acceleration": 30, "Agility": 40, "Stamina": 15, "Work Rate": 15},
+        filler=5.0,
+    ),
+    "Physical Presence": _make_outfield_program(
+        {"Jump Reach": 30, "Strength": 35, "Heading": 20, "Composure": 15},
+        filler=5.0,
+    ),
+    "Wide Delivery": _make_outfield_program(
+        {"Ball Control": 20, "Crossing": 40, "Passing": 20, "Vision": 20},
+        filler=5.0,
+    ),
 }
+
+INDIVIDUAL_PROGRAM_NAME = "Individual"
+
+
+def resolve_outfield_program(name: str, *, individual_attr: Optional[str] = None) -> Optional[Dict[str, float]]:
+    """
+    Return weight dict for a named outfield programme, or None if unknown.
+
+    Supports the single programme name ``Individual`` with a separately provided
+    ``individual_attr`` selection.
+    """
+    n = name.strip()
+    if n in OUTFIELD_PROGRAMS:
+        return OUTFIELD_PROGRAMS[n]
+    if n == INDIVIDUAL_PROGRAM_NAME:
+        attr = (individual_attr or "").strip()
+        if attr in OUTFIELD_ATTRS:
+            return _make_outfield_program({attr: 100.0}, filler=5.0)
+    return None
+
+
+def is_individual_program_name(name: Optional[str]) -> bool:
+    return bool(
+        name
+        and name.strip() == INDIVIDUAL_PROGRAM_NAME
+    )
+
+
+def individual_training_dp_multiplier(
+    primary_name: Optional[str], secondary_name: Optional[str]
+) -> float:
+    """
+    Weekly DP multiplier for outfield when Individual: <attr> programmes are selected.
+    Primary only: -10%; secondary only: -7%; both: -20% (single rule, not multiplicative).
+    """
+    p = is_individual_program_name(primary_name)
+    s = is_individual_program_name(secondary_name)
+    if p and s:
+        return 0.80
+    if p:
+        return 0.90
+    if s:
+        return 0.93
+    return 1.0
+
+
+def list_training_program_names(is_goalkeeper: bool) -> List[str]:
+    """Valid training programme names for API validation and clients."""
+    if is_goalkeeper:
+        return sorted(GK_PROGRAMS.keys())
+    return sorted(list(OUTFIELD_PROGRAMS.keys()) + [INDIVIDUAL_PROGRAM_NAME])
 
 GK_PROGRAMS: Dict[str, Dict[str, float]] = {
     "Balanced": {a: 1.0 for a in GOALKEEPER_ATTRS},
@@ -72,16 +202,43 @@ def uniform_weights_for(player_attrs: List[str], val: float = 1.0) -> Dict[str, 
     return {a: val for a in player_attrs}
 
 
+def _uniform_distribution(player_attrs: List[str]) -> Dict[str, float]:
+    """Equal probability over all attributes (sums to 1)."""
+    n = len(player_attrs)
+    if n <= 0:
+        return {}
+    u = 1.0 / n
+    return {a: u for a in player_attrs}
+
+
+def _normalize_program_to_distribution(
+    programme: Optional[Dict[str, float]],
+    player_attrs: List[str],
+) -> Optional[Dict[str, float]]:
+    """
+    Map a raw programme vector to a distribution over player_attrs (sums to 1).
+    Specialist programmes use large raw weights (e.g. 10–30) while uniform uses 1/n;
+    normalizing before mixing makes primary/secondary/general shares interpretable.
+    """
+    if not programme:
+        return None
+    sub = {k: float(programme.get(k, 0.0)) for k in player_attrs}
+    total = sum(sub.values())
+    if total <= 1e-12:
+        return _uniform_distribution(player_attrs)
+    inv = 1.0 / total
+    return {k: sub[k] * inv for k in player_attrs}
+
+
 def get_program_catalog(is_goalkeeper: bool) -> Dict[str, Dict[str, float]]:
     """Get the appropriate program catalog for player type."""
     return GK_PROGRAMS if is_goalkeeper else OUTFIELD_PROGRAMS
 
 
 def get_general_program(is_goalkeeper: bool) -> Dict[str, float]:
-    """General training program (equal weights for all attributes)."""
+    """General training program: equal probability over all attributes (sums to 1)."""
     attrs = GOALKEEPER_ATTRS if is_goalkeeper else OUTFIELD_ATTRS
-    weight = 1.0 / len(attrs)
-    return {a: weight for a in attrs}
+    return _uniform_distribution(attrs)
 
 
 def build_program_mix_weights(
@@ -90,46 +247,60 @@ def build_program_mix_weights(
     *,
     primary_name: Optional[str],
     primary_share: float,
+    primary_individual_attr: Optional[str] = None,
     secondary_name: Optional[str],
     secondary_share: float,
+    secondary_individual_attr: Optional[str] = None,
     general_share: float
 ) -> Dict[str, float]:
     """
-    Final attribute weights = primary_share * primary_prog
-                            + secondary_share * secondary_prog
-                            + general_share * uniform
-    Shares can be any non-negative numbers; they will be normalized.
+    Blend primary, secondary, and general training programmes.
+
+    Each programme is first converted to a distribution over attributes (sums to 1). Raw
+    catalogue weights (e.g. 30 for Finishing) only matter relative to each other within
+    that programme; uniform general uses 1/n per attribute. Then:
+
+        final = p_share * norm(primary) + s_share * norm(secondary) + g_share * norm(uniform)
+
+    Shares can be any non-negative numbers; they are normalized to sum to 1.
     """
-    # Normalize shares
+    # Normalize mix shares
     total_share = max(1e-9, primary_share + secondary_share + general_share)
     p_share = primary_share / total_share
     s_share = secondary_share / total_share
     g_share = general_share / total_share
 
-    catalog = get_program_catalog(is_goalkeeper)
-    primary = catalog.get(primary_name, None) if primary_name else None
-    secondary = catalog.get(secondary_name, None) if secondary_name else None
-    general = uniform_weights_for(player_attrs, 1.0)
+    if is_goalkeeper:
+        primary = GK_PROGRAMS.get(primary_name) if primary_name else None
+        secondary = GK_PROGRAMS.get(secondary_name) if secondary_name else None
+    else:
+        primary = (
+            resolve_outfield_program(primary_name, individual_attr=primary_individual_attr)
+            if primary_name
+            else None
+        )
+        secondary = (
+            resolve_outfield_program(secondary_name, individual_attr=secondary_individual_attr)
+            if secondary_name
+            else None
+        )
 
-    # Start from zeros
+    norm_p = _normalize_program_to_distribution(primary, player_attrs) if primary else None
+    norm_s = _normalize_program_to_distribution(secondary, player_attrs) if secondary else None
+    norm_g = _uniform_distribution(player_attrs)
+
     final_weights: Dict[str, float] = uniform_weights_for(player_attrs, 0.0)
-
-    # Add weighted programs
-    if primary:
-        for k, v in primary.items():
-            if k in final_weights:
-                final_weights[k] = final_weights.get(k, 0.0) + p_share * float(v)
-    if secondary:
-        for k, v in secondary.items():
-            if k in final_weights:
-                final_weights[k] = final_weights.get(k, 0.0) + s_share * float(v)
-    # General (uniform)
-    for k, v in general.items():
-        final_weights[k] = final_weights.get(k, 0.0) + g_share * float(v)
+    for k in player_attrs:
+        if norm_p is not None:
+            final_weights[k] += p_share * norm_p[k]
+        if norm_s is not None:
+            final_weights[k] += s_share * norm_s[k]
+        final_weights[k] += g_share * norm_g[k]
 
     # Safety: if everything became 0, fall back to uniform
-    if sum(final_weights.values()) <= 0:
-        final_weights = general
+    if sum(final_weights.values()) <= 1e-12:
+        # If primary/secondary were None and g_share was 0, rare edge case
+        return _uniform_distribution(player_attrs)
 
     return final_weights
 
@@ -255,10 +426,12 @@ def train_player_week(
     train_carry: Dict[str, float],
     *,
     training_facilities_level: int = 10,
-    primary_program: Optional[str] = "Finishing",
+    primary_program: Optional[str] = "Finishing Focus",
     primary_share: float = 0.4,
-    secondary_program: Optional[str] = "Finishing",
+    primary_individual_attr: Optional[str] = None,
+    secondary_program: Optional[str] = "Passing Focus",
     secondary_share: float = 0.3,
+    secondary_individual_attr: Optional[str] = None,
     general_share: float = 0.3,
     total_weeks: int = 160,
     DP_PER_ATTR_POINT: float = 10.0,
@@ -293,8 +466,10 @@ def train_player_week(
         player.is_goalkeeper,
         primary_name=primary_program,
         primary_share=primary_share,
+        primary_individual_attr=primary_individual_attr,
         secondary_name=secondary_program,
         secondary_share=secondary_share,
+        secondary_individual_attr=secondary_individual_attr,
         general_share=general_share
     )
 
@@ -353,24 +528,23 @@ def train_one_season_with_growth(
     train_carries: Dict[str, Dict[str, float]],
     *,
     training_facilities_level: int = 10,
-    primary_program: Optional[str] = "Defending",
+    primary_program: Optional[str] = "Tackling Focus",
     primary_share: float = 0.4,
-    secondary_program: Optional[str] = "Aerial",
+    primary_individual_attr: Optional[str] = None,
+    secondary_program: Optional[str] = "Heading Focus",
     secondary_share: float = 0.2,
+    secondary_individual_attr: Optional[str] = None,
     general_share: float = 0.4,
     season_weeks: int = 10,
     total_weeks: int = 160,
     DP_PER_ATTR_POINT: float = 10.0,
+    program_overrides: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> Dict[str, Tuple[float, float]]:
     """
     Train multiple players for one season.
-    
-    Args:
-        players: List of SQLAlchemy Player model instances
-        growth_caches: Dict mapping player_id -> growth weights list
-        train_carries: Dict mapping player_id -> train_carry dict (persistent)
-    
-    Returns Dict mapping player_id -> (nominal_total, assigned_total)
+
+    program_overrides: optional map player_id -> {primary_program, secondary_program,
+    primary_share, secondary_share, general_share} for per-player training mixes.
     """
     per_player_totals: Dict[str, Tuple[float, float]] = {}
 
@@ -386,16 +560,26 @@ def train_one_season_with_growth(
     for _ in range(season_weeks):
         for player in players:
             player_id = str(player.id)
+            ov = (program_overrides or {}).get(player_id) or {}
+            pp = ov.get("primary_program", primary_program)
+            ps = float(ov.get("primary_share", primary_share))
+            pia = ov.get("primary_individual_attr", primary_individual_attr)
+            sp = ov.get("secondary_program", secondary_program)
+            ss = float(ov.get("secondary_share", secondary_share))
+            sia = ov.get("secondary_individual_attr", secondary_individual_attr)
+            gs = float(ov.get("general_share", general_share))
             nom, asg = train_player_week(
                 player,
                 growth_weights_cache=growth_caches[player_id],
                 train_carry=train_carries[player_id],
                 training_facilities_level=training_facilities_level,
-                primary_program=primary_program,
-                primary_share=primary_share,
-                secondary_program=secondary_program,
-                secondary_share=secondary_share,
-                general_share=general_share,
+                primary_program=pp,
+                primary_share=ps,
+                primary_individual_attr=pia,
+                secondary_program=sp,
+                secondary_share=ss,
+                secondary_individual_attr=sia,
+                general_share=gs,
                 total_weeks=total_weeks,
                 DP_PER_ATTR_POINT=DP_PER_ATTR_POINT
             )
